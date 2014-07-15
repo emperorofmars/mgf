@@ -11,5 +11,5 @@ uniform mat4 proj_matrix;
 
 void main(void){
 	gl_Position = proj_matrix * mv_matrix * pos;
-	vs_out.color = pos * 2.0 + vec4(0.5, 0.5, 0.5, 0.0);
+	vs_out.color = sin(pos * 4.0) + vec4(0.5, 0.5, 0.5, 0.0);
 }

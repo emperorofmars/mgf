@@ -28,6 +28,11 @@ int main(int argc, char *argv[]){
 	GLuint proj_location = glGetUniformLocation(p.get_program(), "proj_matrix");
 
 	mvm::fmat44 proj = mvm::perspective(90.0f, 1.0f, 0.5f, 1000.f);
+	mvm::fmat44 view;
+	view.data[0] = 1.0;
+	view.data[5] = 1.0;
+	view.data[10] = 1.0;
+	view.data[15] = 1.0;
 
 	mol::mesh<float> model("res/models/car_1.obj");
 
@@ -58,6 +63,24 @@ int main(int argc, char *argv[]){
 				case SDLK_q:
 					quit = true;
 					break;
+				case SDLK_w:
+					view.data[14] += 0.3;
+					break;
+				case SDLK_s:
+					view.data[14] -= 0.3;
+					break;
+				/*case SDLK_e:
+					view.data[13] += 0.3;
+					break;
+				case SDLK_r:
+					view.data[13] -= 0.3;
+					break;*/
+				case SDLK_d:
+					view.data[12] += 0.3;
+					break;
+				case SDLK_a:
+					view.data[12] -= 0.3;
+					break;
 				}
 			}
 		}
@@ -70,19 +93,20 @@ int main(int argc, char *argv[]){
 		glClearBufferfv(GL_COLOR, 0, color);
 
 		float f = currentTime * 0.2f;
-		mvm::fmat44 trans;
+		mvm::fmat44 trans, lookat;
 		trans.identity_mat();
 		trans = trans *
-			mvm::translate(0.f, -5.f, -25.f) *
+			mvm::translate(0.f, -5.f, -30.f) *
 			//mvm::translate(sinf(2.1f * f) * 0.5f, cosf(1.7f * f) * 0.5f, sinf(1.3f * f) * cosf(1.5f * f) * 2.0f) *
 			mvm::scale(2.f, 2.f, 2.f) *
 			//mvm::rot(0.f, currentTime * (float)M_PI / 2.f, 1.f) *
 			//mvm::rot(currentTime * (float)M_PI * 0.9f, currentTime * 0.5f, currentTime);
 			mvm::rot(-0.3f, currentTime, 0.0f);
 
-        glUniformMatrix4fv(mv_location, 1, GL_FALSE, trans.data);
-        glUniformMatrix4fv(proj_location, 1, GL_FALSE, proj.data);
-        //glUniformMatrix4fv(proj_location, 1, GL_FALSE, proj_matrix);
+		lookat = proj * view;// * proj;
+
+		glUniformMatrix4fv(mv_location, 1, GL_FALSE, trans.data);
+		glUniformMatrix4fv(proj_location, 1, GL_FALSE, lookat.data);
 
 		glDrawArrays(GL_TRIANGLES, 0, model.get_num());
 

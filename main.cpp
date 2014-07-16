@@ -33,6 +33,8 @@ int main(int argc, char *argv[]){
 	view.data[5] = 1.0;
 	view.data[10] = 1.0;
 	view.data[15] = 1.0;
+	float dir[3];
+	for(int i = 0; i < 3; i++) dir[i] = 0;
 
 	mol::mesh<float> model("res/models/car_1.obj");
 
@@ -40,7 +42,6 @@ int main(int argc, char *argv[]){
 	glGenBuffers(1, &buffer);
 	glBindBuffer(GL_ARRAY_BUFFER, buffer);
 	glBufferData(GL_ARRAY_BUFFER,  model.get_size(), model.get_vertices(), GL_STATIC_DRAW);
-	//glBufferData(GL_ARRAY_BUFFER,  sizeof(vertex_positions), vertex_positions, GL_STATIC_DRAW);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(0);
 
@@ -58,32 +59,59 @@ int main(int argc, char *argv[]){
 //###############################################  Input Handling
 		while(SDL_PollEvent(&event) != 0){
 			if(event.type == SDL_QUIT) quit = true;
-			else if(event.type == SDL_KEYDOWN){
-				switch(event.key.keysym.sym){
-				case SDLK_q:
-					quit = true;
-					break;
-				case SDLK_w:
-					view.data[14] += 0.3;
-					break;
-				case SDLK_s:
-					view.data[14] -= 0.3;
-					break;
-				/*case SDLK_e:
-					view.data[13] += 0.3;
-					break;
-				case SDLK_r:
-					view.data[13] -= 0.3;
-					break;*/
-				case SDLK_d:
-					view.data[12] += 0.3;
-					break;
-				case SDLK_a:
-					view.data[12] -= 0.3;
-					break;
+			else{
+				if(event.type == SDL_KEYDOWN){
+					switch(event.key.keysym.sym){
+					case SDLK_q:
+						quit = true;
+						break;
+					case SDLK_w:
+						dir[2] = 0.3;
+						break;
+					case SDLK_s:
+						dir[2] = -0.3;
+						break;
+					case SDLK_e:
+						dir[1] = 0.3;
+						break;
+					case SDLK_r:
+						dir[1] = -0.3;
+						break;
+					case SDLK_d:
+						dir[0] = 0.3;
+						break;
+					case SDLK_a:
+						dir[0] = -0.3;
+						break;
+					}
+				}
+				if(event.type == SDL_KEYUP){
+					switch(event.key.keysym.sym){
+					case SDLK_w:
+						dir[2] = 0;
+						break;
+					case SDLK_s:
+						dir[2] = 0;
+						break;
+					case SDLK_e:
+						dir[1] = 0;
+						break;
+					case SDLK_r:
+						dir[1] = 0;
+						break;
+					case SDLK_d:
+						dir[0] = 0;
+						break;
+					case SDLK_a:
+						dir[0] = 0;
+						break;
+					}
 				}
 			}
 		}
+		view.data[12] += dir[0];
+		view.data[13] += dir[1];
+		view.data[14] += dir[2];
 		float currentTime = SDL_GetTicks() / 1000.f;
 //###############################################  Rendering
 		g.current_window(0);

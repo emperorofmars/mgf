@@ -45,6 +45,12 @@ int main(int argc, char *argv[]){
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(0);
 
+	GLuint atom_buf;
+	glGenBuffers(1, &atom_buf);
+	glBindBuffer(GL_ATOMIC_COUNTER_BUFFER, atom_buf);
+	glBufferData(GL_ATOMIC_COUNTER_BUFFER, sizeof(GLuint), NULL, GL_DYNAMIC_COPY);
+	glBindBufferBase(GL_ATOMIC_COUNTER_BUFFER, 0, atom_buf);
+
 	glEnable(GL_CULL_FACE);
 	//glFrontFace(GL_CW);
 
@@ -77,10 +83,10 @@ int main(int argc, char *argv[]){
 					case SDLK_r:
 						dir[1] = -0.3;
 						break;
-					case SDLK_d:
+					case SDLK_a:
 						dir[0] = 0.3;
 						break;
-					case SDLK_a:
+					case SDLK_d:
 						dir[0] = -0.3;
 						break;
 					}
@@ -99,10 +105,10 @@ int main(int argc, char *argv[]){
 					case SDLK_r:
 						dir[1] = 0;
 						break;
-					case SDLK_d:
+					case SDLK_a:
 						dir[0] = 0;
 						break;
-					case SDLK_a:
+					case SDLK_d:
 						dir[0] = 0;
 						break;
 					}
@@ -113,6 +119,17 @@ int main(int argc, char *argv[]){
 		view.data[13] += dir[1];
 		view.data[14] += dir[2];
 		float currentTime = SDL_GetTicks() / 1000.f;
+
+		glBindBuffer(GL_ATOMIC_COUNTER_BUFFER, atom_buf);
+		GLuint *atom_data = (GLuint *)glMapBufferRange(GL_ATOMIC_COUNTER_BUFFER, 0, sizeof(GLuint), GL_MAP_READ_BIT);
+		std::cerr << *atom_data << std::endl;
+		glUnmapBuffer(GL_ATOMIC_COUNTER_BUFFER);
+
+		glBindBuffer(GL_ATOMIC_COUNTER_BUFFER, atom_buf);
+		atom_data = (GLuint *)glMapBufferRange(GL_ATOMIC_COUNTER_BUFFER, 0, sizeof(GLuint), GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_RANGE_BIT);
+		*atom_data = 0;
+		glUnmapBuffer(GL_ATOMIC_COUNTER_BUFFER);
+
 //###############################################  Rendering
 		g.current_window(0);
 		p.use();

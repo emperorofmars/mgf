@@ -34,8 +34,8 @@ public:
 	aiVector3D *vertices;
 	GLuint *indices;
 
-	GLuint numVertices;
-	GLuint numIndices;
+	GLuint numVertices, numIndices;
+	GLuint vao;
 protected:
 private:
 };

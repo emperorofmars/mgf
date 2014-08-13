@@ -13,6 +13,7 @@ namespace mgf{
 
 //###############################################################  constructor
 mesh::mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiFace* faces){
+	vao = 0;
 	this->numVertices = numVertices;
 	this->numIndices = numFaces * 3;
 	this->vertices = vertices;
@@ -64,6 +65,9 @@ bool object::load_file(std::string path){	//all of this is bullshit
 
 		meshes.push_back(temp);
 
+		glGenVertexArrays(1,&(meshes[meshes.size() - 1].vao));
+        glBindVertexArray(meshes[meshes.size() - 1].vao);
+
 		glGenBuffers(1, &elmbuffer);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elmbuffer);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, meshes[meshes.size() - 1].numIndices * sizeof(unsigned int), meshes[meshes.size() - 1].indices, GL_STATIC_DRAW);
@@ -84,6 +88,7 @@ bool object::load_file(std::string path){	//all of this is bullshit
 void object::render(){
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elmbuffer);
 	for(unsigned int i = 0; i < meshes.size(); i++){
+        glBindVertexArray(meshes[i].vao);
 		glDrawElements(GL_TRIANGLES, meshes[i].numIndices * sizeof(unsigned int), GL_UNSIGNED_INT, 0);
 	}
 	return;

@@ -20,9 +20,9 @@ int main(int argc, char *argv[]){
 	p.add_shader("res/shader/fragment_shader.glsl", GL_FRAGMENT_SHADER);
 	p.create_program();
 
-	GLuint vao;
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
+	//GLuint vao;
+	//glGenVertexArrays(1, &vao);
+	//glBindVertexArray(vao);
 
 	GLuint mv_location = glGetUniformLocation(p.get_program(), "mv_matrix");
 	GLuint proj_location = glGetUniformLocation(p.get_program(), "proj_matrix");
@@ -33,7 +33,7 @@ int main(int argc, char *argv[]){
 	float dir[3];
 	for(int i = 0; i < 3; i++) dir[i] = 0;
 
-	mgf::object model("res/models/car_1.obj");
+	mgf::object model("res/models/wolf_1.obj");
 	//car_1
 	//suzanne
 
@@ -156,8 +156,8 @@ int main(int argc, char *argv[]){
 		g.swap_window(0);
 	}
 //###############################################  Gameloop end
-	glDisableVertexAttribArray(0);
-	glDeleteVertexArrays(1, &vao);
+	//glDisableVertexAttribArray(0);
+	//glDeleteVertexArrays(1, &vao);
 
 	return 0;
 }

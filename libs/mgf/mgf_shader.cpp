@@ -1,3 +1,9 @@
+/*
+**	Author:		Martin Schwarz
+**	Name:		mgf.h
+**	Project:	mgf - Mars Graphics Framework
+**	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
+*/
 
 #include "mgf_shader.h"
 

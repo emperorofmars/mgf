@@ -11,8 +11,8 @@ uniform mat4 proj_matrix;
 layout(binding = 0) uniform atomic_uint count;
 
 void main(void){
-	memoryBarrierAtomicCounter();	//makes it go slow
+	//memoryBarrierAtomicCounter();	//makes it go slow
 	gl_Position = proj_matrix * mv_matrix * pos;
 	vs_out.color = sin(pos * 4.0) + vec4(0.5, 0.5, 0.5, 0.0);
-	atomicCounterIncrement(count);	//makes it go slow
+	//atomicCounterIncrement(count);	//makes it go slow
 }

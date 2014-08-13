@@ -1,4 +1,9 @@
-
+/*
+**	Author:		Martin Schwarz
+**	Name:		mgf.h
+**	Project:	mgf - Mars Graphics Framework
+**	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
+*/
 
 #ifndef MGF_LIBS
 #define MGF_LIBS
@@ -10,17 +15,11 @@
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include <SDL2/SDL_opengl.h>
-#include "../../libs/mvm/mvm.hpp"
 
 #endif
 
 namespace mgf{
 
-struct window{	//window info
-	SDL_Window *window;
-	unsigned int screen_w, screen_h, monitor, framerate;
-	bool fullscreen, input_grabbed;
-};
 
 //###############################################################  	mgf class
 class mgf{
@@ -45,6 +44,12 @@ public:
 	void close_window(unsigned int window_num);
 protected:
 private:
+//###############################################################  window struct
+	struct window{	//window info
+		SDL_Window *window;
+		unsigned int screen_w, screen_h, monitor, framerate;
+		bool fullscreen, input_grabbed;
+	};
 //###############################################################  variables
 	std::vector<struct window> mWindows;
 	SDL_GLContext context;

@@ -27,29 +27,25 @@ int main(int argc, char *argv[]){
 	GLuint mv_location = glGetUniformLocation(p.get_program(), "mv_matrix");
 	GLuint proj_location = glGetUniformLocation(p.get_program(), "proj_matrix");
 
-	mvm::fmat44 proj = mvm::perspective(90.0f, 1.0f, 0.5f, 1000.f);
-	mvm::fmat44 view;
-	view.data[0] = 1.0;
-	view.data[5] = 1.0;
-	view.data[10] = 1.0;
-	view.data[15] = 1.0;
+	glm::mat4 proj = glm::perspective(90.0f, 1.0f, 0.5f, 1000.f);
+	glm::mat4 view = glm::translate(glm::mat4(1.f), glm::vec3(-3.0f, 0.0f ,0.0f));
+
 	float dir[3];
 	for(int i = 0; i < 3; i++) dir[i] = 0;
 
-	mol::mesh<float> model("res/models/car_1.obj");
+	mgf::object model("res/models/car_1.obj");
+	//car_1
+	//suzanne
 
-	GLuint buffer;
-	glGenBuffers(1, &buffer);
-	glBindBuffer(GL_ARRAY_BUFFER, buffer);
-	glBufferData(GL_ARRAY_BUFFER,  model.get_size(), model.get_vertices(), GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, NULL);
-	glEnableVertexAttribArray(0);
-
-	GLuint atom_buf;
+	/*GLuint atom_buf;
 	glGenBuffers(1, &atom_buf);
 	glBindBuffer(GL_ATOMIC_COUNTER_BUFFER, atom_buf);
 	glBufferData(GL_ATOMIC_COUNTER_BUFFER, sizeof(GLuint), NULL, GL_DYNAMIC_COPY);
-	glBindBufferBase(GL_ATOMIC_COUNTER_BUFFER, 0, atom_buf);
+	glBindBufferBase(GL_ATOMIC_COUNTER_BUFFER, 0, atom_buf);*/
+
+	//glBindVertexArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 	glEnable(GL_CULL_FACE);
 	//glFrontFace(GL_CW);
@@ -80,6 +76,9 @@ int main(int argc, char *argv[]){
 					case SDLK_e:
 						dir[1] = 0.3;
 						break;
+					case SDLK_f:
+						dir[1] = 0.3;
+						break;
 					case SDLK_r:
 						dir[1] = -0.3;
 						break;
@@ -102,6 +101,9 @@ int main(int argc, char *argv[]){
 					case SDLK_e:
 						dir[1] = 0;
 						break;
+					case SDLK_f:
+						dir[1] = 0;
+						break;
 					case SDLK_r:
 						dir[1] = 0;
 						break;
@@ -115,12 +117,12 @@ int main(int argc, char *argv[]){
 				}
 			}
 		}
-		view.data[12] += dir[0];
-		view.data[13] += dir[1];
-		view.data[14] += dir[2];
+		view[3][0] += dir[0];
+		view[3][1] += dir[1];
+		view[3][2] += dir[2];
 		float currentTime = SDL_GetTicks() / 1000.f;
 
-		glBindBuffer(GL_ATOMIC_COUNTER_BUFFER, atom_buf);
+		/*glBindBuffer(GL_ATOMIC_COUNTER_BUFFER, atom_buf);
 		GLuint *atom_data = (GLuint *)glMapBufferRange(GL_ATOMIC_COUNTER_BUFFER, 0, sizeof(GLuint), GL_MAP_READ_BIT);
 		std::cerr << *atom_data << std::endl;
 		glUnmapBuffer(GL_ATOMIC_COUNTER_BUFFER);
@@ -128,7 +130,7 @@ int main(int argc, char *argv[]){
 		glBindBuffer(GL_ATOMIC_COUNTER_BUFFER, atom_buf);
 		atom_data = (GLuint *)glMapBufferRange(GL_ATOMIC_COUNTER_BUFFER, 0, sizeof(GLuint), GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_RANGE_BIT);
 		*atom_data = 0;
-		glUnmapBuffer(GL_ATOMIC_COUNTER_BUFFER);
+		glUnmapBuffer(GL_ATOMIC_COUNTER_BUFFER);*/
 
 //###############################################  Rendering
 		g.current_window(0);
@@ -137,23 +139,19 @@ int main(int argc, char *argv[]){
 		const GLfloat color[] = {0.0f, 0.0f, 0.0f, 1.0f};
 		glClearBufferfv(GL_COLOR, 0, color);
 
-		float f = currentTime * 0.2f;
-		mvm::fmat44 trans, lookat;
-		trans.identity_mat();
+		glm::mat4 trans(1.0f), lookat;
 		trans = trans *
-			mvm::translate(0.f, -5.f, -30.f) *
-			//mvm::translate(sinf(2.1f * f) * 0.5f, cosf(1.7f * f) * 0.5f, sinf(1.3f * f) * cosf(1.5f * f) * 2.0f) *
-			mvm::scale(2.f, 2.f, 2.f) *
-			//mvm::rot(0.f, currentTime * (float)M_PI / 2.f, 1.f) *
-			//mvm::rot(currentTime * (float)M_PI * 0.9f, currentTime * 0.5f, currentTime);
-			mvm::rot(-0.3f, currentTime, 0.0f);
+			glm::translate(glm::mat4(1.f), glm::vec3(0.f, -5.f, -30.f)) *
+			glm::scale(glm::mat4(1.f), glm::vec3(2.f, 2.f, 2.f)) *
+			glm::rotate(glm::mat4(1.f), currentTime * 180.f / (float)M_PI, glm::vec3(0.0f, 1.0f, 0.0f)) *
+			glm::rotate(glm::mat4(1.f), 20.f, glm::vec3(1.0f, 0.0f, 0.0f));
 
-		lookat = proj * view;// * proj;
+		lookat = proj * view;
 
-		glUniformMatrix4fv(mv_location, 1, GL_FALSE, trans.data);
-		glUniformMatrix4fv(proj_location, 1, GL_FALSE, lookat.data);
+		glUniformMatrix4fv(mv_location, 1, GL_FALSE, glm::value_ptr(trans));
+		glUniformMatrix4fv(proj_location, 1, GL_FALSE, glm::value_ptr(lookat));
 
-		glDrawArrays(GL_TRIANGLES, 0, model.get_num());
+		model.render();
 
 		g.swap_window(0);
 	}

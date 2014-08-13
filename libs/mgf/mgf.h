@@ -21,7 +21,6 @@
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include <SDL2/SDL_opengl.h>
-#include "../../libs/mvm/mvm.hpp"
 
 #endif
 */
@@ -31,6 +30,7 @@
 
 #include "mgf_init.h"
 #include "mgf_shader.h"
+#include "mgf_object.h"
 #include "mgf_extra.h"
 
 namespace mgf{

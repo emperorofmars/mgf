@@ -90,7 +90,7 @@ int main(int argc, char *argv[]){
 //###############################################  Gameloop end
 
 	//SDL_SetRelativeMouseMode(SDL_FALSE);
-
+	std::cerr << "closing" << std::endl;
 	return 0;
 }
 

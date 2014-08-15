@@ -40,7 +40,8 @@ public:
 	glm::mat4 get_p();
 //###############################################################  variables
 	glm::mat4 projection, view;
-	glm::vec3 pos, rot;
+	glm::vec3 pos, rot, dir, up, right;
+	unsigned int mode;
 protected:
 private:
 };

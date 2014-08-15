@@ -25,8 +25,7 @@ mesh::mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiFace* fa
 		indices[i*3+1] = (GLuint)faces[i].mIndices[1];
 		indices[i*3+2] = (GLuint)faces[i].mIndices[2];
 	}
-	std::cerr << "Number of imported vertices: " << numVertices << std::endl;
-	std::cerr << "Number of imported faces: " << numFaces << std::endl;
+	std::cerr << "vertices: " << numVertices  << " faces: " << numFaces << std::endl;
 }
 
 mesh::~mesh(){
@@ -41,6 +40,10 @@ object::object(std::string path){
 }
 
 object::~object(){
+	for(unsigned int i = 0; i < scene->mNumMeshes; i++){
+		glDisableVertexAttribArray(0);
+		glDeleteVertexArrays(1, &meshes[i].vao);
+	}
 }
 
 //###############################################################  load_file

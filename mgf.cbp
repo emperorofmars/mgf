@@ -41,6 +41,8 @@
 		</Linker>
 		<Unit filename="gl_test.h" />
 		<Unit filename="libs/mgf/mgf.h" />
+		<Unit filename="libs/mgf/mgf_camera.cpp" />
+		<Unit filename="libs/mgf/mgf_camera.h" />
 		<Unit filename="libs/mgf/mgf_extra.cpp" />
 		<Unit filename="libs/mgf/mgf_extra.h" />
 		<Unit filename="libs/mgf/mgf_init.cpp" />
@@ -49,9 +51,7 @@
 		<Unit filename="libs/mgf/mgf_object.h" />
 		<Unit filename="libs/mgf/mgf_shader.cpp" />
 		<Unit filename="libs/mgf/mgf_shader.h" />
-		<Unit filename="libs/mol/mol.hpp" />
 		<Unit filename="libs/mol/mol.inl" />
-		<Unit filename="libs/mvm/mvm.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<envvars />

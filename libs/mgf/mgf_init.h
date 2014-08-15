@@ -42,8 +42,6 @@ public:
 	void swap_window();
 //###############################################################  close
 	void close_window(unsigned int window_num);
-protected:
-private:
 //###############################################################  window struct
 	struct window{	//window info
 		SDL_Window *window;
@@ -54,6 +52,8 @@ private:
 	std::vector<struct window> mWindows;
 	SDL_GLContext context;
 	SDL_Event event;
+protected:
+private:
 };
 
 } // mgf

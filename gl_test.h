@@ -16,8 +16,9 @@
 
 #endif
 
-#include "libs/mgf/mgf.h"
+#define GLM_FORCE_RADIANS
 
+#include "libs/mgf/mgf.h"
 #include "libs/glm/glm.hpp"
 #include "libs/glm/gtc/type_ptr.hpp"
 #include "libs/glm/gtc/matrix_transform.hpp"

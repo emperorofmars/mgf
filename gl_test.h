@@ -16,12 +16,15 @@
 
 #endif
 
-#define GLM_FORCE_RADIANS
-
 #include "libs/mgf/mgf.h"
+
+#define GLM_FORCE_RADIANS
 #include "libs/glm/glm.hpp"
 #include "libs/glm/gtc/type_ptr.hpp"
 #include "libs/glm/gtc/matrix_transform.hpp"
+
+#define STB_IMAGE_IMPLEMENTATION
+#include "libs/stb_image/stb_image.h"
 //#include "libs/glm/gtx/transform.hpp"
 //#include "libs/mvm/mvm.hpp"
 //#include "libs/mol/mol.hpp"

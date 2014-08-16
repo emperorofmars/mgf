@@ -12,11 +12,12 @@ namespace mgf{
 //###############################################################  object class
 
 //###############################################################  constructor
-mesh::mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiFace* faces){
+mesh::mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiVector3D* uv, aiFace* faces){
 	vao = 0;
 	this->numVertices = numVertices;
 	this->numIndices = numFaces * 3;
 	this->vertices = vertices;
+	this->uv = uv;
 	this->indices = new GLuint[this->numIndices];
 
 	for(unsigned int i = 0; i < numFaces; i++)
@@ -25,7 +26,7 @@ mesh::mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiFace* fa
 		indices[i*3+1] = (GLuint)faces[i].mIndices[1];
 		indices[i*3+2] = (GLuint)faces[i].mIndices[2];
 	}
-	std::cerr << "vertices: " << numVertices  << " faces: " << numFaces << std::endl;
+	//std::cerr << "vertices: " << numVertices  << " faces: " << numFaces << std::endl;
 }
 
 mesh::~mesh(){
@@ -40,10 +41,12 @@ object::object(std::string path){
 }
 
 object::~object(){
+	std::cerr << "deleting model" << std::endl;
 	for(unsigned int i = 0; i < scene->mNumMeshes; i++){
 		glDisableVertexAttribArray(0);
-		glDeleteVertexArrays(1, &meshes[i].vao);
+		//glDeleteVertexArrays(1, &meshes[i].vao);
 	}
+	std::cerr << "model deleted" << std::endl;
 }
 
 //###############################################################  load_file
@@ -64,6 +67,7 @@ bool object::load_file(std::string path){	//all of this is bullshit
 		mesh temp(scene->mMeshes[i]->mNumVertices,
 			scene->mMeshes[i]->mNumFaces,
 			scene->mMeshes[i]->mVertices,
+			scene->mMeshes[i]->mTextureCoords[0],
 			scene->mMeshes[i]->mFaces);
 
 		meshes.push_back(temp);
@@ -77,9 +81,15 @@ bool object::load_file(std::string path){	//all of this is bullshit
 
 		glGenBuffers(1, &buffer);
 		glBindBuffer(GL_ARRAY_BUFFER, buffer);
-		glBufferData(GL_ARRAY_BUFFER,  meshes[meshes.size() - 1].numVertices * sizeof(float) * 3, meshes[meshes.size() - 1].vertices, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, meshes[meshes.size() - 1].numVertices * sizeof(float) * 3, meshes[meshes.size() - 1].vertices, GL_STATIC_DRAW);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 		glEnableVertexAttribArray(0);
+
+		glGenBuffers(1, &buffer);
+		glBindBuffer(GL_ARRAY_BUFFER, buffer);
+		glBufferData(GL_ARRAY_BUFFER, meshes[meshes.size() - 1].numVertices * sizeof(float) * 3, meshes[meshes.size() - 1].uv, GL_STATIC_DRAW);
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+		glEnableVertexAttribArray(1);
 	}
 
 

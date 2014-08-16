@@ -22,9 +22,10 @@ shader_program::shader_program(std::vector<struct shader_to_programm> &shaders){
 }
 
 shader_program::~shader_program(){
+	std::cerr << "closing shader_program" << std::endl;
+	if(mProgram != 0) glDeleteProgram(mProgram);
 	mProgram = 0;
 	mShaders.clear();
-	glDeleteProgram(mProgram);
 }
 
 //###############################################################  add shader

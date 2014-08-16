@@ -28,12 +28,15 @@ camera::~camera(){
 //###############################################################  setup
 glm::mat4 camera::setup(float fov, float screenratio, float near, float far){
 	projection = glm::perspective(fov, screenratio, near, far);
+	return projection * view;
 }
 
 //###############################################################  update
 glm::mat4 camera::update(glm::vec3 pos_, glm::vec3 rot_){
 	int x = 0, y = 0;
-	SDL_GetMouseState(&x, &y);
+	SDL_GetRelativeMouseState(&x, &y);
+	x += 400;
+	y += 400;
 
 	if(mode == 0){	//euler
 		rot[0] += (float)(x - 400) * 0.008f;

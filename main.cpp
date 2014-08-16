@@ -5,7 +5,6 @@
  */
 
 #include "gl_test.h"
-
 //###############################################  Main
 int main(int argc, char *argv[]){
 	SDL_Event event;
@@ -25,12 +24,12 @@ int main(int argc, char *argv[]){
 	GLuint mv_location = glGetUniformLocation(p.get_program(), "mv_matrix");
 	GLuint proj_location = glGetUniformLocation(p.get_program(), "proj_matrix");
 
-	mgf::object model("res/models/car_2.obj");
+	mgf::object model("res/models/cube.obj");
 	//car_1
 	//suzanne
 
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	//glBindBuffer(GL_ARRAY_BUFFER, 0);
+	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 	glEnable(GL_CULL_FACE);
 	//glFrontFace(GL_CW);
@@ -41,7 +40,29 @@ int main(int argc, char *argv[]){
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	//glPointSize(5);
 
-	//SDL_SetRelativeMouseMode(SDL_TRUE);
+	SDL_SetRelativeMouseMode(SDL_TRUE);
+
+	//TEXTURE
+	GLuint texture;
+	glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+
+	int x, y, n;
+	unsigned char *data = stbi_load("res/images/cube.png", &x, &y, &n, 0);
+	if(data == NULL) std::cerr << "loading image FAILED" << std::endl;
+	else std::cerr << "loading image succesfull" << std::endl;
+
+	//glTexStorage2D(GL_TEXTURE_2D, 1, GL_RGBA32F, x, y);
+	//glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, x, y, GL_RGBA, GL_INT, data);
+	if(n == 3)
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, x, y, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+	else if(n == 4)
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, x, y, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	stbi_image_free(data);
+	//TEXTURE END
 
 	glm::vec3 pos, rot;
 //###############################################  Gameloop
@@ -57,6 +78,12 @@ int main(int argc, char *argv[]){
 					case SDLK_q:
 						quit = true;
 						break;
+					case SDLK_ESCAPE:
+						if(SDL_GetRelativeMouseMode() == SDL_TRUE)
+							SDL_SetRelativeMouseMode(SDL_FALSE);
+						else
+							SDL_SetRelativeMouseMode(SDL_TRUE);
+						break;
 					}
 				}
 			}
@@ -66,7 +93,7 @@ int main(int argc, char *argv[]){
 
 		glm::mat4 vp = cam.update(pos, rot);
 
-		SDL_WarpMouseInWindow(g.mWindows[0].window, 400, 400);
+		//SDL_WarpMouseInWindow(g.mWindows[0].window, 400, 400);
 
 //###############################################  Rendering
 		g.current_window(0);
@@ -88,9 +115,9 @@ int main(int argc, char *argv[]){
 		g.swap_window(0);
 	}
 //###############################################  Gameloop end
+	SDL_SetRelativeMouseMode(SDL_FALSE);
 
-	//SDL_SetRelativeMouseMode(SDL_FALSE);
-	std::cerr << "closing" << std::endl;
+	std::cerr << "closing 1" << std::endl;
 	return 0;
 }
 

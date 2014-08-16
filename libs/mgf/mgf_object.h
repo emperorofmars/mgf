@@ -28,10 +28,11 @@ namespace mgf{
 class mesh{
 public:
 //###############################################################  constructor
-	mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiFace* faces);
+	mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiVector3D* uv, aiFace* faces);
 	~mesh();
 //###############################################################  variables
 	aiVector3D *vertices;
+	aiVector3D *uv;
 	GLuint *indices;
 
 	GLuint numVertices, numIndices;

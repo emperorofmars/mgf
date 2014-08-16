@@ -26,13 +26,17 @@ mgf::mgf(unsigned int screen_w, unsigned int screen_h, bool fullscreen,
 }
 
 mgf::~mgf(){
+	std::cerr << "closing 2" << std::endl;
 	SDL_GL_DeleteContext(context);
 	context = NULL;
+	std::cerr << "closing 3" << std::endl;
 	for(unsigned int i = 0; i < mWindows.size(); i ++){
 		SDL_DestroyWindow(mWindows[i].window);
 		mWindows[i].window = NULL;
 	}
+	std::cerr << "closing 4" << std::endl;
 	mWindows.clear();
+	std::cerr << "closing 5" << std::endl;
 	SDL_Quit();
 	std::cerr << "SDL closed!" << std::endl;
 }

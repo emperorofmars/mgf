@@ -1,6 +1,6 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		mgf_camera.h
+**	Name:		mgf_input.h
 **	Project:	mgf - Mars Graphics Framework
 **	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
 */
@@ -25,25 +25,29 @@
 
 namespace mgf{
 
-//###############################################################  	camera class
-class camera{
+struct input_state{
+	int move_dir, move_side, rotate_x, rotate_y, rotate_roll;
+	std::vector<int> keys;
+};
+
+//###############################################################  	input class
+class input{
 public:
 //###############################################################  constructor
-	camera(float fov = 90.f, float screenratio = 1.f, float near = 0.1f, float far = 1000.f);
-	~camera();
+	input();
+	~input();
 //###############################################################  setup
-	glm::mat4 setup(float fov = 90.f, float screenratio = 1.f, float near = 0.1f, float far = 1000.f);
+	void setup();
 //###############################################################  update
-	glm::mat4 update(glm::vec3 pos_, glm::vec3 rot_);
+	input_state update();
 //###############################################################  get
-	glm::mat4 get_vp();
-	glm::mat4 get_v();
-	glm::mat4 get_p();
-//###############################################################  variables
-	glm::mat4 projection, view;
-	glm::vec3 pos, rot, dir, up, right;
-	unsigned int mode;
+	input_state get();
+	glm::vec3 get_pos();
+	glm::vec3 get_rot();
 protected:
+//###############################################################  variables
+	SDL_Event event;
+	input_state state;
 private:
 };
 

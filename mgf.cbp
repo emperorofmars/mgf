@@ -47,6 +47,8 @@
 		<Unit filename="libs/mgf/mgf_extra.h" />
 		<Unit filename="libs/mgf/mgf_init.cpp" />
 		<Unit filename="libs/mgf/mgf_init.h" />
+		<Unit filename="libs/mgf/mgf_input.cpp" />
+		<Unit filename="libs/mgf/mgf_input.h" />
 		<Unit filename="libs/mgf/mgf_object.cpp" />
 		<Unit filename="libs/mgf/mgf_object.h" />
 		<Unit filename="libs/mgf/mgf_shader.cpp" />

@@ -8,8 +8,10 @@
 //###############################################  Main
 int main(int argc, char *argv[]){
 	SDL_Event event;
-	mgf::mgf g(800, 800, 1);
+	mgf::mgf g(800, 800, 0, 0, 0);
 	if(!g.init()) return 1;
+
+	mgf::input input;
 
 	mgf::shader_program p;
 	p.add_shader("res/shader/vertex_shader.glsl", GL_VERTEX_SHADER);
@@ -25,18 +27,11 @@ int main(int argc, char *argv[]){
 	GLuint proj_location = glGetUniformLocation(p.get_program(), "proj_matrix");
 
 	mgf::object model("res/models/cube.obj");
-	//car_1
-	//suzanne
-
-	//glBindBuffer(GL_ARRAY_BUFFER, 0);
-	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 	glEnable(GL_CULL_FACE);
 	//glFrontFace(GL_CW);
-
-	glEnable(GL_DEPTH_TEST);// Enable depth test
-	glDepthFunc(GL_LESS);// Accept fragment if it closer to the camera than the former one
-
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	//glPointSize(5);
 
@@ -64,12 +59,12 @@ int main(int argc, char *argv[]){
 	stbi_image_free(data);
 	//TEXTURE END
 
-	glm::vec3 pos, rot;
 //###############################################  Gameloop
 	bool quit = false;
 	while(quit != true){
 //###############################################  Input Handling
-		//rot = glm::vec3(0);
+		float currentTime = SDL_GetTicks() / 1000.f;
+
 		while(SDL_PollEvent(&event) != 0){
 			if(event.type == SDL_QUIT) quit = true;
 			else{
@@ -89,11 +84,8 @@ int main(int argc, char *argv[]){
 			}
 		}
 
-		float currentTime = SDL_GetTicks() / 1000.f;
-
-		glm::mat4 vp = cam.update(pos, rot);
-
-		//SDL_WarpMouseInWindow(g.mWindows[0].window, 400, 400);
+		input.update();
+		glm::mat4 vp = cam.update(input.get_pos(), input.get_rot());
 
 //###############################################  Rendering
 		g.current_window(0);
@@ -117,7 +109,7 @@ int main(int argc, char *argv[]){
 //###############################################  Gameloop end
 	SDL_SetRelativeMouseMode(SDL_FALSE);
 
-	std::cerr << "closing 1" << std::endl;
+	std::cerr << std::endl << "closing main!" << std::endl;
 	return 0;
 }
 

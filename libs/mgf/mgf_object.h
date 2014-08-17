@@ -1,6 +1,6 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		mgf.h
+**	Name:		mgf_object.h
 **	Project:	mgf - Mars Graphics Framework
 **	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
 */

@@ -21,9 +21,14 @@
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include <SDL2/SDL_opengl.h>
+
+#define GLM_FORCE_RADIANS
 #include "../../libs/glm/glm.hpp"
 #include "../../libs/glm/gtc/type_ptr.hpp"
 #include "../../libs/glm/gtc/matrix_transform.hpp"
+
+//#define STB_IMAGE_IMPLEMENTATION
+//#include "../../libs/stb_image/stb_image.h"
 
 #endif
 
@@ -35,6 +40,7 @@
 #include "mgf_shader.h"
 #include "mgf_object.h"
 #include "mgf_camera.h"
+#include "mgf_input.h"
 #include "mgf_extra.h"
 
 namespace mgf{

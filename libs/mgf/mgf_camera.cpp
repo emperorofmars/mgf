@@ -1,6 +1,6 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		mgf.h
+**	Name:		mgf_camera.cpp
 **	Project:	mgf - Mars Graphics Framework
 **	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
 */
@@ -33,14 +33,16 @@ glm::mat4 camera::setup(float fov, float screenratio, float near, float far){
 
 //###############################################################  update
 glm::mat4 camera::update(glm::vec3 pos_, glm::vec3 rot_){
-	int x = 0, y = 0;
-	SDL_GetRelativeMouseState(&x, &y);
-	x += 400;
-	y += 400;
+	//int x = 0, y = 0;
+	//SDL_GetRelativeMouseState(&x, &y);
+	int x = rot_[0];
+	int y = rot_[1];
+	int z = rot_[2];
+
 
 	if(mode == 0){	//euler
-		rot[0] += (float)(x - 400) * 0.008f;
-		rot[1] -= (float)(y - 400) * 0.008f;
+		rot[0] += (float)x * 0.008f;
+		rot[1] -= (float)y * 0.008f;
 
 		if(rot[0] > (float)M_PI) rot[0] -= (float)M_PI * 2;
 		if(rot[0] < -(float)M_PI) rot[0] += (float)M_PI * 2;
@@ -53,8 +55,8 @@ glm::mat4 camera::update(glm::vec3 pos_, glm::vec3 rot_){
 		right = glm::normalize(right);
 	}
 	else if(mode >= 1 && mode <= 2){	//quaternion
-		rot[0] = (float)(x - 400) * -0.5f;
-		rot[1] = (float)(y - 400) * -0.5f;
+		rot[0] = (float)x * -0.008f;
+		rot[1] = (float)y * -0.008f;
 
 		right = glm::cross(dir, up);
 		glm::quat pitch = glm::angleAxis(rot[1], right);
@@ -75,9 +77,9 @@ glm::mat4 camera::update(glm::vec3 pos_, glm::vec3 rot_){
 			up = glm::normalize(up);
 		}
 	}
-	else if(mode == 3){	//quaternion
-		rot[0] = (float)(x - 400) * -0.5f;
-		rot[1] = (float)(y - 400) * -0.5f;
+	else if(mode == 3){	//quaternion with fixed y axis
+		rot[0] = (float)x * -0.008f;
+		rot[1] = (float)y * -0.008f;
 
 		right = glm::cross(dir, up);
 		glm::quat pitch = glm::angleAxis(rot[1], right);
@@ -106,19 +108,8 @@ glm::mat4 camera::update(glm::vec3 pos_, glm::vec3 rot_){
 	std::cerr << "dir: " << dir[0] << " " << dir[1] << " " << dir[2] << std::endl;
 	std::cerr << "right: " << right[0] << " " << right[1] << " " << right[2] << std::endl << std::endl;*/
 
-	const Uint8 *key = SDL_GetKeyboardState(NULL);
-	if(key[SDL_SCANCODE_W]){
-		pos += dir * 0.6f;
-	}
-	if(key[SDL_SCANCODE_S]){
-		pos -= dir * 0.6f;
-	}
-	if(key[SDL_SCANCODE_D]){
-		pos += right * 0.6f;
-	}
-	if(key[SDL_SCANCODE_A]){
-		pos -= right * 0.6f;
-	}
+	pos += dir * pos_[0] * 0.6f;
+	pos += right * pos_[1] * 0.6f;
 
 	view = glm::lookAt(pos, pos + dir, up);
 

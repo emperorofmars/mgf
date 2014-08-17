@@ -1,6 +1,6 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		mgf.h
+**	Name:		mgf_object.cpp
 **	Project:	mgf - Mars Graphics Framework
 **	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
 */
@@ -9,7 +9,7 @@
 
 namespace mgf{
 
-//###############################################################  object class
+//###############################################################  mesh class
 
 //###############################################################  constructor
 mesh::mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiVector3D* uv, aiFace* faces){
@@ -42,9 +42,12 @@ object::object(std::string path){
 
 object::~object(){
 	std::cerr << "deleting model" << std::endl;
-	for(unsigned int i = 0; i < scene->mNumMeshes; i++){
+	for(unsigned int i = 0; i < meshes.size(); i++){
+		glBindVertexArray(meshes[i].vao);
 		glDisableVertexAttribArray(0);
-		//glDeleteVertexArrays(1, &meshes[i].vao);
+		glDisableVertexAttribArray(1);
+		glDeleteVertexArrays(1, &meshes[i].vao);
+		//std::cerr << "vao " << i << " deleted" << std::endl;
 	}
 	std::cerr << "model deleted" << std::endl;
 }
@@ -62,6 +65,8 @@ bool object::load_file(std::string path){	//all of this is bullshit
 		std::cerr << "Importing model failed!" << importer.GetErrorString() << std::endl;
 		return 0;
 	}
+
+	//std::cerr << scene->mNumMeshes << " meshes detected" << std::endl;
 
 	for(unsigned int i = 0; i < scene->mNumMeshes; i++){
 		mesh temp(scene->mMeshes[i]->mNumVertices,

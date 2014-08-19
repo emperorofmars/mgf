@@ -29,19 +29,16 @@ namespace mgf{
 class mesh{
 public:
 //###############################################################  constructor
-	mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiVector3D** uv, aiFace* faces);
+	mesh(GLuint numVertices, GLuint numFaces, GLuint numUV, aiVector3D* vertices, aiVector3D** uv, aiFace* faces);
 	~mesh();
-//###############################################################  render
-	void render();
 //###############################################################  variables
 	aiVector3D *vertices;
 	aiVector3D **uv;
 	GLuint *indices;
 
-	GLuint numVertices, numIndices, numTextures;
-	GLuint elementbuffer, vertexbuffer, uvbuffer;
+	GLuint numVertices, numIndices, numMaterials, numUV;
+	GLuint elementbuffer, vertexbuffer, *uvbuffer;
 	GLuint vao;
-	char ** textures;
 protected:
 private:
 };

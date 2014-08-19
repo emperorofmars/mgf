@@ -12,13 +12,15 @@ namespace mgf{
 //###############################################################  mesh class
 
 //###############################################################  constructor
-mesh::mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiVector3D** uv, aiFace* faces){
+mesh::mesh(GLuint numVertices, GLuint numFaces, GLuint numUV, aiVector3D* vertices, aiVector3D** uv, aiFace* faces){
 	vao = 0;
 	this->numVertices = numVertices;
 	this->numIndices = numFaces * 3;
+	this->numUV = numUV;
 	this->vertices = vertices;
 	this->uv = uv;
 	this->indices = new GLuint[this->numIndices];
+	this->uvbuffer = new GLuint[this->numUV];
 
 	for(unsigned int i = 0; i < numFaces; i++)
 	{
@@ -36,13 +38,6 @@ mesh::~mesh(){
 	glDeleteVertexArrays(1, &vao);*/
 }
 
-void mesh::render(){
-	glBindVertexArray(vao);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
-	glDrawElements(GL_TRIANGLES, numIndices * sizeof(unsigned int), GL_UNSIGNED_INT, 0);
-	return;
-}
-
 
 //###############################################################  object class
 
@@ -56,11 +51,15 @@ object::~object(){
 	for(unsigned int i = 0; i < meshes.size(); i++){
 		glBindVertexArray(meshes[i].vao);
 		glDisableVertexAttribArray(0);
-		glDisableVertexAttribArray(1);
+		for(unsigned int i = 0; i < meshes[i].numUV; i++){
+			glDisableVertexAttribArray(i + 1);
+		}
 		glDeleteVertexArrays(1, &meshes[i].vao);
 		glDeleteBuffers(1, &meshes[i].elementbuffer);
 		glDeleteBuffers(1, &meshes[i].vertexbuffer);
-		glDeleteBuffers(1, &meshes[i].uvbuffer);
+		for(unsigned int i = 0; i < meshes[i].numUV; i++){
+			glDeleteBuffers(1, &meshes[i].uvbuffer[i]);
+		}
 		//std::cerr << "vao " << i << " deleted" << std::endl;
 	}
 	std::cerr << "model deleted" << std::endl;
@@ -85,6 +84,7 @@ bool object::load_file(std::string path){	//all of this is bullshit
 	for(unsigned int i = 0; i < scene->mNumMeshes; i++){
 		mesh temp(scene->mMeshes[i]->mNumVertices,
 			scene->mMeshes[i]->mNumFaces,
+			scene->mMeshes[i]->GetNumUVChannels(),
 			scene->mMeshes[i]->mVertices,
 			scene->mMeshes[i]->mTextureCoords,
 			scene->mMeshes[i]->mFaces);
@@ -104,11 +104,13 @@ bool object::load_file(std::string path){	//all of this is bullshit
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 		glEnableVertexAttribArray(0);
 
-		glGenBuffers(1, &meshes[meshes.size() - 1].uvbuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, meshes[meshes.size() - 1].uvbuffer);
-		glBufferData(GL_ARRAY_BUFFER, meshes[meshes.size() - 1].numVertices * sizeof(float) * 3, meshes[meshes.size() - 1].uv[0], GL_STATIC_DRAW);
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-		glEnableVertexAttribArray(1);
+		for(unsigned int i = 0; i < meshes[meshes.size() - 1].numUV; i++){
+			glGenBuffers(1, &meshes[meshes.size() - 1].uvbuffer[i]);
+			glBindBuffer(GL_ARRAY_BUFFER, meshes[meshes.size() - 1].uvbuffer[i]);
+			glBufferData(GL_ARRAY_BUFFER, meshes[meshes.size() - 1].numVertices * sizeof(float) * 3, meshes[meshes.size() - 1].uv[0], GL_STATIC_DRAW);
+			glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+			glEnableVertexAttribArray(1 + i);
+		}
 	}
 
 

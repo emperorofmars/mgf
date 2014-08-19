@@ -12,7 +12,7 @@ namespace mgf{
 //###############################################################  mesh class
 
 //###############################################################  constructor
-mesh::mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiVector3D* uv, aiFace* faces){
+mesh::mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiVector3D** uv, aiFace* faces){
 	vao = 0;
 	this->numVertices = numVertices;
 	this->numIndices = numFaces * 3;
@@ -30,6 +30,17 @@ mesh::mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiVector3D
 }
 
 mesh::~mesh(){
+	/*glBindVertexArray(vao);
+	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
+	glDeleteVertexArrays(1, &vao);*/
+}
+
+void mesh::render(){
+	glBindVertexArray(vao);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
+	glDrawElements(GL_TRIANGLES, numIndices * sizeof(unsigned int), GL_UNSIGNED_INT, 0);
+	return;
 }
 
 
@@ -47,6 +58,9 @@ object::~object(){
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
 		glDeleteVertexArrays(1, &meshes[i].vao);
+		glDeleteBuffers(1, &meshes[i].elementbuffer);
+		glDeleteBuffers(1, &meshes[i].vertexbuffer);
+		glDeleteBuffers(1, &meshes[i].uvbuffer);
 		//std::cerr << "vao " << i << " deleted" << std::endl;
 	}
 	std::cerr << "model deleted" << std::endl;
@@ -72,7 +86,7 @@ bool object::load_file(std::string path){	//all of this is bullshit
 		mesh temp(scene->mMeshes[i]->mNumVertices,
 			scene->mMeshes[i]->mNumFaces,
 			scene->mMeshes[i]->mVertices,
-			scene->mMeshes[i]->mTextureCoords[0],
+			scene->mMeshes[i]->mTextureCoords,
 			scene->mMeshes[i]->mFaces);
 
 		meshes.push_back(temp);
@@ -80,19 +94,19 @@ bool object::load_file(std::string path){	//all of this is bullshit
 		glGenVertexArrays(1,&(meshes[meshes.size() - 1].vao));
         glBindVertexArray(meshes[meshes.size() - 1].vao);
 
-		glGenBuffers(1, &elmbuffer);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elmbuffer);
+		glGenBuffers(1, &meshes[meshes.size() - 1].elementbuffer);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, meshes[meshes.size() - 1].elementbuffer);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, meshes[meshes.size() - 1].numIndices * sizeof(unsigned int), meshes[meshes.size() - 1].indices, GL_STATIC_DRAW);
 
-		glGenBuffers(1, &buffer);
-		glBindBuffer(GL_ARRAY_BUFFER, buffer);
+		glGenBuffers(1, &meshes[meshes.size() - 1].vertexbuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, meshes[meshes.size() - 1].vertexbuffer);
 		glBufferData(GL_ARRAY_BUFFER, meshes[meshes.size() - 1].numVertices * sizeof(float) * 3, meshes[meshes.size() - 1].vertices, GL_STATIC_DRAW);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 		glEnableVertexAttribArray(0);
 
-		glGenBuffers(1, &buffer);
-		glBindBuffer(GL_ARRAY_BUFFER, buffer);
-		glBufferData(GL_ARRAY_BUFFER, meshes[meshes.size() - 1].numVertices * sizeof(float) * 3, meshes[meshes.size() - 1].uv, GL_STATIC_DRAW);
+		glGenBuffers(1, &meshes[meshes.size() - 1].uvbuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, meshes[meshes.size() - 1].uvbuffer);
+		glBufferData(GL_ARRAY_BUFFER, meshes[meshes.size() - 1].numVertices * sizeof(float) * 3, meshes[meshes.size() - 1].uv[0], GL_STATIC_DRAW);
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 		glEnableVertexAttribArray(1);
 	}

@@ -15,6 +15,7 @@
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include <SDL2/SDL_opengl.h>
+#include <SDL2/SDL_image.h>
 
 #endif
 
@@ -28,15 +29,19 @@ namespace mgf{
 class mesh{
 public:
 //###############################################################  constructor
-	mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiVector3D* uv, aiFace* faces);
+	mesh(GLuint numVertices, GLuint numFaces, aiVector3D* vertices, aiVector3D** uv, aiFace* faces);
 	~mesh();
+//###############################################################  render
+	void render();
 //###############################################################  variables
 	aiVector3D *vertices;
-	aiVector3D *uv;
+	aiVector3D **uv;
 	GLuint *indices;
 
-	GLuint numVertices, numIndices;
+	GLuint numVertices, numIndices, numTextures;
+	GLuint elementbuffer, vertexbuffer, uvbuffer;
 	GLuint vao;
+	char ** textures;
 protected:
 private:
 };

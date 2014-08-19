@@ -38,6 +38,7 @@
 			<Add option="-lGLEW" />
 			<Add option="-lGL" />
 			<Add option="-lassimp" />
+			<Add option="-lSDL2_image" />
 		</Linker>
 		<Unit filename="gl_test.h" />
 		<Unit filename="libs/mgf/mgf.h" />

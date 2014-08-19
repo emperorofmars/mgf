@@ -23,7 +23,7 @@ int main(int argc, char *argv[]){
 
 	mgf::camera cam;
 
-	GLuint mv_location = glGetUniformLocation(p.get_program(), "mv_matrix");
+	GLuint model_mat = glGetUniformLocation(p.get_program(), "mv_matrix");
 	GLuint proj_location = glGetUniformLocation(p.get_program(), "proj_matrix");
 
 	mgf::object model("res/models/cube.obj");
@@ -38,17 +38,16 @@ int main(int argc, char *argv[]){
 	SDL_SetRelativeMouseMode(SDL_TRUE);
 
 	//TEXTURE
+
+	/*
 	GLuint texture;
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
-
 	int x, y, n;
 	unsigned char *data = stbi_load("res/images/cube.png", &x, &y, &n, 0);
 	if(data == NULL) std::cerr << "loading image FAILED" << std::endl;
 	else std::cerr << "loading image succesfull" << std::endl;
 
-	//glTexStorage2D(GL_TEXTURE_2D, 1, GL_RGBA32F, x, y);
-	//glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, x, y, GL_RGBA, GL_INT, data);
 	if(n == 3)
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, x, y, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 	else if(n == 4)
@@ -56,7 +55,17 @@ int main(int argc, char *argv[]){
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	stbi_image_free(data);
+	stbi_image_free(data);*/
+
+	GLuint texture;
+	glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	SDL_Surface *image = IMG_Load("res/images/cube.png");
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image->w, image->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, image->pixels);
+    SDL_FreeSurface(image);
+
 	//TEXTURE END
 
 //###############################################  Gameloop
@@ -99,7 +108,7 @@ int main(int argc, char *argv[]){
 			glm::translate(glm::mat4(1.f), glm::vec3(0.f, -5.f, -30.f)) *
 			glm::scale(glm::mat4(1.f), glm::vec3(2.f, 2.f, 2.f));
 
-		glUniformMatrix4fv(mv_location, 1, GL_FALSE, glm::value_ptr(trans));
+		glUniformMatrix4fv(model_mat, 1, GL_FALSE, glm::value_ptr(trans));
 		glUniformMatrix4fv(proj_location, 1, GL_FALSE, glm::value_ptr(vp));
 
 		model.render();
@@ -108,6 +117,8 @@ int main(int argc, char *argv[]){
 	}
 //###############################################  Gameloop end
 	SDL_SetRelativeMouseMode(SDL_FALSE);
+
+	glDeleteBuffers(1, &texture);
 
 	std::cerr << std::endl << "closing main!" << std::endl;
 	return 0;

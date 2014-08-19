@@ -13,6 +13,7 @@
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include <SDL2/SDL_opengl.h>
+#include <SDL2/SDL_image.h>
 
 #endif
 
@@ -25,8 +26,6 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "libs/stb_image/stb_image.h"
-//#include "libs/glm/gtx/transform.hpp"
-//#include "libs/mvm/mvm.hpp"
-//#include "libs/mol/mol.hpp"
+
 
 

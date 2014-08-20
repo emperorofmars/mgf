@@ -17,6 +17,11 @@
 #include <SDL2/SDL_opengl.h>
 #include <SDL2/SDL_image.h>
 
+#define GLM_FORCE_RADIANS
+#include "../../libs/glm/glm.hpp"
+#include "../../libs/glm/gtc/type_ptr.hpp"
+#include "../../libs/glm/gtc/matrix_transform.hpp"
+
 #endif
 
 #include <assimp/Importer.hpp>
@@ -47,16 +52,21 @@ private:
 class object{
 public:
 //###############################################################  constructor
-	object(std::string path);
+	object(std::string path, GLuint uniform_location = 0);
 	~object();
 //###############################################################  load from file
 	bool load_file(std::string path);
+//###############################################################  transformation matrix
+	glm::mat4 get_trans_mat();
+	void set_trans_mat(glm::mat4 mat);
 //###############################################################  render
 	void render();
 //###############################################################  variables
-	std::vector<mesh> meshes;
+	std::vector<mesh *> meshes;
 	const aiScene* scene;
-	GLuint buffer, elmbuffer;
+
+	GLuint uniform_trans;
+	glm::mat4 trans;
 protected:
 private:
 };

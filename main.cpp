@@ -23,10 +23,11 @@ int main(int argc, char *argv[]){
 
 	mgf::camera cam;
 
-	GLuint model_mat = glGetUniformLocation(p.get_program(), "mv_matrix");
+	GLuint model_mat = glGetUniformLocation(p.get_program(), "model_mat");
 	GLuint proj_location = glGetUniformLocation(p.get_program(), "proj_matrix");
 
-	mgf::object model("res/models/cube.obj");
+	mgf::object model_cube("res/models/cube/cube.obj", model_mat);
+	mgf::object model_car("res/models/car/car.obj", model_mat);
 
 	glEnable(GL_CULL_FACE);
 	//glFrontFace(GL_CW);
@@ -62,10 +63,9 @@ int main(int argc, char *argv[]){
 	glBindTexture(GL_TEXTURE_2D, texture);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	SDL_Surface *image = IMG_Load("res/images/cube.png");
+	SDL_Surface *image = IMG_Load("res/models/cube/cube.png");
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image->w, image->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, image->pixels);
     SDL_FreeSurface(image);
-
 	//TEXTURE END
 
 //###############################################  Gameloop
@@ -108,10 +108,15 @@ int main(int argc, char *argv[]){
 			glm::translate(glm::mat4(1.f), glm::vec3(0.f, -5.f, -30.f)) *
 			glm::scale(glm::mat4(1.f), glm::vec3(2.f, 2.f, 2.f));
 
-		glUniformMatrix4fv(model_mat, 1, GL_FALSE, glm::value_ptr(trans));
+		model_cube.set_trans_mat(glm::translate(glm::mat4(1.f), glm::vec3(0.f, 8.f, 0.f)) *
+								glm::scale(glm::mat4(1.f), glm::vec3(2.f, 2.f, 2.f)) *
+								glm::rotate(glm::mat4(1.f), currentTime, glm::vec3(0.f, 0.1f, 0.f)));
+
+		//glUniformMatrix4fv(model_mat, 1, GL_FALSE, glm::value_ptr(trans));
 		glUniformMatrix4fv(proj_location, 1, GL_FALSE, glm::value_ptr(vp));
 
-		model.render();
+		model_cube.render();
+		model_car.render();
 
 		g.swap_window(0);
 	}

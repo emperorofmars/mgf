@@ -12,7 +12,7 @@ namespace mgf{
 //###############################################################  mesh class
 
 //###############################################################  constructor
-mesh::mesh(GLuint numVertices, GLuint numFaces, GLuint numUV, aiVector3D* vertices, aiVector3D** uv, aiFace* faces){
+mesh::mesh(GLuint numVertices, GLuint numFaces, GLuint numUV, aiVector3D* vertices, aiVector3D** uv, aiFace* faces, unsigned int mat_index){
 	vao = 0;
 	this->numVertices = numVertices;
 	this->numIndices = numFaces * 3;
@@ -21,6 +21,7 @@ mesh::mesh(GLuint numVertices, GLuint numFaces, GLuint numUV, aiVector3D* vertic
 	this->uv = uv;
 	this->indices = new GLuint[this->numIndices];
 	this->uvbuffer = new GLuint[this->numUV];
+	this->mat_index = mat_index;
 
 	for(unsigned int i = 0; i < numFaces; i++)
 	{
@@ -105,7 +106,8 @@ bool object::load_file(std::string path){
 			scene->mMeshes[i]->GetNumUVChannels(),
 			scene->mMeshes[i]->mVertices,
 			scene->mMeshes[i]->mTextureCoords,
-			scene->mMeshes[i]->mFaces);
+			scene->mMeshes[i]->mFaces,
+			scene->mMeshes[i]->mMaterialIndex);
 
 		meshes.push_back(temp);
 	}
@@ -123,6 +125,22 @@ glm::mat4 object::get_trans_mat(){
 void object::set_trans_mat(glm::mat4 mat){
 	trans = mat;
 	return;
+}
+
+//###############################################################  move
+glm::mat4 object::move(glm::vec3 mov){
+	trans *= glm::translate(glm::mat4(1.f), mov);
+	return trans;
+}
+
+glm::mat4 object::rotate(float degrees, glm::vec3 axis){
+	trans *= glm::rotate(glm::mat4(1.f), degrees, axis);
+	return trans;
+}
+
+glm::mat4 object::scale(glm::vec3 scale){
+	trans *= glm::scale(glm::mat4(1.f), scale);
+	return trans;
 }
 
 //###############################################################  render

@@ -34,7 +34,7 @@ namespace mgf{
 class mesh{
 public:
 //###############################################################  constructor
-	mesh(GLuint numVertices, GLuint numFaces, GLuint numUV, aiVector3D* vertices, aiVector3D** uv, aiFace* faces);
+	mesh(GLuint numVertices, GLuint numFaces, GLuint numUV, aiVector3D* vertices, aiVector3D** uv, aiFace* faces, unsigned int mat_index);
 	~mesh();
 //###############################################################  variables
 	aiVector3D *vertices;
@@ -44,6 +44,8 @@ public:
 	GLuint numVertices, numIndices, numMaterials, numUV;
 	GLuint elementbuffer, vertexbuffer, *uvbuffer;
 	GLuint vao;
+
+	unsigned int mat_index;
 protected:
 private:
 };
@@ -59,6 +61,10 @@ public:
 //###############################################################  transformation matrix
 	glm::mat4 get_trans_mat();
 	void set_trans_mat(glm::mat4 mat);
+//###############################################################  move
+	glm::mat4 move(glm::vec3 mov);
+	glm::mat4 rotate(float degrees, glm::vec3 axis);
+	glm::mat4 scale(glm::vec3 scale);
 //###############################################################  render
 	void render();
 //###############################################################  variables

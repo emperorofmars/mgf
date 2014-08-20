@@ -29,6 +29,10 @@ int main(int argc, char *argv[]){
 	mgf::object model_cube("res/models/cube/cube.obj", model_mat);
 	mgf::object model_car("res/models/car/car.obj", model_mat);
 
+	model_car.move(glm::vec3(0.f, -10.f, -20.f));
+	model_cube.move(glm::vec3(0.f, 0.f, -20.f));
+	model_cube.scale(glm::vec3(2.f, 2.f, 2.f));
+
 	glEnable(GL_CULL_FACE);
 	//glFrontFace(GL_CW);
 	glEnable(GL_DEPTH_TEST);
@@ -103,14 +107,16 @@ int main(int argc, char *argv[]){
 		const GLfloat color[] = {0.0f, 0.0f, 0.0f, 1.0f};
 		glClearBufferfv(GL_COLOR, 0, color);
 
-		glm::mat4 trans(1.0f), lookat;
+		/*glm::mat4 trans(1.0f), lookat;
 		trans = trans *
 			glm::translate(glm::mat4(1.f), glm::vec3(0.f, -5.f, -30.f)) *
 			glm::scale(glm::mat4(1.f), glm::vec3(2.f, 2.f, 2.f));
 
 		model_cube.set_trans_mat(glm::translate(glm::mat4(1.f), glm::vec3(0.f, 8.f, 0.f)) *
 								glm::scale(glm::mat4(1.f), glm::vec3(2.f, 2.f, 2.f)) *
-								glm::rotate(glm::mat4(1.f), currentTime, glm::vec3(0.f, 0.1f, 0.f)));
+								glm::rotate(glm::mat4(1.f), currentTime, glm::vec3(0.f, 0.1f, 0.f)));*/
+
+		model_cube.rotate(0.02, glm::vec3(0.f, 1.f, 0.f));
 
 		//glUniformMatrix4fv(model_mat, 1, GL_FALSE, glm::value_ptr(trans));
 		glUniformMatrix4fv(proj_location, 1, GL_FALSE, glm::value_ptr(vp));

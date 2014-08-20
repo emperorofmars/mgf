@@ -15,8 +15,6 @@
 #include <SDL2/SDL_opengl.h>
 #include <SDL2/SDL_image.h>
 
-#endif
-
 #include "libs/mgf/mgf.h"
 
 #define GLM_FORCE_RADIANS
@@ -24,8 +22,8 @@
 #include "libs/glm/gtc/type_ptr.hpp"
 #include "libs/glm/gtc/matrix_transform.hpp"
 
-#define STB_IMAGE_IMPLEMENTATION
-#include "libs/stb_image/stb_image.h"
+#endif
+
 
 
 

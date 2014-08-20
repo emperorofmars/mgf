@@ -12,16 +12,21 @@ namespace mgf{
 //###############################################################  mesh class
 
 //###############################################################  constructor
-mesh::mesh(GLuint numVertices, GLuint numFaces, GLuint numUV, aiVector3D* vertices, aiVector3D** uv, aiFace* faces, unsigned int mat_index){
+mesh::mesh(GLuint numVertices, GLuint numFaces, GLuint numUV, GLuint numColors,
+		aiVector3D *vertices, aiVector3D **uv, aiFace *faces, aiColor4D **colors,
+		unsigned int mat_index){
 	vao = 0;
 	this->numVertices = numVertices;
 	this->numIndices = numFaces * 3;
 	this->numUV = numUV;
+	this->numColors = numColors;
 	this->vertices = vertices;
 	this->uv = uv;
+	this->colors = colors;
+	this->mat_index = mat_index;
+
 	this->indices = new GLuint[this->numIndices];
 	this->uvbuffer = new GLuint[this->numUV];
-	this->mat_index = mat_index;
 
 	for(unsigned int i = 0; i < numFaces; i++)
 	{
@@ -30,6 +35,7 @@ mesh::mesh(GLuint numVertices, GLuint numFaces, GLuint numUV, aiVector3D* vertic
 		indices[i*3+2] = (GLuint)faces[i].mIndices[2];
 	}
 	//std::cerr << "vertices: " << numVertices  << " faces: " << numFaces << std::endl;
+
 	glGenVertexArrays(1,&vao);
 	glBindVertexArray(vao);
 
@@ -69,11 +75,24 @@ mesh::~mesh(){
 }
 
 
+//###############################################################  material class
+
+//###############################################################  constructor
+material::material(aiColor4D diffuse){
+	this->diffuse = diffuse;
+}
+
+material::~material(){
+}
+
+
 //###############################################################  object class
 
 //###############################################################  constructor
-object::object(std::string path, GLuint uniform_location){
-	uniform_trans = uniform_location;
+object::object(std::string path, GLuint uniform_trans, GLuint uniform_color){
+	this->uniform_trans = uniform_trans;
+	this->uniform_color = uniform_color;
+	name = path;
 	load_file(path);
 }
 
@@ -82,7 +101,7 @@ object::~object(){
 		delete meshes[i];
 	}
 
-	std::cerr << "object deleted" << std::endl;
+	std::cerr << "object " << name << " deleted" << std::endl;
 }
 
 //###############################################################  load_file
@@ -95,7 +114,7 @@ bool object::load_file(std::string path){
 		aiProcess_SortByPType);
 
 	if(!scene){
-		std::cerr << "Importing model failed!" << importer.GetErrorString() << std::endl;
+		std::cerr << "Importing model " << name << " failed!" << importer.GetErrorString() << std::endl;
 		return 0;
 	}
 	//std::cerr << scene->mNumMeshes << " meshes detected" << std::endl;
@@ -104,15 +123,25 @@ bool object::load_file(std::string path){
 		mesh *temp = new mesh(scene->mMeshes[i]->mNumVertices,
 			scene->mMeshes[i]->mNumFaces,
 			scene->mMeshes[i]->GetNumUVChannels(),
+			scene->mMeshes[i]->GetNumColorChannels(),
 			scene->mMeshes[i]->mVertices,
 			scene->mMeshes[i]->mTextureCoords,
 			scene->mMeshes[i]->mFaces,
+			scene->mMeshes[i]->mColors,
 			scene->mMeshes[i]->mMaterialIndex);
 
 		meshes.push_back(temp);
 	}
+	//std::cerr << "num Materials: " << scene->mNumMaterials << std::endl;
+	for(unsigned int i = 0; i < scene->mNumMaterials; i++){
+		aiColor4D diffuse;
+		aiGetMaterialColor(scene->mMaterials[i], AI_MATKEY_COLOR_DIFFUSE, &diffuse);
+		//std::cerr << "color diffuse: " << diffuse.r << diffuse.g << diffuse.b << diffuse.a << std::endl;
+		material *temp = new material(diffuse);
+		materials.push_back(temp);
+	}
 
-	std::cerr << "Importing model succesful!" << std::endl;
+	std::cerr << "Importing model " << name << " succesful!" << std::endl;
 
 	return true;
 }
@@ -147,6 +176,8 @@ glm::mat4 object::scale(glm::vec3 scale){
 void object::render(){
 	glUniformMatrix4fv(uniform_trans, 1, GL_FALSE, glm::value_ptr(trans));
 	for(unsigned int i = 0; i < meshes.size(); i++){
+		aiColor4D *tmp = &materials[meshes[i]->mat_index]->diffuse;
+		glUniform4fv(uniform_color, 1, glm::value_ptr(glm::vec4(tmp->r, tmp->g, tmp->b, tmp->a)));
         glBindVertexArray(meshes[i]->vao);
 		glDrawElements(GL_TRIANGLES, meshes[i]->numIndices * sizeof(unsigned int), GL_UNSIGNED_INT, 0);
 	}

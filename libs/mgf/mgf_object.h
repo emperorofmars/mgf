@@ -22,11 +22,11 @@
 #include "../../libs/glm/gtc/type_ptr.hpp"
 #include "../../libs/glm/gtc/matrix_transform.hpp"
 
-#endif
-
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
+
+#endif
 
 namespace mgf{
 
@@ -34,14 +34,17 @@ namespace mgf{
 class mesh{
 public:
 //###############################################################  constructor
-	mesh(GLuint numVertices, GLuint numFaces, GLuint numUV, aiVector3D* vertices, aiVector3D** uv, aiFace* faces, unsigned int mat_index);
+	mesh(GLuint numVertices, GLuint numFaces, GLuint numUV, GLuint numColors,
+		aiVector3D *vertices, aiVector3D **uv, aiFace *faces, aiColor4D **colors,
+		unsigned int mat_index);
 	~mesh();
 //###############################################################  variables
 	aiVector3D *vertices;
 	aiVector3D **uv;
 	GLuint *indices;
+	aiColor4D **colors;
 
-	GLuint numVertices, numIndices, numMaterials, numUV;
+	GLuint numVertices, numIndices, numMaterials, numUV, numColors;
 	GLuint elementbuffer, vertexbuffer, *uvbuffer;
 	GLuint vao;
 
@@ -50,11 +53,23 @@ protected:
 private:
 };
 
+//###############################################################  material class
+class material{
+public:
+//###############################################################  constructor
+	material(aiColor4D diffuse);
+	~material();
+//###############################################################  variables
+	aiColor4D diffuse;
+protected:
+private:
+};
+
 //###############################################################  object class
 class object{
 public:
 //###############################################################  constructor
-	object(std::string path, GLuint uniform_location = 0);
+	object(std::string path, GLuint uniform_trans = 0, GLuint uniform_color = 2);
 	~object();
 //###############################################################  load from file
 	bool load_file(std::string path);
@@ -69,9 +84,11 @@ public:
 	void render();
 //###############################################################  variables
 	std::vector<mesh *> meshes;
+	std::vector<material *> materials;
 	const aiScene* scene;
+	std::string name;
 
-	GLuint uniform_trans;
+	GLuint uniform_trans, uniform_color;
 	glm::mat4 trans;
 protected:
 private:

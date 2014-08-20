@@ -28,8 +28,9 @@
 #include "../../libs/glm/gtc/type_ptr.hpp"
 #include "../../libs/glm/gtc/matrix_transform.hpp"
 
-//#define STB_IMAGE_IMPLEMENTATION
-//#include "../../libs/stb_image/stb_image.h"
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 
 #endif
 

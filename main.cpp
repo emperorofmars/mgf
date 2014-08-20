@@ -21,17 +21,21 @@ int main(int argc, char *argv[]){
 	p.add_shader("res/shader/fragment_shader.glsl", GL_FRAGMENT_SHADER);
 	p.create_program();
 
-	mgf::camera cam;
+	mgf::camera cam(-80);
 
 	GLuint model_mat = glGetUniformLocation(p.get_program(), "model_mat");
 	GLuint proj_location = glGetUniformLocation(p.get_program(), "proj_matrix");
+	GLuint color_location = glGetUniformLocation(p.get_program(), "color");
 
-	mgf::object model_cube("res/models/cube/cube.obj", model_mat);
-	mgf::object model_car("res/models/car/car.obj", model_mat);
+	mgf::object model_cube("res/models/cube/cube.obj", model_mat, color_location);
+	mgf::object model_car("res/models/car/car_1.obj", model_mat, color_location);
 
-	model_car.move(glm::vec3(0.f, -10.f, -20.f));
+	//glUniform4fv(color_location, 1, glm::value_ptr(glm::vec4(0.5f, 0.5f, 0.5f, 1.f)));
+
+	model_car.scale(glm::vec3(2.f, 2.f, 2.f));
+	model_car.move(glm::vec3(0.f, -10.f, -5.f));
 	model_cube.move(glm::vec3(0.f, 0.f, -20.f));
-	model_cube.scale(glm::vec3(2.f, 2.f, 2.f));
+	model_cube.scale(glm::vec3(4.f, 4.f, 4.f));
 
 	glEnable(GL_CULL_FACE);
 	//glFrontFace(GL_CW);
@@ -43,25 +47,6 @@ int main(int argc, char *argv[]){
 	SDL_SetRelativeMouseMode(SDL_TRUE);
 
 	//TEXTURE
-
-	/*
-	GLuint texture;
-	glGenTextures(1, &texture);
-	glBindTexture(GL_TEXTURE_2D, texture);
-	int x, y, n;
-	unsigned char *data = stbi_load("res/images/cube.png", &x, &y, &n, 0);
-	if(data == NULL) std::cerr << "loading image FAILED" << std::endl;
-	else std::cerr << "loading image succesfull" << std::endl;
-
-	if(n == 3)
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, x, y, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-	else if(n == 4)
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, x, y, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	stbi_image_free(data);*/
-
 	GLuint texture;
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
@@ -100,6 +85,7 @@ int main(int argc, char *argv[]){
 		input.update();
 		glm::mat4 vp = cam.update(input.get_pos(), input.get_rot());
 
+		glUniform4fv(color_location, 1, glm::value_ptr(glm::vec4(0.5f, 0.5f, 0.5f, 1.f)));
 //###############################################  Rendering
 		g.current_window(0);
 		p.use();

@@ -69,7 +69,7 @@ private:
 class object{
 public:
 //###############################################################  constructor
-	object(std::string path, GLuint uniform_trans = 0, GLuint uniform_color = 2);
+	object(std::string path, GLuint uniform_trans = 1, GLuint uniform_color = 2);
 	~object();
 //###############################################################  load from file
 	bool load_file(std::string path);

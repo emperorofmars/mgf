@@ -37,10 +37,8 @@ public:
 //###############################################################  variables
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec3> normals;
-	std::vector<glm::vec2> texcoords;
+	std::vector<glm::vec3> texcoords;
 	std::vector<glm::ivec3> indices_vertex;
-	std::vector<glm::ivec3> indices_normals;
-	std::vector<glm::ivec3> indices_texcoords;
 	unsigned int material_index;
 	std::string name;
 	bool has_vertices, has_normals, has_texcoords;

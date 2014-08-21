@@ -53,9 +53,11 @@ bool model::load_file(std::string file){
 	name = file;
 	std::string line;
 	obj_mesh *m = new obj_mesh;
-	std::vector<glm::vec3> vertices;
+	//std::vector<glm::vec3> vertices;
 	std::vector<glm::vec3> normals;
-	std::vector<glm::vec2> texcoords;
+	std::vector<glm::vec3> texcoords;
+	std::vector<glm::ivec3> indices_normals;
+	std::vector<glm::ivec3> indices_texcoords;
 
 	while(getline(in, line)){
 		if(line.substr(0, 2) == "v "){
@@ -74,7 +76,7 @@ bool model::load_file(std::string file){
 		}
 		else if(line.substr(0, 2) == "vt"){
 			m->has_texcoords = 1;
-			glm::vec2 texcoord(0);
+			glm::vec3 texcoord(0);
 			sscanf(line.c_str(), "vt %f %f", &texcoord[0], &texcoord[1]);
 			//std::cerr << "vt " << texcoord[0] << " " << texcoord[1] << std::endl;
 			texcoords.push_back(texcoord);
@@ -88,8 +90,8 @@ bool model::load_file(std::string file){
 						&vert_index[1], &texcoord_index[1], &norm_index[1],
 						&vert_index[2], &texcoord_index[2], &norm_index[2]);
 				m->indices_vertex.push_back(vert_index);
-				m->indices_normals.push_back(norm_index);
-				m->indices_texcoords.push_back(texcoord_index);
+				indices_normals.push_back(norm_index);
+				indices_texcoords.push_back(texcoord_index);
 			}
 			else if(m->has_normals == 1 && m->has_texcoords == 0){
 				sscanf(line.c_str(), "f %d/%d %d/%d %d/%d",
@@ -97,8 +99,7 @@ bool model::load_file(std::string file){
 						&vert_index[1], &norm_index[1],
 						&vert_index[2], &norm_index[2]);
 				m->indices_vertex.push_back(vert_index);
-				m->indices_normals.push_back(norm_index);
-				m->indices_texcoords.push_back(texcoord_index);
+				indices_normals.push_back(norm_index);
 			}
 			else if(m->has_normals == 0 && m->has_texcoords == 1){
 				sscanf(line.c_str(), "f %d/%d %d/%d %d/%d",
@@ -106,8 +107,7 @@ bool model::load_file(std::string file){
 						&vert_index[1], &texcoord_index[1],
 						&vert_index[2], &texcoord_index[2]);
 				m->indices_vertex.push_back(vert_index);
-				m->indices_normals.push_back(norm_index);
-				m->indices_texcoords.push_back(texcoord_index);
+				indices_texcoords.push_back(texcoord_index);
 			}
 		}
 		else if(line[0] == '#'){
@@ -119,29 +119,31 @@ bool model::load_file(std::string file){
 	}
 
 	for(unsigned int i = 0; i < m->indices_vertex.size(); i++){
-		//m->vertices.push_back(vertices[m->indices_vertex[i][0]]);
-		//m->vertices.push_back(vertices[m->indices_vertex[i][1]]);
-		//m->vertices.push_back(vertices[m->indices_vertex[i][2]]);
-		if(m->has_normals){
-			m->normals.push_back(normals[m->indices_normals[i][0]]);
-			m->normals.push_back(normals[m->indices_normals[i][1]]);
-			m->normals.push_back(normals[m->indices_normals[i][2]]);
+		m->indices_vertex[i] -= 1;
+	}
+	if(m->has_normals){
+		for(unsigned int i = 0; i < indices_normals.size(); i++){
+			indices_normals[i] -= 1;
+			m->normals.push_back(normals[indices_normals[i][0]]);
+			m->normals.push_back(normals[indices_normals[i][1]]);
+			m->normals.push_back(normals[indices_normals[i][2]]);
 		}
-		if(m->has_texcoords){
-			m->texcoords.push_back(texcoords[m->indices_texcoords[i][0]]);
-			m->texcoords.push_back(texcoords[m->indices_texcoords[i][1]]);
+	}
+	if(m->has_texcoords){
+		for(unsigned int i = 0; i < indices_texcoords.size(); i++){
+			indices_texcoords[i] -= 1;
+			m->texcoords.push_back(texcoords[indices_texcoords[i][0]]);
+			m->texcoords.push_back(texcoords[indices_texcoords[i][1]]);
+			m->texcoords.push_back(texcoords[indices_texcoords[i][2]]);
 		}
 	}
 
 	/*for(unsigned int i = 0; i < m->vertices.size(); i++)
 		std::cerr << "vertices: " << m->vertices[i][0] << " " << m->vertices[i][1] << " " << m->vertices[i][2] << std::endl;
-
-	if(m->has_normals){
-		std::cerr << "has normals" << std::endl;
-	}
-	if(m->has_texcoords){
-		std::cerr << "has texcoords" << std::endl;
-	}*/
+	for(unsigned int i = 0; i < m->normals.size(); i++)
+		std::cerr << "normals: " << m->normals[i][0] << " " << m->normals[i][1] << " " << m->normals[i][2] << std::endl;*/
+	for(unsigned int i = 0; i < m->texcoords.size(); i++)
+		std::cerr << "texcoords: " << m->texcoords[i][0] << " " << m->texcoords[i][1] << std::endl;
 
 	meshes.push_back(m);
 
@@ -165,7 +167,7 @@ bool model::load_to_buffers(){
 
 	glGenBuffers(1, &uvbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
-	glBufferData(GL_ARRAY_BUFFER, meshes[0]->texcoords.size() * sizeof(glm::vec2), &meshes[0]->texcoords[0], GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, meshes[0]->texcoords.size() * sizeof(glm::vec3), &meshes[0]->texcoords[0], GL_STATIC_DRAW);
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(1);
 

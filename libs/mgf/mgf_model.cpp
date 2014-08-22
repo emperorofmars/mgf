@@ -30,141 +30,6 @@ obj_mesh::~obj_mesh(){
 	has_texcoords = 0;
 }
 
-//###############################################################  parse object
-bool obj_mesh::parse_object(std::ifstream &in, int *offset){
-	std::string line;
-	std::vector<glm::vec3> tmp_vertices;
-	std::vector<glm::vec3> tmp_texcoords;
-	std::vector<glm::vec3> tmp_normals;
-	std::vector<unsigned int> indices_vertex;
-	std::vector<unsigned int> indices_texcoords;
-	std::vector<unsigned int> indices_normals;
-	vertices.clear();
-	texcoords.clear();
-	normals.clear();
-
-	getline(in, line);
-	name = line.substr(2);
-	//std::cerr << name << std::endl;
-
-	while(getline(in, line)){
-		//std::cerr << "line: " << in.tellg() << std::endl;
-		if(line.substr(0, 2) == "v "){
-			has_vertices = 1;
-			glm::vec3 vertex(0);
-			sscanf(line.c_str(), "v %f %f %f", &vertex[0], &vertex[1], &vertex[2]);
-			tmp_vertices.push_back(vertex);
-			//std::cerr << "v " << vertex[0] << " " << vertex[1] << " " << vertex[2] << std::endl;
-		}
-		else if(line.substr(0, 2) == "vt"){
-			has_texcoords = 1;
-			glm::vec3 texcoord(0);
-			sscanf(line.c_str(), "vt %f %f", &texcoord[0], &texcoord[1]);
-			//std::cerr << "vt " << texcoord[0] << " " << texcoord[1] << std::endl;
-			tmp_texcoords.push_back(texcoord);
-		}
-		else if(line.substr(0, 2) == "vn"){
-			has_normals = 1;
-			glm::vec3 normal(0);
-			sscanf(line.c_str(), "vn %f %f %f", &normal[0], &normal[1], &normal[2]);
-			//std::cerr << "vn " << normal[0] << " " << normal[1] << " " << normal[2] << std::endl;
-			tmp_normals.push_back(normal);
-		}
-		else if(line.substr(0, 2) == "f "){
-			std::istringstream s(line.substr(2));
-			unsigned int vert_index[3], norm_index[3], texcoord_index[3];
-			if(has_normals == 1 && has_texcoords == 1){
-				sscanf(line.c_str(), "f %d/%d/%d %d/%d/%d %d/%d/%d",
-						&vert_index[0], &texcoord_index[0], &norm_index[0],
-						&vert_index[1], &texcoord_index[1], &norm_index[1],
-						&vert_index[2], &texcoord_index[2], &norm_index[2]);
-				indices_vertex.push_back(vert_index[0]);
-				indices_vertex.push_back(vert_index[1]);
-				indices_vertex.push_back(vert_index[2]);
-				indices_normals.push_back(norm_index[0]);
-				indices_normals.push_back(norm_index[1]);
-				indices_normals.push_back(norm_index[2]);
-				indices_texcoords.push_back(texcoord_index[0]);
-				indices_texcoords.push_back(texcoord_index[1]);
-				indices_texcoords.push_back(texcoord_index[2]);
-			}
-			else if(has_normals == 1 && has_texcoords == 0){
-				sscanf(line.c_str(), "f %d//%d %d//%d %d//%d",
-						&vert_index[0], &norm_index[0],
-						&vert_index[1], &norm_index[1],
-						&vert_index[2], &norm_index[2]);
-				indices_vertex.push_back(vert_index[0]);
-				indices_vertex.push_back(vert_index[1]);
-				indices_vertex.push_back(vert_index[2]);
-				indices_normals.push_back(norm_index[0]);
-				indices_normals.push_back(norm_index[1]);
-				indices_normals.push_back(norm_index[2]);
-			}
-			else if(has_normals == 0 && has_texcoords == 1){
-				sscanf(line.c_str(), "f %d/%d %d/%d %d/%d",
-						&vert_index[0], &texcoord_index[0],
-						&vert_index[1], &texcoord_index[1],
-						&vert_index[2], &texcoord_index[2]);
-				indices_vertex.push_back(vert_index[0]);
-				indices_vertex.push_back(vert_index[1]);
-				indices_vertex.push_back(vert_index[2]);
-				indices_texcoords.push_back(texcoord_index[0]);
-				indices_texcoords.push_back(texcoord_index[1]);
-				indices_texcoords.push_back(texcoord_index[2]);
-			}
-		}
-		if(line.substr(0, 2) == "o "){
-			break;
-		}
-		else if(line.substr(0, 2) == "# "){
-			//ignore
-		}
-		else{
-			//implement later
-		}
-
-		if(in.peek() == 'o'){
-			//std::cerr << (char)in.peek() << std::endl;
-			break;
-		}
-	}
-
-	for(unsigned int i = 0; i < indices_vertex.size(); i++){
-		indices_vertex[i] -= 1;
-		//std::cerr << "offset_vertex: " << indices_vertex[i] - offset[2] + 1 << std::endl;
-		vertices.push_back(tmp_vertices[indices_vertex[i] - offset[0]]);
-	}
-	offset[0] += tmp_vertices.size();
-	if(has_texcoords){
-		for(unsigned int i = 0; i < indices_texcoords.size(); i++){
-			indices_texcoords[i] -= 1;
-			texcoords.push_back(tmp_texcoords[indices_texcoords[i] - offset[1]]);
-		}
-		offset[1] += tmp_texcoords.size();
-	}
-	if(has_normals){
-		for(unsigned int i = 0; i < indices_normals.size(); i++){
-			indices_normals[i] -= 1;
-			//std::cerr << "offset_normal: " << indices_normals[i] - offset[2] + 1 << std::endl;
-			normals.push_back(tmp_normals[indices_normals[i] - offset[2]]);
-		}
-		offset[2] += tmp_normals.size();
-	}
-
-	/*for(unsigned int i = 0; i < vertices.size(); i++)
-		std::cerr << "vertices: " << vertices[i][0] << " " << vertices[i][1] << " " << vertices[i][2] << std::endl;
-	for(unsigned int i = 0; i < normals.size(); i++)
-		std::cerr << "normals: " << normals[i][0] << " " << normals[i][1] << " " << normals[i][2] << std::endl;
-	for(unsigned int i = 0; i < texcoords.size(); i++)
-		std::cerr << "texcoords: " << i + 1 << " : " << texcoords[i][0] << " " << texcoords[i][1] << std::endl;*/
-
-	/*std::cerr << "vertex_size: " << vertices.size() << std::endl;
-	std::cerr << "texcoords_size: " << texcoords.size() << std::endl;
-	std::cerr << "normals_size: " << normals.size() << std::endl << std::endl;*/
-
-	return true;
-}
-
 
 //###############################################################  model class
 
@@ -183,6 +48,7 @@ model::~model(){
 
 //###############################################################  load from file
 bool model::load_file(std::string file){
+	std::cerr << "loading file: " << file << std::endl;
 	std::ifstream in(file);
 	if(!in.is_open()){
 		std::cerr << "failed to load file: " << file << std::endl;
@@ -190,29 +56,156 @@ bool model::load_file(std::string file){
 	}
 	name = file;
 	std::string line;
-	obj_mesh *m = new obj_mesh;
-	int offset[3];
-	offset[0] = 0; offset[1] = 0; offset[2] = 0;
+	std::vector<glm::vec3> tmp_vertices;
+	std::vector<glm::vec3> tmp_texcoords;
+	std::vector<glm::vec3> tmp_normals;
+	std::vector<std::vector<unsigned int>> indices_vertex;
+	std::vector<std::vector<unsigned int>> indices_texcoords;
+	std::vector<std::vector<unsigned int>> indices_normals;
+	std::vector<bool> has_vertices;
+	std::vector<bool> has_texcoords;
+	std::vector<bool> has_normals;
 
-	while(1){
-		if(in.peek() == 'o'){
-			m->parse_object(in, offset);
-			meshes.push_back(m);
-			m = new obj_mesh;
+	unsigned int cursize = 0;
+
+	while(getline(in, line)){
+		if(line.substr(0, 2) == "v "){
+			has_vertices[cursize - 1] = 1;
+			glm::vec3 vertex(0);
+			sscanf(line.c_str(), "v %f %f %f", &vertex[0], &vertex[1], &vertex[2]);
+			tmp_vertices.push_back(vertex);
+			//std::cerr << "v " << vertex[0] << " " << vertex[1] << " " << vertex[2] << std::endl;
 		}
-		else if(in.eof() == false){
-			//std::cerr << (char)in.peek() << std::endl;
-			getline(in, line);
+		else if(line.substr(0, 2) == "vt"){
+			has_texcoords[cursize - 1] = 1;
+			glm::vec3 texcoord(0);
+			sscanf(line.c_str(), "vt %f %f", &texcoord[0], &texcoord[1]);
+			//std::cerr << "vt " << texcoord[0] << " " << texcoord[1] << std::endl;
+			tmp_texcoords.push_back(texcoord);
 		}
-		else break;
+		else if(line.substr(0, 2) == "vn"){
+			has_normals[cursize - 1] = 1;
+			glm::vec3 normal(0);
+			sscanf(line.c_str(), "vn %f %f %f", &normal[0], &normal[1], &normal[2]);
+			//std::cerr << "vn " << normal[0] << " " << normal[1] << " " << normal[2] << std::endl;
+			tmp_normals.push_back(normal);
+		}
+		else if(line.substr(0, 2) == "f "){
+			std::istringstream s(line.substr(2));
+			unsigned int vert_index[3], norm_index[3], texcoord_index[3];
+			if(has_normals[cursize - 1] == 1 && has_texcoords[cursize - 1] == 1){
+				sscanf(line.c_str(), "f %d/%d/%d %d/%d/%d %d/%d/%d",
+						&vert_index[0], &texcoord_index[0], &norm_index[0],
+						&vert_index[1], &texcoord_index[1], &norm_index[1],
+						&vert_index[2], &texcoord_index[2], &norm_index[2]);
+				indices_vertex[cursize - 1].push_back(vert_index[0]);
+				indices_vertex[cursize - 1].push_back(vert_index[1]);
+				indices_vertex[cursize - 1].push_back(vert_index[2]);
+				indices_normals[cursize - 1].push_back(norm_index[0]);
+				indices_normals[cursize - 1].push_back(norm_index[1]);
+				indices_normals[cursize - 1].push_back(norm_index[2]);
+				indices_texcoords[cursize - 1].push_back(texcoord_index[0]);
+				indices_texcoords[cursize - 1].push_back(texcoord_index[1]);
+				indices_texcoords[cursize - 1].push_back(texcoord_index[2]);
+			}
+			else if(has_normals[cursize - 1] == 1 && has_texcoords[cursize - 1] == 0){
+				sscanf(line.c_str(), "f %d//%d %d//%d %d//%d",
+						&vert_index[0], &norm_index[0],
+						&vert_index[1], &norm_index[1],
+						&vert_index[2], &norm_index[2]);
+				indices_vertex[cursize - 1].push_back(vert_index[0]);
+				indices_vertex[cursize - 1].push_back(vert_index[1]);
+				indices_vertex[cursize - 1].push_back(vert_index[2]);
+				indices_normals[cursize - 1].push_back(norm_index[0]);
+				indices_normals[cursize - 1].push_back(norm_index[1]);
+				indices_normals[cursize - 1].push_back(norm_index[2]);
+			}
+			else if(has_normals[cursize - 1] == 0 && has_texcoords[cursize - 1] == 1){
+				sscanf(line.c_str(), "f %d/%d %d/%d %d/%d",
+						&vert_index[0], &texcoord_index[0],
+						&vert_index[1], &texcoord_index[1],
+						&vert_index[2], &texcoord_index[2]);
+				indices_vertex[cursize - 1].push_back(vert_index[0]);
+				indices_vertex[cursize - 1].push_back(vert_index[1]);
+				indices_vertex[cursize - 1].push_back(vert_index[2]);
+				indices_texcoords[cursize - 1].push_back(texcoord_index[0]);
+				indices_texcoords[cursize - 1].push_back(texcoord_index[1]);
+				indices_texcoords[cursize - 1].push_back(texcoord_index[2]);
+			}
+		}
+		if(line.substr(0, 2) == "o "){
+			cursize++;
+			indices_vertex.resize(cursize);
+			indices_texcoords.resize(cursize);
+			indices_normals.resize(cursize);
+			has_vertices.resize(cursize);
+			has_texcoords.resize(cursize);
+			has_normals.resize(cursize);
+			has_vertices[cursize - 1] = 0;
+			has_texcoords[cursize - 1] = 0;
+			has_normals[cursize - 1] = 0;
+			std::cerr << line.substr(2) << " " << indices_vertex.size() << std::endl;
+		}
+		else if(line.substr(0, 2) == "# "){
+			//ignore
+		}
+		else{
+			//implement later
+		}
+		//std::cerr << (char)in.peek() << std::endl;
 	}
+	std::cerr << "bla" << std::endl;
+
+	for(unsigned int i = 0; i < indices_vertex.size(); i++){
+		obj_mesh *m = new obj_mesh;
+		if(has_vertices[i] == 1){
+			m->has_vertices = 1;
+			for(unsigned int j = 0; j < indices_vertex[i].size(); j++){
+				indices_vertex[i][j] -= 1;
+				m->vertices.push_back(tmp_vertices[indices_vertex[i][j]]);
+			}
+		}
+		if(has_texcoords[i] == 1){
+			m->has_texcoords = 1;
+			for(unsigned int j = 0; j < indices_texcoords[i].size(); j++){
+				indices_texcoords[i][j] -= 1;
+				m->texcoords.push_back(tmp_texcoords[indices_texcoords[i][j]]);
+			}
+		}
+		if(has_normals[i] == 1){
+			m->has_normals = 1;
+			for(unsigned int j = 0; j < indices_normals[i].size(); j++){
+				indices_normals[i][j] -= 1;
+				m->normals.push_back(tmp_normals[indices_normals[i][j]]);
+			}
+		}
+		meshes.push_back(m);
+	}
+
+	/*for(unsigned int i = 0; i < vertices.size(); i++)
+		std::cerr << "vertices: " << vertices[i][0] << " " << vertices[i][1] << " " << vertices[i][2] << std::endl;
+	for(unsigned int i = 0; i < normals.size(); i++)
+		std::cerr << "normals: " << normals[i][0] << " " << normals[i][1] << " " << normals[i][2] << std::endl;
+	for(unsigned int i = 0; i < texcoords.size(); i++)
+		std::cerr << "texcoords: " << i + 1 << " : " << texcoords[i][0] << " " << texcoords[i][1] << std::endl;*/
+
+	/*std::cerr << "vertex_size: " << vertices.size() << std::endl;
+	std::cerr << "texcoords_size: " << texcoords.size() << std::endl;
+	std::cerr << "normals_size: " << normals.size() << std::endl << std::endl;*/
+
+	/*std::cerr << "bla" << std::endl;
+	for(unsigned int i = 0; i < meshes.size(); i++){
+		for(unsigned int j = 0; j < meshes[i]->vertices.size(); j++){
+			std::cerr << "mesh: " << j << " vertices: " << meshes[i]->vertices[j][0] << " " << meshes[i]->vertices[j][1] << " " << meshes[i]->vertices[j][2] << std::endl;
+		}
+	}*/
 
 	std::cerr << "loaded successfully: " << file << std::endl;
 	return true;
 }
 
 bool model::load_to_buffers(){
-	//std::cerr << meshes.size() << std::endl;
+	std::cerr << meshes.size() << std::endl;
 	for(unsigned int i = 0; i < meshes.size(); i++){
 		glGenVertexArrays(1, &meshes[i]->vao);
 		glBindVertexArray(meshes[i]->vao);

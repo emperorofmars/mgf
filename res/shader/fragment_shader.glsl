@@ -12,7 +12,7 @@ in VS_OUT{
 void main(void){
     //color = fs_in.uv;
     //color = texelFetch(tex, ivec2(gl_FragCoord.xy), 0);
-	color = texture(tex, vec2(fs_in.uv.x, fs_in.uv.y));
+	color = texture(tex, vec2(fs_in.uv.x, 1 - fs_in.uv.y));
 	color = normalize(color + fs_in.color);
 	//color = fs_in.color;
 }

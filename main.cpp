@@ -28,14 +28,14 @@ int main(int argc, char *argv[]){
 	GLuint color_location = glGetUniformLocation(p.get_program(), "color");
 
 	mgf::object model_cube("res/models/cube/cube.obj", model_mat, color_location);
-	mgf::object model_car("res/models/car/car_1.obj", model_mat, color_location);
+	//mgf::object model_car("res/models/car/car_1.obj", model_mat, color_location);
 
 	mgf::model obj_model_car("res/models/cube/cube.obj", model_mat, color_location);
 
 	//glUniform4fv(color_location, 1, glm::value_ptr(glm::vec4(0.5f, 0.5f, 0.5f, 1.f)));
 
-	model_car.scale(glm::vec3(2.f, 2.f, 2.f));
-	model_car.move(glm::vec3(0.f, -10.f, -5.f));
+	//model_car.scale(glm::vec3(2.f, 2.f, 2.f));
+	//model_car.move(glm::vec3(0.f, -10.f, -5.f));
 	model_cube.move(glm::vec3(0.f, 0.f, -20.f));
 	model_cube.scale(glm::vec3(4.f, 4.f, 4.f));
 
@@ -100,7 +100,7 @@ int main(int argc, char *argv[]){
 		glUniformMatrix4fv(proj_location, 1, GL_FALSE, glm::value_ptr(vp));
 
 		model_cube.render();
-		model_car.render();
+		//model_car.render();
 
 		obj_model_car.render();
 

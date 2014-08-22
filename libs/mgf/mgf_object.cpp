@@ -28,13 +28,16 @@ mesh::mesh(GLuint numVertices, GLuint numFaces, GLuint numUV, GLuint numColors,
 	this->indices = new GLuint[this->numIndices];
 	this->uvbuffer = new GLuint[this->numUV];
 
-	for(unsigned int i = 0; i < numFaces; i++)
-	{
+	for(unsigned int i = 0; i < numFaces; i++){
 		indices[i*3] = (GLuint)faces[i].mIndices[0];
 		indices[i*3+1] = (GLuint)faces[i].mIndices[1];
 		indices[i*3+2] = (GLuint)faces[i].mIndices[2];
 	}
 	//std::cerr << "vertices: " << numVertices  << " faces: " << numFaces << std::endl;
+
+	/*for(unsigned int i = 0; i < 24; i++){
+		std::cerr << "uv: " << i + 1 << " : "<< uv[0][i][0] << " " << uv[0][i][1] << std::endl;
+	}*/
 
 	glGenVertexArrays(1,&vao);
 	glBindVertexArray(vao);

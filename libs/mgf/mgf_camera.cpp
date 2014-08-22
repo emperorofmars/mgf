@@ -39,7 +39,6 @@ glm::mat4 camera::update(glm::vec3 pos_, glm::vec3 rot_){
 	int y = rot_[1];
 	int z = rot_[2];
 
-
 	if(mode == 0){	//euler
 		rot[0] += (float)x * 0.008f * mouse_speed;
 		rot[1] -= (float)y * 0.008f * mouse_speed;

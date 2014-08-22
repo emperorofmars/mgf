@@ -34,6 +34,8 @@ public:
 //###############################################################  constructor
 	obj_mesh();
 	~obj_mesh();
+//###############################################################  parse object
+	bool parse_object(std::ifstream &in, int *offset);
 //###############################################################  variables
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec3> normals;

@@ -31,6 +31,17 @@ obj_mesh::~obj_mesh(){
 }
 
 
+//###############################################################  obj_material class
+
+//###############################################################  constructor
+obj_material::obj_material(){
+	color_diffuse = glm::vec3(0);
+}
+
+obj_material::~obj_material(){
+}
+
+
 //###############################################################  model class
 
 //###############################################################  constructor
@@ -69,6 +80,10 @@ bool model::load_file(std::string file){
 	std::vector<std::string> names;
 
 	unsigned int cursize = 0;
+
+	obj_material *mat = new obj_material;
+	mat->color_diffuse = glm::vec3(1.0f, 0.5f, 0.7f);
+	materials.push_back(mat);
 
 	while(getline(in, line)){
 		if(line.substr(0, 2) == "v "){
@@ -170,7 +185,7 @@ bool model::load_file(std::string file){
 				has_vertices[cursize - 1] = has_vertices[cursize - 2];
 				has_texcoords[cursize - 1] = has_texcoords[cursize - 2];
 				has_normals[cursize - 1] = has_normals[cursize - 2];
-				material_index[cursize - 1] = 0;	//TODO
+				material_index[cursize - 1] = get_mtl_index(line.substr(7));
 				names[cursize - 1] = names[cursize - 2];
 
 				/*std::cerr << indices_vertex[cursize - 2].size() << std::endl << std::endl;
@@ -178,12 +193,22 @@ bool model::load_file(std::string file){
 				std::cerr << line.substr(7) << std::endl;*/
 			}
 			else{
-				material_index[cursize - 1] = 0;	//TODO
+				material_index[cursize - 1] = get_mtl_index(line.substr(7));
 
 				/*std::cerr << indices_vertex[cursize - 1].size() << std::endl << std::endl;
 				std::cerr << "new 2.2 " << std::endl;
 				std::cerr << line.substr(7) << std::endl;*/
 			}
+		}
+		else if(line.substr(0, 6) == "mtllib"){
+			std::string mtl_loc = file;
+			for(unsigned int i = mtl_loc.size() - 1; i > 0; i--){
+				if(mtl_loc[i] == '/') break;
+				else mtl_loc.erase(mtl_loc.begin() + i);
+			}
+			mtl_loc.append(line.substr(7));
+			load_mtl(mtl_loc);
+			//std::cerr << mtl_loc << std::endl;
 		}
 		else if(line.substr(0, 2) == "# "){
 			//ignore
@@ -196,6 +221,7 @@ bool model::load_file(std::string file){
 
 	for(unsigned int i = 0; i < indices_vertex.size(); i++){
 		obj_mesh *m = new obj_mesh;
+		m->material_index = material_index[i];
 		if(has_vertices[i] == 1){
 			m->has_vertices = 1;
 			for(unsigned int j = 0; j < indices_vertex[i].size(); j++){
@@ -240,6 +266,49 @@ bool model::load_file(std::string file){
 
 	std::cerr << "loaded successfully: " << file << std::endl;
 	return true;
+}
+
+bool model::load_mtl(std::string file){
+	//std::cerr << "loading mtl: " << file << std::endl;
+	std::ifstream in(file);
+	if(!in.is_open()){
+		std::cerr << "failed to load mtl: " << file << std::endl;
+		return false;
+	}
+	std::string line;
+	obj_material *mat = NULL;
+
+	while(getline(in, line)){
+		if(line.substr(0, 6) == "newmtl"){
+			if(mat != NULL) materials.push_back(mat);
+			mat = new obj_material;
+			mat->name = line.substr(7);
+			//std::cerr << mat->name << std::endl;
+		}
+		else if(line.substr(0, 2) == "Kd"){
+			sscanf(line.c_str(), "Kd %f %f %f", &mat->color_diffuse[0], &mat->color_diffuse[1], &mat->color_diffuse[2]);
+		}
+		else{
+			//implement later
+		}
+	}
+	if(mat != NULL) materials.push_back(mat);
+
+	//std::cerr << "materials_size: " << materials.size() << std::endl;
+	std::cerr << "loaded successfully mtl: " << file << std::endl;
+	return true;
+}
+
+unsigned int model::get_mtl_index(std::string name){
+	unsigned int index = 0;
+	for(unsigned int i = 0; i < materials.size(); i++){
+		if(materials[i]->name == name){
+			index = i;
+			break;
+		}
+	}
+	//std::cerr << "index: " << index << " " << materials.size() << std::endl;
+	return index;
 }
 
 bool model::load_to_buffers(){
@@ -299,8 +368,8 @@ void model::render(){
 	glUniformMatrix4fv(uniform_trans, 1, GL_FALSE, glm::value_ptr(trans));
 	for(unsigned int i = 0; i < meshes.size(); i++){
 		if(meshes[i]->has_vertices){
+			glUniform4fv(uniform_color, 1, glm::value_ptr(glm::vec4(materials[meshes[i]->material_index]->color_diffuse, 1.f)));
 			glBindVertexArray(meshes[i]->vao);
-			glUniform4fv(uniform_color, 1, glm::value_ptr(glm::vec4(0.5f, 0.5f, 0.5f, 1.f)));
 			glDrawArrays(GL_TRIANGLES, 0, meshes[i]->vertices.size() * sizeof(glm::vec3));
 		}
 	}

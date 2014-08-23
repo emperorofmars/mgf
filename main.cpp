@@ -30,8 +30,8 @@ int main(int argc, char *argv[]){
 	mgf::object model_cube("res/models/cube/cube.obj", model_mat, color_location);
 	//mgf::object model_car("res/models/car/car_1.obj", model_mat, color_location);
 
-	mgf::model obj_model_cube("res/models/cube_1.obj", model_mat, color_location);
-	mgf::model obj_model_car("res/models/DeLorean_Final.obj", model_mat, color_location);
+	mgf::model obj_model_cube("res/models/cube/cube.obj", model_mat, color_location);
+	mgf::model obj_model_car("res/models/car/DeLorean_Final.obj", model_mat, color_location);
 
 	//glUniform4fv(color_location, 1, glm::value_ptr(glm::vec4(0.5f, 0.5f, 0.5f, 1.f)));
 

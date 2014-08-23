@@ -48,6 +48,22 @@ protected:
 private:
 };
 
+
+//###############################################################  obj_material class
+class obj_material{
+public:
+//###############################################################  constructor
+	obj_material();
+	~obj_material();
+//###############################################################  variables
+	unsigned int material_index;
+	std::string name;
+	glm::vec3 color_diffuse;
+protected:
+private:
+};
+
+
 //###############################################################  model class
 class model{
 public:
@@ -56,6 +72,8 @@ public:
 	~model();
 //###############################################################  load from file
 	bool load_file(std::string file);
+	bool load_mtl(std::string file);
+	unsigned int get_mtl_index(std::string name);
 	bool load_to_buffers();
 //###############################################################  transformation matrix
 	glm::mat4 get_trans_mat();
@@ -68,6 +86,7 @@ public:
 	void render();
 //###############################################################  variables
 	std::vector<obj_mesh *> meshes;
+	std::vector<obj_material *> materials;
 	std::string name;
 
 	GLuint elementbuffer, vertexbuffer, uvbuffer;

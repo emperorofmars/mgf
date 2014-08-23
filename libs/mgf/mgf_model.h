@@ -57,6 +57,13 @@ public:
 //###############################################################  load from file
 	bool load_file(std::string file);
 	bool load_to_buffers();
+//###############################################################  transformation matrix
+	glm::mat4 get_trans_mat();
+	void set_trans_mat(glm::mat4 mat);
+//###############################################################  move
+	glm::mat4 move(glm::vec3 mov);
+	glm::mat4 rotate(float degrees, glm::vec3 axis);
+	glm::mat4 scale(glm::vec3 scale);
 //###############################################################  render
 	void render();
 //###############################################################  variables

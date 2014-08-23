@@ -65,6 +65,8 @@ bool model::load_file(std::string file){
 	std::vector<bool> has_vertices;
 	std::vector<bool> has_texcoords;
 	std::vector<bool> has_normals;
+	std::vector<unsigned int> material_index;
+	std::vector<std::string> names;
 
 	unsigned int cursize = 0;
 
@@ -91,7 +93,7 @@ bool model::load_file(std::string file){
 			tmp_normals.push_back(normal);
 		}
 		else if(line.substr(0, 2) == "f "){
-			std::istringstream s(line.substr(2));
+			//std::cerr << "face" << std::endl;
 			unsigned int vert_index[3], norm_index[3], texcoord_index[3];
 			if(has_normals[cursize - 1] == 1 && has_texcoords[cursize - 1] == 1){
 				sscanf(line.c_str(), "f %d/%d/%d %d/%d/%d %d/%d/%d",
@@ -133,7 +135,7 @@ bool model::load_file(std::string file){
 				indices_texcoords[cursize - 1].push_back(texcoord_index[2]);
 			}
 		}
-		if(line.substr(0, 2) == "o "){
+		else if(line.substr(0, 2) == "o "){
 			cursize++;
 			indices_vertex.resize(cursize);
 			indices_texcoords.resize(cursize);
@@ -141,10 +143,47 @@ bool model::load_file(std::string file){
 			has_vertices.resize(cursize);
 			has_texcoords.resize(cursize);
 			has_normals.resize(cursize);
+			material_index.resize(cursize);
+			names.resize(cursize);
 			has_vertices[cursize - 1] = 0;
 			has_texcoords[cursize - 1] = 0;
 			has_normals[cursize - 1] = 0;
-			std::cerr << line.substr(2) << " " << indices_vertex.size() << std::endl;
+			material_index[cursize - 1] = 0;
+			names[cursize - 1] = line.substr(2);
+
+			/*if(cursize > 1) std::cerr << indices_vertex[cursize - 2].size() << std::endl << std::endl;
+			else std::cerr << "0" << std::endl << std::endl;
+			std::cerr << "new 1" << std::endl;
+			std::cerr << line.substr(2) << std::endl;*/
+		}
+		else if(line.substr(0, 6) == "usemtl"){
+			if(indices_vertex[cursize - 1].size() > 0){
+				cursize++;
+				indices_vertex.resize(cursize);
+				indices_texcoords.resize(cursize);
+				indices_normals.resize(cursize);
+				has_vertices.resize(cursize);
+				has_texcoords.resize(cursize);
+				has_normals.resize(cursize);
+				material_index.resize(cursize);
+				names.resize(cursize);
+				has_vertices[cursize - 1] = has_vertices[cursize - 2];
+				has_texcoords[cursize - 1] = has_texcoords[cursize - 2];
+				has_normals[cursize - 1] = has_normals[cursize - 2];
+				material_index[cursize - 1] = 0;	//TODO
+				names[cursize - 1] = names[cursize - 2];
+
+				/*std::cerr << indices_vertex[cursize - 2].size() << std::endl << std::endl;
+				std::cerr << "new 2.1 " << std::endl;
+				std::cerr << line.substr(7) << std::endl;*/
+			}
+			else{
+				material_index[cursize - 1] = 0;	//TODO
+
+				/*std::cerr << indices_vertex[cursize - 1].size() << std::endl << std::endl;
+				std::cerr << "new 2.2 " << std::endl;
+				std::cerr << line.substr(7) << std::endl;*/
+			}
 		}
 		else if(line.substr(0, 2) == "# "){
 			//ignore
@@ -154,7 +193,6 @@ bool model::load_file(std::string file){
 		}
 		//std::cerr << (char)in.peek() << std::endl;
 	}
-	std::cerr << "bla" << std::endl;
 
 	for(unsigned int i = 0; i < indices_vertex.size(); i++){
 		obj_mesh *m = new obj_mesh;
@@ -180,6 +218,10 @@ bool model::load_file(std::string file){
 			}
 		}
 		meshes.push_back(m);
+
+		/*std::cerr << "vertex_size: " << m->vertices.size() << std::endl;
+		std::cerr << "texcoords_size: " << m->texcoords.size() << std::endl;
+		std::cerr << "normals_size: " << m->normals.size() << std::endl << std::endl;*/
 	}
 
 	/*for(unsigned int i = 0; i < vertices.size(); i++)
@@ -188,10 +230,6 @@ bool model::load_file(std::string file){
 		std::cerr << "normals: " << normals[i][0] << " " << normals[i][1] << " " << normals[i][2] << std::endl;
 	for(unsigned int i = 0; i < texcoords.size(); i++)
 		std::cerr << "texcoords: " << i + 1 << " : " << texcoords[i][0] << " " << texcoords[i][1] << std::endl;*/
-
-	/*std::cerr << "vertex_size: " << vertices.size() << std::endl;
-	std::cerr << "texcoords_size: " << texcoords.size() << std::endl;
-	std::cerr << "normals_size: " << normals.size() << std::endl << std::endl;*/
 
 	/*std::cerr << "bla" << std::endl;
 	for(unsigned int i = 0; i < meshes.size(); i++){
@@ -205,7 +243,7 @@ bool model::load_file(std::string file){
 }
 
 bool model::load_to_buffers(){
-	std::cerr << meshes.size() << std::endl;
+	//std::cerr << meshes.size() << std::endl;
 	for(unsigned int i = 0; i < meshes.size(); i++){
 		glGenVertexArrays(1, &meshes[i]->vao);
 		glBindVertexArray(meshes[i]->vao);
@@ -230,13 +268,41 @@ bool model::load_to_buffers(){
 	return true;
 }
 
+//###############################################################  transformation matrix
+glm::mat4 model::get_trans_mat(){
+	return trans;
+}
+
+void model::set_trans_mat(glm::mat4 mat){
+	trans = mat;
+	return;
+}
+
+//###############################################################  move
+glm::mat4 model::move(glm::vec3 mov){
+	trans *= glm::translate(glm::mat4(1.f), mov);
+	return trans;
+}
+
+glm::mat4 model::rotate(float degrees, glm::vec3 axis){
+	trans *= glm::rotate(glm::mat4(1.f), degrees, axis);
+	return trans;
+}
+
+glm::mat4 model::scale(glm::vec3 scale){
+	trans *= glm::scale(glm::mat4(1.f), scale);
+	return trans;
+}
+
 //###############################################################  render
 void model::render(){
 	glUniformMatrix4fv(uniform_trans, 1, GL_FALSE, glm::value_ptr(trans));
 	for(unsigned int i = 0; i < meshes.size(); i++){
-		glBindVertexArray(meshes[i]->vao);
-		glUniform4fv(uniform_color, 1, glm::value_ptr(glm::vec4(0.5f, 0.5f, 0.5f, 1.f)));
-		glDrawArrays(GL_TRIANGLES, 0, meshes[i]->vertices.size() * sizeof(glm::vec3));
+		if(meshes[i]->has_vertices){
+			glBindVertexArray(meshes[i]->vao);
+			glUniform4fv(uniform_color, 1, glm::value_ptr(glm::vec4(0.5f, 0.5f, 0.5f, 1.f)));
+			glDrawArrays(GL_TRIANGLES, 0, meshes[i]->vertices.size() * sizeof(glm::vec3));
+		}
 	}
 	return;
 }

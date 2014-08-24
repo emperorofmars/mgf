@@ -49,12 +49,20 @@ bool obj_material::load_texture(std::string file){
 	std::cerr << "texture: " << file << std::endl;
 	GLuint texture = 0;
 	texturebuffer.push_back(texture);
+
+	glActiveTexture(GL_TEXTURE0 + texturebuffer.size() - 1);
 	glGenTextures(1, &texturebuffer[texturebuffer.size() - 1]);
 	glBindTexture(GL_TEXTURE_2D, texturebuffer[texturebuffer.size() - 1]);
+
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+
 	SDL_Surface *image = IMG_Load(file.c_str());
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image->w, image->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, image->pixels);
+	//glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image->w, image->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, image->pixels);
+	glTexStorage2D(GL_TEXTURE_2D, 8, GL_RGBA32F, image->w, image->h);
+	glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, image->w, image->h, GL_RGBA, GL_UNSIGNED_BYTE, image->pixels);
+	glGenerateMipmap(GL_TEXTURE_2D);
+
     SDL_FreeSurface(image);
 	return true;
 }

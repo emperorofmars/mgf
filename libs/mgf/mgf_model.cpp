@@ -39,6 +39,36 @@ obj_material::obj_material(){
 }
 
 obj_material::~obj_material(){
+	for(unsigned int i = 0; i < texturebuffer.size(); i++){
+		glDeleteBuffers(1, &texturebuffer[i]);
+	}
+}
+
+//###############################################################  load from file
+bool obj_material::load_texture(std::string file){
+	std::cerr << "texture: " << file << std::endl;
+	GLuint texture = 0;
+	texturebuffer.push_back(texture);
+	glGenTextures(1, &texturebuffer[texturebuffer.size() - 1]);
+	glBindTexture(GL_TEXTURE_2D, texturebuffer[texturebuffer.size() - 1]);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	SDL_Surface *image = IMG_Load(file.c_str());
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image->w, image->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, image->pixels);
+    SDL_FreeSurface(image);
+	return true;
+}
+
+//###############################################################  use_mtl
+void obj_material::use_mtl(GLuint uniform_mat){
+	glUniform4fv(uniform_mat, 1, glm::value_ptr(glm::vec4(color_diffuse, 1.f)));
+	if(texturebuffer.size() > 0){
+		glBindTexture(GL_TEXTURE_2D, texturebuffer[0]);
+	}
+	else{
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+	return;
 }
 
 
@@ -288,6 +318,15 @@ bool model::load_mtl(std::string file){
 		else if(line.substr(0, 2) == "Kd"){
 			sscanf(line.c_str(), "Kd %f %f %f", &mat->color_diffuse[0], &mat->color_diffuse[1], &mat->color_diffuse[2]);
 		}
+		else if(line.substr(0, 6) == "map_Kd"){
+			std::string tex_loc = file;
+			for(unsigned int i = tex_loc.size() - 1; i > 0; i--){
+				if(tex_loc[i] == '/') break;
+				else tex_loc.erase(tex_loc.begin() + i);
+			}
+			tex_loc.append(line.substr(7));
+			mat->load_texture(tex_loc);
+		}
 		else{
 			//implement later
 		}
@@ -368,7 +407,8 @@ void model::render(){
 	glUniformMatrix4fv(uniform_trans, 1, GL_FALSE, glm::value_ptr(trans));
 	for(unsigned int i = 0; i < meshes.size(); i++){
 		if(meshes[i]->has_vertices){
-			glUniform4fv(uniform_color, 1, glm::value_ptr(glm::vec4(materials[meshes[i]->material_index]->color_diffuse, 1.f)));
+			//glUniform4fv(uniform_color, 1, glm::value_ptr(glm::vec4(materials[meshes[i]->material_index]->color_diffuse, 1.f)));
+			materials[meshes[i]->material_index]->use_mtl(uniform_color);
 			glBindVertexArray(meshes[i]->vao);
 			glDrawArrays(GL_TRIANGLES, 0, meshes[i]->vertices.size() * sizeof(glm::vec3));
 		}

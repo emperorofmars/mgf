@@ -55,10 +55,15 @@ public:
 //###############################################################  constructor
 	obj_material();
 	~obj_material();
+//###############################################################  load from file
+	bool load_texture(std::string file);
+//###############################################################  use_mtl
+	void use_mtl(GLuint uniform_mat);
 //###############################################################  variables
 	unsigned int material_index;
-	std::string name;
 	glm::vec3 color_diffuse;
+	std::vector<GLuint> texturebuffer;
+	std::string name;
 protected:
 private:
 };

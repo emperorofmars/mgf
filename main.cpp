@@ -21,7 +21,7 @@ int main(int argc, char *argv[]){
 	p.add_shader("res/shader/fragment_shader.glsl", GL_FRAGMENT_SHADER);
 	p.create_program();
 
-	mgf::camera cam(90 * M_PI / 180, 800 / 800, 0.1f, 1000.f, 1.f, 0.4f);
+	mgf::camera cam(90 * M_PI / 180, 800 / 800, 0.1f, 1000.f, 0.6f, 0.4f);
 
 	GLuint model_mat = glGetUniformLocation(p.get_program(), "model_mat");
 	GLuint proj_location = glGetUniformLocation(p.get_program(), "proj_matrix");

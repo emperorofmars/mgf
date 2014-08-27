@@ -62,6 +62,7 @@ public:
 //###############################################################  variables
 	unsigned int material_index;
 	glm::vec3 color_diffuse;
+	float alpha;
 	std::vector<GLuint> texturebuffer;
 	std::string name;
 protected:

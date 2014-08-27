@@ -36,6 +36,7 @@ obj_mesh::~obj_mesh(){
 //###############################################################  constructor
 obj_material::obj_material(){
 	color_diffuse = glm::vec3(0);
+	alpha = 1.f;
 }
 
 obj_material::~obj_material(){
@@ -69,13 +70,24 @@ bool obj_material::load_texture(std::string file){
 
 //###############################################################  use_mtl
 void obj_material::use_mtl(GLuint uniform_mat){
-	glUniform4fv(uniform_mat, 1, glm::value_ptr(glm::vec4(color_diffuse, 1.f)));
+	GLuint loc;
+	loc = glGetUniformLocation(uniform_mat, "material.color");
+	glUniform3fv(loc, 1, glm::value_ptr(glm::vec3(color_diffuse)));
+	loc = glGetUniformLocation(uniform_mat, "material.alpha");
+	glUniform1f(loc, alpha);
+
+	float has_texture;
 	if(texturebuffer.size() > 0){
+		has_texture = 1.f;
 		glBindTexture(GL_TEXTURE_2D, texturebuffer[0]);
 	}
 	else{
+		has_texture = 0.f;
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
+
+	loc = glGetUniformLocation(uniform_mat, "material.has_texture");
+	glUniform1f(loc, has_texture);
 	return;
 }
 

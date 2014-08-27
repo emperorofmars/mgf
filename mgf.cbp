@@ -56,7 +56,6 @@
 		<Unit filename="libs/mgf/mgf_object.h" />
 		<Unit filename="libs/mgf/mgf_shader.cpp" />
 		<Unit filename="libs/mgf/mgf_shader.h" />
-		<Unit filename="libs/mol/mol.inl" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<envvars />

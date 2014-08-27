@@ -25,12 +25,12 @@ int main(int argc, char *argv[]){
 
 	GLuint model_mat = glGetUniformLocation(p.get_program(), "model_mat");
 	GLuint proj_location = glGetUniformLocation(p.get_program(), "proj_matrix");
-	GLuint color_location = glGetUniformLocation(p.get_program(), "color");
+	GLuint material_location = glGetUniformLocation(p.get_program(), "material");
 
-	mgf::model model_cube("res/models/cube/cube.obj", model_mat, color_location);
-	mgf::model model_car("res/models/car/DeLorean_Final.obj", model_mat, color_location);
+	mgf::model model_cube("res/models/cube/cube.obj", model_mat, p.get_program());
+	mgf::model model_car("res/models/car/DeLorean_Final.obj", model_mat, p.get_program());
 
-	//glUniform4fv(color_location, 1, glm::value_ptr(glm::vec4(0.5f, 0.5f, 0.5f, 1.f)));
+	//glUniform4fv(material_location, 1, glm::value_ptr(glm::vec4(0.5f, 0.5f, 0.5f, 1.f)));
 
 	model_car.scale(glm::vec3(2.f, 2.f, 2.f));
 	model_car.move(glm::vec3(0.f, -10.f, -5.f));
@@ -74,13 +74,13 @@ int main(int argc, char *argv[]){
 		input.update();
 		glm::mat4 vp = cam.update(input.get_pos(), input.get_rot());
 
-		glUniform4fv(color_location, 1, glm::value_ptr(glm::vec4(0.5f, 0.5f, 0.5f, 1.f)));
+		//glUniform4fv(material_location, 1, glm::value_ptr(glm::vec4(0.5f, 0.5f, 0.5f, 1.f)));
 //###############################################  Rendering
 		g.current_window(0);
 		p.use();
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		const GLfloat color[] = {0.0f, 0.0f, 0.0f, 1.0f};
-		glClearBufferfv(GL_COLOR, 0, color);
+		//const GLfloat color[] = {0.0f, 0.0f, 0.0f, 1.0f};
+		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f)));
 
 		model_cube.rotate(0.02, glm::vec3(0.f, 1.f, 0.f));
 

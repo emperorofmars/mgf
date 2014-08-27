@@ -3,16 +3,20 @@
 layout (location = 0) in vec4 pos;
 layout (location = 1) in vec3 uv;
 
+struct mMaterial{
+	vec3 color;
+	float alpha;
+	float has_texture;
+};
+
 out VS_OUT{
 	vec3 uv;
-	vec4 color;
+	mMaterial material;
 }vs_out;
 
 uniform mat4 model_mat;
 uniform mat4 proj_matrix;
-uniform vec4 color;
-
-layout(binding = 0) uniform atomic_uint count;
+uniform mMaterial material;
 
 void main(void){
 	//memoryBarrierAtomicCounter();	//makes it go slow
@@ -20,5 +24,5 @@ void main(void){
 	//vs_out.color = sin(pos * 4.0) + vec4(0.5, 0.5, 0.5, 0.0);
 	//atomicCounterIncrement(count);	//makes it go slow
 	vs_out.uv = uv;
-	vs_out.color = color;
+	vs_out.material = material;
 }

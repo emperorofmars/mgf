@@ -5,23 +5,7 @@
 **	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
 */
 
-#ifndef MGF_LIBS
-#define MGF_LIBS
-
-#include <iostream>
-#include <vector>
-#include <fstream>
-#include <sstream>
-#include <SDL2/SDL.h>
-#include <GL/glew.h>
-#include <SDL2/SDL_opengl.h>
-
-#define GLM_FORCE_RADIANS
-#include "../../libs/glm/glm.hpp"
-#include "../../libs/glm/gtc/type_ptr.hpp"
-#include "../../libs/glm/gtc/matrix_transform.hpp"
-
-#endif
+#include "mgf_global.h"
 
 namespace mgf{
 

@@ -19,6 +19,8 @@ input::input(){
 	state.rotate_roll = 0;
 	state.rotate_x = 0;
 	state.rotate_y = 0;
+	state.quit = 0;
+	state.pause = 0;
 }
 
 input::~input(){
@@ -29,7 +31,28 @@ void input::setup(){
 }
 
 input_state input::update(){
-	SDL_PollEvent(&event);
+	while(SDL_PollEvent(&event) != 0){
+			if(event.type == SDL_QUIT) state.quit = true;
+			else{
+				if(event.type == SDL_KEYDOWN){
+					switch(event.key.keysym.sym){
+					case SDLK_q:
+						state.quit = true;
+						break;
+					case SDLK_ESCAPE:
+						if(SDL_GetRelativeMouseMode() == SDL_TRUE){
+							SDL_SetRelativeMouseMode(SDL_FALSE);
+							state.pause = true;
+						}
+						else{
+							SDL_SetRelativeMouseMode(SDL_TRUE);
+							state.pause = false;
+						}
+						break;
+					}
+				}
+			}
+		}
 
 	SDL_GetRelativeMouseState(&state.rotate_x, &state.rotate_y);
 
@@ -67,6 +90,9 @@ glm::vec3 input::get_rot(){
 	return glm::vec3(state.rotate_x, state.rotate_y, state.rotate_roll);
 }
 
+bool input::get_quit(){
+	return state.quit;
+}
 
 }
 

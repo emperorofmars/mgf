@@ -5,36 +5,24 @@
 **	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
 */
 
-#ifndef MGF_LIBS
-#define MGF_LIBS
-
-#include <iostream>
-#include <vector>
-#include <fstream>
-#include <sstream>
-#include <SDL2/SDL.h>
-#include <GL/glew.h>
-#include <SDL2/SDL_opengl.h>
-#include <SDL2/SDL_image.h>
-
-#endif
+#include "mgf_global.h"
 
 namespace mgf{
 
 
-//###############################################################  	mgf class
-class mgf{
+//###############################################################  	init class
+class init{
 public:
 //###############################################################  constructor
-	mgf(unsigned int screen_w = 800, unsigned int screen_h = 600, bool fullscreen = 0,
+	init(unsigned int screen_w = 800, unsigned int screen_h = 600, bool fullscreen = 0,
 			bool input_grabbed = 0, unsigned int monitor = 0, unsigned int framerate = 240);
-	~mgf();
+	~init();
 //###############################################################  setup
 	bool setup_window(unsigned int window_num = 0, unsigned int screen_w = 800, unsigned int screen_h = 600, bool fullscreen = 0,
 			bool input_grabbed = 0, unsigned int monitor = 0, unsigned int framerate = 240);
 	unsigned int add_window();
 //###############################################################  init
-	bool init();
+	bool init_all();
 	bool init_window(unsigned int window_num);
 //###############################################################  make current
 	void current_window(unsigned int window_num);

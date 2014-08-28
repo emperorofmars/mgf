@@ -7,9 +7,8 @@
 #include "gl_test.h"
 //###############################################  Main
 int main(int argc, char *argv[]){
-	SDL_Event event;
-	mgf::mgf g(800, 800, 0, 0, 0);
-	if(!g.init()) return 1;
+	mgf::init g(800, 800, 0, 0, 0);
+	if(!g.init_all()) return 1;
 
 	mgf::input input;
 
@@ -23,14 +22,11 @@ int main(int argc, char *argv[]){
 
 	mgf::camera cam(90 * M_PI / 180, 800 / 800, 0.1f, 1000.f, 0.6f, 0.4f);
 
-	GLuint model_mat = glGetUniformLocation(p.get_program(), "model_mat");
-	GLuint proj_location = glGetUniformLocation(p.get_program(), "proj_matrix");
-	GLuint material_location = glGetUniformLocation(p.get_program(), "material");
-
-	mgf::model model_cube("res/models/cube/cube.obj", model_mat, p.get_program());
-	mgf::model model_car("res/models/car/DeLorean_Final.obj", model_mat, p.get_program());
-
-	//glUniform4fv(material_location, 1, glm::value_ptr(glm::vec4(0.5f, 0.5f, 0.5f, 1.f)));
+	std::vector<mgf::model *> models;
+	mgf::model model_cube("res/models/cube/cube.obj");
+	mgf::model model_car("res/models/car/DeLorean_Final.obj");
+	models.push_back(&model_cube);
+	models.push_back(&model_car);
 
 	model_car.scale(glm::vec3(2.f, 2.f, 2.f));
 	model_car.move(glm::vec3(0.f, -10.f, -5.f));
@@ -45,49 +41,23 @@ int main(int argc, char *argv[]){
 	//glPointSize(5);
 
 	SDL_SetRelativeMouseMode(SDL_TRUE);
+	p.use();
 
 //###############################################  Gameloop
 	bool quit = false;
 	while(quit != true){
 //###############################################  Input Handling
 		float currentTime = SDL_GetTicks() / 1000.f;
-
-		while(SDL_PollEvent(&event) != 0){
-			if(event.type == SDL_QUIT) quit = true;
-			else{
-				if(event.type == SDL_KEYDOWN){
-					switch(event.key.keysym.sym){
-					case SDLK_q:
-						quit = true;
-						break;
-					case SDLK_ESCAPE:
-						if(SDL_GetRelativeMouseMode() == SDL_TRUE)
-							SDL_SetRelativeMouseMode(SDL_FALSE);
-						else
-							SDL_SetRelativeMouseMode(SDL_TRUE);
-						break;
-					}
-				}
-			}
-		}
-
 		input.update();
-		glm::mat4 vp = cam.update(input.get_pos(), input.get_rot());
+		quit = input.get_quit();
+		cam.update(input.get_pos(), input.get_rot());
 
-		//glUniform4fv(material_location, 1, glm::value_ptr(glm::vec4(0.5f, 0.5f, 0.5f, 1.f)));
 //###############################################  Rendering
-		g.current_window(0);
-		p.use();
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		//const GLfloat color[] = {0.0f, 0.0f, 0.0f, 1.0f};
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f)));
 
 		model_cube.rotate(0.02, glm::vec3(0.f, 1.f, 0.f));
-
-		glUniformMatrix4fv(proj_location, 1, GL_FALSE, glm::value_ptr(vp));
-
-		model_cube.render();
-		model_car.render();
+		mgf::render(models, cam, p.get_program());
 
 		g.swap_window(0);
 	}

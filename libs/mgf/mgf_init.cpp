@@ -9,10 +9,10 @@
 
 namespace mgf{
 
-//###############################################################  mgf class
+//###############################################################  init class
 
 //###############################################################  constructor
-mgf::mgf(unsigned int screen_w, unsigned int screen_h, bool fullscreen,
+init::init(unsigned int screen_w, unsigned int screen_h, bool fullscreen,
 		   bool input_grabbed, unsigned int monitor, unsigned int framerate)
 {
 	unsigned int w = add_window();
@@ -25,7 +25,7 @@ mgf::mgf(unsigned int screen_w, unsigned int screen_h, bool fullscreen,
 	mWindows[w].framerate = framerate;
 }
 
-mgf::~mgf(){
+init::~init(){
 	std::cerr << "closing SDL" << std::endl;
 	SDL_GL_DeleteContext(context);
 	context = NULL;
@@ -39,7 +39,7 @@ mgf::~mgf(){
 }
 
 //###############################################################  setup window
-bool mgf::setup_window(unsigned int window_num, unsigned int screen_w, unsigned int screen_h,
+bool init::setup_window(unsigned int window_num, unsigned int screen_w, unsigned int screen_h,
 				  bool fullscreen, bool input_grabbed, unsigned int monitor, unsigned int framerate)
 {
 	bool create = false;
@@ -55,18 +55,18 @@ bool mgf::setup_window(unsigned int window_num, unsigned int screen_w, unsigned 
 	mWindows[window_num].input_grabbed = input_grabbed;
 	mWindows[window_num].monitor = monitor;
 	mWindows[window_num].framerate = framerate;
-	if(create == true) mgf::init_window(window_num);
+	if(create == true) init::init_window(window_num);
 	return true;
 }
 
-unsigned int mgf::add_window(){
+unsigned int init::add_window(){
 	unsigned int s = mWindows.size();
 	mWindows.resize(s + 1);
 	return s;
 }
 
 //###############################################################  init_sdl
-bool mgf::init(){
+bool init::init_all(){
 	bool success = true;
 	if(SDL_Init(SDL_INIT_VIDEO) < 0){
 		std::cerr << "SDL_Init failed! SDL_Error: " << SDL_GetError() << std::endl;
@@ -141,7 +141,7 @@ bool mgf::init(){
 	return true;
 }
 
-bool mgf::init_window(unsigned int window_num){
+bool init::init_window(unsigned int window_num){
 	mWindows[window_num].window = SDL_CreateWindow("mgf", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, mWindows[window_num].screen_w,
 												   mWindows[window_num].screen_h, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
 	if(mWindows[window_num].window == NULL){
@@ -154,25 +154,25 @@ bool mgf::init_window(unsigned int window_num){
 }
 
 //###############################################################  make current
-void mgf::current_window(unsigned int window_num){
+void init::current_window(unsigned int window_num){
 	SDL_GL_MakeCurrent(mWindows[window_num].window, context);
 	return;
 }
 
 //###############################################################  swap window
-void mgf::swap_window(unsigned int window_num){
+void init::swap_window(unsigned int window_num){
 	SDL_GL_SwapWindow(mWindows[window_num].window);
 	return;
 }
 
-void mgf::swap_window(){
+void init::swap_window(){
 	for(unsigned int i = 0; i < mWindows.size(); i ++){
 		SDL_GL_SwapWindow(mWindows[i].window);
 	}
 	return;
 }
 
-void mgf::close_window(unsigned int window_num){
+void init::close_window(unsigned int window_num){
 	SDL_DestroyWindow(mWindows[window_num].window);
 	mWindows[window_num].window = NULL;
 	mWindows.erase(mWindows.begin() + window_num);

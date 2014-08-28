@@ -14,13 +14,13 @@ out VS_OUT{
 	mMaterial material;
 }vs_out;
 
-uniform mat4 model_mat;
-uniform mat4 proj_matrix;
+//uniform mat4 m_mat;
+uniform mat4 mvp_mat;
 uniform mMaterial material;
 
 void main(void){
 	//memoryBarrierAtomicCounter();	//makes it go slow
-	gl_Position = proj_matrix * model_mat * pos;
+	gl_Position = mvp_mat * pos;
 	//vs_out.color = sin(pos * 4.0) + vec4(0.5, 0.5, 0.5, 0.0);
 	//atomicCounterIncrement(count);	//makes it go slow
 	vs_out.uv = uv;

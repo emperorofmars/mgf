@@ -69,11 +69,11 @@ bool obj_material::load_texture(std::string file){
 }
 
 //###############################################################  use_mtl
-void obj_material::use_mtl(GLuint uniform_mat){
+void obj_material::use_mtl(GLuint program){
 	GLuint loc;
-	loc = glGetUniformLocation(uniform_mat, "material.color");
-	glUniform3fv(loc, 1, glm::value_ptr(glm::vec3(color_diffuse)));
-	loc = glGetUniformLocation(uniform_mat, "material.alpha");
+	loc = glGetUniformLocation(program, "material.color");
+	glUniform3fv(loc, 1, glm::value_ptr(color_diffuse));
+	loc = glGetUniformLocation(program, "material.alpha");
 	glUniform1f(loc, alpha);
 
 	float has_texture;
@@ -86,7 +86,7 @@ void obj_material::use_mtl(GLuint uniform_mat){
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	loc = glGetUniformLocation(uniform_mat, "material.has_texture");
+	loc = glGetUniformLocation(program, "material.has_texture");
 	glUniform1f(loc, has_texture);
 	return;
 }
@@ -95,11 +95,9 @@ void obj_material::use_mtl(GLuint uniform_mat){
 //###############################################################  model class
 
 //###############################################################  constructor
-model::model(std::string file, GLuint uniform_trans, GLuint uniform_color){
+model::model(std::string file){
 	load_file(file);
 	load_to_buffers();
-	this->uniform_trans = uniform_trans;
-	this->uniform_color = uniform_color;
 	trans = glm::mat4(1.f);
 }
 
@@ -379,7 +377,7 @@ bool model::load_to_buffers(){
 		if(meshes[i]->has_vertices){
 			glGenBuffers(1, &meshes[i]->vertexbuffer);
 			glBindBuffer(GL_ARRAY_BUFFER, meshes[i]->vertexbuffer);
-			glBufferData(GL_ARRAY_BUFFER, meshes[i]->vertices.size() * sizeof(glm::vec3), &meshes[i]->vertices[0], GL_STATIC_DRAW);
+			glBufferData(GL_ARRAY_BUFFER, meshes[i]->vertices.size() * sizeof(glm::vec3), glm::value_ptr(meshes[i]->vertices[0]) /*&meshes[i]->vertices[0]*/, GL_STATIC_DRAW);
 			glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 			glEnableVertexAttribArray(0);
 		}
@@ -423,12 +421,12 @@ glm::mat4 model::scale(glm::vec3 scale){
 }
 
 //###############################################################  render
-void model::render(){
-	glUniformMatrix4fv(uniform_trans, 1, GL_FALSE, glm::value_ptr(trans));
+void model::render(GLuint program){
+	GLuint m_loc = glGetUniformLocation(program, "m_mat");
+	glUniformMatrix4fv(m_loc, 1, GL_FALSE, glm::value_ptr(trans));
 	for(unsigned int i = 0; i < meshes.size(); i++){
 		if(meshes[i]->has_vertices){
-			//glUniform4fv(uniform_color, 1, glm::value_ptr(glm::vec4(materials[meshes[i]->material_index]->color_diffuse, 1.f)));
-			materials[meshes[i]->material_index]->use_mtl(uniform_color);
+			materials[meshes[i]->material_index]->use_mtl(program);
 			glBindVertexArray(meshes[i]->vao);
 			glDrawArrays(GL_TRIANGLES, 0, meshes[i]->vertices.size() * sizeof(glm::vec3));
 		}

@@ -46,6 +46,7 @@
 		<Unit filename="libs/mgf/mgf_camera.h" />
 		<Unit filename="libs/mgf/mgf_extra.cpp" />
 		<Unit filename="libs/mgf/mgf_extra.h" />
+		<Unit filename="libs/mgf/mgf_global.h" />
 		<Unit filename="libs/mgf/mgf_init.cpp" />
 		<Unit filename="libs/mgf/mgf_init.h" />
 		<Unit filename="libs/mgf/mgf_input.cpp" />

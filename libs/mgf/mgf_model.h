@@ -8,7 +8,6 @@
 #ifndef MGF_LIBS
 #define MGF_LIBS
 
-#include <stdio.h>
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -58,7 +57,7 @@ public:
 //###############################################################  load from file
 	bool load_texture(std::string file);
 //###############################################################  use_mtl
-	void use_mtl(GLuint uniform_mat);
+	void use_mtl(GLuint program);
 //###############################################################  variables
 	unsigned int material_index;
 	glm::vec3 color_diffuse;
@@ -74,7 +73,7 @@ private:
 class model{
 public:
 //###############################################################  constructor
-	model(std::string file, GLuint uniform_trans = 1, GLuint uniform_color = 2);
+	model(std::string file);
 	~model();
 //###############################################################  load from file
 	bool load_file(std::string file);
@@ -89,7 +88,7 @@ public:
 	glm::mat4 rotate(float degrees, glm::vec3 axis);
 	glm::mat4 scale(glm::vec3 scale);
 //###############################################################  render
-	void render();
+	void render(GLuint program);
 //###############################################################  variables
 	std::vector<obj_mesh *> meshes;
 	std::vector<obj_material *> materials;
@@ -97,8 +96,6 @@ public:
 
 	GLuint elementbuffer, vertexbuffer, uvbuffer;
 	GLuint vao;
-
-	GLuint uniform_trans, uniform_color;
 	glm::mat4 trans;
 protected:
 private:

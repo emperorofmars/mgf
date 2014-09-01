@@ -41,6 +41,7 @@
 			<Add option="-lSDL2_image" />
 		</Linker>
 		<Unit filename="gl_test.h" />
+		<Unit filename="libs/mgf/mgf.cpp" />
 		<Unit filename="libs/mgf/mgf.h" />
 		<Unit filename="libs/mgf/mgf_camera.cpp" />
 		<Unit filename="libs/mgf/mgf_camera.h" />

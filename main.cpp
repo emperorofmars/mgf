@@ -7,7 +7,7 @@
 #include "gl_test.h"
 //###############################################  Main
 int main(int argc, char *argv[]){
-	mgf::init g(800, 800, 0, 0, 0);
+	mgf::init g(1000, 800, 0, 0, 0);
 	if(!g.init_all()) return 1;
 
 	mgf::input input;
@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
 	p.add_shader("res/shader/fragment_shader.glsl", GL_FRAGMENT_SHADER);
 	p.create_program();
 
-	mgf::camera cam(90 * M_PI / 180, 800 / 800, 0.1f, 1000.f, 0.6f, 0.4f);
+	mgf::camera cam(90 * M_PI / 180, g.get_aspect_ratio(), 0.1f, 1000.f, 0.6f, 0.4f);
 
 	std::vector<mgf::model *> models;
 	mgf::model model_cube("res/models/cube/cube.obj");

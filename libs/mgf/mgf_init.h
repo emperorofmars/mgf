@@ -29,6 +29,8 @@ public:
 //###############################################################  swap window
 	void swap_window(unsigned int window_num);
 	void swap_window();
+//###############################################################  get
+	float get_aspect_ratio(unsigned int window_num = 0);
 //###############################################################  close
 	void close_window(unsigned int window_num);
 //###############################################################  window struct

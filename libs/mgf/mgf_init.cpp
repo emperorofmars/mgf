@@ -172,6 +172,11 @@ void init::swap_window(){
 	return;
 }
 
+//###############################################################  get
+float init::get_aspect_ratio(unsigned int window_num){
+	return (float)mWindows[window_num].screen_w / (float)mWindows[window_num].screen_h;
+}
+
 void init::close_window(unsigned int window_num){
 	SDL_DestroyWindow(mWindows[window_num].window);
 	mWindows[window_num].window = NULL;

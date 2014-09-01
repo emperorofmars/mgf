@@ -34,11 +34,8 @@ int main(int argc, char *argv[]){
 	model_cube.scale(glm::vec3(4.f, 4.f, 4.f));
 
 	glEnable(GL_CULL_FACE);
-	//glFrontFace(GL_CW);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	//glPointSize(5);
 
 	SDL_SetRelativeMouseMode(SDL_TRUE);
 	p.use();
@@ -46,7 +43,7 @@ int main(int argc, char *argv[]){
 //###############################################  Gameloop
 	bool quit = false;
 	while(quit != true){
-//###############################################  Input Handling
+//###############################################  Update
 		float currentTime = SDL_GetTicks() / 1000.f;
 		input.update();
 		quit = input.get_quit();

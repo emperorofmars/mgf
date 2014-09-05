@@ -12,7 +12,7 @@ namespace mgf{
 //###############################################################  	camera class
 
 //###############################################################  constructor
-camera::camera(float fov, float screenratio, float near, float far, float mouse_speed, float move_speed){
+camera::camera(float fov, float screenratio, float near, float far, int mode, float mouse_speed, float move_speed){
 	projection = glm::perspective(fov, screenratio, near, far);
 	pos = glm::vec3(0, 0, 0);
 	rot = glm::vec3(0, 0, 0);
@@ -20,17 +20,36 @@ camera::camera(float fov, float screenratio, float near, float far, float mouse_
 	up = glm::vec3(0, 1, 0);
 	right = glm::vec3(1, 0, 0);
 	view = glm::lookAt(pos, pos + dir, up);
-	mode = 3;
+	this->mode = mode;
 	this->mouse_speed = mouse_speed;
 	this->move_speed = move_speed;
 }
 
 camera::~camera(){
 }
+
 //###############################################################  setup
-glm::mat4 camera::setup(float fov, float screenratio, float near, float far, float mouse_speed, float move_speed){
+glm::mat4 camera::setup(float fov, float screenratio, float near, float far, int mode, float mouse_speed, float move_speed){
 	projection = glm::perspective(fov, screenratio, near, far);
+	this->mode = mode;
+	this->mouse_speed = mouse_speed;
+	this->move_speed = move_speed;
 	return projection * view;
+}
+
+void camera::setup_speed(float mouse_speed, float move_speed){
+	this->mouse_speed = mouse_speed;
+	this->move_speed = move_speed;
+	return;
+}
+
+void camera::setup_mode(int mode){
+	this->mode = mode;
+	rot = glm::vec3(0);
+	dir = glm::vec3(0, 0, -1);
+	up = glm::vec3(0, 1, 0);
+	right = glm::vec3(1, 0, 0);
+	return;
 }
 
 //###############################################################  update
@@ -53,7 +72,7 @@ glm::mat4 camera::update(glm::vec3 pos_, glm::vec3 rot_){
 		right = glm::cross(dir, glm::vec3(0, 1, 0));
 		right = glm::normalize(right);
 	}
-	else if(mode >= 1 && mode <= 2){	//quaternion
+	else if(mode == 1){	//quaternion
 		rot[0] = (float)x * -0.008f * mouse_speed;
 		rot[1] = (float)y * -0.008f * mouse_speed;
 
@@ -71,12 +90,10 @@ glm::mat4 camera::update(glm::vec3 pos_, glm::vec3 rot_){
 		dir = dirmat * dir;
 		dir = glm::normalize(dir);
 
-		if(mode >= 2){
-			up = dirmat * up;
-			up = glm::normalize(up);
-		}
+		up = dirmat * up;
+		up = glm::normalize(up);
 	}
-	else if(mode == 3){	//quaternion with fixed y axis
+	else if(mode == 2){	//quaternion with fixed y axis
 		rot[0] = (float)x * -0.008f * mouse_speed;
 		rot[1] = (float)y * -0.008f * mouse_speed;
 
@@ -85,7 +102,6 @@ glm::mat4 camera::update(glm::vec3 pos_, glm::vec3 rot_){
 		pitch = glm::normalize(pitch);
 
 		glm::quat heading = glm::angleAxis(rot[0], glm::vec3(0, 1, 0));
-
 		heading = glm::normalize(heading);
 
 		glm::quat temp = glm::cross(pitch, heading);
@@ -96,7 +112,7 @@ glm::mat4 camera::update(glm::vec3 pos_, glm::vec3 rot_){
 		dir = glm::normalize(dir);
 
 		right = dirmat * right;
-		right[1] = 0;
+		right[1] = 0.f;
 		right = glm::normalize(right);
 
 		up = glm::cross(right, dir);

@@ -34,10 +34,9 @@ public:
 	void swap_window();
 //###############################################################  get
 	float get_aspect_ratio(unsigned int window_num = 0);
-//###############################################################  close
 private:
 //###############################################################  window struct
-	struct window{	//window info
+	struct window{
 		SDL_Window *window;
 		unsigned int screen_w, screen_h, monitor;
 		bool fullscreen, input_grabbed;

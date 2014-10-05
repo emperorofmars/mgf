@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/mge" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/mgf" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/mge" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/mgf" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -35,30 +35,30 @@
 		</Compiler>
 		<Linker>
 			<Add option="-lSDL2" />
+			<Add option="-lSDL2_image" />
 			<Add option="-lGLEW" />
 			<Add option="-lGL" />
 			<Add option="-lassimp" />
-			<Add option="-lSDL2_image" />
 		</Linker>
 		<Unit filename="gl_test.h" />
-		<Unit filename="libs/mgf/mgf.cpp" />
-		<Unit filename="libs/mgf/mgf.h" />
-		<Unit filename="libs/mgf/mgf_camera.cpp" />
-		<Unit filename="libs/mgf/mgf_camera.h" />
-		<Unit filename="libs/mgf/mgf_extra.cpp" />
-		<Unit filename="libs/mgf/mgf_extra.h" />
-		<Unit filename="libs/mgf/mgf_global.h" />
-		<Unit filename="libs/mgf/mgf_init.cpp" />
-		<Unit filename="libs/mgf/mgf_init.h" />
-		<Unit filename="libs/mgf/mgf_input.cpp" />
-		<Unit filename="libs/mgf/mgf_input.h" />
-		<Unit filename="libs/mgf/mgf_model.cpp" />
-		<Unit filename="libs/mgf/mgf_model.h" />
-		<Unit filename="libs/mgf/mgf_object.cpp" />
-		<Unit filename="libs/mgf/mgf_object.h" />
-		<Unit filename="libs/mgf/mgf_shader.cpp" />
-		<Unit filename="libs/mgf/mgf_shader.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/mgf.cpp" />
+		<Unit filename="src/mgf.h" />
+		<Unit filename="src/mgf_camera.cpp" />
+		<Unit filename="src/mgf_camera.h" />
+		<Unit filename="src/mgf_include.h" />
+		<Unit filename="src/mgf_init.cpp" />
+		<Unit filename="src/mgf_init.h" />
+		<Unit filename="src/mgf_input.cpp" />
+		<Unit filename="src/mgf_input.h" />
+		<Unit filename="src/mgf_model.cpp" />
+		<Unit filename="src/mgf_model.h" />
+		<Unit filename="src/mgf_object.cpp" />
+		<Unit filename="src/mgf_object.h" />
+		<Unit filename="src/mgf_scene.cpp" />
+		<Unit filename="src/mgf_scene.h" />
+		<Unit filename="src/mgf_shader.cpp" />
+		<Unit filename="src/mgf_shader.h" />
 		<Extensions>
 			<envvars />
 			<code_completion />

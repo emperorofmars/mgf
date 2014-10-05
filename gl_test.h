@@ -15,12 +15,12 @@
 #include <SDL2/SDL_opengl.h>
 #include <SDL2/SDL_image.h>
 
-#include "libs/mgf/mgf.h"
+#include "src/mgf.h"
 
 #define GLM_FORCE_RADIANS
-#include "libs/glm/glm.hpp"
-#include "libs/glm/gtc/type_ptr.hpp"
-#include "libs/glm/gtc/matrix_transform.hpp"
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 #endif
 

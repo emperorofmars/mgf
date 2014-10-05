@@ -1,7 +1,8 @@
 #version 430 core
 
 layout (location = 0) in vec4 pos;
-layout (location = 1) in vec3 uv;
+layout (location = 1) in vec3 norm;
+layout (location = 2) in vec3 uv;
 
 struct mMaterial{
 	vec3 color;
@@ -25,4 +26,6 @@ void main(void){
 	//atomicCounterIncrement(count);	//makes it go slow
 	vs_out.uv = uv;
 	vs_out.material = material;
+	vs_out.material.color *= dot(norm, normalize(vec3(2, 1, 3))) *
+						1 / length(vec4(2, 1, 3, 1) - pos) * 10;
 }

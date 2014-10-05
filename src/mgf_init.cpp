@@ -15,57 +15,70 @@ namespace mgf{
 init::init(unsigned int screen_w, unsigned int screen_h, bool fullscreen,
 		   bool input_grabbed, unsigned int monitor)
 {
-	unsigned int w = add_window();
-	mWindows[w].window = NULL;
-	mWindows[w].screen_w = screen_w;
-	mWindows[w].screen_h = screen_h;
-	mWindows[w].fullscreen = fullscreen;
-	mWindows[w].input_grabbed = input_grabbed;
-	mWindows[w].monitor = monitor;
+	initialized = false;
+	renderer = 0;
+	unsigned int n = mWindows.size();
+	mWindows.resize(n + 1);
+	mWindows[n].window = NULL;
+	mWindows[n].screen_w = screen_w;
+	mWindows[n].screen_h = screen_h;
+	mWindows[n].fullscreen = fullscreen;
+	mWindows[n].input_grabbed = input_grabbed;
+	mWindows[n].monitor = monitor;
 }
 
 init::~init(){
-	std::cerr << "closing SDL" << std::endl;
-	SDL_GL_DeleteContext(context);
-	context = NULL;
-	for(unsigned int i = 0; i < mWindows.size(); i ++){
-		SDL_DestroyWindow(mWindows[i].window);
-		mWindows[i].window = NULL;
+	if(initialized == true){
+		std::cerr << "closing SDL" << std::endl;
+		SDL_GL_DeleteContext(context);
+		context = NULL;
+		for(unsigned int i = 0; i < mWindows.size(); i ++){
+			SDL_DestroyWindow(mWindows[i].window);
+			mWindows[i].window = NULL;
+			std::cerr << "window " << i << " destroyed!" << std::endl;
+		}
+		mWindows.clear();
+		SDL_Quit();
+		std::cerr << "SDL closed!" << std::endl;
 	}
-	mWindows.clear();
-	SDL_Quit();
-	std::cerr << "SDL closed!" << std::endl;
 }
 
 //###############################################################  setup window
-bool init::setup_window(unsigned int window_num, unsigned int screen_w, unsigned int screen_h,
-						bool fullscreen, bool input_grabbed, unsigned int monitor)
+bool init::add_window(unsigned int screen_w, unsigned int screen_h,
+					bool fullscreen, bool input_grabbed, unsigned int monitor)
 {
-	bool create = false;
-	if(window_num > mWindows.size()) return false;
-	if(window_num == mWindows.size()){
-		mWindows.resize(window_num + 1);
-		create = true;
+	unsigned int n = mWindows.size();
+	mWindows.resize(n + 1);
+	mWindows[n].screen_w = screen_w;
+	mWindows[n].screen_h = screen_h;
+	mWindows[n].fullscreen = fullscreen;
+	mWindows[n].input_grabbed = input_grabbed;
+	mWindows[n].monitor = monitor;
+
+	if(initialized == true){
+		mWindows[n].window = SDL_CreateWindow("mgf", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+							mWindows[n].screen_w, mWindows[n].screen_h, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+		if(mWindows[n].window == NULL){
+			std::cerr << "SDL_CreateWindow failed! SDL_Error: " << SDL_GetError() << std::endl;
+			return false;
+		}
+		std::cerr << "window " << n << " initialized successfully!" << std::endl;
 	}
-	mWindows[window_num].window = NULL;
-	mWindows[window_num].screen_w = screen_w;
-	mWindows[window_num].screen_h = screen_h;
-	mWindows[window_num].fullscreen = fullscreen;
-	mWindows[window_num].input_grabbed = input_grabbed;
-	mWindows[window_num].monitor = monitor;
-	if(create == true) init::init_window(window_num);
+	else mWindows[n].window = NULL;
 	return true;
 }
 
-unsigned int init::add_window(){
-	unsigned int s = mWindows.size();
-	mWindows.resize(s + 1);
-	return s;
+void init::close_window(unsigned int window_num){
+	if(initialized == true && window_num < mWindows.size()) SDL_DestroyWindow(mWindows[window_num].window);
+	mWindows[window_num].window = NULL;
+	mWindows.erase(mWindows.begin() + window_num);
+	return;
 }
 
 //###############################################################  init_sdl
 bool init::init_all(){
 	bool success = true;
+	if(initialized == false){
 	if(SDL_Init(SDL_INIT_VIDEO) < 0){
 		std::cerr << "SDL_Init failed! SDL_Error: " << SDL_GetError() << std::endl;
 		success = false;
@@ -137,50 +150,39 @@ bool init::init_all(){
 	}
 
 	std::cerr << "SDL initialized successfully!" << std::endl;
-	return true;
-}
-
-bool init::init_window(unsigned int window_num){
-	mWindows[window_num].window = SDL_CreateWindow("mgf", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, mWindows[window_num].screen_w,
-												   mWindows[window_num].screen_h, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
-	if(mWindows[window_num].window == NULL){
-		std::cerr << "SDL_CreateWindow failed! SDL_Error: " << SDL_GetError() << std::endl;
-		return false;
+	initialized = true;
 	}
-
-	std::cerr << "window " << window_num << " initialized successfully!" << std::endl;
 	return true;
 }
 
 //###############################################################  make current
 void init::current_window(unsigned int window_num){
-	SDL_GL_MakeCurrent(mWindows[window_num].window, context);
+	if(initialized == true && window_num < mWindows.size()) SDL_GL_MakeCurrent(mWindows[window_num].window, context);
 	return;
 }
 
 //###############################################################  swap window
 void init::swap_window(unsigned int window_num){
-	SDL_GL_SwapWindow(mWindows[window_num].window);
+	if(initialized == true && window_num < mWindows.size()) SDL_GL_SwapWindow(mWindows[window_num].window);
 	return;
 }
 
 void init::swap_window(){
-	for(unsigned int i = 0; i < mWindows.size(); i ++){
-		SDL_GL_SwapWindow(mWindows[i].window);
+	if(initialized == true){
+		for(unsigned int i = 0; i < mWindows.size(); i ++){
+			SDL_GL_SwapWindow(mWindows[i].window);
+		}
 	}
 	return;
 }
 
 //###############################################################  get
 float init::get_aspect_ratio(unsigned int window_num){
-	return (float)mWindows[window_num].screen_w / (float)mWindows[window_num].screen_h;
-}
-
-void init::close_window(unsigned int window_num){
-	SDL_DestroyWindow(mWindows[window_num].window);
-	mWindows[window_num].window = NULL;
-	mWindows.erase(mWindows.begin() + window_num);
-	return;
+	float res = 0;
+	if(initialized == true && window_num < mWindows.size()){
+		res = (float)mWindows[window_num].screen_w / (float)mWindows[window_num].screen_h;
+	}
+	return res;
 }
 
 } // mgf

@@ -12,21 +12,21 @@
 
 namespace mgf{
 
-
 //###############################################################  	init class
 class init{
 public:
 //###############################################################  constructor
 	init(unsigned int screen_w = 800, unsigned int screen_h = 600, bool fullscreen = 0,
-			bool input_grabbed = 0, unsigned int monitor = 0);
+					bool input_grabbed = 0, unsigned int monitor = 0);
 	~init();
 //###############################################################  setup
-	bool setup_window(unsigned int window_num = 0, unsigned int screen_w = 800, unsigned int screen_h = 600,
-			bool fullscreen = 0, bool input_grabbed = 0, unsigned int monitor = 0);
-	unsigned int add_window();
+	bool add_window(unsigned int screen_w = 800, unsigned int screen_h = 600,
+					bool fullscreen = 0, bool input_grabbed = 0, unsigned int monitor = 0);
+	//bool setup_window(unsigned int window_num = 0, unsigned int screen_w = 800, unsigned int screen_h = 600,
+	//				bool fullscreen = 0, bool input_grabbed = 0, unsigned int monitor = 0);
+	void close_window(unsigned int window_num);
 //###############################################################  init
 	bool init_all();
-	bool init_window(unsigned int window_num);
 //###############################################################  make current
 	void current_window(unsigned int window_num);
 //###############################################################  swap window
@@ -35,7 +35,6 @@ public:
 //###############################################################  get
 	float get_aspect_ratio(unsigned int window_num = 0);
 //###############################################################  close
-	void close_window(unsigned int window_num);
 private:
 //###############################################################  window struct
 	struct window{	//window info

@@ -13,9 +13,11 @@
 
 #include "mgf_init.h"
 #include "mgf_shader.h"
-#include "mgf_model.h"
 #include "mgf_camera.h"
 #include "mgf_input.h"
+#include "mgf_scene.h"
+
+#include "mgf_model.h"
 
 namespace mgf{
 

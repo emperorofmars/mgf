@@ -24,14 +24,19 @@ int main(int argc, char *argv[]){
 
 	std::vector<mgf::model *> models;
 	mgf::model model_cube("res/models/cube/cube.obj");
-	mgf::model model_car("res/models/car/DeLorean_Final.obj");
+	//mgf::model model_car("res/models/car/DeLorean_Final.obj");
 	models.push_back(&model_cube);
-	models.push_back(&model_car);
+	//models.push_back(&model_car);
 
-	model_car.scale(glm::vec3(2.f, 2.f, 2.f));
-	model_car.move(glm::vec3(0.f, -10.f, -5.f));
-	model_cube.move(glm::vec3(0.f, 0.f, -20.f));
+	mgf::scene scene("res/models/cube/cube.obj", true);
+	mgf::scene scene1("res/models/car/DeLorean_Final.obj", true);
+
+	//model_car.scale(glm::vec3(2.f, 2.f, 2.f));
+	//model_car.move(glm::vec3(0.f, -10.f, -5.f));
+	model_cube.move(glm::vec3(0.f, 15.f, -20.f));
 	model_cube.scale(glm::vec3(4.f, 4.f, 4.f));
+
+	scene.trans *= glm::translate(glm::mat4(1.f), glm::vec3(0.f, 8.f, 0.f));
 
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
@@ -55,6 +60,9 @@ int main(int argc, char *argv[]){
 
 		model_cube.rotate(0.02, glm::vec3(0.f, 1.f, 0.f));
 		mgf::render(models, cam, p.get_program());
+
+		scene.render(cam, p.get_program());
+		scene1.render(cam, p.get_program());
 
 		g.swap_window(0);
 	}

@@ -5,7 +5,7 @@ layout (binding = 0) uniform sampler2D tex;
 out vec4 color;
 
 struct mMaterial{
-	vec3 color;
+	vec4 color;
 	float alpha;
 	float has_texture;
 };
@@ -20,9 +20,10 @@ void main(void){
 	//color = texelFetch(tex, ivec2(gl_FragCoord.xy), 0);
 	if(fs_in.material.has_texture > 0.5){
 		color = texture(tex, vec2(fs_in.uv.x, 1 - fs_in.uv.y));
+		color = color * fs_in.material.color;
 	}
 	else{
-		color = vec4(fs_in.material.color, fs_in.material.alpha);
+		color = fs_in.material.color;
 	}
 	//color = vec4(fs_in.material.color, 1);
 	//color = texture(tex, vec2(fs_in.uv.x, 1 - fs_in.uv.y));

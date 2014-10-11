@@ -5,7 +5,7 @@ layout (location = 1) in vec3 norm;
 layout (location = 2) in vec3 uv;
 
 struct mMaterial{
-	vec3 color;
+	vec4 color;
 	float alpha;
 	float has_texture;
 };

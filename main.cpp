@@ -23,7 +23,8 @@ int main(int argc, char *argv[]){
 	mgf::camera cam(90 * M_PI / 180, g.get_aspect_ratio(), 0.1f, 1000.f, 2, 0.6f, 0.4f);
 
 	mgf::scene scene("res/models/cube/cube.obj", true);
-	mgf::scene scene1("res/models/scene.obj", true);
+	mgf::scene scene1("res/models/scene/scene.obj", true);
+	//mgf::scene scene1("res/models/car/DeLorean_Final.obj", true);
 
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
@@ -34,10 +35,7 @@ int main(int argc, char *argv[]){
 
 	scene.translate("Cube", glm::vec3(0.f, 10.f, -1.f));
 	scene.scale("Cube", glm::vec3(2.f, 2.f, 2.f));
-	scene1.translate("3DSMesh_0", glm::vec3(0.f, 1.f, 0.f));
-	scene1.translate("scene.p", glm::vec3(0.f, -2.f, 0.f));
-	scene1.translate("<3DSDummyRoot>", glm::vec3(0.f, -2.f, 0.f));
-	scene1.translate("3DSMesh_0", glm::vec3(0.f, 1.f, 0.f));
+	scene1.translate("scene.obj", glm::vec3(0.f, -2.f, 0.f));
 //###############################################  Gameloop
 	bool quit = false;
 	while(quit != true){
@@ -47,12 +45,18 @@ int main(int argc, char *argv[]){
 		quit = input.get_quit();
 		cam.update(input.get_pos(), input.get_rot());
 
+		/*glm::mat4 trans = scene1._root_node->_trans;
+		for(unsigned int i = 0; i < 4; i++){
+			for(unsigned int j = 0; j < 4; j++) std::cerr << trans[i][j] << " ";
+			std::cerr << std::endl;
+		}std::cerr << std::endl;*/
+
 		scene.rotate("Cube", 0.03f, glm::vec3(0.f, 1.f, 0.f));
-		scene1.rotate("3DSMesh_0", 0.01f, glm::vec3(0.f, 1.f, 0.f));
 		scene1.rotate("Cube", 0.01f, glm::vec3(0.f, 1.f, 0.f));
+		scene1.rotate("Suzanne", -0.01f, glm::vec3(0.f, 1.f, 0.f));
 //###############################################  Rendering
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f)));
+		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
 
 		scene.render(cam, p);
 		scene1.render(cam, p);

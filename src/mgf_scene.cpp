@@ -46,8 +46,8 @@ bool scene::load(std::string path, bool to_gpu){
 				aiProcess_JoinIdenticalVertices |
 				aiProcess_Triangulate |
 				aiProcess_SortByPType |
-				aiProcess_CalcTangentSpace |
-				aiProcess_GenNormals);
+				aiProcess_CalcTangentSpace);// |
+				//aiProcess_GenNormals);
 	if(!_scene){
 		#if _DEBUG_LEVEL == 1
 			std::cerr << "Importing scene " << _scene->mRootNode->mName.C_Str() << " failed!" << imp.GetErrorString() << std::endl;
@@ -157,6 +157,18 @@ void scene::construct_nodetree(mgf_node *node, aiNode *ainode){
 	node->_child_nodes.resize(node->_num_children);
 	node->_meshes.assign(ainode->mMeshes, ainode->mMeshes + node->_num_meshes);
 
+	node->_trans[0][0] = ainode->mTransformation.a1; node->_trans[0][1] = ainode->mTransformation.b1; node->_trans[0][2] = ainode->mTransformation.c1; node->_trans[0][3] = ainode->mTransformation.d1;
+	node->_trans[1][0] = ainode->mTransformation.a2; node->_trans[1][1] = ainode->mTransformation.b2; node->_trans[1][2] = ainode->mTransformation.c2; node->_trans[1][3] = ainode->mTransformation.d2;
+	node->_trans[2][0] = ainode->mTransformation.a3; node->_trans[2][1] = ainode->mTransformation.b3; node->_trans[2][2] = ainode->mTransformation.c3; node->_trans[2][3] = ainode->mTransformation.d3;
+	node->_trans[3][0] = ainode->mTransformation.a4; node->_trans[3][1] = ainode->mTransformation.b4; node->_trans[3][2] = ainode->mTransformation.c4; node->_trans[3][3] = ainode->mTransformation.d4;
+
+	/*for(unsigned int i = 0; i < 4; i++){
+		for(unsigned int j = 0; j < 4; j++) std::cerr << node->_trans[i][j] << " ";
+		std::cerr << std::endl;
+	}*/
+
+	//node->_trans *= glm::rotate(glm::mat4(1), -(float)M_PI / 2.f, glm::vec3(1.f, 0.f, 0.f));
+
 	for(unsigned int i = 0; i < node->_num_children; i++){
 		std::cerr << ainode->mName.C_Str() << ": " << ainode->mChildren[i]->mName.C_Str() << std::endl;
 		node->_child_nodes[i] = new mgf_node;
@@ -252,21 +264,30 @@ int scene::search_texture(std::string &name){
 
 void scene::translate(std::string name, glm::vec3 data){
 	mgf_node *node = _root_node->find_node(name);
-	if(node == NULL) return;
+	if(node == NULL){
+		//std::cerr << "could not find: " << name << std::endl;
+		return;
+	}
 	node->_trans *= glm::translate(glm::mat4(1), data);
 	return;
 }
 
 void scene::rotate(std::string name, float angle, glm::vec3 data){
 	mgf_node *node = _root_node->find_node(name);
-	if(node == NULL) return;
+	if(node == NULL){
+		//std::cerr << "could not find: " << name << std::endl;
+		return;
+	}
 	node->_trans *= glm::rotate(glm::mat4(1), angle, data);
 	return;
 }
 
 void scene::scale(std::string name, glm::vec3 data){
 	mgf_node *node = _root_node->find_node(name);
-	if(node == NULL) return;
+	if(node == NULL){
+		//std::cerr << "could not find: " << name << std::endl;
+		return;
+	}
 	node->_trans *= glm::scale(glm::mat4(1), data);
 	return;
 }
@@ -324,41 +345,21 @@ void scene::render(mgf::camera &cam, mgf::shader_program &program){
 }
 
 void scene::recursive_render(mgf_node *node, glm::mat4 oldtrans, mgf::camera &cam, mgf::shader_program &program){
+	oldtrans *= node->_trans;
+	apply_mat(cam.get_vp(), program.get_vp_mat());
+	apply_mat(oldtrans, program.get_m_mat());
 	for(unsigned int i = 0; i < node->_num_meshes; i++){
 		apply_material(_scene->mMeshes[node->_meshes[i]]->mMaterialIndex, program);
-		apply_mat(cam.get_vp(), program.get_vp_mat());
-		//oldtrans = node->_trans * oldtrans;
-		oldtrans *= node->_trans;
-		apply_mat(oldtrans, program.get_m_mat());
 
 		glBindVertexArray(_meshes[node->_meshes[i]].vao);
 		glDrawElements(GL_TRIANGLES, _scene->mMeshes[node->_meshes[i]]->mNumFaces * 3 * sizeof(GLuint), GL_UNSIGNED_INT, 0);
 	}
+
 	for(unsigned int i = 0; i < node->_num_children; i ++){
 		recursive_render(node->_child_nodes[i], oldtrans, cam, program);
 	}
 	return;
 }
-
-/*void scene::render(mgf::camera &cam, mgf::shader_program &program){
-	recursive_render(_scene->mRootNode, cam, program);
-	return;
-}
-
-void scene::recursive_render(aiNode *node, mgf::camera &cam, mgf::shader_program &program){
-	for(unsigned int i = 0; i < node->mNumMeshes; i++){
-		apply_material(_scene->mMeshes[node->mMeshes[i]]->mMaterialIndex, program);
-		apply_mat(cam.get_vp(), program.get_vp_mat());
-		apply_mat(node->mTransformation, program.get_m_mat());
-
-		glBindVertexArray(_meshes[node->mMeshes[i]].vao);
-		glDrawElements(GL_TRIANGLES, _scene->mMeshes[node->mMeshes[i]]->mNumFaces * 3 * sizeof(GLuint), GL_UNSIGNED_INT, 0);
-	}
-	for(unsigned int i = 0; i < node->mNumChildren; i ++){
-		recursive_render(node->mChildren[i], cam, program);
-	}
-	return;
-}*/
 
 }
 

@@ -52,7 +52,6 @@ mgf_node *mgf_node::find_node(std::string name){
 	for(unsigned int i = 0; i < _num_children; i++){
 		if((node = _child_nodes[i]->find_node(name)) != NULL) return node;
 	}
-
 	return NULL;
 }
 

@@ -68,8 +68,8 @@ private:
 	std::vector<struct mgf_textures> _textures;
 	std::vector<struct mgf_materials> _materials;
 
-	mgf_node *_root_node;
-
+public: mgf_node *_root_node;
+private:
 	bool loaded_meshes, loaded_textures, loaded_to_gpu;
 
 	std::string _name;

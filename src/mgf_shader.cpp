@@ -14,10 +14,14 @@ namespace mgf{
 //###############################################################  constructor
 shader_program::shader_program(){
 	mProgram = 0;
+	m_mat = 0;
+	vp_mat = 0;
 }
 
 shader_program::shader_program(std::vector<struct shader_to_programm> &shaders){
 	mProgram = 0;
+	m_mat = 0;
+	vp_mat = 0;
 	mShaders = shaders;
 }
 
@@ -25,6 +29,8 @@ shader_program::~shader_program(){
 	std::cerr << "closing shader_program" << std::endl;
 	if(mProgram != 0) glDeleteProgram(mProgram);
 	mProgram = 0;
+	m_mat = 0;
+	vp_mat = 0;
 	mShaders.clear();
 }
 
@@ -38,6 +44,14 @@ void shader_program::add_shader(std::string sourcefile, GLenum shader_type){
 //###############################################################  get program
 GLuint shader_program::get_program(){
 	return mProgram;
+}
+
+GLuint shader_program::get_m_mat(){
+	return m_mat;
+}
+
+GLuint shader_program::get_vp_mat(){
+	return vp_mat;
 }
 
 //###############################################################  create
@@ -74,7 +88,10 @@ bool shader_program::create_program(){
 		std::cerr << "Creating program failed" << std::endl;
 		return false;
 	}
-	else return true;
+	m_mat = glGetUniformLocation(mProgram, "m_mat");
+	vp_mat = glGetUniformLocation(mProgram, "vp_mat");
+
+	return true;
 }
 
 GLuint shader_program::create_shader(std::string &sourcefile, GLenum shader_type){

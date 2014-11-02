@@ -8,10 +8,15 @@
 #ifndef MGF_INCLUDE
 #define MGF_INCLUDE
 
+#ifndef _DEBUG_LEVEL
+	#define _DEBUG_LEVEL 2
+#endif // _DEBUG_LEVEL
+
 #include <iostream>
 #include <vector>
 #include <fstream>
 #include <sstream>
+
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include <SDL2/SDL_opengl.h>

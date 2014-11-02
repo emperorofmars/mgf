@@ -49,16 +49,24 @@ bool scene::load(std::string path, bool to_gpu){
 				aiProcess_CalcTangentSpace |
 				aiProcess_GenNormals);
 	if(!_scene){
-		std::cerr << "Importing scene " << _scene->mRootNode->mName.C_Str() << " failed!" << imp.GetErrorString() << std::endl;
+		#if _DEBUG_LEVEL == 1
+			std::cerr << "Importing scene " << _scene->mRootNode->mName.C_Str() << " failed!" << imp.GetErrorString() << std::endl;
+		#endif // _DEBUG_LEVEL
 		return false;
 	}
+	_name = _scene->mRootNode->mName.C_Str();
+
 	loaded_meshes = true;
 
 	load_texture(path, to_gpu);
 
 	if(to_gpu) load_to_gpu();
 
-	std::cerr << "Importing scene " << _scene->mRootNode->mName.C_Str() << " succesful!" << std::endl;
+	construct_nodetree(NULL, _scene->mRootNode);
+
+	#if _DEBUG_LEVEL == 2
+		std::cerr << "Importing scene " << _name << " successful!" << std::endl;
+	#endif // _DEBUG_LEVEL
 	//std::cerr << "number of meshes: " << _scene->mNumMeshes << std::endl;
 
 	return true;
@@ -68,7 +76,9 @@ bool scene::load_to_gpu(){
 	_meshes.resize(_scene->mNumMeshes);
 
 	if(!loaded_meshes || loaded_to_gpu){
-		std::cerr << "cant load to gpu: not loaded scene or already loaded to gpu" << std::cerr;
+		#if _DEBUG_LEVEL == 1
+			std::cerr << "cant load to gpu: not loaded scene or already loaded to gpu" << std::cerr;
+		#endif // _DEBUG_LEVEL
 		return false;
 	}
 
@@ -110,7 +120,7 @@ bool scene::load_to_gpu(){
 
 		if(_scene->mMeshes[i]->GetNumUVChannels() > 0){
 			_meshes[i].uvbuffer = new GLuint[_scene->mMeshes[i]->GetNumUVChannels()];
-			for(int j = 0; j < _scene->mMeshes[i]->GetNumUVChannels(); j++){
+			for(unsigned int j = 0; j < _scene->mMeshes[i]->GetNumUVChannels(); j++){
 				if(_scene->mMeshes[i]->HasTextureCoords(j)){
 					glGenBuffers(1, &_meshes[i].uvbuffer[j]);
 					glBindBuffer(GL_ARRAY_BUFFER, _meshes[i].uvbuffer[j]);
@@ -124,13 +134,43 @@ bool scene::load_to_gpu(){
 		else _meshes[i].uvbuffer = NULL;
 	}
 	loaded_to_gpu = true;
-	//std::cerr << "loaded to buffers successfully: " << _scene->mRootNode->mName.C_Str() << std::endl;
+	#if _DEBUG_LEVEL == 2
+		std::cerr << "loaded to buffers successfully: " << _name << std::endl;
+	#endif // _DEBUG_LEVEL
 	return true;
+}
+
+void scene::construct_nodetree(mgf_node *node, aiNode *ainode){
+	if(ainode == NULL) return;
+	if(node == NULL){
+		_root_node = new mgf_node;
+		node = _root_node;
+		node->_parent_node = NULL;
+	}
+	//std::cerr << ainode->mName.C_Str() << std::endl;
+	if(node->_parent_node != NULL && node->_parent_node->_parent_node != NULL) std::cerr << "parent: " << node->_parent_node->_name << std::endl;
+	node->_name = ainode->mName.C_Str();
+	node->_num_meshes = ainode->mNumMeshes;
+	node->_num_children = ainode->mNumChildren;
+
+	node->_meshes.resize(node->_num_meshes);
+	node->_child_nodes.resize(node->_num_children);
+	node->_meshes.assign(ainode->mMeshes, ainode->mMeshes + node->_num_meshes);
+
+	for(unsigned int i = 0; i < node->_num_children; i++){
+		std::cerr << ainode->mName.C_Str() << ": " << ainode->mChildren[i]->mName.C_Str() << std::endl;
+		node->_child_nodes[i] = new mgf_node;
+		node->_child_nodes[i]->_parent_node = node;
+		construct_nodetree(node->_child_nodes[i], ainode->mChildren[i]);
+	}
+	return;
 }
 
 bool scene::delete_from_gpu(){
 	if(!loaded_meshes || !loaded_to_gpu){
-		std::cerr << "cant delete from gpu: not loaded scene or not loaded to gpu" << std::cerr;
+		#if _DEBUG_LEVEL == 1
+			std::cerr << "cant delete from gpu: not loaded scene or not loaded to gpu" << std::cerr;
+		#endif // _DEBUG_LEVEL
 		return false;
 	}
 	for(unsigned int i = 0; i < _meshes.size(); i ++){
@@ -152,28 +192,38 @@ bool scene::delete_from_gpu(){
 bool scene::load_texture(std::string path, bool to_gpu){
 	_materials.resize(_scene->mNumMaterials);
 
-	for(unsigned int i = path.size() - 1; i > 0; i--){
+	for(unsigned int i = path.size() - 1; i > 0; i--){	//get path
 		if(path[i] == '/') break;
 		else path.erase(path.begin() + i);
 	}
 	for(unsigned int i = 0; i < _scene->mNumMaterials; i++){
 		unsigned int num_tex = _scene->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE);
-		_materials[i].texturebuffer = new GLuint[num_tex];
+		_materials[i].num_texture = new unsigned int[num_tex];	//allocate space for textur references
 
 		for(unsigned int j = 0; j < num_tex; j++){
 			std::string newpath(path);
 			aiString tmp;
-			_scene->mMaterials[i]->GetTexture(aiTextureType_DIFFUSE, j, &tmp, NULL, NULL, NULL, NULL, NULL);
-			newpath.append(tmp.data);
+			_scene->mMaterials[i]->GetTexture(aiTextureType_DIFFUSE, j, &tmp, NULL, NULL, NULL, NULL, NULL);	//get texture path relative to loadded file
+			newpath.append(tmp.data);	//construct path to texture file
 
-			glActiveTexture(GL_TEXTURE0 + j);
-			glGenTextures(1, &_materials[i].texturebuffer[j]);
-			glBindTexture(GL_TEXTURE_2D, _materials[i].texturebuffer[j]);
+			int tex_ref;
+			if((tex_ref = search_texture(newpath)) >= 0){	//if texture already loaded
+				_materials[i].num_texture[j] = (unsigned int)tex_ref;
+				continue;
+			}
+
+			_textures.resize(_textures.size() + 1);	//create new texture struct
+			_materials[i].num_texture[j] = _textures.size() - 1;	//reference texture struct in material struct
+
+			glActiveTexture(GL_TEXTURE0 + j);	//create opengl texture object
+			glGenTextures(1, &_textures[_textures.size() - 1].texturebuffer);
+			glBindTexture(GL_TEXTURE_2D, _textures[_textures.size() - 1].texturebuffer);
 
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-			SDL_Surface *image = IMG_Load(newpath.c_str());
-			if(image != NULL){
+			SDL_Surface *image = IMG_Load(newpath.c_str());	//load texture
+
+			if(image != NULL){	//load it to gpu
 				glTexStorage2D(GL_TEXTURE_2D, 8, GL_RGBA32F, image->w, image->h);
 				glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, image->w, image->h, GL_RGBA, GL_UNSIGNED_BYTE, image->pixels);
 				glGenerateMipmap(GL_TEXTURE_2D);
@@ -181,59 +231,134 @@ bool scene::load_texture(std::string path, bool to_gpu){
 				SDL_FreeSurface(image);
 			}
 			else{
-				std::cerr << "loading texture failed" << std::endl;
+				#if _DEBUG_LEVEL == 1
+					std::cerr << "loading texture failed" << std::endl;
+				#endif // _DEBUG_LEVEL
 			}
 		}
 	}
-	std::cerr << "loaded textures successfully" << std::endl;
+	#if _DEBUG_LEVEL == 2
+		std::cerr << "loaded textures successfully" << std::endl;
+	#endif // _DEBUG_LEVEL
 	return true;
 }
 
-void scene::apply_material(unsigned int material_index, GLuint program){
+int scene::search_texture(std::string &name){
+	for(unsigned int i = 0; i < _textures.size(); i++){
+		if(name == _textures[i].name) return i;
+	}
+	return -1;
+}
+
+void scene::translate(std::string name, glm::vec3 data){
+	mgf_node *node = _root_node->find_node(name);
+	if(node == NULL) return;
+	node->_trans *= glm::translate(glm::mat4(1), data);
+	return;
+}
+
+void scene::rotate(std::string name, float angle, glm::vec3 data){
+	mgf_node *node = _root_node->find_node(name);
+	if(node == NULL) return;
+	node->_trans *= glm::rotate(glm::mat4(1), angle, data);
+	return;
+}
+
+void scene::scale(std::string name, glm::vec3 data){
+	mgf_node *node = _root_node->find_node(name);
+	if(node == NULL) return;
+	node->_trans *= glm::scale(glm::mat4(1), data);
+	return;
+}
+
+void scene::multiply_mat(std::string name, glm::mat4 data){
+	return;
+}
+
+void scene::apply_material(unsigned int material_index, mgf::shader_program &program){
 	GLuint loc;
 
 	aiColor4D color(0.f, 0.f, 0.f, 0.f);
 	aiGetMaterialColor(_scene->mMaterials[material_index], AI_MATKEY_COLOR_DIFFUSE, &color);
-	loc = glGetUniformLocation(program, "material.color");
+	loc = glGetUniformLocation(program.get_program(), "material.color");
 	glUniform4fv(loc, 1, glm::value_ptr(glm::vec4(color.r, color.g, color.b, color.a)));
 
 	float alpha = 1.f;
-	loc = glGetUniformLocation(program, "material.alpha");
+	loc = glGetUniformLocation(program.get_program(), "material.alpha");
 	glUniform1f(loc, alpha);
 
 	float has_texture;
 	if(_scene->mMaterials[material_index]->GetTextureCount(aiTextureType_DIFFUSE) > 0){
 		//std::cerr << _materials[material_index].texturebuffer[0] << std::endl;
 		has_texture = 1.f;
-		glBindTexture(GL_TEXTURE_2D, _materials[material_index].texturebuffer[0]);
+		glBindTexture(GL_TEXTURE_2D, _textures[_textures.size() - 1].texturebuffer);
 	}
 	else{
 		has_texture = 0.f;
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
-	loc = glGetUniformLocation(program, "material.has_texture");
+	loc = glGetUniformLocation(program.get_program(), "material.has_texture");
 	glUniform1f(loc, has_texture);
 	return;
 }
 
-void scene::render(mgf::camera &cam, GLuint program){
-	GLuint mvp_mat = glGetUniformLocation(program, "mvp_mat");
-	recursive_render(_scene->mRootNode, cam, mvp_mat, program);
+bool scene::apply_mat(glm::mat4 mat, GLuint loc){
+	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(mat));
+	return true;
+}
+
+bool scene::apply_mat(aiMatrix4x4 mat, GLuint loc){
+	float fvmat[16];
+	fvmat[0] = mat.a1; fvmat[1] = mat.b1; fvmat[2] = mat.c1; fvmat[3] = mat.d1;
+	fvmat[4] = mat.a2; fvmat[5] = mat.b2; fvmat[6] = mat.c2; fvmat[7] = mat.d2;
+	fvmat[8] = mat.a3; fvmat[9] = mat.b3; fvmat[10] = mat.c3; fvmat[11] = mat.d3;
+	fvmat[12] = mat.a4; fvmat[13] = mat.b4; fvmat[14] = mat.c4; fvmat[15] = mat.d4;
+
+	glUniformMatrix4fv(loc, 1, GL_FALSE, fvmat);
+	return true;
+}
+
+void scene::render(mgf::camera &cam, mgf::shader_program &program){
+	recursive_render(_root_node, glm::mat4(1) ,cam, program);
 	return;
 }
 
-void scene::recursive_render(aiNode *node, mgf::camera &cam, GLuint mvp_mat, GLuint program){
+void scene::recursive_render(mgf_node *node, glm::mat4 oldtrans, mgf::camera &cam, mgf::shader_program &program){
+	for(unsigned int i = 0; i < node->_num_meshes; i++){
+		apply_material(_scene->mMeshes[node->_meshes[i]]->mMaterialIndex, program);
+		apply_mat(cam.get_vp(), program.get_vp_mat());
+		//oldtrans = node->_trans * oldtrans;
+		oldtrans *= node->_trans;
+		apply_mat(oldtrans, program.get_m_mat());
+
+		glBindVertexArray(_meshes[node->_meshes[i]].vao);
+		glDrawElements(GL_TRIANGLES, _scene->mMeshes[node->_meshes[i]]->mNumFaces * 3 * sizeof(GLuint), GL_UNSIGNED_INT, 0);
+	}
+	for(unsigned int i = 0; i < node->_num_children; i ++){
+		recursive_render(node->_child_nodes[i], oldtrans, cam, program);
+	}
+	return;
+}
+
+/*void scene::render(mgf::camera &cam, mgf::shader_program &program){
+	recursive_render(_scene->mRootNode, cam, program);
+	return;
+}
+
+void scene::recursive_render(aiNode *node, mgf::camera &cam, mgf::shader_program &program){
 	for(unsigned int i = 0; i < node->mNumMeshes; i++){
 		apply_material(_scene->mMeshes[node->mMeshes[i]]->mMaterialIndex, program);
-		glUniformMatrix4fv(mvp_mat, 1, GL_FALSE, glm::value_ptr(cam.get_vp() * trans));
+		apply_mat(cam.get_vp(), program.get_vp_mat());
+		apply_mat(node->mTransformation, program.get_m_mat());
+
 		glBindVertexArray(_meshes[node->mMeshes[i]].vao);
 		glDrawElements(GL_TRIANGLES, _scene->mMeshes[node->mMeshes[i]]->mNumFaces * 3 * sizeof(GLuint), GL_UNSIGNED_INT, 0);
 	}
 	for(unsigned int i = 0; i < node->mNumChildren; i ++){
-		recursive_render(node->mChildren[i], cam, mvp_mat, program);
+		recursive_render(node->mChildren[i], cam, program);
 	}
 	return;
-}
+}*/
 
 }
 

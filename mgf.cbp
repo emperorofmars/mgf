@@ -51,10 +51,8 @@
 		<Unit filename="src/mgf_init.h" />
 		<Unit filename="src/mgf_input.cpp" />
 		<Unit filename="src/mgf_input.h" />
-		<Unit filename="src/mgf_model.cpp" />
-		<Unit filename="src/mgf_model.h" />
-		<Unit filename="src/mgf_object.cpp" />
-		<Unit filename="src/mgf_object.h" />
+		<Unit filename="src/mgf_node.cpp" />
+		<Unit filename="src/mgf_node.h" />
 		<Unit filename="src/mgf_scene.cpp" />
 		<Unit filename="src/mgf_scene.h" />
 		<Unit filename="src/mgf_shader.cpp" />

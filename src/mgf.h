@@ -9,6 +9,10 @@
 #ifndef MGF
 #define MGF
 
+#ifndef _DEBUG_LEVEL
+	#define _DEBUG_LEVEL 1
+#endif // _DEBUG_LEVEL
+
 #include "mgf_include.h"
 
 #include "mgf_init.h"
@@ -16,12 +20,9 @@
 #include "mgf_camera.h"
 #include "mgf_input.h"
 #include "mgf_scene.h"
-
-#include "mgf_model.h"
+#include "mgf_node.h"
 
 namespace mgf{
-
-void render(std::vector<model *> &models, camera &cam, GLuint program);
 
 } // mgf
 

@@ -30,6 +30,8 @@ public:
 	bool create_program();
 //###############################################################  use
 	GLuint get_program();
+	GLuint get_m_mat();
+	GLuint get_vp_mat();
 //###############################################################  use
 	void use();
 protected:
@@ -39,6 +41,7 @@ private:
 //###############################################################  variables
 	std::vector<struct shader_to_programm> mShaders;
 	GLuint mProgram;
+	GLuint m_mat, vp_mat;
 };
 
 } // mgf

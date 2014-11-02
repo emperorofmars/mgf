@@ -20,7 +20,7 @@ void main(void){
 	//color = texelFetch(tex, ivec2(gl_FragCoord.xy), 0);
 	if(fs_in.material.has_texture > 0.5){
 		color = texture(tex, vec2(fs_in.uv.x, 1 - fs_in.uv.y));
-		color = color * fs_in.material.color;
+		//color = color * fs_in.material.color;
 	}
 	else{
 		color = fs_in.material.color;

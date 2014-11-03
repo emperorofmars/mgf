@@ -1,0 +1,8 @@
+TODO:
+
+-clean loader
+-mgf_data into its own file
+-mgf_data destructors
+-work on scene
+-make render struct to make rendering configurable (send it to glsl, do not interfere with c++ render functions)
+-rendering: scene->node->mesh

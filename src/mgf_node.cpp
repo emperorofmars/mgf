@@ -5,7 +5,7 @@
 **	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
 */
 
-#include "mgf_scene.h"
+#include "mgf_loader.h"
 
 namespace mgf{
 
@@ -55,30 +55,8 @@ mgf_node *mgf_node::find_node(std::string name){
 	return NULL;
 }
 
-mgf_instance *mgf_node::create_instance(bool relative, bool still_renderable){
-	mgf_instance *inst = new mgf_instance(this);
-	_instances.push_back(inst);
-	return inst;
-}
-
 void mgf_node::render(){
 	return;
-}
-
-//######################  instance
-
-mgf_instance::mgf_instance(){
-	_parent = NULL;
-	_relative_to_parent = true;
-}
-
-mgf_instance::mgf_instance(mgf_node *parent){
-	_parent = parent;
-	_relative_to_parent = true;
-}
-
-mgf_instance::~mgf_instance(){
-	_parent = NULL;
 }
 
 }

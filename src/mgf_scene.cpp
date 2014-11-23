@@ -12,9 +12,11 @@ namespace mgf{
 //######################  scene
 
 scene::scene(){
+	_data = new mgf_data;
 }
 
 scene::~scene(){
+	delete _data;
 }
 
 

@@ -8,10 +8,6 @@
 #ifndef MGF_INCLUDE
 #define MGF_INCLUDE
 
-#ifndef _DEBUG_LEVEL
-	#define _DEBUG_LEVEL 2
-#endif // _DEBUG_LEVEL
-
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -30,5 +26,8 @@
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
+
+
+#define _DEBUG_LEVEL 2
 
 #endif

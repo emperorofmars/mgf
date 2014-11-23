@@ -10,46 +10,32 @@
 
 #include "mgf_include.h"
 #include "mgf_node.h"
+#include "mgf_data.h"
+#include "mgf_camera.h"
+#include "mgf_shader.h"
 
 namespace mgf{
-
-struct mgf_data{
-	struct mgf_mesh{
-		GLuint elementbuffer, vertexbuffer, normalbuffer, *uvbuffer;
-		GLuint vao;
-	};
-	struct mgf_texture{
-		std::string name;
-		GLuint texturebuffer;
-	};
-	struct mgf_light{
-		std::string name;
-		glm::vec3 diffuse;
-		float strength;
-	};
-	struct mgf_material{
-		std::string name;
-		unsigned int *num_texture;
-		glm::vec3 diffuse;
-	};
-	std::vector<mgf_mesh> _meshes;
-	std::vector<mgf_texture> _textures;
-	std::vector<mgf_material> _materials;
-
-	bool render_mesh(unsigned int index);
-};
-
 
 class scene{
 public:
 	scene();
 	~scene();
 
-	std::vector<mgf_data> _data;
-	std::vector<mgf_node> _root_node;
-	std::vector<mgf_node> _root_instances;
-private:
+	mgf_data *_data;
+	std::vector<mgf_node *> _root_node;
+	std::vector<mgf_node *> _root_instances;
 
+
+	bool translate(std::string name, glm::vec3 data);
+	bool rotate(std::string name, float angle, glm::vec3 data);
+	bool scale(std::string name, glm::vec3 data);
+	bool multiply_mat(std::string name, glm::mat4 data);
+
+	void render(mgf::camera &cam, mgf::shader_program &program);
+	void recursive_render(mgf_node *node, glm::mat4 oldtrans, mgf::camera &cam, mgf::shader_program &program);
+private:
+	void apply_material(unsigned int material_index, mgf::shader_program &program);
+	bool apply_mat(glm::mat4 mat, GLuint loc);
 };
 
 }

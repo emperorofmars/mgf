@@ -46,6 +46,8 @@
 		<Unit filename="src/mgf.h" />
 		<Unit filename="src/mgf_camera.cpp" />
 		<Unit filename="src/mgf_camera.h" />
+		<Unit filename="src/mgf_data.cpp" />
+		<Unit filename="src/mgf_data.h" />
 		<Unit filename="src/mgf_include.h" />
 		<Unit filename="src/mgf_init.cpp" />
 		<Unit filename="src/mgf_init.h" />

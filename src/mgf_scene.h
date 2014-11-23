@@ -32,8 +32,8 @@ public:
 	bool multiply_mat(std::string name, glm::mat4 data);
 
 	void render(mgf::camera &cam, mgf::shader_program &program);
-	void recursive_render(mgf_node *node, glm::mat4 oldtrans, mgf::camera &cam, mgf::shader_program &program);
 private:
+	void recursive_render(mgf_node *node, glm::mat4 oldtrans, mgf::camera &cam, mgf::shader_program &program);
 	void apply_material(unsigned int material_index, mgf::shader_program &program);
 	bool apply_mat(glm::mat4 mat, GLuint loc);
 };

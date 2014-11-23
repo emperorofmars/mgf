@@ -19,6 +19,7 @@ struct mgf_data{
 		GLuint elementbuffer, vertexbuffer, normalbuffer, *uvbuffer;
 		GLuint vao;
 		unsigned int material_index;
+		unsigned int num_indices, num_vertices, num_normals;
 		std::vector<unsigned int> indices;
 		std::vector<glm::vec3> positions;
 		std::vector<glm::vec3> normals;

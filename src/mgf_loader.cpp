@@ -74,6 +74,10 @@ bool load_to_data(mgf_data *data, const aiScene *ai_scene, std::string path, int
 	for(unsigned int i = 0; i < ai_scene->mNumMeshes; i++){	//load meshes
 		data->_meshes[i].material_index = ai_scene->mMeshes[i]->mMaterialIndex + 1;
 
+		data->_meshes[i].num_indices = ai_scene->mMeshes[i]->mNumFaces * 3;
+		data->_meshes[i].num_vertices = ai_scene->mMeshes[i]->mNumVertices;
+		data->_meshes[i].num_normals = ai_scene->mMeshes[i]->mNumVertices;
+
 		if((flags & 2) > 0){	//load mesh data
 			data->_meshes[i].indices.resize(ai_scene->mMeshes[i]->mNumFaces * 3);
 			data->_meshes[i].positions.resize(ai_scene->mMeshes[i]->mNumVertices);
@@ -101,14 +105,14 @@ bool load_to_data(mgf_data *data, const aiScene *ai_scene, std::string path, int
 
 	for(unsigned int i = 0; i < ai_scene->mNumMaterials; i++){	//load materials and textures
 		aiColor4D col;
-		if(AI_SUCCESS == aiGetMaterialColor(ai_scene->mMaterials[i], AI_MATKEY_COLOR_AMBIENT, &col)){
+		if(AI_SUCCESS == aiGetMaterialColor(ai_scene->mMaterials[i], AI_MATKEY_COLOR_DIFFUSE, &col)){
 			data->_materials[i + 1].diffuse[0] = col[0];
 			data->_materials[i + 1].diffuse[1] = col[1];
 			data->_materials[i + 1].diffuse[2] = col[2];
 			data->_materials[i + 1].diffuse[3] = col[3];
 		}
 
-		data->_materials[i].diffuse_texture_index.resize(ai_scene->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE));
+		//data->_materials[i].diffuse_texture_index.resize(ai_scene->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE));
 /*
 		for(unsigned int j = 0; j < data->_materials[i].diffuse_texture_index.size(); j++){	//for each texture
 std::cerr << "DEBUG 01 " << data->_materials[i].diffuse_texture_index.size() << std::endl;

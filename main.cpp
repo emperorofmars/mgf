@@ -58,8 +58,8 @@ int main(int argc, char *argv[]){
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
 
-		//scene->render(cam, p);
-		//scene1->render(cam, p);
+		scene->render(cam, p);
+		scene1->render(cam, p);
 
 		g.swap_window(0);
 	}

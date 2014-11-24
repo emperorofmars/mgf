@@ -2,5 +2,6 @@ TODO:
 
 -clean loader
 -loader texture loading
+-loader copy to instances
 -mgf_data destructors
 -work on scene

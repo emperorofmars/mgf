@@ -67,7 +67,7 @@ int main(int argc, char *argv[]){
 	SDL_SetRelativeMouseMode(SDL_FALSE);
 
 	delete scene;
-	delete scene1;
+	//delete scene1;
 
 	std::cerr << std::endl << "closing main!" << std::endl;
 	return 0;

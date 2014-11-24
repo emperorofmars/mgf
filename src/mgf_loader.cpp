@@ -46,6 +46,12 @@ bool load_into_scene(mgf::scene *in_scene, std::string path, int flags){
 		#endif // _DEBUG_LEVEL
 	}
 
+	if(!load_textures(in_scene->_data, ai_scene, path, flags)){
+		#if _DEBUG_LEVEL >= 1
+			std::cerr << "load_textures failed!" << std::endl;
+		#endif // _DEBUG_LEVEL
+	}
+
 	if((flags & 1) == 0){
 		if(!load_to_gpu_from_aiscene(in_scene->_data, ai_scene, flags)){
 			#if _DEBUG_LEVEL >= 1
@@ -82,6 +88,7 @@ bool load_to_data(mgf_data *data, const aiScene *ai_scene, std::string path, int
 			data->_meshes[i].indices.resize(ai_scene->mMeshes[i]->mNumFaces * 3);
 			data->_meshes[i].positions.resize(ai_scene->mMeshes[i]->mNumVertices);
 			data->_meshes[i].normals.resize(ai_scene->mMeshes[i]->mNumVertices);
+			data->_meshes[i].texcoords.resize(ai_scene->mMeshes[i]->GetNumUVChannels());
 
 			for(unsigned int j = 0; j < ai_scene->mMeshes[i]->mNumFaces; j++){
 				data->_meshes[i].indices[j*3] = ai_scene->mMeshes[i]->mFaces[j].mIndices[0];
@@ -100,6 +107,15 @@ bool load_to_data(mgf_data *data, const aiScene *ai_scene, std::string path, int
 				data->_meshes[i].normals[j][1] = ai_scene->mMeshes[i]->mNormals[j][1];
 				data->_meshes[i].normals[j][2] = ai_scene->mMeshes[i]->mNormals[j][2];
 			}
+
+			for(unsigned int j = 0; j < ai_scene->mMeshes[i]->GetNumUVChannels(); j++){
+				data->_meshes[i].texcoords[j].resize(ai_scene->mMeshes[i]->mNumUVComponents[j]);
+				for(unsigned int h = 0; h < ai_scene->mMeshes[i]->mNumUVComponents[j]; h++){
+					data->_meshes[i].texcoords[j][h][0] = ai_scene->mMeshes[i]->mTextureCoords[j][h][0];
+					data->_meshes[i].texcoords[j][h][1] = ai_scene->mMeshes[i]->mTextureCoords[j][h][1];
+					data->_meshes[i].texcoords[j][h][2] = ai_scene->mMeshes[i]->mTextureCoords[j][h][2];
+				}
+			}
 		}
 	}
 
@@ -112,10 +128,22 @@ bool load_to_data(mgf_data *data, const aiScene *ai_scene, std::string path, int
 			data->_materials[i + 1].diffuse[3] = col[3];
 		}
 
-		//data->_materials[i].diffuse_texture_index.resize(ai_scene->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE));
-/*
-		for(unsigned int j = 0; j < data->_materials[i].diffuse_texture_index.size(); j++){	//for each texture
-std::cerr << "DEBUG 01 " << data->_materials[i].diffuse_texture_index.size() << std::endl;
+		data->_materials[i + 1].diffuse_texture_index.resize(ai_scene->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE));
+	}
+
+	return true;
+}
+
+bool load_textures(mgf_data *data, const aiScene *ai_scene, std::string path, int flags){
+	for(unsigned int i = path.size() - 1; i > 0; i--){	//get path
+		if(path[i] == '/') break;
+		else path.erase(path.begin() + i);
+	}
+
+	for(unsigned int i = 0; i < ai_scene->mNumMaterials; i++){
+		data->_materials[i].diffuse_texture_index.resize(ai_scene->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE));	//allocate space for texture references
+
+		for(unsigned int j = 0; j < data->_materials[i].diffuse_texture_index.size(); j++){
 			std::string newpath(path);
 			aiString tmp;
 			ai_scene->mMaterials[i]->GetTexture(aiTextureType_DIFFUSE, j, &tmp, NULL, NULL, NULL, NULL, NULL);	//get texture path relative to loadded file
@@ -128,40 +156,38 @@ std::cerr << "DEBUG 01 " << data->_materials[i].diffuse_texture_index.size() << 
 			}
 
 			data->_textures.resize(data->_textures.size() + 1);	//create new texture struct
-			data->_materials[i].diffuse_texture_index[j] = data->_materials[i].diffuse_texture_index.size() - 1;	//reference texture struct in material struct
+			data->_materials[i].diffuse_texture_index[j] = data->_textures.size() - 1;	//reference texture struct in material struct
 
-			data->_textures[i].image = IMG_Load(newpath.c_str());	//load texture
+			glActiveTexture(GL_TEXTURE0 + j);	//create opengl texture object
+			glGenTextures(1, &data->_textures[data->_textures.size() - 1].texturebuffer);
+			glBindTexture(GL_TEXTURE_2D, data->_textures[data->_textures.size() - 1].texturebuffer);
 
-std::cerr << "DEBUG 02" << std::endl;
-			if(data->_textures[i].image != NULL && (flags & 1) == 0){	//load to gpu
-std::cerr << "DEBUG 021" << std::endl;
-				glActiveTexture(GL_TEXTURE0 + j);	//create opengl texture object
-				glGenTextures(1, &data->_textures[data->_textures.size() - 1].texturebuffer);
-				glBindTexture(GL_TEXTURE_2D, data->_textures[data->_textures.size() - 1].texturebuffer);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+			data->_textures[data->_textures.size() - 1].image = IMG_Load(newpath.c_str());	//load texture
 
-std::cerr << "DEBUG 022" << std::endl;
-				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-				SDL_Surface *image = data->_textures[i].image;
+			if(data->_textures[data->_textures.size() - 1].image != NULL){	//load it to gpu
+				SDL_Surface *image = data->_textures[data->_textures.size() - 1].image;
 
-std::cerr << "DEBUG 023" << std::endl;
 				glTexStorage2D(GL_TEXTURE_2D, 8, GL_RGBA32F, image->w, image->h);
 				glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, image->w, image->h, GL_RGBA, GL_UNSIGNED_BYTE, image->pixels);
 				glGenerateMipmap(GL_TEXTURE_2D);
 
-std::cerr << "DEBUG 024" << std::endl;
-				if((flags & 2) == 0) SDL_FreeSurface(image);
-std::cerr << "DEBUG 025" << std::endl;
+				if((flags & 2) == 0){
+					SDL_FreeSurface(data->_textures[data->_textures.size() - 1].image);
+					data->_textures[data->_textures.size() - 1].image = NULL;
+				}
 			}
 			else{
 				#if _DEBUG_LEVEL >= 1
 					std::cerr << "loading texture failed" << std::endl;
 				#endif // _DEBUG_LEVEL
 			}
-
-std::cerr << "DEBUG 03" << std::endl;
-		}*/
+		}
 	}
+	#if _DEBUG_LEVEL >= 2
+		std::cerr << "loaded textures successfully" << std::endl;
+	#endif // _DEBUG_LEVEL
 	return true;
 }
 
@@ -222,20 +248,17 @@ bool load_to_gpu_from_aiscene(mgf_data *data, const aiScene *ai_scene, int flags
 		}
 		else data->_meshes[i].normalbuffer = 0;
 
-		if(ai_scene->mMeshes[i]->GetNumUVChannels() > 0){
-			data->_meshes[i].uvbuffer = new GLuint[ai_scene->mMeshes[i]->GetNumUVChannels()];
-			for(unsigned int j = 0; j < ai_scene->mMeshes[i]->GetNumUVChannels(); j++){
-				if(ai_scene->mMeshes[i]->HasTextureCoords(j)){
-					glGenBuffers(1, &data->_meshes[i].uvbuffer[j]);
-					glBindBuffer(GL_ARRAY_BUFFER, data->_meshes[i].uvbuffer[j]);
-					glBufferData(GL_ARRAY_BUFFER, ai_scene->mMeshes[i]->mNumVertices * sizeof(aiVector3D), ai_scene->mMeshes[i]->mTextureCoords[j], GL_STATIC_DRAW);
-					glVertexAttribPointer(2 + i, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-					glEnableVertexAttribArray(2 + i);
-				}
-				else data->_meshes[i].uvbuffer[j] = 0;
+		data->_meshes[i].uvbuffer.resize(ai_scene->mMeshes[i]->GetNumUVChannels());
+		for(unsigned int j = 0; j < data->_meshes[i].uvbuffer.size(); j++){
+			if(ai_scene->mMeshes[i]->HasTextureCoords(j)){
+				glGenBuffers(1, &data->_meshes[i].uvbuffer[j]);
+				glBindBuffer(GL_ARRAY_BUFFER, data->_meshes[i].uvbuffer[j]);
+				glBufferData(GL_ARRAY_BUFFER, ai_scene->mMeshes[i]->mNumVertices * sizeof(aiVector3D), ai_scene->mMeshes[i]->mTextureCoords[j], GL_STATIC_DRAW);
+				glVertexAttribPointer(2 + i, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+				glEnableVertexAttribArray(2 + i);
 			}
+			else data->_meshes[i].uvbuffer[j] = 0;
 		}
-		else data->_meshes[i].uvbuffer = NULL;
 	}
 
 	#if _DEBUG_LEVEL >= 2
@@ -482,13 +505,13 @@ bool loader::load_texture(std::string path, bool to_gpu){
 				SDL_FreeSurface(image);
 			}
 			else{
-				#if _DEBUG_LEVEL == 1
+				#if _DEBUG_LEVEL >= 1
 					std::cerr << "loading texture failed" << std::endl;
 				#endif // _DEBUG_LEVEL
 			}
 		}
 	}
-	#if _DEBUG_LEVEL == 2
+	#if _DEBUG_LEVEL >= 2
 		std::cerr << "loaded textures successfully" << std::endl;
 	#endif // _DEBUG_LEVEL
 	return true;

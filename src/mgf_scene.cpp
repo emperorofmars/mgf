@@ -56,11 +56,12 @@ void scene::apply_material(unsigned int material_index, mgf::shader_program &pro
 
 	float has_texture;
 	if(_data->_materials[material_index].diffuse_texture_index.size() > 0){
-		//std::cerr << _materials[material_index].texturebuffer[0] << std::endl;
+		//std::cerr << "RENDER 01: " << _data->_materials[material_index].diffuse_texture_index[0] << std::endl;
 		has_texture = 1.f;
 		glBindTexture(GL_TEXTURE_2D, _data->_textures[_data->_materials[material_index].diffuse_texture_index[0]].texturebuffer);
 	}
 	else{
+		//std::cerr << "RENDER 02: no texture" << std::endl;
 		has_texture = 0.f;
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}

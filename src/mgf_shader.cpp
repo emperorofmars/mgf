@@ -14,14 +14,12 @@ namespace mgf{
 //###############################################################  constructor
 shader_program::shader_program(){
 	mProgram = 0;
-	m_mat = 0;
-	vp_mat = 0;
+	memset(mLocations, 0, SIZE);
 }
 
 shader_program::shader_program(std::vector<struct shader_to_programm> &shaders){
 	mProgram = 0;
-	m_mat = 0;
-	vp_mat = 0;
+	memset(mLocations, 0, SIZE);
 	mShaders = shaders;
 }
 
@@ -29,8 +27,6 @@ shader_program::~shader_program(){
 	std::cerr << "closing shader_program" << std::endl;
 	if(mProgram != 0) glDeleteProgram(mProgram);
 	mProgram = 0;
-	m_mat = 0;
-	vp_mat = 0;
 	mShaders.clear();
 }
 
@@ -46,12 +42,8 @@ GLuint shader_program::get_program(){
 	return mProgram;
 }
 
-GLuint shader_program::get_m_mat(){
-	return m_mat;
-}
-
-GLuint shader_program::get_vp_mat(){
-	return vp_mat;
+GLuint shader_program::get(shader_loc loc){
+	return mLocations[loc];
 }
 
 //###############################################################  create
@@ -88,8 +80,15 @@ bool shader_program::create_program(){
 		std::cerr << "Creating program failed" << std::endl;
 		return false;
 	}
-	m_mat = glGetUniformLocation(mProgram, "m_mat");
-	vp_mat = glGetUniformLocation(mProgram, "vp_mat");
+	//m_mat = glGetUniformLocation(mProgram, _shader_matrix_model);
+	//vp_mat = glGetUniformLocation(mProgram, _shader_matrix_view_perspective);
+
+	//set locations
+	mLocations[MATRIX_MODEL] = glGetUniformLocation(mProgram, _shader_matrix_model);
+	mLocations[MATRIX_VP] = glGetUniformLocation(mProgram, _shader_matrix_view_perspective);
+	mLocations[MATERIAL_COLOR_DIFFUSE] = glGetUniformLocation(mProgram, _shader_material_color_diffuse);
+	mLocations[MATERIAL_ALPHA] = glGetUniformLocation(mProgram, _shader_material_alpha);
+	mLocations[MATERIAL_HAS_TEXTURE] = glGetUniformLocation(mProgram, _shader_material_has_texture);
 
 	return true;
 }

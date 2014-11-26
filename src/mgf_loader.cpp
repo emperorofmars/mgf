@@ -35,10 +35,10 @@ bool load_into_scene(mgf::scene *in_scene, std::string path, int flags){
 		#endif // _DEBUG_LEVEL
 		return false;
 	}
-	in_scene->_root_node.push_back(new mgf::mgf_node());	//create root node
-	in_scene->_root_node[in_scene->_root_node.size() - 1]->_name = ai_scene->mRootNode->mName.C_Str();
-	in_scene->_root_node[in_scene->_root_node.size() - 1]->construct_from_ainode(ai_scene->mRootNode);	//construct nodetree
-	//construct_nodetree(in_scene->_root_node[in_scene->_root_node.size() - 1], ai_scene->mRootNode);
+	in_scene->_root_repository.push_back(new mgf::mgf_node_model());	//create root node
+	in_scene->_root_repository[in_scene->_root_repository.size() - 1]->_name = ai_scene->mRootNode->mName.C_Str();
+	in_scene->_root_repository[in_scene->_root_repository.size() - 1]->construct_from_ainode(ai_scene->mRootNode, in_scene->_data);	//construct nodetree
+	//construct_nodetree(in_scene->_root_repository[in_scene->_root_repository.size() - 1], ai_scene->mRootNode);
 
 	if(!load_to_data(in_scene->_data, ai_scene, path, flags)){	//load data struct
 		#if _DEBUG_LEVEL >= 1
@@ -61,7 +61,7 @@ bool load_into_scene(mgf::scene *in_scene, std::string path, int flags){
 	}
 
 	#if _DEBUG_LEVEL >= 2
-		std::cerr << "Importing scene " << in_scene->_root_node[in_scene->_root_node.size() - 1]->_name << " successful!" << std::endl;
+		std::cerr << "Importing scene " << in_scene->_root_repository[in_scene->_root_repository.size() - 1]->_name << " successful!" << std::endl;
 	#endif // _DEBUG_LEVEL
 	//std::cerr << "number of meshes: " << ai_scene->mNumMeshes << std::endl;
 

@@ -19,56 +19,157 @@ scene::~scene(){
 	delete _data;
 }
 
-void scene::render(mgf::camera &cam, mgf::shader_program &program){
-	for(unsigned int i = 0; i < _root_node.size(); i++) recursive_render(_root_node[i], glm::mat4(1) ,cam, program);
+void scene::render(){
+	for(unsigned int i = 0; i < _root_instances.size(); i++)
+		mgf::render(_root_instances[i], _data);
 	return;
 }
 
-void scene::recursive_render(mgf_node *node, glm::mat4 oldtrans, mgf::camera &cam, mgf::shader_program &program){
-	oldtrans *= node->_trans;
-	apply_mat(cam.get_vp(), program.get_vp_mat());	//view-perspective matrix
-	apply_mat(oldtrans, program.get_m_mat());	//model matrix
-	for(unsigned int i = 0; i < node->_num_meshes; i++){
-		apply_material(_data->_meshes[node->_meshes[i]].material_index, program);
-
-		glBindVertexArray(_data->_meshes[node->_meshes[i]].vao);
-		glDrawElements(GL_TRIANGLES, _data->_meshes[node->_meshes[i]].num_indices * sizeof(GLuint), GL_UNSIGNED_INT, 0);
-	}
-
-	for(unsigned int i = 0; i < node->_num_children; i ++){
-		recursive_render(node->_child_nodes[i], oldtrans, cam, program);
-	}
+void scene::render_repository(){
+	for(unsigned int i = 0; i < _root_repository.size(); i++)
+		mgf::render(_root_repository[i], _data);
 	return;
 }
 
-bool scene::apply_mat(glm::mat4 mat, GLuint loc){
-	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(mat));
+//######################  scene transform
+
+bool scene::translate(std::string name, glm::vec3 data){
+	mgf_node_model_instance *node = NULL;
+	for(unsigned int i = 0; i < _root_instances.size() && node == NULL; i++)
+		node = (mgf_node_model_instance *)_root_instances[i]->find_node(name);
+
+	if(node == NULL){
+		#if _DEBUG_LEVEL >= 2
+			std::cerr << "could not find: " << name << std::endl;
+		#endif // _DEBUG_LEVEL
+		return false;
+	}
+	node->_trans *= glm::translate(glm::mat4(1), data);
 	return true;
 }
 
-void scene::apply_material(unsigned int material_index, mgf::shader_program &program){
-	GLuint loc = glGetUniformLocation(program.get_program(), "material.color");
-	glUniform4fv(loc, 1, glm::value_ptr(_data->_materials[material_index].diffuse));
+bool scene::rotate(std::string name, float angle, glm::vec3 data){
+	mgf_node_model_instance *node = NULL;
+	for(unsigned int i = 0; i < _root_instances.size() && node == NULL; i++)
+		node = (mgf_node_model_instance *)_root_instances[i]->find_node(name);
 
-	float alpha = 1.f;
-	loc = glGetUniformLocation(program.get_program(), "material.alpha");
-	glUniform1f(loc, alpha);
+	if(node == NULL){
+		#if _DEBUG_LEVEL >= 2
+			std::cerr << "could not find: " << name << std::endl;
+		#endif // _DEBUG_LEVEL
+		return false;
+	}
+	node->_trans *= glm::rotate(glm::mat4(1), angle, data);
+	return true;
+}
 
-	float has_texture;
-	if(_data->_materials[material_index].diffuse_texture_index.size() > 0){
-		//std::cerr << "RENDER 01: " << _data->_materials[material_index].diffuse_texture_index[0] << std::endl;
-		has_texture = 1.f;
-		glBindTexture(GL_TEXTURE_2D, _data->_textures[_data->_materials[material_index].diffuse_texture_index[0]].texturebuffer);
+bool scene::scale(std::string name, glm::vec3 data){
+	mgf_node_model_instance *node = NULL;
+	for(unsigned int i = 0; i < _root_instances.size() && node == NULL; i++)
+		node = (mgf_node_model_instance *)_root_instances[i]->find_node(name);
+
+	if(node == NULL){
+		#if _DEBUG_LEVEL >= 2
+			std::cerr << "could not find: " << name << std::endl;
+		#endif // _DEBUG_LEVEL
+		return false;
 	}
-	else{
-		//std::cerr << "RENDER 02: no texture" << std::endl;
-		has_texture = 0.f;
-		glBindTexture(GL_TEXTURE_2D, 0);
+	node->_trans *= glm::scale(glm::mat4(1), data);
+	return true;
+}
+
+bool scene::multiply_mat(std::string name, glm::mat4 data){
+	mgf_node_model_instance *node = NULL;
+	for(unsigned int i = 0; i < _root_instances.size() && node == NULL; i++)
+		node = (mgf_node_model_instance *)_root_instances[i]->find_node(name);
+
+	if(node == NULL){
+		#if _DEBUG_LEVEL >= 2
+			std::cerr << "could not find: " << name << std::endl;
+		#endif // _DEBUG_LEVEL
+		return false;
 	}
-	loc = glGetUniformLocation(program.get_program(), "material.has_texture");
-	glUniform1f(loc, has_texture);
-	return;
+	node->_trans *= data;
+	return true;
+}
+
+//######################  scene transform in repo
+
+bool scene::repo_translate(std::string name, glm::vec3 data){
+	mgf_node_model *node = NULL;
+	for(unsigned int i = 0; i < _root_repository.size() && node == NULL; i++)
+		node = (mgf_node_model *)_root_repository[i]->find_node(name);
+
+	if(node == NULL){
+		#if _DEBUG_LEVEL >= 2
+			std::cerr << "could not find: " << name << std::endl;
+		#endif // _DEBUG_LEVEL
+		return false;
+	}
+	node->_trans *= glm::translate(glm::mat4(1), data);
+	return true;
+}
+
+bool scene::repo_rotate(std::string name, float angle, glm::vec3 data){
+	mgf_node_model *node = NULL;
+	for(unsigned int i = 0; i < _root_repository.size() && node == NULL; i++)
+		node = (mgf_node_model *)_root_repository[i]->find_node(name);
+
+	if(node == NULL){
+		#if _DEBUG_LEVEL >= 2
+			std::cerr << "could not find: " << name << std::endl;
+		#endif // _DEBUG_LEVEL
+		return false;
+	}
+	node->_trans *= glm::rotate(glm::mat4(1), angle, data);
+	return true;
+}
+
+bool scene::repo_scale(std::string name, glm::vec3 data){
+	mgf_node_model *node = NULL;
+	for(unsigned int i = 0; i < _root_repository.size() && node == NULL; i++)
+		node = (mgf_node_model *)_root_repository[i]->find_node(name);
+
+	if(node == NULL){
+		#if _DEBUG_LEVEL >= 2
+			std::cerr << "could not find: " << name << std::endl;
+		#endif // _DEBUG_LEVEL
+		return false;
+	}
+	node->_trans *= glm::scale(glm::mat4(1), data);
+	return true;
+}
+
+bool scene::repo_multiply_mat(std::string name, glm::mat4 data){
+	mgf_node_model *node = NULL;
+	for(unsigned int i = 0; i < _root_repository.size() && node == NULL; i++)
+		node = (mgf_node_model *)_root_repository[i]->find_node(name);
+
+	if(node == NULL){
+		#if _DEBUG_LEVEL >= 2
+			std::cerr << "could not find: " << name << std::endl;
+		#endif // _DEBUG_LEVEL
+		return false;
+	}
+	node->_trans *= data;
+	return true;
 }
 
 
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -57,6 +57,8 @@
 		<Unit filename="src/mgf_loader.h" />
 		<Unit filename="src/mgf_node.cpp" />
 		<Unit filename="src/mgf_node.h" />
+		<Unit filename="src/mgf_render.cpp" />
+		<Unit filename="src/mgf_render.h" />
 		<Unit filename="src/mgf_scene.cpp" />
 		<Unit filename="src/mgf_scene.h" />
 		<Unit filename="src/mgf_shader.cpp" />

@@ -31,11 +31,13 @@ int main(int argc, char *argv[]){
 	glDepthFunc(GL_LESS);
 
 	SDL_SetRelativeMouseMode(SDL_TRUE);
-	p.use();
 
-	/*scene->translate("Cube", glm::vec3(0.f, 10.f, -1.f));
-	scene->scale("Cube", glm::vec3(2.f, 2.f, 2.f));
-	scene1->translate("scene.obj", glm::vec3(0.f, -2.f, 0.f));*/
+	mgf::render_info.update_camera(&cam);
+	mgf::render_info.update_program(&p);
+
+	scene->repo_translate("Cube", glm::vec3(0.f, 10.f, -1.f));
+	scene->repo_scale("Cube", glm::vec3(2.f, 2.f, 2.f));
+	scene1->repo_translate("scene.obj", glm::vec3(0.f, -2.f, 0.f));
 //###############################################  Gameloop
 	bool quit = false;
 	while(quit != true){
@@ -51,15 +53,15 @@ int main(int argc, char *argv[]){
 			std::cerr << std::endl;
 		}std::cerr << std::endl;*/
 
-		/*scene->rotate("Cube", 0.03f, glm::vec3(0.f, 1.f, 0.f));
-		scene1->rotate("Cube", 0.01f, glm::vec3(0.f, 1.f, 0.f));
-		scene1->rotate("Suzanne", -0.01f, glm::vec3(0.f, 1.f, 0.f));*/
+		scene->repo_rotate("Cube", 0.03f, glm::vec3(0.f, 1.f, 0.f));
+		scene1->repo_rotate("Cube", 0.01f, glm::vec3(0.f, 1.f, 0.f));
+		scene1->repo_rotate("Suzanne", -0.01f, glm::vec3(0.f, 1.f, 0.f));
 //###############################################  Rendering
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
 
-		scene->render(cam, p);
-		scene1->render(cam, p);
+		scene->render_repository();
+		scene1->render_repository();
 
 		g.swap_window(0);
 	}

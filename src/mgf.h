@@ -23,8 +23,11 @@
 #include "mgf_node.h"
 #include "mgf_data.h"
 #include "mgf_scene.h"
+#include "mgf_render.h"
 
 namespace mgf{
+
+	extern _render_info render_info;
 
 } // mgf
 

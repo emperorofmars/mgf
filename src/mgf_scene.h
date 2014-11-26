@@ -13,6 +13,7 @@
 #include "mgf_data.h"
 #include "mgf_camera.h"
 #include "mgf_shader.h"
+#include "mgf_render.h"
 
 namespace mgf{
 
@@ -22,20 +23,22 @@ public:
 	~scene();
 
 	mgf_data *_data;
-	std::vector<mgf_node *> _root_node;
-	std::vector<mgf_node *> _root_instances;
-
+	std::vector<mgf_node_model *> _root_repository;
+	std::vector<mgf_node_model_instance *> _root_instances;
 
 	bool translate(std::string name, glm::vec3 data);
 	bool rotate(std::string name, float angle, glm::vec3 data);
 	bool scale(std::string name, glm::vec3 data);
 	bool multiply_mat(std::string name, glm::mat4 data);
 
-	void render(mgf::camera &cam, mgf::shader_program &program);
+	bool repo_translate(std::string name, glm::vec3 data);
+	bool repo_rotate(std::string name, float angle, glm::vec3 data);
+	bool repo_scale(std::string name, glm::vec3 data);
+	bool repo_multiply_mat(std::string name, glm::mat4 data);
+
+	void render();
+	void render_repository();
 private:
-	void recursive_render(mgf_node *node, glm::mat4 oldtrans, mgf::camera &cam, mgf::shader_program &program);
-	void apply_material(unsigned int material_index, mgf::shader_program &program);
-	bool apply_mat(glm::mat4 mat, GLuint loc);
 };
 
 }

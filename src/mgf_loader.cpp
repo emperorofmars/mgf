@@ -35,10 +35,18 @@ bool load_into_scene(mgf::scene *in_scene, std::string path, int flags){
 		#endif // _DEBUG_LEVEL
 		return false;
 	}
-	in_scene->_root_repository.push_back(new mgf::mgf_node_model());	//create root node
-	in_scene->_root_repository[in_scene->_root_repository.size() - 1]->_name = ai_scene->mRootNode->mName.C_Str();
-	in_scene->_root_repository[in_scene->_root_repository.size() - 1]->construct_from_ainode(ai_scene->mRootNode, in_scene->_data);	//construct nodetree
-	//construct_nodetree(in_scene->_root_repository[in_scene->_root_repository.size() - 1], ai_scene->mRootNode);
+
+	unsigned int oldsize_meshes = in_scene->_data->_meshes.size();
+	unsigned int oldsize_materials = in_scene->_data->_materials.size();
+	//unsigned int oldsize_textures = in_scene->_data->_textures.size();
+	//unsigned int oldsize_lights = in_scene->_data->_lights.size();
+	if(oldsize_materials == 0) oldsize_materials = 1;
+
+	if(in_scene->_root_repository.size() == 0){
+		in_scene->_root_repository.push_back(new mgf::mgf_node_model());	//create root node
+		in_scene->_root_repository[in_scene->_root_repository.size() - 1]->_name = "root";
+	}
+	in_scene->_root_repository[in_scene->_root_repository.size() - 1]->construct_from_ainode(ai_scene->mRootNode, in_scene->_data, oldsize_meshes);	//construct nodetree
 
 	if(!load_to_data(in_scene->_data, ai_scene, path, flags)){	//load data struct
 		#if _DEBUG_LEVEL >= 1
@@ -46,14 +54,14 @@ bool load_into_scene(mgf::scene *in_scene, std::string path, int flags){
 		#endif // _DEBUG_LEVEL
 	}
 
-	if(!load_textures(in_scene->_data, ai_scene, path, flags)){
+	if(!load_textures(in_scene->_data, ai_scene, path, oldsize_materials, flags)){
 		#if _DEBUG_LEVEL >= 1
 			std::cerr << "load_textures failed!" << std::endl;
 		#endif // _DEBUG_LEVEL
 	}
 
 	if((flags & 1) == 0){
-		if(!load_to_gpu_from_aiscene(in_scene->_data, ai_scene, flags)){
+		if(!load_to_gpu_from_aiscene(in_scene->_data, ai_scene, oldsize_meshes, flags)){
 			#if _DEBUG_LEVEL >= 1
 				std::cerr << "load_to_gpu_from_aiscene failed!" << std::endl;
 			#endif // _DEBUG_LEVEL
@@ -61,10 +69,9 @@ bool load_into_scene(mgf::scene *in_scene, std::string path, int flags){
 	}
 
 	#if _DEBUG_LEVEL >= 2
-		std::cerr << "Importing scene " << in_scene->_root_repository[in_scene->_root_repository.size() - 1]->_name << " successful!" << std::endl;
+		std::cerr << "Importing scene " << in_scene->_root_repository[0]->_child_nodes[in_scene->_root_repository[0]->_child_nodes.size() - 1]->_name << " successful!" << std::endl;
 	#endif // _DEBUG_LEVEL
 	//std::cerr << "number of meshes: " << ai_scene->mNumMeshes << std::endl;
-
 	return false;
 }
 
@@ -74,46 +81,54 @@ bool load_to_data(mgf_data *data, const aiScene *ai_scene, std::string path, int
 		else path.erase(path.begin() + i);
 	}
 
-	data->_meshes.resize(ai_scene->mNumMeshes);
-	data->_materials.resize(ai_scene->mNumMaterials + 1);
+	unsigned int oldsize_meshes = data->_meshes.size();
+	unsigned int oldsize_materials = data->_materials.size();
+	//unsigned int oldsize_textures = data->_textures.size();
+	//unsigned int oldsize_lights = data->_lights.size();
+	if(oldsize_materials == 0) oldsize_materials = 1;
+
+	data->_meshes.resize(oldsize_meshes + ai_scene->mNumMeshes);
+	data->_materials.resize(oldsize_materials + ai_scene->mNumMaterials);
 
 	for(unsigned int i = 0; i < ai_scene->mNumMeshes; i++){	//load meshes
-		data->_meshes[i].material_index = ai_scene->mMeshes[i]->mMaterialIndex + 1;
+		data->_meshes[i + oldsize_meshes].material_index = ai_scene->mMeshes[i]->mMaterialIndex + oldsize_materials;
 
-		data->_meshes[i].num_indices = ai_scene->mMeshes[i]->mNumFaces * 3;
-		data->_meshes[i].num_vertices = ai_scene->mMeshes[i]->mNumVertices;
-		data->_meshes[i].num_normals = ai_scene->mMeshes[i]->mNumVertices;
+		data->_meshes[i + oldsize_meshes].name = ai_scene->mMeshes[i]->mName.data;
+
+		data->_meshes[i + oldsize_meshes].num_indices = ai_scene->mMeshes[i]->mNumFaces * 3;
+		data->_meshes[i + oldsize_meshes].num_vertices = ai_scene->mMeshes[i]->mNumVertices;
+		data->_meshes[i + oldsize_meshes].num_normals = ai_scene->mMeshes[i]->mNumVertices;
 
 		if((flags & 2) > 0){	//load mesh data
-			data->_meshes[i].indices.resize(ai_scene->mMeshes[i]->mNumFaces * 3);
-			data->_meshes[i].positions.resize(ai_scene->mMeshes[i]->mNumVertices);
-			data->_meshes[i].normals.resize(ai_scene->mMeshes[i]->mNumVertices);
-			data->_meshes[i].texcoords.resize(ai_scene->mMeshes[i]->GetNumUVChannels());
+			data->_meshes[i + oldsize_meshes].indices.resize(ai_scene->mMeshes[i]->mNumFaces * 3);
+			data->_meshes[i + oldsize_meshes].positions.resize(ai_scene->mMeshes[i]->mNumVertices);
+			data->_meshes[i + oldsize_meshes].normals.resize(ai_scene->mMeshes[i]->mNumVertices);
+			data->_meshes[i + oldsize_meshes].texcoords.resize(ai_scene->mMeshes[i]->GetNumUVChannels());
 
 			for(unsigned int j = 0; j < ai_scene->mMeshes[i]->mNumFaces; j++){
-				data->_meshes[i].indices[j*3] = ai_scene->mMeshes[i]->mFaces[j].mIndices[0];
-				data->_meshes[i].indices[j*3+1] = ai_scene->mMeshes[i]->mFaces[j].mIndices[1];
-				data->_meshes[i].indices[j*3+2] = ai_scene->mMeshes[i]->mFaces[j].mIndices[2];
+				data->_meshes[i + oldsize_meshes].indices[j*3] = ai_scene->mMeshes[i]->mFaces[j].mIndices[0];
+				data->_meshes[i + oldsize_meshes].indices[j*3+1] = ai_scene->mMeshes[i]->mFaces[j].mIndices[1];
+				data->_meshes[i + oldsize_meshes].indices[j*3+2] = ai_scene->mMeshes[i]->mFaces[j].mIndices[2];
 			}
 
 			for(unsigned int j = 0; j < ai_scene->mMeshes[i]->mNumVertices; j++){
-				data->_meshes[i].positions[j][0] = ai_scene->mMeshes[i]->mVertices[j][0];
-				data->_meshes[i].positions[j][1] = ai_scene->mMeshes[i]->mVertices[j][1];
-				data->_meshes[i].positions[j][2] = ai_scene->mMeshes[i]->mVertices[j][2];
+				data->_meshes[i + oldsize_meshes].positions[j][0] = ai_scene->mMeshes[i]->mVertices[j][0];
+				data->_meshes[i + oldsize_meshes].positions[j][1] = ai_scene->mMeshes[i]->mVertices[j][1];
+				data->_meshes[i + oldsize_meshes].positions[j][2] = ai_scene->mMeshes[i]->mVertices[j][2];
 			}
 
 			for(unsigned int j = 0; j < ai_scene->mMeshes[i]->mNumVertices; j++){
-				data->_meshes[i].normals[j][0] = ai_scene->mMeshes[i]->mNormals[j][0];
-				data->_meshes[i].normals[j][1] = ai_scene->mMeshes[i]->mNormals[j][1];
-				data->_meshes[i].normals[j][2] = ai_scene->mMeshes[i]->mNormals[j][2];
+				data->_meshes[i + oldsize_meshes].normals[j][0] = ai_scene->mMeshes[i]->mNormals[j][0];
+				data->_meshes[i + oldsize_meshes].normals[j][1] = ai_scene->mMeshes[i]->mNormals[j][1];
+				data->_meshes[i + oldsize_meshes].normals[j][2] = ai_scene->mMeshes[i]->mNormals[j][2];
 			}
 
 			for(unsigned int j = 0; j < ai_scene->mMeshes[i]->GetNumUVChannels(); j++){
-				data->_meshes[i].texcoords[j].resize(ai_scene->mMeshes[i]->mNumUVComponents[j]);
+				data->_meshes[i + oldsize_meshes].texcoords[j].resize(ai_scene->mMeshes[i]->mNumUVComponents[j]);
 				for(unsigned int h = 0; h < ai_scene->mMeshes[i]->mNumUVComponents[j]; h++){
-					data->_meshes[i].texcoords[j][h][0] = ai_scene->mMeshes[i]->mTextureCoords[j][h][0];
-					data->_meshes[i].texcoords[j][h][1] = ai_scene->mMeshes[i]->mTextureCoords[j][h][1];
-					data->_meshes[i].texcoords[j][h][2] = ai_scene->mMeshes[i]->mTextureCoords[j][h][2];
+					data->_meshes[i + oldsize_meshes].texcoords[j][h][0] = ai_scene->mMeshes[i]->mTextureCoords[j][h][0];
+					data->_meshes[i + oldsize_meshes].texcoords[j][h][1] = ai_scene->mMeshes[i]->mTextureCoords[j][h][1];
+					data->_meshes[i + oldsize_meshes].texcoords[j][h][2] = ai_scene->mMeshes[i]->mTextureCoords[j][h][2];
 				}
 			}
 		}
@@ -122,28 +137,28 @@ bool load_to_data(mgf_data *data, const aiScene *ai_scene, std::string path, int
 	for(unsigned int i = 0; i < ai_scene->mNumMaterials; i++){	//load materials and textures
 		aiColor4D col;
 		if(AI_SUCCESS == aiGetMaterialColor(ai_scene->mMaterials[i], AI_MATKEY_COLOR_DIFFUSE, &col)){
-			data->_materials[i + 1].diffuse[0] = col[0];
-			data->_materials[i + 1].diffuse[1] = col[1];
-			data->_materials[i + 1].diffuse[2] = col[2];
-			data->_materials[i + 1].diffuse[3] = col[3];
+			data->_materials[i + oldsize_materials].diffuse[0] = col[0];
+			data->_materials[i + oldsize_materials].diffuse[1] = col[1];
+			data->_materials[i + oldsize_materials].diffuse[2] = col[2];
+			data->_materials[i + oldsize_materials].diffuse[3] = col[3];
 		}
 
-		data->_materials[i + 1].diffuse_texture_index.resize(ai_scene->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE));
+		//data->_materials[i + oldsize_materials].diffuse_texture_index.resize(ai_scene->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE));
 	}
 
 	return true;
 }
 
-bool load_textures(mgf_data *data, const aiScene *ai_scene, std::string path, int flags){
+bool load_textures(mgf_data *data, const aiScene *ai_scene, std::string path, unsigned int oldsize_materials, int flags){
 	for(unsigned int i = path.size() - 1; i > 0; i--){	//get path
 		if(path[i] == '/') break;
 		else path.erase(path.begin() + i);
 	}
 
 	for(unsigned int i = 0; i < ai_scene->mNumMaterials; i++){
-		data->_materials[i].diffuse_texture_index.resize(ai_scene->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE));	//allocate space for texture references
+		data->_materials[i + oldsize_materials].diffuse_texture_index.resize(ai_scene->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE));	//allocate space for texture references
 
-		for(unsigned int j = 0; j < data->_materials[i].diffuse_texture_index.size(); j++){
+		for(unsigned int j = 0; j < data->_materials[i + oldsize_materials].diffuse_texture_index.size(); j++){
 			std::string newpath(path);
 			aiString tmp;
 			ai_scene->mMaterials[i]->GetTexture(aiTextureType_DIFFUSE, j, &tmp, NULL, NULL, NULL, NULL, NULL);	//get texture path relative to loadded file
@@ -151,12 +166,13 @@ bool load_textures(mgf_data *data, const aiScene *ai_scene, std::string path, in
 
 			int tex_ref;
 			if((tex_ref = search_texture(data, newpath)) >= 0){	//if texture already loaded
-				data->_materials[i].diffuse_texture_index[j] = (unsigned int)tex_ref;
+				data->_materials[i + oldsize_materials].diffuse_texture_index[j] = (unsigned int)tex_ref;
 				continue;
 			}
 
 			data->_textures.resize(data->_textures.size() + 1);	//create new texture struct
-			data->_materials[i].diffuse_texture_index[j] = data->_textures.size() - 1;	//reference texture struct in material struct
+			data->_materials[i + oldsize_materials].diffuse_texture_index[j] = data->_textures.size() - 1;	//reference texture struct in material struct
+			data->_textures[data->_textures.size() - 1].name = tmp.data;
 
 			glActiveTexture(GL_TEXTURE0 + j);	//create opengl texture object
 			glGenTextures(1, &data->_textures[data->_textures.size() - 1].texturebuffer);
@@ -203,18 +219,19 @@ bool load_to_gpu(mgf_data *data, int flags){
 	return true;
 }
 
-bool load_to_gpu_from_aiscene(mgf_data *data, const aiScene *ai_scene, int flags){
+bool load_to_gpu_from_aiscene(mgf_data *data, const aiScene *ai_scene, unsigned int oldsize_meshes, int flags){
 	if(data == NULL || ai_scene == NULL){
 		#if _DEBUG_LEVEL >= 1
-			std::cerr << "data or ai_scene are NULL" << std::cerr;
+			std::cerr << "data or ai_scene are NULL" << std::endl;
 		#endif // _DEBUG_LEVEL
 		return false;
 	}
-	data->_meshes.resize(ai_scene->mNumMeshes);
-
+	//data->_meshes.resize(ai_scene->mNumMeshes + oldsize_meshes);
 	for(unsigned int i = 0; i < ai_scene->mNumMeshes; i++){	//load all meshes
-		glGenVertexArrays(1, &data->_meshes[i].vao);
-		glBindVertexArray(data->_meshes[i].vao);
+		glGenVertexArrays(1, &data->_meshes[i + oldsize_meshes].vao);
+		glBindVertexArray(data->_meshes[i + oldsize_meshes].vao);
+
+std::cerr << "VAO: " << data->_meshes[i + oldsize_meshes].vao << " INDEX: " << i + oldsize_meshes << " SIZE: " << data->_meshes[i + oldsize_meshes].num_vertices << std::endl;
 
 		GLuint *indices = new GLuint[ai_scene->mMeshes[i]->mNumFaces * 3];
 		for(unsigned int j = 0; j < ai_scene->mMeshes[i]->mNumFaces; j++){
@@ -224,41 +241,44 @@ bool load_to_gpu_from_aiscene(mgf_data *data, const aiScene *ai_scene, int flags
 		}
 
 		if(ai_scene->mMeshes[i]->HasFaces()){
-			glGenBuffers(1, &data->_meshes[i].elementbuffer);
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, data->_meshes[i].elementbuffer);
+			glGenBuffers(1, &data->_meshes[i + oldsize_meshes].elementbuffer);
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, data->_meshes[i + oldsize_meshes].elementbuffer);
 			glBufferData(GL_ELEMENT_ARRAY_BUFFER, ai_scene->mMeshes[i]->mNumFaces * 3 * sizeof(GLuint), indices, GL_STATIC_DRAW);
 		}
-		else data->_meshes[i].elementbuffer = 0;
+		else data->_meshes[i + oldsize_meshes].elementbuffer = 0;
+
+		delete [] indices;
 
 		if(ai_scene->mMeshes[i]->HasPositions()){
-			glGenBuffers(1, &data->_meshes[i].vertexbuffer);
-			glBindBuffer(GL_ARRAY_BUFFER, data->_meshes[i].vertexbuffer);
+			glGenBuffers(1, &data->_meshes[i + oldsize_meshes].vertexbuffer);
+			glBindBuffer(GL_ARRAY_BUFFER, data->_meshes[i + oldsize_meshes].vertexbuffer);
 			glBufferData(GL_ARRAY_BUFFER, ai_scene->mMeshes[i]->mNumVertices * sizeof(aiVector3D), ai_scene->mMeshes[i]->mVertices, GL_STATIC_DRAW);
 			glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 			glEnableVertexAttribArray(0);
 		}
-		else data->_meshes[i].vertexbuffer = 0;
+		else data->_meshes[i + oldsize_meshes].vertexbuffer = 0;
 
 		if(ai_scene->mMeshes[i]->HasNormals()){
-			glGenBuffers(1, &data->_meshes[i].normalbuffer);
-			glBindBuffer(GL_ARRAY_BUFFER, data->_meshes[i].normalbuffer);
+			glGenBuffers(1, &data->_meshes[i + oldsize_meshes].normalbuffer);
+			glBindBuffer(GL_ARRAY_BUFFER, data->_meshes[i + oldsize_meshes].normalbuffer);
 			glBufferData(GL_ARRAY_BUFFER, ai_scene->mMeshes[i]->mNumVertices * sizeof(aiVector3D), ai_scene->mMeshes[i]->mNormals, GL_STATIC_DRAW);
 			glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 			glEnableVertexAttribArray(1);
 		}
-		else data->_meshes[i].normalbuffer = 0;
+		else data->_meshes[i + oldsize_meshes].normalbuffer = 0;
 
-		data->_meshes[i].uvbuffer.resize(ai_scene->mMeshes[i]->GetNumUVChannels());
-		for(unsigned int j = 0; j < data->_meshes[i].uvbuffer.size(); j++){
+		data->_meshes[i + oldsize_meshes].uvbuffer.resize(ai_scene->mMeshes[i]->GetNumUVChannels());
+		for(unsigned int j = 0; j < data->_meshes[i + oldsize_meshes].uvbuffer.size(); j++){
 			if(ai_scene->mMeshes[i]->HasTextureCoords(j)){
-				glGenBuffers(1, &data->_meshes[i].uvbuffer[j]);
-				glBindBuffer(GL_ARRAY_BUFFER, data->_meshes[i].uvbuffer[j]);
+				glGenBuffers(1, &data->_meshes[i + oldsize_meshes].uvbuffer[j]);
+				glBindBuffer(GL_ARRAY_BUFFER, data->_meshes[i + oldsize_meshes].uvbuffer[j]);
 				glBufferData(GL_ARRAY_BUFFER, ai_scene->mMeshes[i]->mNumVertices * sizeof(aiVector3D), ai_scene->mMeshes[i]->mTextureCoords[j], GL_STATIC_DRAW);
 				glVertexAttribPointer(2 + i, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 				glEnableVertexAttribArray(2 + i);
 			}
-			else data->_meshes[i].uvbuffer[j] = 0;
+			else data->_meshes[i + oldsize_meshes].uvbuffer[j] = 0;
 		}
+		glBindVertexArray(0);
 	}
 
 	#if _DEBUG_LEVEL >= 2

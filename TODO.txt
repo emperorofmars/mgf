@@ -1,7 +1,7 @@
 TODO:
 
+-loader: make load_to_data not overwrite scene->_data
+-loader: ai matrix to glm matrix
 -clean loader
--loader texture loading
 -loader copy to instances
--mgf_data destructors
 -work on scene

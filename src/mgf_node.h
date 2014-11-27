@@ -23,6 +23,10 @@ public:
 	mgf_node *find_node(std::string name);
 	mgf_node *find_node(unsigned int id);
 
+	bool add_child(mgf_node *node);
+
+	void print(unsigned int deepness = 0);
+
 	virtual void render() = 0;
 
 	std::string _name;
@@ -39,7 +43,7 @@ public:
 	mgf_node_model();
 	~mgf_node_model();
 
-	void construct_from_ainode(aiNode *ainode, mgf_data *data);
+	void construct_from_ainode(aiNode *ainode, mgf_data *data, unsigned int oldsize_meshes);
 	void construct_from_mgf_node(mgf_node_model *node);
 
 	virtual void render();
@@ -49,9 +53,7 @@ public:
 
 	unsigned int _num_meshes;
 	unsigned int _num_instances;
-
 	glm::mat4 _trans;
-
 	bool _render;
 };
 
@@ -65,11 +67,8 @@ public:
 	virtual void render();
 
 	unsigned int _model_id;
-
 	mgf_node_model *_model;
-
 	glm::mat4 _trans;
-
 	bool _render;
 };
 

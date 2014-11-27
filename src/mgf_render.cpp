@@ -30,6 +30,10 @@ void _render_info::update_program(shader_program *prog){
 //######################  render
 
 void render(mgf_node_model *node, mgf_data *data, glm::mat4 trans){
+	if(!node->_render) return;
+
+	//std::cerr << node->_name << " " << node->_num_meshes << " " << node->_num_children << std::endl;
+
 	trans *= node->_trans;
 	apply_matrix(trans, render_info._current_prog->get(MATRIX_MODEL));	//model matrix
 	apply_matrix(render_info._current_cam->get_vp(), render_info._current_prog->get(MATRIX_VP));	//view-perspective matrix
@@ -39,8 +43,8 @@ void render(mgf_node_model *node, mgf_data *data, glm::mat4 trans){
 
 		glBindVertexArray(node->_data->_meshes[node->_meshes[i]].vao);
 		glDrawElements(GL_TRIANGLES, node->_data->_meshes[node->_meshes[i]].num_indices * sizeof(GLuint), GL_UNSIGNED_INT, 0);
+		glBindVertexArray(0);
 	}
-
 	for(unsigned int i = 0; i < node->_num_children; i ++){
 		render((mgf_node_model *)node->_child_nodes[i], data, trans);
 	}

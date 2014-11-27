@@ -87,7 +87,13 @@ bool load_to_data(mgf_data *data, const aiScene *ai_scene, std::string path, int
 	//unsigned int oldsize_lights = data->_lights.size();
 	if(oldsize_materials == 0) oldsize_materials = 1;
 
+//std::cerr << "dazwischen 01: " << data->_meshes.size() << std::endl;
 	data->_meshes.resize(oldsize_meshes + ai_scene->mNumMeshes);
+	/*for(unsigned int i = 0; i < ai_scene->mNumMeshes; i++){
+		mgf_data::mgf_mesh m;
+		data->_meshes.push_back(m);
+	}*/
+//std::cerr << "dazwischen 02: " << data->_meshes.size() << std::endl;
 	data->_materials.resize(oldsize_materials + ai_scene->mNumMaterials);
 
 	for(unsigned int i = 0; i < ai_scene->mNumMeshes; i++){	//load meshes
@@ -231,7 +237,7 @@ bool load_to_gpu_from_aiscene(mgf_data *data, const aiScene *ai_scene, unsigned 
 		glGenVertexArrays(1, &data->_meshes[i + oldsize_meshes].vao);
 		glBindVertexArray(data->_meshes[i + oldsize_meshes].vao);
 
-std::cerr << "VAO: " << data->_meshes[i + oldsize_meshes].vao << " INDEX: " << i + oldsize_meshes << " SIZE: " << data->_meshes[i + oldsize_meshes].num_vertices << std::endl;
+	//std::cerr << "VAO: " << data->_meshes[i + oldsize_meshes].vao << " INDEX: " << i + oldsize_meshes << " SIZE: " << data->_meshes[i + oldsize_meshes].num_vertices << std::endl;
 
 		GLuint *indices = new GLuint[ai_scene->mMeshes[i]->mNumFaces * 3];
 		for(unsigned int j = 0; j < ai_scene->mMeshes[i]->mNumFaces; j++){

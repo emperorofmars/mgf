@@ -22,8 +22,6 @@ int main(int argc, char *argv[]){
 
 	mgf::camera cam(90 * M_PI / 180, g.get_aspect_ratio(), 0.1f, 1000.f, 2, 0.6f, 0.4f);
 
-	mgf::scene *scene = mgf::load("res/models/cube/cube.obj", 0);
-
 	mgf::scene *scene1 = mgf::load("res/models/cube/cube.obj", 0);
 	//mgf::scene *scene1 = mgf::load("res/models/scene/scene.obj", 0);
 	mgf::load_into_scene(scene1, "res/models/scene/scene.obj", 0);
@@ -61,14 +59,12 @@ int main(int argc, char *argv[]){
 			std::cerr << std::endl;
 		}std::cerr << std::endl;*/
 
-		scene->repo_rotate("supercube", 0.03f, glm::vec3(0.f, 1.f, 0.f));
-		//scene1->repo_rotate("supercube", 0.01f, glm::vec3(0.f, 1.f, 0.f));
+		scene1->repo_rotate("supercube", 0.01f, glm::vec3(0.f, 1.f, 0.f));
 		scene1->repo_rotate("Suzanne", -0.01f, glm::vec3(0.f, 1.f, 0.f));
 //###############################################  Rendering
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
 
-		scene->render_repository();
 		scene1->render_repository();
 		//scene1->_root_repository[0]->find_node("supercube")->render();
 		//scene1->_root_repository[0]->find_node("Cube")->render();

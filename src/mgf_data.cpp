@@ -30,13 +30,16 @@ mgf_data::mgf_mesh::mgf_mesh(){
 }
 
 mgf_data::mgf_mesh::~mgf_mesh(){
-	glBindVertexArray(vao);
-	glDeleteVertexArrays(1, &vao);
+	//std::cerr << "deleting vao: " << vao << std::endl;
+	/*glBindVertexArray(vao);
 
 	if(elementbuffer > 0) glDeleteBuffers(1, &elementbuffer);
 	if(vertexbuffer > 0) glDeleteBuffers(1, &vertexbuffer);
 	if(normalbuffer > 0) glDeleteBuffers(1, &normalbuffer);
 	for(unsigned int i = 0; i < uvbuffer.size(); i++) glDeleteBuffers(1, &uvbuffer[i]);
+
+	glDeleteVertexArrays(1, &vao);
+	glBindVertexArray(0);*/
 }
 
 mgf_data::mgf_material::mgf_material(){

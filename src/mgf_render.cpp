@@ -42,8 +42,15 @@ void render(mgf_node_model *node, mgf_data *data, glm::mat4 trans){
 		apply_material(node->_data->_meshes[node->_meshes[i]].material_index, data);
 
 		glBindVertexArray(node->_data->_meshes[node->_meshes[i]].vao);
-		//glDrawElements(GL_TRIANGLES, node->_data->_meshes[node->_meshes[i]].num_indices * sizeof(GLuint), GL_UNSIGNED_INT, 0);
-		glDrawArrays(GL_TRIANGLES, 0, node->_data->_meshes[node->_meshes[i]].num_vertices * sizeof(GLuint));
+
+		if(node->_data->_meshes[node->_meshes[i]].render_indexed == true){
+			glDrawElements(GL_TRIANGLES, node->_data->_meshes[node->_meshes[i]].num_indices * sizeof(GLuint), GL_UNSIGNED_INT, 0);
+			//std::cerr << "elements" << std::endl;
+		}
+		else{
+			glDrawArrays(GL_TRIANGLES, 0, node->_data->_meshes[node->_meshes[i]].num_vertices * sizeof(GLuint));
+			//std::cerr << "arrays" << std::endl;
+		}
 		glBindVertexArray(0);
 	}
 	for(unsigned int i = 0; i < node->_num_children; i ++){

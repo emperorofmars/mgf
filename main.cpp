@@ -22,9 +22,9 @@ int main(int argc, char *argv[]){
 
 	mgf::camera cam(90 * M_PI / 180, g.get_aspect_ratio(), 0.1f, 1000.f, 2, 0.6f, 0.4f);
 
-	mgf::scene *scene1 = mgf::load("res/models/cube/cube.obj", 0);
+	mgf::scene *scene1 = mgf::load("res/models/cube/cube.obj", 4);
 	//mgf::scene *scene1 = mgf::load("res/models/scene/scene.obj", 0);
-	mgf::load_into_scene(scene1, "res/models/scene/scene.obj", 0);
+	mgf::load_into_scene(scene1, "res/models/scene/scene.obj", 4);
 	//mgf::load_into_scene(scene1, "res/models/cube/cube.obj", 0);
 	//mgf::load_into_scene(scene1, "res/models/scene/scene.obj", 0);
 

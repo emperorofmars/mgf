@@ -26,6 +26,8 @@ struct mgf_data{
 		unsigned int material_index;
 		unsigned int num_indices, num_vertices, num_normals;
 
+		bool render_indexed;
+
 		std::vector<unsigned int> indices;
 		std::vector<glm::vec3> positions;
 		std::vector<glm::vec3> normals;

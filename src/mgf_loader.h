@@ -18,6 +18,7 @@
 flags:
 1 = not_to_gpu
 2 = to_data
+4 = no_indices
 
 */
 

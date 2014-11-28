@@ -23,12 +23,12 @@ bool load_into_scene(mgf::scene *in_scene, std::string path, int flags){
 		return false;
 	}
 	Assimp::Importer imp;
-	const aiScene *ai_scene = imp.ReadFile(path.c_str(),
-				aiProcess_JoinIdenticalVertices |
-				aiProcess_Triangulate |
-				aiProcess_SortByPType |
-				aiProcess_CalcTangentSpace);// |
-				//aiProcess_GenNormals);
+	int impflags = aiProcess_Triangulate |
+				   aiProcess_SortByPType |
+				   aiProcess_CalcTangentSpace;// | aiProcess_GenNormals);
+	if((flags & 4) == 0) impflags |= aiProcess_JoinIdenticalVertices;
+
+	const aiScene *ai_scene = imp.ReadFile(path.c_str(), impflags);
 	if(!ai_scene){
 		#if _DEBUG_LEVEL >= 1
 			std::cerr << "Importing scene " << ai_scene->mRootNode->mName.C_Str() << " failed!" << imp.GetErrorString() << std::endl;
@@ -104,6 +104,15 @@ bool load_to_data(mgf_data *data, const aiScene *ai_scene, std::string path, int
 		data->_meshes[i + oldsize_meshes].num_indices = ai_scene->mMeshes[i]->mNumFaces * 3;
 		data->_meshes[i + oldsize_meshes].num_vertices = ai_scene->mMeshes[i]->mNumVertices;
 		data->_meshes[i + oldsize_meshes].num_normals = ai_scene->mMeshes[i]->mNumVertices;
+
+		if((flags & 4) == 0){
+			data->_meshes[i + oldsize_meshes].render_indexed = true;
+			//std::cerr << "indexed: true" << std::endl;
+		}
+		else{
+			data->_meshes[i + oldsize_meshes].render_indexed = false;
+			//std::cerr << "indexed: false" << std::endl;
+		}
 
 		if((flags & 2) > 0){	//load mesh data
 			data->_meshes[i + oldsize_meshes].indices.resize(ai_scene->mMeshes[i]->mNumFaces * 3);

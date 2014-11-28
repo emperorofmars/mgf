@@ -3,7 +3,7 @@
 
 layout (binding = 0) uniform sampler2D tex;
 
-vec4 color;
+out vec4 color;
 
 struct mMaterial{
 	vec4 color;
@@ -26,6 +26,6 @@ void main(void){
 	else{
 		color = fs_in.material.color;
 	}
-	gl_FragColor = color * dot(fs_in.norm, normalize(vec3(10, 20, 7) - fs_in.pos.xyz)) *
+	color *= dot(fs_in.norm, normalize(vec3(10, 20, 7) - fs_in.pos.xyz)) *
 				1 / length(vec3(10, 20, 7) - fs_in.pos.xyz) * 15;
 }

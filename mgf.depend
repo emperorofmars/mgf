@@ -1,19 +1,9 @@
 # depslib dependency file v1.0
-1417188325 source:/home/mars/Projekte/mgf/mgf/main.cpp
+1417268764 source:/home/mars/Projekte/mgf/mgf/main.cpp
 	"gl_test.h"
 
-1417179274 /home/mars/Projekte/mgf/mgf/gl_test.h
-	<iostream>
-	<vector>
-	<fstream>
-	<SDL2/SDL.h>
-	<GL/glew.h>
-	<SDL2/SDL_opengl.h>
-	<SDL2/SDL_image.h>
+1417267347 /home/mars/Projekte/mgf/mgf/gl_test.h
 	"src/mgf.h"
-	<glm/glm.hpp>
-	<glm/gtc/type_ptr.hpp>
-	<glm/gtc/matrix_transform.hpp>
 
 1417179274 /home/mars/Projekte/mgf/mgf/src/mgf.h
 	"mgf_include.h"
@@ -43,10 +33,10 @@
 	<assimp/scene.h>
 	<assimp/postprocess.h>
 
-1417179274 /home/mars/Projekte/mgf/mgf/src/mgf_init.h
+1417269217 /home/mars/Projekte/mgf/mgf/src/mgf_init.h
 	"mgf_include.h"
 
-1417179274 /home/mars/Projekte/mgf/mgf/src/mgf_shader.h
+1417267716 /home/mars/Projekte/mgf/mgf/src/mgf_shader.h
 	"mgf_include.h"
 
 1417179274 /home/mars/Projekte/mgf/mgf/src/mgf_camera.h
@@ -55,7 +45,7 @@
 1417179274 /home/mars/Projekte/mgf/mgf/src/mgf_input.h
 	"mgf_include.h"
 
-1417187531 /home/mars/Projekte/mgf/mgf/src/mgf_loader.h
+1417268751 /home/mars/Projekte/mgf/mgf/src/mgf_loader.h
 	"mgf_include.h"
 	"mgf_scene.h"
 	"mgf_data.h"
@@ -78,7 +68,7 @@
 1417187890 /home/mars/Projekte/mgf/mgf/src/mgf_data.h
 	"mgf_include.h"
 
-1417179274 /home/mars/Projekte/mgf/mgf/src/mgf_render.h
+1417269442 /home/mars/Projekte/mgf/mgf/src/mgf_render.h
 	"mgf_include.h"
 	"mgf_node.h"
 	"mgf_data.h"
@@ -94,24 +84,24 @@
 1417188177 source:/home/mars/Projekte/mgf/mgf/src/mgf_data.cpp
 	"mgf_data.h"
 
-1417179684 source:/home/mars/Projekte/mgf/mgf/src/mgf_init.cpp
+1417269661 source:/home/mars/Projekte/mgf/mgf/src/mgf_init.cpp
 	"mgf_init.h"
 
 1417179274 source:/home/mars/Projekte/mgf/mgf/src/mgf_input.cpp
 	"mgf_input.h"
 
-1417188297 source:/home/mars/Projekte/mgf/mgf/src/mgf_loader.cpp
+1417188348 source:/home/mars/Projekte/mgf/mgf/src/mgf_loader.cpp
 	"mgf_loader.h"
 
 1417179274 source:/home/mars/Projekte/mgf/mgf/src/mgf_node.cpp
 	"mgf_loader.h"
 
-1417188184 source:/home/mars/Projekte/mgf/mgf/src/mgf_render.cpp
+1417269447 source:/home/mars/Projekte/mgf/mgf/src/mgf_render.cpp
 	"mgf_render.h"
 
 1417179274 source:/home/mars/Projekte/mgf/mgf/src/mgf_scene.cpp
 	"mgf_loader.h"
 
-1417179274 source:/home/mars/Projekte/mgf/mgf/src/mgf_shader.cpp
+1417267731 source:/home/mars/Projekte/mgf/mgf/src/mgf_shader.cpp
 	"mgf_shader.h"
 

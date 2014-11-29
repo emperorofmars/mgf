@@ -42,7 +42,7 @@ GLuint shader_program::get_program(){
 	return mProgram;
 }
 
-GLuint shader_program::get(shader_loc loc){
+GLuint shader_program::get(shader_loc_enum loc){
 	return mLocations[loc];
 }
 

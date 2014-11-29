@@ -14,6 +14,7 @@ _render_info render_info;
 
 camera *_render_info::_current_cam = NULL;
 shader_program *_render_info::_current_prog = NULL;
+float aspect_ratio;
 
 
 void _render_info::update_camera(camera *cam){

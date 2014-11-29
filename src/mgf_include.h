@@ -28,12 +28,18 @@
 #include <assimp/postprocess.h>
 
 
-#define _DEBUG_LEVEL 2
+#define _DEBUG_LEVEL 1
 
 enum renderer_enum{
 	OPENGL_4_3 = 0,
 	OPENGL_3_3 = 1,
 	SOFTWARE = 2,
+};
+
+enum loader_flags_enum{
+	LOAD_NOT_TO_GPU = 0b0010,
+	LOAD_TO_DATA = 0b0010,
+	LOAD_NO_INDICES = 0b0100,
 };
 
 namespace mgf{
@@ -42,7 +48,10 @@ namespace mgf{
 	class camera;
 	class input;
 	class shader_program;
+	class mgf_data;
 	class node;
+	class mgf_node_model;
+	class mgf_node_model_instance;
 	class scene;
 }
 

@@ -166,16 +166,18 @@ bool mgf_init(renderer_enum renderer){
 		}
 	}
 
-	if(!success) mgf_close();
+	if(!success){
+		mgf_close();
+		std::cerr << "initializing SDL failed!" << std::endl;
+		return false;
+	}
 
 	std::cerr << "SDL initialized successfully!" << std::endl;
-
 	return true;
 }
 
 void mgf_close(){
 	if(mgf_info::_mgf_inited == true){
-		std::cerr << "initializing SDL failed!" << std::endl;
 		std::cerr << "closing SDL" << std::endl;
 		mgf_info::_mgf_inited = false;
 		SDL_GL_DeleteContext(mgf_info::_context);

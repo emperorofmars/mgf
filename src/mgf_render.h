@@ -11,9 +11,6 @@
 #include "mgf_include.h"
 #include "mgf_info.h"
 #include "mgf_node.h"
-#include "mgf_data.h"
-#include "mgf_camera.h"
-#include "mgf_shader.h"
 
 namespace mgf{
 

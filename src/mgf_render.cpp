@@ -11,17 +11,39 @@ namespace mgf{
 
 //######################  render
 
-void render(mgf_node_model *node, mgf_data *data, glm::mat4 trans){
+void render(mgf_node_model *node, glm::mat4 trans){
 	if(!node->_render) return;
-
 	//std::cerr << node->_name << " " << node->_num_meshes << " " << node->_num_children << std::endl;
 
 	trans *= node->_trans;
+	render_single_node(node, trans);
+
+	for(unsigned int i = 0; i < node->_num_children; i ++){
+		render((mgf_node_model *)node->_child_nodes[i], trans);
+	}
+	return;
+}
+
+void render(mgf_node_model_instance *node, glm::mat4 trans){
+	if(!node->_render) return;
+	//std::cerr << node->_name << " " << node->_num_children << std::endl;
+
+	trans *= node->_trans;
+	if(node->_model != NULL)
+		render_single_node(node->_model, trans);
+
+	for(unsigned int i = 0; i < node->_num_children; i ++){
+		render((mgf_node_model_instance *)node->_child_nodes[i], trans);
+	}
+	return;
+}
+
+void render_single_node(mgf_node_model *node, glm::mat4 trans){
 	apply_matrix(trans, mgf_info::_current_prog->get(MATRIX_MODEL));	//model matrix
 	apply_matrix(mgf_info::_current_cam->get_vp(), mgf_info::_current_prog->get(MATRIX_VP));	//view-perspective matrix
 
 	for(unsigned int i = 0; i < node->_num_meshes; i++){
-		apply_material(node->_data->_meshes[node->_meshes[i]].material_index, data);
+		apply_material(node->_data->_meshes[node->_meshes[i]].material_index, node->_data);
 
 		glBindVertexArray(node->_data->_meshes[node->_meshes[i]].vao);
 
@@ -35,13 +57,6 @@ void render(mgf_node_model *node, mgf_data *data, glm::mat4 trans){
 		}
 		glBindVertexArray(0);
 	}
-	for(unsigned int i = 0; i < node->_num_children; i ++){
-		render((mgf_node_model *)node->_child_nodes[i], data, trans);
-	}
-	return;
-}
-
-void render(mgf_node_model_instance *node, mgf_data *data, glm::mat4 trans){
 	return;
 }
 

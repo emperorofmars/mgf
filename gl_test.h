@@ -7,7 +7,7 @@
 #ifndef LIBS
 #define LIBS
 
-#define GL_VERSION 33
+#define OPENGL_VERSION 33
 #define INTEL_GPU 1
 
 #include "src/mgf.h"

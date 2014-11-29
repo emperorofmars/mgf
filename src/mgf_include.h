@@ -27,8 +27,7 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
-
-#define _DEBUG_LEVEL 1
+#define _DEBUG_LEVEL 2
 
 enum renderer_enum{
 	OPENGL_4_3 = 0,

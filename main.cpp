@@ -8,7 +8,12 @@
 //###############################################  Main
 int main(int argc, char *argv[]){
 	mgf::window w(1000, 800, 0, 0);
-	if(!mgf::mgf_init(OPENGL_3_3)) return 1;
+
+	renderer_enum renderer_flag;
+	if(OPENGL_VERSION == 33) renderer_flag = OPENGL_3_3;
+	else if(OPENGL_VERSION == 43) renderer_flag = OPENGL_4_3;
+
+	if(!mgf::mgf_init(renderer_flag)) return 1;
 
 	mgf::input input;
 
@@ -37,10 +42,10 @@ int main(int argc, char *argv[]){
 	p.use();
 	cam.use();
 
-	scene->repo_translate("scene.obj", glm::vec3(0.f, -5.f, 0.f));
+	scene->translate("scene.obj", glm::vec3(0.f, -5.f, 0.f));
 
 	std::cerr << "TREE: " << std::endl;
-	scene->_root_repository[0]->print();
+	scene->_root_instances[0]->print();
 
 //###############################################  Gameloop
 	bool quit = false;
@@ -52,15 +57,15 @@ int main(int argc, char *argv[]){
 		quit = input.get_quit();
 		cam.update(input.get_pos(), input.get_rot());
 
-		scene->repo_rotate("supercube", 0.01f, glm::vec3(0.f, 1.f, 0.f));
-		scene->repo_rotate("Suzanne", -0.01f, glm::vec3(0.f, 1.f, 0.f));
+		scene->rotate("supercube", 0.01f, glm::vec3(0.f, 1.f, 0.f));
+		scene->rotate("Suzanne", -0.01f, glm::vec3(0.f, 1.f, 0.f));
 //###############################################  Rendering
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
 
-		scene->render_repository();
-		//scene->_root_repository[0]->find_node("supercube")->render();
-		//scene->_root_repository[0]->find_node("Cube")->render();
+		scene->render();
+		//scene->_root_instances[0]->find_node("supercube")->render();
+		//scene->_root_instances[0]->find_node("Cube")->render();
 
 		w.swap();
 	}

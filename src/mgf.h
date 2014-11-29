@@ -9,10 +9,6 @@
 #ifndef MGF
 #define MGF
 
-#ifndef _DEBUG_LEVEL
-	#define _DEBUG_LEVEL 2
-#endif // _DEBUG_LEVEL
-
 #include "mgf_include.h"
 
 #include "mgf_info.h"
@@ -25,6 +21,10 @@
 #include "mgf_data.h"
 #include "mgf_scene.h"
 #include "mgf_render.h"
+
+#ifndef _DEBUG_LEVEL
+	#define _DEBUG_LEVEL 2
+#endif // _DEBUG_LEVEL
 
 namespace mgf{
 

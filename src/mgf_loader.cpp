@@ -48,6 +48,19 @@ bool load_into_scene(mgf::scene *in_scene, std::string path, int flags){
 	}
 	in_scene->_root_repository[in_scene->_root_repository.size() - 1]->construct_from_ainode(ai_scene->mRootNode, in_scene->_data, oldsize_meshes);	//construct nodetree
 
+
+	if(in_scene->_root_instances.size() > 0){
+		delete in_scene->_root_instances[0];
+		in_scene->_root_instances.clear();
+	}
+	if(in_scene->_root_instances.size() == 0){
+		in_scene->_root_instances.push_back(new mgf::mgf_node_model_instance());	//create root node
+		in_scene->_root_instances[in_scene->_root_instances.size() - 1]->_name = "root";
+	}
+	for(unsigned int i = 0; i < in_scene->_root_repository[in_scene->_root_repository.size() - 1]->_num_children; i++)
+		in_scene->_root_instances[in_scene->_root_instances.size() - 1]->
+				construct_from_mgf_node((mgf_node_model *)in_scene->_root_repository[in_scene->_root_repository.size() - 1]->_child_nodes[i]);	//construct nodetree
+
 	if(!load_to_data(in_scene->_data, ai_scene, path, flags)){	//load data struct
 		#if _DEBUG_LEVEL >= 1
 			std::cerr << "load_to_data failed!" << std::endl;

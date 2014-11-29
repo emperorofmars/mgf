@@ -21,13 +21,13 @@ scene::~scene(){
 
 void scene::render(){
 	for(unsigned int i = 0; i < _root_instances.size(); i++)
-		mgf::render(_root_instances[i], _data);
+		mgf::render(_root_instances[i]);
 	return;
 }
 
 void scene::render_repository(){
 	for(unsigned int i = 0; i < _root_repository.size(); i++)
-		mgf::render(_root_repository[i], _data);
+		mgf::render(_root_repository[i]);
 	return;
 }
 

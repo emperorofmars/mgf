@@ -20,6 +20,8 @@ mgf_node::mgf_node(){
 }
 
 mgf_node::~mgf_node(){
+	for(unsigned int i = 0; i < _child_nodes.size(); i++)
+		delete _child_nodes[i];
 	_child_nodes.clear();
 	_parent_node = NULL;
 }
@@ -79,6 +81,15 @@ void mgf_node_model::construct_from_ainode(aiNode *ainode, mgf_data *data, unsig
 	newnode->_num_meshes = ainode->mNumMeshes;
 	newnode->_num_children = ainode->mNumChildren;
 
+	newnode->_trans[0][0] = ainode->mTransformation.a1; newnode->_trans[0][1] = ainode->mTransformation.b1;	//get matrix
+	newnode->_trans[0][2] = ainode->mTransformation.c1; newnode->_trans[0][3] = ainode->mTransformation.d1;
+	newnode->_trans[1][0] = ainode->mTransformation.a2; newnode->_trans[1][1] = ainode->mTransformation.b2;
+	newnode->_trans[1][2] = ainode->mTransformation.c2; newnode->_trans[1][3] = ainode->mTransformation.d2;
+	newnode->_trans[2][0] = ainode->mTransformation.a3; newnode->_trans[2][1] = ainode->mTransformation.b3;
+	newnode->_trans[2][2] = ainode->mTransformation.c3; newnode->_trans[2][3] = ainode->mTransformation.d3;
+	newnode->_trans[3][0] = ainode->mTransformation.a4; newnode->_trans[3][1] = ainode->mTransformation.b4;
+	newnode->_trans[3][2] = ainode->mTransformation.c4; newnode->_trans[3][3] = ainode->mTransformation.d4;
+
 	newnode->_meshes.resize(ainode->mNumMeshes);
 	for(unsigned int i = 0; i < newnode->_meshes.size(); i++)
 		newnode->_meshes[i] = ainode->mMeshes[i] + oldsize_meshes;
@@ -90,7 +101,7 @@ void mgf_node_model::construct_from_ainode(aiNode *ainode, mgf_data *data, unsig
 }
 
 void mgf_node_model::render(){
-	mgf::render(this, _data);
+	mgf::render(this);
 	return;
 }
 
@@ -108,10 +119,26 @@ mgf_node_model_instance::~mgf_node_model_instance(){
 
 void mgf_node_model_instance::construct_from_mgf_node(mgf_node_model *node){
 	if(node == NULL) return;
+
+	mgf_node_model_instance *newnode = new mgf_node_model_instance;
+	newnode->_parent_node = this;
+	_child_nodes.push_back(newnode);
+
+	_num_children = _child_nodes.size();
+
+	newnode->_model = node;
+	newnode->_name = node->_name;
+	newnode->_model_id = node->_id;
+	newnode->_trans = node->_trans;
+
+	for(unsigned int i = 0; i < node->_num_children; i++)
+		newnode->construct_from_mgf_node((mgf_node_model *)node->_child_nodes[i]);
+
 	return;
 }
 
 void mgf_node_model_instance::render(){
+	mgf::render(this);
 	return;
 }
 

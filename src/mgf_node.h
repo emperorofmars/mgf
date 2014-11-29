@@ -10,10 +10,12 @@
 
 #include "mgf_include.h"
 #include "mgf_data.h"
-#include "mgf_camera.h"
-#include "mgf_shader.h"
 
 namespace mgf{
+
+class mgf_node;
+class mgf_node_model;
+class mgf_node_model_instance;
 
 class mgf_node{
 public:
@@ -22,8 +24,9 @@ public:
 
 	mgf_node *find_node(std::string name);
 	mgf_node *find_node(unsigned int id);
+	mgf_node *get_by_path(std::string path);
 
-	bool add_child(mgf_node *node);
+	bool add(mgf_node *node);
 
 	void print(unsigned int deepness = 0);
 
@@ -45,6 +48,8 @@ public:
 
 	void construct_from_ainode(aiNode *ainode, mgf_data *data, unsigned int oldsize_meshes);
 	void construct_from_mgf_node(mgf_node_model *node);
+
+	mgf_node_model_instance *create_instance();
 
 	virtual void render();
 

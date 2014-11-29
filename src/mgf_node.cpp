@@ -35,10 +35,58 @@ mgf_node *mgf_node::find_node(std::string name){
 	return NULL;
 }
 
-bool mgf_node::add_child(mgf_node *node){
+/*mgf_node *mgf_node::get_by_path(std::string path){	//old fallback version
+	if(path == _name) return this;
+
+	int pos = path.find("/", 0);
+	std::string name = path.substr(0, pos);
+	path = path.substr(pos + 1, path.size());
+
+	if(_name == name) return get_by_path(path);
+
+	for(unsigned int i = 0; i < _num_children; i++){
+		if(_child_nodes[i]->_name == name){
+			return _child_nodes[i]->get_by_path(path);
+		}
+	}
+	return NULL;
+}*/
+
+mgf_node *mgf_node::get_by_path(std::string path){
+	if(path == _name) return this;
+
+	unsigned int pos = path.find("/", 0);
+	int num = 1;
+	std::string name = path.substr(0, pos);
+	path = path.substr(pos + 1, path.size());
+
+	if(_name == name) return get_by_path(path);
+
+	if(name.size() > 2){
+		pos = name.find("%", 0);
+		if(pos != std::string::npos){
+			num = atoi(name.substr(pos + 1, name.size()).c_str());
+			if(num == 0) num = 1;
+			name = name.substr(0, pos);
+		}
+	}
+
+	for(unsigned int i = 0; i < _num_children; i++){
+		if(_child_nodes[i]->_name == name){
+			if(num <= 1){
+				return _child_nodes[i]->get_by_path(path);
+			}
+			else num--;
+		}
+	}
+	return NULL;
+}
+
+bool mgf_node::add(mgf_node *node){
 	if(node == NULL) return false;
 	_child_nodes.push_back(node);
 	node->_parent_node = this;
+	print();
 	return true;
 }
 
@@ -98,6 +146,15 @@ void mgf_node_model::construct_from_ainode(aiNode *ainode, mgf_data *data, unsig
 		newnode->construct_from_ainode(ainode->mChildren[i], data, oldsize_meshes);
 
 	return;
+}
+
+mgf_node_model_instance *mgf_node_model::create_instance(){
+	mgf_node_model_instance *node = new mgf_node_model_instance;
+	node->_model_id = _id;
+	node->_name = _name;
+	node->_model = this;
+	node->_trans = _trans;
+	return node;
 }
 
 void mgf_node_model::render(){

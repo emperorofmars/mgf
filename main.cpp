@@ -47,12 +47,21 @@ int main(int argc, char *argv[]){
 	std::cerr << "TREE: " << std::endl;
 	scene->_root_instances[0]->print();
 
+	scene->_root_instances[0]->add(scene->_root_repository[0]->get_by_path("root/cube.obj%1/supercube"));	//create instance manually
+
+	std::cerr << "TREE: " << std::endl;
+	scene->_root_instances[0]->print();
+
+	/*std::cerr << "PATH: " << std::endl;
+	mgf::mgf_node_model_instance *inst = (mgf::mgf_node_model_instance *)scene->_root_instances[0]->get_by_path("root/scene.obj%1/Cube");
+	if(inst != NULL) std::cerr << inst->_name << std::endl;*/
+
 //###############################################  Gameloop
+	float current = 0, last = 0, frametime = 0;
 	bool quit = false;
 	while(quit != true){
 //###############################################  Update
 		w.use();
-		float currentTime = SDL_GetTicks() / 1000.f;
 		input.update();
 		quit = input.get_quit();
 		cam.update(input.get_pos(), input.get_rot());
@@ -68,6 +77,11 @@ int main(int argc, char *argv[]){
 		//scene->_root_instances[0]->find_node("Cube")->render();
 
 		w.swap();
+
+		current = SDL_GetTicks();
+		frametime = current - last;
+		last = current;
+		//std::cerr << "FPS: " << 1000.f / frametime << std::endl;	//show fps
 	}
 //###############################################  Gameloop end
 	SDL_SetRelativeMouseMode(SDL_FALSE);

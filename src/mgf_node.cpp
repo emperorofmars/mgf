@@ -35,25 +35,8 @@ mgf_node *mgf_node::find_node(std::string name){
 	return NULL;
 }
 
-/*mgf_node *mgf_node::get_by_path(std::string path){	//old fallback version
-	if(path == _name) return this;
-
-	int pos = path.find("/", 0);
-	std::string name = path.substr(0, pos);
-	path = path.substr(pos + 1, path.size());
-
-	if(_name == name) return get_by_path(path);
-
-	for(unsigned int i = 0; i < _num_children; i++){
-		if(_child_nodes[i]->_name == name){
-			return _child_nodes[i]->get_by_path(path);
-		}
-	}
-	return NULL;
-}*/
-
 mgf_node *mgf_node::get_by_path(std::string path){
-	if(path == _name) return this;
+	if(path.substr(0, path.find("%", 0)) == _name) return this;
 
 	unsigned int pos = path.find("/", 0);
 	int num = 1;
@@ -68,6 +51,7 @@ mgf_node *mgf_node::get_by_path(std::string path){
 			num = atoi(name.substr(pos + 1, name.size()).c_str());
 			if(num == 0) num = 1;
 			name = name.substr(0, pos);
+			//std::cerr << "NAME: " << name << " " << num << std::endl;
 		}
 	}
 
@@ -97,6 +81,28 @@ void mgf_node::print(unsigned int deepness){
 	for(unsigned int i = 0; i < _num_children; i++){
         _child_nodes[i]->print(deepness);
 	}
+	return;
+}
+
+//######################  node_mat
+
+void mgf_node_mat::translate(glm::vec3 data){
+	_trans *= glm::translate(glm::mat4(1), data);
+	return;
+}
+
+void mgf_node_mat::rotate(float angle, glm::vec3 data){
+	_trans *= glm::rotate(glm::mat4(1), angle, data);
+	return;
+}
+
+void mgf_node_mat::scale(glm::vec3 data){
+	_trans *= glm::scale(glm::mat4(1), data);
+	return;
+}
+
+void mgf_node_mat::multiply_mat(glm::mat4 data){
+	_trans *= data;
 	return;
 }
 

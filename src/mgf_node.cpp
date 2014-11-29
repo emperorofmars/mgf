@@ -85,8 +85,8 @@ mgf_node *mgf_node::get_by_path(std::string path){
 bool mgf_node::add(mgf_node *node){
 	if(node == NULL) return false;
 	_child_nodes.push_back(node);
+	_num_children = _child_nodes.size();
 	node->_parent_node = this;
-	print();
 	return true;
 }
 
@@ -97,6 +97,7 @@ void mgf_node::print(unsigned int deepness){
 	for(unsigned int i = 0; i < _num_children; i++){
         _child_nodes[i]->print(deepness);
 	}
+	return;
 }
 
 //######################  node_model

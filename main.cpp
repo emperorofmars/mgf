@@ -47,10 +47,13 @@ int main(int argc, char *argv[]){
 	std::cerr << "TREE: " << std::endl;
 	scene->_root_instances[0]->print();
 
-	scene->_root_instances[0]->add(scene->_root_repository[0]->get_by_path("root/cube.obj%1/supercube"));	//create instance manually
+	//scene->_root_instances[0]->add(((mgf::mgf_node_model *)scene->_root_repository[0]->get_by_path("root/cube.obj/supercube"))->create_instance());	//create instance manually
+	scene->_root_instances[0]->find_node("cube.obj")->add(((mgf::mgf_node_model *)scene->_root_repository[0]->find_node("supercube"))->create_instance());	//create instance manually
 
 	std::cerr << "TREE: " << std::endl;
 	scene->_root_instances[0]->print();
+
+	scene->translate("supercube", glm::vec3(2.f, 5.f, 0.f));
 
 	/*std::cerr << "PATH: " << std::endl;
 	mgf::mgf_node_model_instance *inst = (mgf::mgf_node_model_instance *)scene->_root_instances[0]->get_by_path("root/scene.obj%1/Cube");

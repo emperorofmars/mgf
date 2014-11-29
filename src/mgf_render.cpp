@@ -9,25 +9,6 @@
 
 namespace mgf{
 
-//######################  render info
-_render_info render_info;
-
-camera *_render_info::_current_cam = NULL;
-shader_program *_render_info::_current_prog = NULL;
-float aspect_ratio;
-
-
-void _render_info::update_camera(camera *cam){
-	_current_cam = cam;
-	return;
-}
-
-void _render_info::update_program(shader_program *prog){
-	_current_prog = prog;
-	glUseProgram(_current_prog->get_program());
-	return;
-}
-
 //######################  render
 
 void render(mgf_node_model *node, mgf_data *data, glm::mat4 trans){
@@ -36,8 +17,8 @@ void render(mgf_node_model *node, mgf_data *data, glm::mat4 trans){
 	//std::cerr << node->_name << " " << node->_num_meshes << " " << node->_num_children << std::endl;
 
 	trans *= node->_trans;
-	apply_matrix(trans, render_info._current_prog->get(MATRIX_MODEL));	//model matrix
-	apply_matrix(render_info._current_cam->get_vp(), render_info._current_prog->get(MATRIX_VP));	//view-perspective matrix
+	apply_matrix(trans, mgf_info::_current_prog->get(MATRIX_MODEL));	//model matrix
+	apply_matrix(mgf_info::_current_cam->get_vp(), mgf_info::_current_prog->get(MATRIX_VP));	//view-perspective matrix
 
 	for(unsigned int i = 0; i < node->_num_meshes; i++){
 		apply_material(node->_data->_meshes[node->_meshes[i]].material_index, data);
@@ -70,11 +51,11 @@ bool apply_matrix(glm::mat4 mat, GLuint loc){
 }
 
 void apply_material(unsigned int material_index, mgf_data *data){
-	GLuint loc = render_info._current_prog->get(MATERIAL_COLOR_DIFFUSE);
+	GLuint loc = mgf_info::_current_prog->get(MATERIAL_COLOR_DIFFUSE);
 	glUniform4fv(loc, 1, glm::value_ptr(data->_materials[material_index].diffuse));
 
 	float alpha = 1.f;
-	loc = render_info._current_prog->get(MATERIAL_ALPHA);
+	loc = mgf_info::_current_prog->get(MATERIAL_ALPHA);
 	glUniform1f(loc, alpha);
 
 	float has_texture;
@@ -88,7 +69,7 @@ void apply_material(unsigned int material_index, mgf_data *data){
 		has_texture = 0.f;
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
-	loc = render_info._current_prog->get(MATERIAL_HAS_TEXTURE);
+	loc = mgf_info::_current_prog->get(MATERIAL_HAS_TEXTURE);
 	glUniform1f(loc, has_texture);
 	return;
 }

@@ -8,7 +8,7 @@
 //###############################################  Main
 int main(int argc, char *argv[]){
 	mgf::init g(1000, 800, 0, 0, 0);
-	if(!g.init_all()) return 1;
+	if(!g.init_all(OPENGL_3_3)) return 1;
 
 	mgf::input input;
 
@@ -22,11 +22,10 @@ int main(int argc, char *argv[]){
 
 	mgf::camera cam(90 * M_PI / 180, g.get_aspect_ratio(), 0.1f, 1000.f, 2, 0.6f, 0.4f);
 
-	mgf::scene *scene1 = mgf::load("res/models/cube/cube.obj", 0);
-	//mgf::scene *scene1 = mgf::load("res/models/scene/scene.obj", 0);
-	mgf::load_into_scene(scene1, "res/models/scene/scene.obj", 0);
-	//mgf::load_into_scene(scene1, "res/models/cube/cube.obj", 0);
-	//mgf::load_into_scene(scene1, "res/models/scene/scene.obj", 0);
+	int loaderflags = 0;
+	if(INTEL_GPU == 1) loaderflags |= LOAD_NO_INDICES;	//weil intel gpus zu blöd für inexed draws sind
+	mgf::scene *scene1 = mgf::load("res/models/cube/cube.obj", loaderflags);
+	mgf::load_into_scene(scene1, "res/models/scene/scene.obj", loaderflags);
 
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
@@ -52,12 +51,6 @@ int main(int argc, char *argv[]){
 		input.update();
 		quit = input.get_quit();
 		cam.update(input.get_pos(), input.get_rot());
-
-		/*glm::mat4 trans = scene1._root_node->_trans;
-		for(unsigned int i = 0; i < 4; i++){
-			for(unsigned int j = 0; j < 4; j++) std::cerr << trans[i][j] << " ";
-			std::cerr << std::endl;
-		}std::cerr << std::endl;*/
 
 		scene1->repo_rotate("supercube", 0.01f, glm::vec3(0.f, 1.f, 0.f));
 		scene1->repo_rotate("Suzanne", -0.01f, glm::vec3(0.f, 1.f, 0.f));

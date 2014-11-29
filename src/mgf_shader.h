@@ -14,7 +14,7 @@
 #define _shader_material_alpha "material.alpha"
 #define _shader_material_has_texture "material.has_texture"
 
-enum shader_loc{
+enum shader_loc_enum{
 	MATRIX_MODEL = 0,
 	MATRIX_VP = 1,
 	MATERIAL_COLOR_DIFFUSE = 2,
@@ -45,7 +45,7 @@ public:
 	bool create_program();
 //###############################################################  use
 	GLuint get_program();
-	GLuint get(shader_loc loc);
+	GLuint get(shader_loc_enum loc);
 //###############################################################  use
 	void use();
 protected:

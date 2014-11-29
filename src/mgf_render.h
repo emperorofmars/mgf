@@ -22,6 +22,7 @@ struct _render_info{
 
 	static camera *_current_cam;
 	static shader_program *_current_prog;
+	static float aspect_ratio;
 };
 
 extern _render_info render_info;

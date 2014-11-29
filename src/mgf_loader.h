@@ -18,8 +18,15 @@
 flags:
 1 = not_to_gpu
 2 = to_data
+4 = no_indices
 
 */
+
+enum loader_flags_enum{
+	LOAD_NOT_TO_GPU = 0b0010,
+	LOAD_TO_DATA = 0b0010,
+	LOAD_NO_INDICES = 0b0100,
+};
 
 namespace mgf{
 

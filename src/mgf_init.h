@@ -10,12 +10,19 @@
 
 #include "mgf_include.h"
 
+enum renderer_enum{
+	OPENGL_4_3 = 0,
+	OPENGL_3_3 = 1,
+	SOFTWARE = 2,
+};
+
 namespace mgf{
 
 //###############################################################  	init class
 class init{
 public:
 //###############################################################  constructor
+	init();
 	init(unsigned int screen_w = 800, unsigned int screen_h = 600, bool fullscreen = 0,
 					bool input_grabbed = 0, unsigned int monitor = 0);
 	~init();
@@ -26,7 +33,7 @@ public:
 	//				bool fullscreen = 0, bool input_grabbed = 0, unsigned int monitor = 0);
 	void close_window(unsigned int window_num);
 //###############################################################  init
-	bool init_all();
+	bool init_all(renderer_enum use_renderer);
 //###############################################################  make current
 	void current_window(unsigned int window_num);
 //###############################################################  swap window
@@ -42,10 +49,10 @@ private:
 		bool fullscreen, input_grabbed;
 	};
 //###############################################################  variables
-	std::vector<struct window> mWindows;
-	SDL_GLContext context;
-	bool initialized;
-	unsigned int renderer;
+	static std::vector<struct window> mWindows;
+	static SDL_GLContext context;
+	static bool initialized;
+	static renderer_enum renderer;
 };
 
 } // mgf

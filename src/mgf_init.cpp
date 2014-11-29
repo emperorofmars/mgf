@@ -11,12 +11,18 @@ namespace mgf{
 
 //###############################################################  init class
 
+std::vector<struct init::window> init::mWindows;
+SDL_GLContext init::context;
+bool init::initialized = 0;
+renderer_enum init::renderer = SOFTWARE;
+
 //###############################################################  constructor
+init::init(){
+}
+
 init::init(unsigned int screen_w, unsigned int screen_h, bool fullscreen,
 		   bool input_grabbed, unsigned int monitor)
 {
-	initialized = false;
-	renderer = 0;
 	unsigned int n = mWindows.size();
 	mWindows.resize(n + 1);
 	mWindows[n].window = NULL;
@@ -76,7 +82,7 @@ void init::close_window(unsigned int window_num){
 }
 
 //###############################################################  init_sdl
-bool init::init_all(){
+bool init::init_all(renderer_enum use_renderer){
 	bool success = true;
 	if(initialized == false){
 	if(SDL_Init(SDL_INIT_VIDEO) < 0){
@@ -92,10 +98,13 @@ bool init::init_all(){
 		}
 	}
 	if(success){
+		renderer = use_renderer;
+
 		for(unsigned int i = 0; i < mWindows.size(); i ++){
-			int flags = SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL;
+			int flags = SDL_WINDOW_SHOWN;
 			if(mWindows[i].fullscreen == 1) flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
 			if(mWindows[i].input_grabbed == 1) flags |= SDL_WINDOW_INPUT_GRABBED;
+			if(renderer == OPENGL_3_3 || renderer == OPENGL_4_3) flags |= SDL_WINDOW_OPENGL;
 
 			int windowpos_x = SDL_WINDOWPOS_UNDEFINED_DISPLAY(mWindows[i].monitor);
 			int windowpos_y = SDL_WINDOWPOS_UNDEFINED_DISPLAY(mWindows[i].monitor);
@@ -107,9 +116,24 @@ bool init::init_all(){
 			}
 		}
 
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+		if(renderer == OPENGL_4_3){
+			SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+			SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+			SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+		}
+		else if(renderer == OPENGL_3_3){
+			SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+			SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+			SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+		}
+		else if(renderer == SOFTWARE){
+			std::cerr << "Software renderer not yet supportet!" << std::endl;
+			success = false;
+		}
+		else{
+			std::cerr << "Invalid renderer!" << std::endl;
+			success = false;
+		}
 
 		if(success){
 			context = SDL_GL_CreateContext(mWindows[0].window);

@@ -27,6 +27,7 @@ mgf_data::mgf_mesh::mgf_mesh(){
 	normalbuffer = 0;
 	vao = 0;
 	material_index = 0;
+	render_indexed = true;
 }
 
 mgf_data::mgf_mesh::~mgf_mesh(){

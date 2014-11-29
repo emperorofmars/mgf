@@ -72,7 +72,6 @@ int main(int argc, char *argv[]){
 //###############################################  Gameloop end
 	SDL_SetRelativeMouseMode(SDL_FALSE);
 
-	//delete scene;
 	delete scene;
 
 	std::cerr << std::endl << "closing main!" << std::endl;

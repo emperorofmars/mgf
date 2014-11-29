@@ -17,6 +17,12 @@ scene::scene(){
 
 scene::~scene(){
 	delete _data;
+
+	for(unsigned int i = 0; i < _root_repository.size(); i++)
+		delete _root_repository[i];
+
+	for(unsigned int i = 0; i < _root_instances.size(); i++)
+		delete _root_instances[i];
 }
 
 void scene::render(){

@@ -13,28 +13,37 @@ namespace mgf{
 
 scene::scene(){
 	_data = new mgf_data;
+	_root_repository = NULL;
 }
 
 scene::~scene(){
 	delete _data;
 
-	for(unsigned int i = 0; i < _root_repository.size(); i++)
-		delete _root_repository[i];
+	delete _root_repository;
+	_root_repository = NULL;
 
 	for(unsigned int i = 0; i < _root_instances.size(); i++)
 		delete _root_instances[i];
 }
 
-void scene::render(){
-	for(unsigned int i = 0; i < _root_instances.size(); i++)
-		mgf::render(_root_instances[i]);
+void scene::render(unsigned int n){
+	_root_instances[n]->render();
 	return;
 }
 
 void scene::render_repository(){
-	for(unsigned int i = 0; i < _root_repository.size(); i++)
-		mgf::render(_root_repository[i]);
+	_root_repository->render();
 	return;
+}
+
+bool scene::create_instance(std::string origin_name, std::string parent_name, unsigned int index){
+	mgf_node_model_instance *node = ((mgf_node_model *)_root_repository->find_node(origin_name))->create_instance();
+	if(node != NULL){
+		if(_root_instances.size() <= index) _root_instances.resize(index + 1);
+		_root_instances[index]->find_node(parent_name)->add(node);
+		return true;
+	}
+	else return false;
 }
 
 //######################  scene transform
@@ -103,8 +112,7 @@ bool scene::multiply_mat(std::string name, glm::mat4 data){
 
 bool scene::repo_translate(std::string name, glm::vec3 data){
 	mgf_node_model *node = NULL;
-	for(unsigned int i = 0; i < _root_repository.size() && node == NULL; i++)
-		node = (mgf_node_model *)_root_repository[i]->find_node(name);
+	node = (mgf_node_model *)_root_repository->find_node(name);
 
 	if(node == NULL){
 		#if _DEBUG_LEVEL >= 2
@@ -118,8 +126,7 @@ bool scene::repo_translate(std::string name, glm::vec3 data){
 
 bool scene::repo_rotate(std::string name, float angle, glm::vec3 data){
 	mgf_node_model *node = NULL;
-	for(unsigned int i = 0; i < _root_repository.size() && node == NULL; i++)
-		node = (mgf_node_model *)_root_repository[i]->find_node(name);
+	node = (mgf_node_model *)_root_repository->find_node(name);
 
 	if(node == NULL){
 		#if _DEBUG_LEVEL >= 2
@@ -133,8 +140,7 @@ bool scene::repo_rotate(std::string name, float angle, glm::vec3 data){
 
 bool scene::repo_scale(std::string name, glm::vec3 data){
 	mgf_node_model *node = NULL;
-	for(unsigned int i = 0; i < _root_repository.size() && node == NULL; i++)
-		node = (mgf_node_model *)_root_repository[i]->find_node(name);
+	node = (mgf_node_model *)_root_repository->find_node(name);
 
 	if(node == NULL){
 		#if _DEBUG_LEVEL >= 2
@@ -148,8 +154,7 @@ bool scene::repo_scale(std::string name, glm::vec3 data){
 
 bool scene::repo_multiply_mat(std::string name, glm::mat4 data){
 	mgf_node_model *node = NULL;
-	for(unsigned int i = 0; i < _root_repository.size() && node == NULL; i++)
-		node = (mgf_node_model *)_root_repository[i]->find_node(name);
+	node = (mgf_node_model *)_root_repository->find_node(name);
 
 	if(node == NULL){
 		#if _DEBUG_LEVEL >= 2

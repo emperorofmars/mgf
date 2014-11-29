@@ -1,7 +1,7 @@
 TODO:
 
--loader: make load_to_data not overwrite scene->_data
--loader: ai matrix to glm matrix
+-create enums for camera
+-node operations
+-loaderno instances flag
 -clean loader
--loader copy to instances
--work on scene
+-work on scene (create instance ...)

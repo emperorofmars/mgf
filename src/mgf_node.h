@@ -10,20 +10,24 @@
 
 #include "mgf_include.h"
 #include "mgf_data.h"
-#include "mgf_camera.h"
-#include "mgf_shader.h"
 
 namespace mgf{
+
+class mgf_node;
+class mgf_node_model;
+class mgf_node_model_instance;
 
 class mgf_node{
 public:
 	mgf_node();
-	~mgf_node();
+	virtual ~mgf_node();	//check if this gets called from child class
 
 	mgf_node *find_node(std::string name);
 	mgf_node *find_node(unsigned int id);
+	mgf_node *get_by_path(std::string path);
 
-	bool add_child(mgf_node *node);
+	bool add(mgf_node *node);
+	void remove();
 
 	void print(unsigned int deepness = 0);
 
@@ -38,13 +42,25 @@ public:
 	std::vector<mgf_node *> _child_nodes;
 };
 
-class mgf_node_model: public mgf_node{
+class mgf_node_mat{
+public:
+	void translate(glm::vec3 data);
+	void rotate(float angle, glm::vec3 data);
+	void scale(glm::vec3 data);
+	void multiply_mat(glm::mat4 data);
+
+	glm::mat4 _trans;
+};
+
+class mgf_node_model: public mgf_node, public mgf_node_mat{
 public:
 	mgf_node_model();
 	~mgf_node_model();
 
 	void construct_from_ainode(aiNode *ainode, mgf_data *data, unsigned int oldsize_meshes);
 	void construct_from_mgf_node(mgf_node_model *node);
+
+	mgf_node_model_instance *create_instance();
 
 	virtual void render();
 
@@ -53,11 +69,10 @@ public:
 
 	unsigned int _num_meshes;
 	unsigned int _num_instances;
-	glm::mat4 _trans;
 	bool _render;
 };
 
-class mgf_node_model_instance: public mgf_node{
+class mgf_node_model_instance: public mgf_node, public mgf_node_mat{
 public:
 	mgf_node_model_instance();
 	~mgf_node_model_instance();
@@ -68,7 +83,6 @@ public:
 
 	unsigned int _model_id;
 	mgf_node_model *_model;
-	glm::mat4 _trans;
 	bool _render;
 };
 

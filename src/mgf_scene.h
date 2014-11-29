@@ -22,9 +22,7 @@ public:
 	scene();
 	~scene();
 
-	mgf_data *_data;
-	std::vector<mgf_node_model *> _root_repository;
-	std::vector<mgf_node_model_instance *> _root_instances;
+	bool create_instance(std::string origin_name, std::string parent_name, unsigned int index = 0);
 
 	bool translate(std::string name, glm::vec3 data);
 	bool rotate(std::string name, float angle, glm::vec3 data);
@@ -36,8 +34,12 @@ public:
 	bool repo_scale(std::string name, glm::vec3 data);
 	bool repo_multiply_mat(std::string name, glm::mat4 data);
 
-	void render();
+	void render(unsigned int n = 0);
 	void render_repository();
+
+	mgf_data *_data;
+	mgf_node_model *_root_repository;
+	std::vector<mgf_node_model_instance *> _root_instances;
 private:
 };
 

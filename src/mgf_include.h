@@ -30,5 +30,28 @@
 
 #define _DEBUG_LEVEL 2
 
+enum renderer_enum{
+	OPENGL_4_3 = 0,
+	OPENGL_3_3 = 1,
+	SOFTWARE = 2,
+};
+
+namespace mgf{
+	struct mgf_info;
+	class window;
+	class camera;
+	class input;
+	class shader_program;
+	class node;
+	class scene;
+}
 
 #endif
+
+
+
+
+
+
+
+

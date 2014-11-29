@@ -6,6 +6,7 @@
 */
 
 #include "mgf_shader.h"
+#include "mgf_info.h"
 
 namespace mgf{
 
@@ -153,6 +154,7 @@ void shader_program::printShaderLog(GLuint shader){
 //###############################################################  use
 void shader_program::use(){
 	glUseProgram(mProgram);
+	mgf_info::_current_prog = this;
 	return;
 }
 

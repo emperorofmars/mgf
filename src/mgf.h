@@ -15,7 +15,8 @@
 
 #include "mgf_include.h"
 
-#include "mgf_init.h"
+#include "mgf_info.h"
+#include "mgf_window.h"
 #include "mgf_shader.h"
 #include "mgf_camera.h"
 #include "mgf_input.h"
@@ -27,7 +28,6 @@
 
 namespace mgf{
 
-	extern _render_info render_info;
 
 } // mgf
 

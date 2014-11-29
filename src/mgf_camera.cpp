@@ -136,6 +136,11 @@ glm::mat4 camera::update(glm::vec3 pos_, glm::vec3 rot_){
 	return projection * view;
 }
 
+void camera::use(){
+	mgf_info::_current_cam = this;
+	return;
+}
+
 //###############################################################  get
 glm::mat4 camera::get_vp(){
 	return projection * view;

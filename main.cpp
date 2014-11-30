@@ -25,7 +25,7 @@ int main(int argc, char *argv[]){
 	p.add_shader("res/shader/fragment_shader.glsl", GL_FRAGMENT_SHADER);
 	p.create_program();
 
-	mgf::camera cam(90, w.get_aspect_ratio(), 0.1f, 1000.f, 2, 0.6f, 0.4f);
+	mgf::camera cam(90, w.get_aspect_ratio(), 0.1f, 1000.f, CAMERA_FPS_EULER, 0.6f, 0.4f);
 
 	int loaderflags = 0;
 	if(INTEL_GPU == 1) loaderflags |= LOAD_NO_INDICES;	//weil intel gpus zu blöd für inexed draws sind
@@ -42,22 +42,16 @@ int main(int argc, char *argv[]){
 	p.use();
 	cam.use();
 
-	scene->translate("scene.obj", glm::vec3(0.f, -5.f, 0.f));
+	scene->translate_n("scene.obj", glm::vec3(0.f, -5.f, 0.f));
 
 	//scene->_root_instances[0]->add(((mgf::mgf_node_model *)scene->_root_repository->get_by_path("root/cube.obj/supercube"))->create_instance());	//create instance manually
 	//scene->_root_instances[0]->find_node("cube.obj")->add(((mgf::mgf_node_model *)scene->_root_repository->find_node("supercube"))->create_instance());	//create instance manually
-	scene->create_instance("supercube", "cube.obj");
-	scene->create_instance("supercube", "cube.obj");
-	scene->create_instance("Suzanne", "supercube");
+	scene->create_instance_n("supercube", "cube.obj");
+	scene->create_instance_n("supercube", "cube.obj");
+	scene->create_instance_n("Suzanne", "supercube");
 
-	mgf::mgf_node_model_instance *transnode = ((mgf::mgf_node_model_instance *)scene->_root_instances[0]->get_by_path("root/cube.obj/supercube%2")); //not yet working
-	if(transnode != NULL){
-		std::cerr << "move" << std::endl;
-		transnode->translate(glm::vec3(20.f, 0.f, 0.f));
-	}
-	else std::cerr << "dont move" << std::endl;
-
-	scene->translate("supercube", glm::vec3(2.f, 5.f, 0.f));
+	scene->translate_p("root/cube.obj/supercube%2", glm::vec3(20.f, 0.f, 0.f));
+	scene->translate_n("supercube", glm::vec3(2.f, 5.f, 0.f));
 
 	std::cerr << "TREE: " << std::endl;
 	scene->_root_instances[0]->print();
@@ -72,7 +66,7 @@ int main(int argc, char *argv[]){
 		quit = input.get_quit();
 		cam.update(input.get_pos(), input.get_rot());
 
-		scene->rotate("supercube", 0.01f, glm::vec3(0.f, 1.f, 0.f));
+		scene->rotate_n("supercube", 0.01f, glm::vec3(0.f, 1.f, 0.f));
 		//scene->rotate("Suzanne", -0.01f, glm::vec3(0.f, 1.f, 0.f));
 //###############################################  Rendering
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

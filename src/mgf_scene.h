@@ -22,12 +22,18 @@ public:
 	scene();
 	~scene();
 
-	bool create_instance(std::string origin_name, std::string parent_name, unsigned int index = 0);
+	bool create_instance_n(std::string origin_name, std::string parent_name, unsigned int index = 0);
+	bool create_instance_p(std::string origin_path, std::string parent_path, unsigned int index = 0);
 
-	bool translate(std::string name, glm::vec3 data);
-	bool rotate(std::string name, float angle, glm::vec3 data);
-	bool scale(std::string name, glm::vec3 data);
-	bool multiply_mat(std::string name, glm::mat4 data);
+	bool translate_n(std::string name, glm::vec3 data, unsigned int index = 0);
+	bool rotate_n(std::string name, float angle, glm::vec3 data, unsigned int index = 0);
+	bool scale_n(std::string name, glm::vec3 data, unsigned int index = 0);
+	bool multiply_mat_n(std::string name, glm::mat4 data, unsigned int index = 0);
+
+	bool translate_p(std::string path, glm::vec3 data, unsigned int index = 0);
+	bool rotate_p(std::string path, float angle, glm::vec3 data, unsigned int index = 0);
+	bool scale_p(std::string path, glm::vec3 data, unsigned int index = 0);
+	bool multiply_mat_p(std::string path, glm::mat4 data, unsigned int index = 0);
 
 	bool repo_translate(std::string name, glm::vec3 data);
 	bool repo_rotate(std::string name, float angle, glm::vec3 data);

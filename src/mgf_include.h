@@ -41,6 +41,13 @@ enum loader_flags_enum{
 	LOAD_NO_INDICES = 0b0100,
 };
 
+enum camera_types_enum{
+	CAMERA_FPS_EULER = 0,
+	CAMERA_FREE_QUAT = 1,
+	CAMERA_FPS_QUAT = 2,
+	CAMERA_FOLLOW_QUAT = 3,
+};
+
 namespace mgf{
 	struct mgf_info;
 	class window;

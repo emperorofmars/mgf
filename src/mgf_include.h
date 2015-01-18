@@ -36,16 +36,19 @@ enum renderer_enum{
 };
 
 enum loader_flags_enum{
-	LOAD_NOT_TO_GPU = 0b0010,
-	LOAD_TO_DATA = 0b0010,
-	LOAD_NO_INDICES = 0b0100,
+	LOAD_NOT_TO_GPU 	= 0b0000001,
+	LOAD_TO_DATA 		= 0b0000010,
+	LOAD_NO_INDICES 	= 0b0000100,
+	LOAD_SWITCH_UP_ZY 	= 0b0001000,
+	LOAD_NO_B_BOXES     = 0b0010000,
+	LOAD_NO_INSTANCES   = 0b0100000,
 };
 
 enum camera_types_enum{
 	CAMERA_FPS_EULER = 0,
 	CAMERA_FREE_QUAT = 1,
 	CAMERA_FPS_QUAT = 2,
-	CAMERA_FOLLOW_QUAT = 3,
+	CAMERA_FOLLOW = 3,
 };
 
 namespace mgf{

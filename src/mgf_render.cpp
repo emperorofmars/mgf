@@ -55,6 +55,7 @@ void render_single_node(mgf_node_model *node, glm::mat4 trans){
 			glDrawArrays(GL_TRIANGLES, 0, node->_data->_meshes[node->_meshes[i]].num_vertices * sizeof(GLuint));
 			//std::cerr << "arrays" << std::endl;
 		}
+		//std::cerr << "render: " << node->_name << " " << node->_num_children << std::endl;
 		glBindVertexArray(0);
 	}
 	return;

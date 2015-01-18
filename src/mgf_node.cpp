@@ -74,6 +74,38 @@ bool mgf_node::add(mgf_node *node){
 	return true;
 }
 
+bool mgf_node::remove(std::string name){
+	mgf_node *n = find_node(name);
+	mgf_node *p = NULL;
+	if(n != NULL){
+		p = n->_parent_node;
+		if(p != NULL){
+			for(unsigned int i = 0; i < p->_num_children; i++){
+				if(p->_child_nodes[i] == n) p->_child_nodes.erase(p->_child_nodes.begin() + i);
+			}
+			delete n;
+			return true;
+		}
+	}
+	return false;
+}
+
+bool mgf_node::remove_by_path(std::string path){
+	mgf_node *n = get_by_path(path);
+	mgf_node *p = NULL;
+	if(n != NULL){
+		p = n->_parent_node;
+		if(p != NULL){
+			for(unsigned int i = 0; i < p->_num_children; i++){
+				if(p->_child_nodes[i] == n) p->_child_nodes.erase(p->_child_nodes.begin() + i);
+			}
+			delete n;
+			return true;
+		}
+	}
+	return false;
+}
+
 void mgf_node::print(unsigned int deepness){
 	deepness ++;
 	for(unsigned int i = 0; i < deepness; i++) std::cerr << "|_";
@@ -104,6 +136,12 @@ void mgf_node_mat::scale(glm::vec3 data){
 void mgf_node_mat::multiply_mat(glm::mat4 data){
 	_trans *= data;
 	return;
+}
+
+glm::vec3 mgf_node_mat::get_pos(){ //make this recursive
+	glm::vec4 v(0.f, 0.f, 0.f, 1.f);
+	v = _trans * v;
+	return glm::vec3(v[0], v[1], v[2]);
 }
 
 //######################  node_model
@@ -149,9 +187,36 @@ void mgf_node_model::construct_from_ainode(aiNode *ainode, mgf_data *data, unsig
 	for(unsigned int i = 0; i < newnode->_meshes.size(); i++)
 		newnode->_meshes[i] = ainode->mMeshes[i] + oldsize_meshes;
 
+	if(newnode->_meshes.size() > 0){
+		newnode->bbox_vol = data->_meshes[newnode->_meshes[0]].bbox_vol;
+		newnode->bbox_hur = data->_meshes[newnode->_meshes[0]].bbox_hur;
+
+		for(unsigned int i = 0; i < newnode->_meshes.size(); i++){
+			for(unsigned int j = 0; j < 3; j++){
+				if(newnode->bbox_vol[j] < data->_meshes[newnode->_meshes[i]].bbox_vol[j]) newnode->bbox_vol[j] = data->_meshes[newnode->_meshes[i]].bbox_vol[j];
+				if(newnode->bbox_hur[j] > data->_meshes[newnode->_meshes[i]].bbox_hur[j]) newnode->bbox_hur[j] = data->_meshes[newnode->_meshes[i]].bbox_hur[j];
+			}
+		}
+	}
+
 	for(unsigned int i = 0; i < ainode->mNumChildren; i++)
 		newnode->construct_from_ainode(ainode->mChildren[i], data, oldsize_meshes);
 
+
+	if(newnode->_num_children > 0){
+		newnode->bbox_vol = ((mgf_node_model *)newnode->_child_nodes[0])->bbox_vol;
+		newnode->bbox_hur = ((mgf_node_model *)newnode->_child_nodes[0])->bbox_hur;
+
+		for(unsigned int i = 0; i < newnode->_num_children; i++){
+			for(unsigned int j = 0; j < 3; j++){
+				if(newnode->bbox_vol[j] < ((mgf_node_model *)newnode->_child_nodes[i])->bbox_vol[j]) newnode->bbox_vol[j] = ((mgf_node_model *)newnode->_child_nodes[i])->bbox_vol[j];
+				if(newnode->bbox_hur[j] > ((mgf_node_model *)newnode->_child_nodes[i])->bbox_hur[j]) newnode->bbox_hur[j] = ((mgf_node_model *)newnode->_child_nodes[i])->bbox_hur[j];
+			}
+		}
+	}
+
+	//std::cerr << "BBOX: " << newnode->_name << " " << newnode->bbox_vol[0] << " " << newnode->bbox_vol[1] << " " << newnode->bbox_vol[2]
+	//				<< " " << newnode->bbox_hur[0] << " " << newnode->bbox_hur[1] << " " << newnode->bbox_hur[2] << std::endl;
 	return;
 }
 

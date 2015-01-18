@@ -32,6 +32,9 @@ struct mgf_data{
 		std::vector<glm::vec3> positions;
 		std::vector<glm::vec3> normals;
 		std::vector<std::vector<glm::vec3>> texcoords;
+
+        glm::vec3 bbox_vol;
+        glm::vec3 bbox_hur;
 	};
 	struct mgf_material{
 		mgf_material();

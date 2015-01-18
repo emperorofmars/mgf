@@ -51,7 +51,7 @@ bool window::init(){
 		int windowpos_x = SDL_WINDOWPOS_UNDEFINED_DISPLAY(_monitor);
 		int windowpos_y = SDL_WINDOWPOS_UNDEFINED_DISPLAY(_monitor);
 
-		_window = SDL_CreateWindow("mgf", windowpos_x, windowpos_y,
+		_window = SDL_CreateWindow("erg", windowpos_x, windowpos_y,
 							_screen_w, _screen_h, flags);
 		if(_window == NULL){
 			std::cerr << "SDL_CreateWindow failed! SDL_Error: " << SDL_GetError() << std::endl;
@@ -171,6 +171,13 @@ bool mgf_init(renderer_enum renderer){
 		std::cerr << "initializing SDL failed!" << std::endl;
 		return false;
 	}
+
+    glEnable(GL_CULL_FACE);
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+
+    SDL_SetRelativeMouseMode(SDL_TRUE);
+
 
 	std::cerr << "SDL initialized successfully!" << std::endl;
 	return true;

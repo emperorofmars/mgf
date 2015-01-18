@@ -27,7 +27,8 @@ public:
 	mgf_node *get_by_path(std::string path);
 
 	bool add(mgf_node *node);
-	void remove();
+	bool remove(std::string name);
+	bool remove_by_path(std::string path);
 
 	void print(unsigned int deepness = 0);
 
@@ -49,6 +50,8 @@ public:
 	void scale(glm::vec3 data);
 	void multiply_mat(glm::mat4 data);
 
+	glm::vec3 get_pos();
+
 	glm::mat4 _trans;
 };
 
@@ -67,12 +70,15 @@ public:
 	mgf_data *_data;
 	std::vector<unsigned int> _meshes;
 
+	glm::vec3 bbox_vol;
+	glm::vec3 bbox_hur;
+
 	unsigned int _num_meshes;
 	unsigned int _num_instances;
 	bool _render;
 };
 
-class mgf_node_model_instance: public mgf_node, public mgf_node_mat{
+class mgf_node_model_instance: public mgf_node, public mgf_node_mat{	//add recursive get_pos();
 public:
 	mgf_node_model_instance();
 	~mgf_node_model_instance();

@@ -25,6 +25,9 @@ public:
 	bool create_instance_n(std::string origin_name, std::string parent_name, unsigned int index = 0);
 	bool create_instance_p(std::string origin_path, std::string parent_path, unsigned int index = 0);
 
+	bool remove_instance_n(std::string name, unsigned int index = 0);
+	bool remove_instance_p(std::string path, unsigned int index = 0);
+
 	bool translate_n(std::string name, glm::vec3 data, unsigned int index = 0);
 	bool rotate_n(std::string name, float angle, glm::vec3 data, unsigned int index = 0);
 	bool scale_n(std::string name, glm::vec3 data, unsigned int index = 0);
@@ -34,6 +37,9 @@ public:
 	bool rotate_p(std::string path, float angle, glm::vec3 data, unsigned int index = 0);
 	bool scale_p(std::string path, glm::vec3 data, unsigned int index = 0);
 	bool multiply_mat_p(std::string path, glm::mat4 data, unsigned int index = 0);
+
+	glm::vec3 get_pos_instance_n(std::string name, unsigned int index = 0);
+	glm::vec3 get_pos_instance_p(std::string path, unsigned int index = 0);
 
 	bool repo_translate(std::string name, glm::vec3 data);
 	bool repo_rotate(std::string name, float angle, glm::vec3 data);

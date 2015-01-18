@@ -66,6 +66,14 @@ bool scene::create_instance_p(std::string origin_path, std::string parent_path, 
 	return true;
 }
 
+bool scene::remove_instance_n(std::string name, unsigned int index){
+	return _root_instances[index]->remove(name);
+}
+
+bool scene::remove_instance_p(std::string path, unsigned int index){
+	return _root_instances[index]->remove_by_path(path);
+}
+
 //######################  scene transform
 
 bool scene::translate_n(std::string name, glm::vec3 data, unsigned int index){
@@ -77,7 +85,7 @@ bool scene::translate_n(std::string name, glm::vec3 data, unsigned int index){
 		#endif // _DEBUG_LEVEL
 		return false;
 	}
-	node->_trans *= glm::translate(glm::mat4(1), data);
+	node->_trans = glm::translate(glm::mat4(1), data) * node->_trans;
 	return true;
 }
 
@@ -172,6 +180,13 @@ bool scene::multiply_mat_p(std::string path, glm::mat4 data, unsigned int index)
 	}
 	node->_trans *= data;
 	return true;
+}
+
+glm::vec3 scene::get_pos_instance_n(std::string name, unsigned int index){
+	return ((mgf_node_model_instance *)_root_instances[index]->find_node(name))->get_pos();
+}
+glm::vec3 scene::get_pos_instance_p(std::string path, unsigned int index){
+	return ((mgf_node_model_instance *)_root_instances[index]->get_by_path(path))->get_pos();
 }
 
 //######################  scene transform in repo

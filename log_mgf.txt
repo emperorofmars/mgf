@@ -1,0 +1,11 @@
+==========================================
+08.04.2015-22:17:36 : Logging Started
+==========================================
+08.04.2015-22:18:01 : Logging Started
+08.04.2015-22:18:01 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+==========================================
+08.04.2015-22:22:01 : Logging Started
+08.04.2015-22:22:01 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+==========================================
+08.04.2015-22:22:52 : Logging Started
+08.04.2015-22:22:52 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT

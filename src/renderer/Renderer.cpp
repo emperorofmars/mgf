@@ -9,6 +9,7 @@
 
 namespace mgf{
 
+/*
 //######################  render
 
 void render(mgf_node_model *node, glm::mat4 trans){
@@ -90,6 +91,6 @@ void apply_material(unsigned int material_index, mgf_data *data){
 	return;
 }
 
-
+*/
 
 }

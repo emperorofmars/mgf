@@ -7,7 +7,10 @@
 #include "gl_test.h"
 //###############################################  Main
 int main(int argc, char *argv[]){
-	mgf::window w(1000, 800, 0, 0);
+	LOG_INIT("log_mgf.txt", true);
+	LOG_D_ERROR("LOG_INIT");
+
+	mgf::Window w(1000, 800, 0, 0);
 
 	renderer_enum renderer_flag;
 	if(OPENGL_VERSION == 33) renderer_flag = OPENGL_3_3;
@@ -32,15 +35,10 @@ int main(int argc, char *argv[]){
 	mgf::scene *scene = mgf::load("res/models/cube/cube.obj", loaderflags);
 	mgf::load_into_scene(scene, "res/models/scene/scene.obj", loaderflags);
 
-	glEnable(GL_CULL_FACE);
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LESS);
-
 	SDL_SetRelativeMouseMode(SDL_TRUE);
 
 	w.use();
 	p.use();
-	cam.use();
 
 	scene->translate_n("scene.obj", glm::vec3(0.f, -5.f, 0.f));
 

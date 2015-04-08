@@ -27,6 +27,8 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
+#include "lib/mlog.h"
+
 #define _DEBUG_LEVEL 2
 
 enum renderer_enum{

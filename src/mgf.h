@@ -11,20 +11,8 @@
 
 #include "mgf_include.h"
 
-#include "mgf_info.h"
-#include "mgf_window.h"
-#include "mgf_shader.h"
-#include "mgf_camera.h"
-#include "mgf_input.h"
-#include "mgf_loader.h"
-#include "mgf_node.h"
-#include "mgf_data.h"
-#include "mgf_scene.h"
-#include "mgf_render.h"
-
-#ifndef _DEBUG_LEVEL
-	#define _DEBUG_LEVEL 2
-#endif // _DEBUG_LEVEL
+#include "Window.h"
+#include "data/Data.h"
 
 namespace mgf{
 

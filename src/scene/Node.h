@@ -20,7 +20,7 @@ class mgf_node_model_instance;
 class mgf_node{
 public:
 	mgf_node();
-	virtual ~mgf_node();	//check if this gets called from child class
+	virtual ~mgf_node();
 
 	mgf_node *find_node(std::string name);
 	mgf_node *find_node(unsigned int id);
@@ -43,7 +43,7 @@ public:
 	std::vector<mgf_node *> _child_nodes;
 };
 
-class mgf_node_mat{
+class mgf_node_mat{	//add recursive get_pos();
 public:
 	void translate(glm::vec3 data);
 	void rotate(float angle, glm::vec3 data);
@@ -78,7 +78,7 @@ public:
 	bool _render;
 };
 
-class mgf_node_model_instance: public mgf_node, public mgf_node_mat{	//add recursive get_pos();
+class mgf_node_model_instance: public mgf_node, public mgf_node_mat{
 public:
 	mgf_node_model_instance();
 	~mgf_node_model_instance();

@@ -1,30 +1,22 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		mgf_window.h
+**	Name:		Window.h
 **	Project:	mgf - Mars Graphics Framework
-**	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
 */
 
-#ifndef MGF_WINDOW
-#define MGF_WINDOW
+#ifndef WINDOW_H
+#define WINDOW_H
 
 #include "mgf_include.h"
-#include "mgf_info.h"
-
-/*enum renderer_enum{
-	OPENGL_4_3 = 0,
-	OPENGL_3_3 = 1,
-	SOFTWARE = 2,
-};*/
 
 namespace mgf{
 
-//###############################################################  	window class
-class window{
+//###############################################################  	Window class
+class Window{
 public:
-	window(unsigned int screen_w = 800, unsigned int screen_h = 600, bool fullscreen = 0,
+	Window(unsigned int screen_w = 800, unsigned int screen_h = 600, bool fullscreen = 0,
 			unsigned int monitor = 0, bool input_grabbed = 0, bool vsync = 0);
-	~window();
+	~Window();
 
 	//bool setup_window(unsigned int screen_w = 800, unsigned int screen_h = 600, bool fullscreen = 0,
 	//				unsigned int monitor = 0, bool input_grabbed = 0, bool vsync = 0);
@@ -52,4 +44,4 @@ void mgf_close();
 
 } // mgf
 
-#endif // MGF_WINDOW
+#endif // WINDOW_H

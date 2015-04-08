@@ -1,24 +1,20 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		mgf_window.cpp
+**	Name:		Window.cpp
 **	Project:	mgf - Mars Graphics Framework
-**	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
 */
 
-#include "mgf_window.h"
+#include "Window.h"
 
 namespace mgf{
 
-//###############################################################  window class
+//###############################################################  Window class
 
 
 //###############################################################  constructor
-window::window(unsigned int screen_w, unsigned int screen_h, bool fullscreen,
+Window::Window(unsigned int screen_w, unsigned int screen_h, bool fullscreen,
 		   unsigned int monitor, bool input_grabbed, bool vsync)
 {
-	_inited = mgf_info::_mgf_inited;
-	mgf_info::_windows.push_back(this);
-
 	_window = NULL;
 	_screen_w = screen_w;
 	_screen_h = screen_h;
@@ -29,7 +25,7 @@ window::window(unsigned int screen_w, unsigned int screen_h, bool fullscreen,
 	if(_inited == true) init();
 }
 
-window::~window(){
+Window::~Window(){
 	if(_inited == true){
 		close();
 		std::cerr << "window destroyed!" << std::endl;
@@ -37,7 +33,7 @@ window::~window(){
 }
 
 //###############################################################  setup window
-bool window::init(){
+bool Window::init(){
 	if(mgf_info::_mgf_inited == true) _inited = true;
 	else return false;
 
@@ -63,7 +59,7 @@ bool window::init(){
 	return true;
 }
 
-void window::close(){
+void Window::close(){
 	if(_inited == true){
 		SDL_DestroyWindow(_window);
 		_window = NULL;
@@ -72,7 +68,7 @@ void window::close(){
 	return;
 }
 
-void window::use(){
+void Window::use(){
 	if(_inited == true){
 		SDL_GL_MakeCurrent(_window, mgf_info::_context);
 		mgf_info::_aspect_ratio = get_aspect_ratio();
@@ -80,12 +76,12 @@ void window::use(){
 	return;
 }
 
-void window::swap(){
+void Window::swap(){
 	if(_inited == true) SDL_GL_SwapWindow(_window);
 	return;
 }
 
-float window::get_aspect_ratio(){
+float Window::get_aspect_ratio(){
 	if(_screen_h != 0) return (float)_screen_w / (float)_screen_h;
 	return 0;
 }

@@ -75,47 +75,280 @@
 	"mgf_shader.h"
 	"mgf_camera.h"
 
-1417179274 source:/home/mars/Projekte/mgf/mgf/src/mgf.cpp
+1421600086 source:/home/mars/Projekte/mgf/mgf/src/mgf.cpp
 	"mgf.h"
 
-1417277673 source:/home/mars/Projekte/mgf/mgf/src/mgf_camera.cpp
+1421600086 source:/home/mars/Projekte/mgf/mgf/src/mgf_camera.cpp
 	"mgf_camera.h"
 
-1417269949 source:/home/mars/Projekte/mgf/mgf/src/mgf_data.cpp
+1421600086 source:/home/mars/Projekte/mgf/mgf/src/mgf_data.cpp
 	"mgf_data.h"
 
 1417269661 source:/home/mars/Projekte/mgf/mgf/src/mgf_init.cpp
 	"mgf_init.h"
 
-1417179274 source:/home/mars/Projekte/mgf/mgf/src/mgf_input.cpp
+1421600086 source:/home/mars/Projekte/mgf/mgf/src/mgf_input.cpp
 	"mgf_input.h"
 
-1421526001 source:/home/mars/Projekte/mgf/mgf/src/mgf_loader.cpp
+1421600086 source:/home/mars/Projekte/mgf/mgf/src/mgf_loader.cpp
 	"mgf_loader.h"
 
-1421526001 source:/home/mars/Projekte/mgf/mgf/src/mgf_node.cpp
+1421600086 source:/home/mars/Projekte/mgf/mgf/src/mgf_node.cpp
 	"mgf_loader.h"
 
-1418067398 source:/home/mars/Projekte/mgf/mgf/src/mgf_render.cpp
+1421600086 source:/home/mars/Projekte/mgf/mgf/src/mgf_render.cpp
 	"mgf_render.h"
 
-1421421223 source:/home/mars/Projekte/mgf/mgf/src/mgf_scene.cpp
+1421600086 source:/home/mars/Projekte/mgf/mgf/src/mgf_scene.cpp
 	"mgf_loader.h"
 
-1417277673 source:/home/mars/Projekte/mgf/mgf/src/mgf_shader.cpp
+1421600086 source:/home/mars/Projekte/mgf/mgf/src/mgf_shader.cpp
 	"mgf_shader.h"
 	"mgf_info.h"
 
 1421600086 /home/mars/Projekte/mgf/mgf/src/mgf_info.h
 	"mgf_include.h"
 
-1421600086 /home/mars/Projekte/mgf/mgf/src/mgf_window.h
+1424009912 /home/mars/Projekte/mgf/mgf/src/mgf_window.h
 	"mgf_include.h"
 	"mgf_info.h"
 
-1417277673 source:/home/mars/Projekte/mgf/mgf/src/mgf_info.cpp
+1421600086 source:/home/mars/Projekte/mgf/mgf/src/mgf_info.cpp
 	"mgf_info.h"
 
-1420155855 source:/home/mars/Projekte/mgf/mgf/src/mgf_window.cpp
+1421600086 source:/home/mars/Projekte/mgf/mgf/src/mgf_window.cpp
 	"mgf_window.h"
+
+1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf.cpp
+	"mgf.h"
+
+1421600086 /home/mars/Projekte/mgf_old/mgf/src/mgf.h
+	"mgf_include.h"
+	"mgf_info.h"
+	"mgf_window.h"
+	"mgf_shader.h"
+	"mgf_camera.h"
+	"mgf_input.h"
+	"mgf_loader.h"
+	"mgf_node.h"
+	"mgf_data.h"
+	"mgf_scene.h"
+	"mgf_render.h"
+
+1421600086 /home/mars/Projekte/mgf_old/mgf/src/mgf_include.h
+	<iostream>
+	<vector>
+	<fstream>
+	<sstream>
+	<SDL2/SDL.h>
+	<GL/glew.h>
+	<SDL2/SDL_opengl.h>
+	<SDL2/SDL_image.h>
+	<glm/glm.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<assimp/Importer.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+
+1421600086 /home/mars/Projekte/mgf_old/mgf/src/mgf_info.h
+	"mgf_include.h"
+
+1424009912 /home/mars/Projekte/mgf_old/mgf/src/mgf_window.h
+	"mgf_include.h"
+	"mgf_info.h"
+
+1421600086 /home/mars/Projekte/mgf_old/mgf/src/mgf_shader.h
+	"mgf_include.h"
+
+1421600086 /home/mars/Projekte/mgf_old/mgf/src/mgf_camera.h
+	"mgf_include.h"
+	"mgf_info.h"
+
+1421600086 /home/mars/Projekte/mgf_old/mgf/src/mgf_input.h
+	"mgf_include.h"
+
+1421600086 /home/mars/Projekte/mgf_old/mgf/src/mgf_loader.h
+	"mgf_include.h"
+	"mgf_scene.h"
+	"mgf_data.h"
+	"mgf_node.h"
+
+1421600086 /home/mars/Projekte/mgf_old/mgf/src/mgf_scene.h
+	"mgf_include.h"
+	"mgf_node.h"
+	"mgf_data.h"
+	"mgf_camera.h"
+	"mgf_shader.h"
+	"mgf_render.h"
+
+1424010706 /home/mars/Projekte/mgf_old/mgf/src/mgf_node.h
+	"mgf_include.h"
+	"mgf_data.h"
+
+1421600086 /home/mars/Projekte/mgf_old/mgf/src/mgf_data.h
+	"mgf_include.h"
+
+1421600086 /home/mars/Projekte/mgf_old/mgf/src/mgf_render.h
+	"mgf_include.h"
+	"mgf_info.h"
+	"mgf_node.h"
+	"mgf_shader.h"
+	"mgf_camera.h"
+
+1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_camera.cpp
+	"mgf_camera.h"
+
+1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_data.cpp
+	"mgf_data.h"
+
+1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_info.cpp
+	"mgf_info.h"
+
+1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_input.cpp
+	"mgf_input.h"
+
+1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_loader.cpp
+	"mgf_loader.h"
+
+1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_node.cpp
+	"mgf_loader.h"
+
+1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_render.cpp
+	"mgf_render.h"
+
+1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_scene.cpp
+	"mgf_loader.h"
+
+1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_shader.cpp
+	"mgf_shader.h"
+	"mgf_info.h"
+
+1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_window.cpp
+	"mgf_window.h"
+
+1428524872 source:/home/mars/Projekte/mgf/main.cpp
+	"gl_test.h"
+
+1417280497 /home/mars/Projekte/mgf/gl_test.h
+	"src/mgf.h"
+
+1428524816 /home/mars/Projekte/mgf/src/mgf.h
+	"mgf_include.h"
+	"Window.h"
+	"mgf_shader.h"
+	"mgf_camera.h"
+	"mgf_input.h"
+	"mgf_loader.h"
+	"mgf_node.h"
+	"mgf_data.h"
+	"mgf_scene.h"
+	"mgf_render.h"
+
+1428524152 /home/mars/Projekte/mgf/src/mgf_include.h
+	<iostream>
+	<vector>
+	<fstream>
+	<sstream>
+	<SDL2/SDL.h>
+	<GL/glew.h>
+	<SDL2/SDL_opengl.h>
+	<SDL2/SDL_image.h>
+	<glm/glm.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<assimp/Importer.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+	"lib/mlog.h"
+
+1426970032 /home/mars/Projekte/mgf/src/lib/mlog.h
+	<iostream>
+	<fstream>
+	<string>
+	<sstream>
+	<cstring>
+	<vector>
+	<memory>
+	<mutex>
+
+1421600086 /home/mars/Projekte/mgf/src/mgf_info.h
+	"mgf_include.h"
+
+1428524568 /home/mars/Projekte/mgf/src/mgf_window.h
+	"mgf_include.h"
+	"mgf_info.h"
+
+1421600086 /home/mars/Projekte/mgf/src/mgf_shader.h
+	"mgf_include.h"
+
+1428524867 /home/mars/Projekte/mgf/src/mgf_camera.h
+	"mgf_include.h"
+
+1421600086 /home/mars/Projekte/mgf/src/mgf_input.h
+	"mgf_include.h"
+
+1421600086 /home/mars/Projekte/mgf/src/mgf_loader.h
+	"mgf_include.h"
+	"mgf_scene.h"
+	"mgf_data.h"
+	"mgf_node.h"
+
+1421600086 /home/mars/Projekte/mgf/src/mgf_scene.h
+	"mgf_include.h"
+	"mgf_node.h"
+	"mgf_data.h"
+	"mgf_camera.h"
+	"mgf_shader.h"
+	"mgf_render.h"
+
+1424010706 /home/mars/Projekte/mgf/src/mgf_node.h
+	"mgf_include.h"
+	"mgf_data.h"
+
+1421600086 /home/mars/Projekte/mgf/src/mgf_data.h
+	"mgf_include.h"
+
+1428524824 /home/mars/Projekte/mgf/src/mgf_render.h
+	"mgf_include.h"
+	"mgf_node.h"
+	"mgf_shader.h"
+	"mgf_camera.h"
+
+1421600086 source:/home/mars/Projekte/mgf/src/mgf.cpp
+	"mgf.h"
+
+1428524835 source:/home/mars/Projekte/mgf/src/mgf_camera.cpp
+	"mgf_camera.h"
+
+1421600086 source:/home/mars/Projekte/mgf/src/mgf_data.cpp
+	"mgf_data.h"
+
+1421600086 source:/home/mars/Projekte/mgf/src/mgf_info.cpp
+	"mgf_info.h"
+
+1421600086 source:/home/mars/Projekte/mgf/src/mgf_input.cpp
+	"mgf_input.h"
+
+1421600086 source:/home/mars/Projekte/mgf/src/mgf_loader.cpp
+	"mgf_loader.h"
+
+1421600086 source:/home/mars/Projekte/mgf/src/mgf_node.cpp
+	"mgf_loader.h"
+
+1421600086 source:/home/mars/Projekte/mgf/src/mgf_render.cpp
+	"mgf_render.h"
+
+1421600086 source:/home/mars/Projekte/mgf/src/mgf_scene.cpp
+	"mgf_loader.h"
+
+1421600086 source:/home/mars/Projekte/mgf/src/mgf_shader.cpp
+	"mgf_shader.h"
+	"mgf_info.h"
+
+1421600086 source:/home/mars/Projekte/mgf/src/mgf_window.cpp
+	"mgf_window.h"
+
+1428524812 /home/mars/Projekte/mgf/src/Window.h
+	"mgf_include.h"
 

@@ -42,29 +42,34 @@
 		</Linker>
 		<Unit filename="gl_test.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Camera.cpp" />
+		<Unit filename="src/Camera.h" />
+		<Unit filename="src/Input.cpp" />
+		<Unit filename="src/Input.h" />
+		<Unit filename="src/Loader.cpp" />
+		<Unit filename="src/Loader.h" />
+		<Unit filename="src/Shader.cpp" />
+		<Unit filename="src/Shader.h" />
+		<Unit filename="src/Window.cpp" />
+		<Unit filename="src/Window.h" />
+		<Unit filename="src/data/Data.cpp" />
+		<Unit filename="src/data/Data.h" />
+		<Unit filename="src/data/Light.cpp" />
+		<Unit filename="src/data/Light.h" />
+		<Unit filename="src/data/Material.cpp" />
+		<Unit filename="src/data/Material.h" />
+		<Unit filename="src/data/Mesh.cpp" />
+		<Unit filename="src/data/Mesh.h" />
+		<Unit filename="src/data/Texture.cpp" />
+		<Unit filename="src/data/Texture.h" />
+		<Unit filename="src/include.h" />
+		<Unit filename="src/lib/mlog.h" />
 		<Unit filename="src/mgf.cpp" />
 		<Unit filename="src/mgf.h" />
-		<Unit filename="src/mgf_camera.cpp" />
-		<Unit filename="src/mgf_camera.h" />
-		<Unit filename="src/mgf_data.cpp" />
-		<Unit filename="src/mgf_data.h" />
-		<Unit filename="src/mgf_include.h" />
-		<Unit filename="src/mgf_info.cpp" />
-		<Unit filename="src/mgf_info.h" />
-		<Unit filename="src/mgf_input.cpp" />
-		<Unit filename="src/mgf_input.h" />
-		<Unit filename="src/mgf_loader.cpp" />
-		<Unit filename="src/mgf_loader.h" />
-		<Unit filename="src/mgf_node.cpp" />
-		<Unit filename="src/mgf_node.h" />
-		<Unit filename="src/mgf_render.cpp" />
-		<Unit filename="src/mgf_render.h" />
-		<Unit filename="src/mgf_scene.cpp" />
-		<Unit filename="src/mgf_scene.h" />
-		<Unit filename="src/mgf_shader.cpp" />
-		<Unit filename="src/mgf_shader.h" />
-		<Unit filename="src/mgf_window.cpp" />
-		<Unit filename="src/mgf_window.h" />
+		<Unit filename="src/renderer/Renderer.cpp" />
+		<Unit filename="src/renderer/Renderer.h" />
+		<Unit filename="src/scene/Node.cpp" />
+		<Unit filename="src/scene/Node.h" />
 		<Extensions>
 			<envvars />
 			<code_completion />

@@ -154,12 +154,6 @@ glm::mat4 camera::update(glm::vec3 pos_, glm::vec3 rot_){
 	return _projection * _view;
 }
 
-void camera::use(){
-	set_screenratio(mgf_info::_aspect_ratio);
-	mgf_info::_current_cam = this;
-	return;
-}
-
 //###############################################################  get
 glm::mat4 camera::get_vp(){
 	return _projection * _view;

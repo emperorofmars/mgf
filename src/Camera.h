@@ -9,7 +9,6 @@
 #define MGF_CAMERA
 
 #include "mgf_include.h"
-#include "mgf_info.h"
 
 namespace mgf{
 
@@ -27,7 +26,6 @@ public:
 	void set_mode(int mode = 0);
 
 	glm::mat4 update(glm::vec3 pos_, glm::vec3 rot_);
-	void use();
 
 	glm::mat4 get_vp();
 	glm::mat4 get_v();

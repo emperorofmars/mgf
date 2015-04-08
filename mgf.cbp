@@ -44,6 +44,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Camera.cpp" />
 		<Unit filename="src/Camera.h" />
+		<Unit filename="src/Include.h" />
 		<Unit filename="src/Input.cpp" />
 		<Unit filename="src/Input.h" />
 		<Unit filename="src/Loader.cpp" />
@@ -62,7 +63,6 @@
 		<Unit filename="src/data/Mesh.h" />
 		<Unit filename="src/data/Texture.cpp" />
 		<Unit filename="src/data/Texture.h" />
-		<Unit filename="src/include.h" />
 		<Unit filename="src/lib/mlog.h" />
 		<Unit filename="src/mgf.cpp" />
 		<Unit filename="src/mgf.h" />
@@ -70,6 +70,10 @@
 		<Unit filename="src/renderer/Renderer.h" />
 		<Unit filename="src/scene/Node.cpp" />
 		<Unit filename="src/scene/Node.h" />
+		<Unit filename="src/scene/Positionable.cpp" />
+		<Unit filename="src/scene/Positionable.h" />
+		<Unit filename="src/scene/Renderable.cpp" />
+		<Unit filename="src/scene/Renderable.h" />
 		<Extensions>
 			<envvars />
 			<code_completion />

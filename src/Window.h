@@ -14,32 +14,34 @@ namespace mgf{
 //###############################################################  	Window class
 class Window{
 public:
-	Window(unsigned int screen_w = 800, unsigned int screen_h = 600, bool fullscreen = 0,
-			unsigned int monitor = 0, bool input_grabbed = 0, bool vsync = 0);
+	Window(const std::string &name, unsigned int w = 800, unsigned int h = 600, bool fullscreen = 0,
+			unsigned int monitor = 0, bool inputGrabbed = 0, bool vsync = 0);
 	~Window();
 
-	//bool setup_window(unsigned int screen_w = 800, unsigned int screen_h = 600, bool fullscreen = 0,
-	//				unsigned int monitor = 0, bool input_grabbed = 0, bool vsync = 0);
-	bool init();
-	void close();
+	//int setup(unsigned int w = 800, unsigned int h = 600, bool fullscreen = 0,
+	//				unsigned int monitor = 0, bool inputGrabbed = 0, bool vsync = 0);
+	int open(const std::string &name);
+	int close();
 
-	void use();
-	void swap();
-	float get_aspect_ratio();
-
-	friend bool mgf_init(renderer_enum renderer);
-	friend void mgf_close();
+	int use();
+	int swap();
+	int blit(std::shared_ptr<SDL_Surface> image);
+	float getAspectRatio();
 
 private:
-	SDL_Window *_window;
-	unsigned int _screen_w, _screen_h, _monitor;
-	bool _fullscreen, _input_grabbed, _vsync;
-	bool _inited;
-};
+	int initSDL();
+	int closeSDL();
 
-//###############################################################  init
-bool mgf_init(renderer_enum renderer);
-void mgf_close();
+	SDL_Window *mWindow;
+	unsigned int mW, mH, mMonitor;
+	bool mFullscreen, mInputGrabbed, mVsync;
+	bool mOpened;
+
+	static SDL_GLContext *mContext;
+
+	static bool mSDLInited;
+	static unsigned int mNumWindows;
+};
 
 
 } // mgf

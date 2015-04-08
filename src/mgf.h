@@ -12,7 +12,7 @@
 #include "mgf_include.h"
 
 #include "Window.h"
-#include "data/Data.h"
+#include "scene/Renderable.h"
 
 namespace mgf{
 

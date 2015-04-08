@@ -29,7 +29,7 @@
 
 #include "lib/mlog.h"
 
-#define _DEBUG_LEVEL 2
+#define MGF_LOG_FILE "log_mgf.txt"
 
 enum renderer_enum{
 	OPENGL_4_3 = 0,

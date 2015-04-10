@@ -4,14 +4,13 @@
 **	Project:	mgf - Mars Graphics Framework
 */
 
-#ifndef WINDOW_H
-#define WINDOW_H
+#ifndef MGF_WINDOW_H
+#define MGF_WINDOW_H
 
-#include "mgf_include.h"
+#include "../Include.h"
 
 namespace mgf{
 
-//###############################################################  	Window class
 class Window{
 public:
 	Window(const std::string &name, unsigned int w = 800, unsigned int h = 600, bool fullscreen = 0,
@@ -20,7 +19,7 @@ public:
 
 	//int setup(unsigned int w = 800, unsigned int h = 600, bool fullscreen = 0,
 	//				unsigned int monitor = 0, bool inputGrabbed = 0, bool vsync = 0);
-	int open(const std::string &name);
+	int open();
 	int close();
 
 	int use();
@@ -29,15 +28,16 @@ public:
 	float getAspectRatio();
 
 private:
-	int initSDL();
+	int initSDL(int GLMajor, int GLMinor);
 	int closeSDL();
 
 	SDL_Window *mWindow;
 	unsigned int mW, mH, mMonitor;
 	bool mFullscreen, mInputGrabbed, mVsync;
 	bool mOpened;
+	std::string mName;
 
-	static SDL_GLContext *mContext;
+	static SDL_GLContext mContext;
 
 	static bool mSDLInited;
 	static unsigned int mNumWindows;
@@ -46,4 +46,4 @@ private:
 
 } // mgf
 
-#endif // WINDOW_H
+#endif // MGF_WINDOW_H

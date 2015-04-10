@@ -227,23 +227,18 @@
 1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_window.cpp
 	"mgf_window.h"
 
-1428524872 source:/home/mars/Projekte/mgf/main.cpp
+1428703346 source:/home/mars/Projekte/mgf/main.cpp
 	"gl_test.h"
 
 1417280497 /home/mars/Projekte/mgf/gl_test.h
 	"src/mgf.h"
 
-1428524816 /home/mars/Projekte/mgf/src/mgf.h
-	"mgf_include.h"
-	"Window.h"
-	"mgf_shader.h"
-	"mgf_camera.h"
-	"mgf_input.h"
-	"mgf_loader.h"
-	"mgf_node.h"
-	"mgf_data.h"
-	"mgf_scene.h"
-	"mgf_render.h"
+1428703520 /home/mars/Projekte/mgf/src/mgf.h
+	"util/Window.h"
+	"util/Input.h"
+	"util/ShaderProgram.h"
+	"util/Camera.h"
+	"scene/Renderable.h"
 
 1428524152 /home/mars/Projekte/mgf/src/mgf_include.h
 	<iostream>
@@ -349,6 +344,95 @@
 1421600086 source:/home/mars/Projekte/mgf/src/mgf_window.cpp
 	"mgf_window.h"
 
-1428524812 /home/mars/Projekte/mgf/src/Window.h
-	"mgf_include.h"
+1428699300 /home/mars/Projekte/mgf/src/Window.h
+	"Include.h"
+
+1428528325 /home/mars/Projekte/mgf/src/scene/Renderable.h
+	"Positionable.h"
+
+1428528282 /home/mars/Projekte/mgf/src/scene/Positionable.h
+	"Node.h"
+
+1428530577 /home/mars/Projekte/mgf/src/scene/Node.h
+	"../Include.h"
+	"../data/Data.h"
+
+1428529227 /home/mars/Projekte/mgf/src/Include.h
+	<iostream>
+	<vector>
+	<fstream>
+	<sstream>
+	<SDL2/SDL.h>
+	<GL/glew.h>
+	<SDL2/SDL_opengl.h>
+	<SDL2/SDL_image.h>
+	<glm/glm.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<assimp/Importer.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+	"lib/mlog.h"
+
+1428527007 /home/mars/Projekte/mgf/src/data/Data.h
+	"../Include.h"
+	"Mesh.h"
+	"Material.h"
+	"Texture.h"
+	"Light.h"
+
+1428530546 /home/mars/Projekte/mgf/src/data/Mesh.h
+	"../Include.h"
+	"Texture.h"
+
+1428526958 /home/mars/Projekte/mgf/src/data/Material.h
+	"../Include.h"
+
+1428526975 /home/mars/Projekte/mgf/src/data/Texture.h
+	"../Include.h"
+
+1428526949 /home/mars/Projekte/mgf/src/data/Light.h
+	"../Include.h"
+
+1428702870 source:/home/mars/Projekte/mgf/src/Window.cpp
+	"Window.h"
+
+1428701507 source:/home/mars/Projekte/mgf/src/Input.cpp
+	"Input.h"
+
+1428701456 /home/mars/Projekte/mgf/src/Input.h
+	"Include.h"
+
+1428701214 /home/mars/Projekte/mgf/src/ShaderProgram.h
+	"Include.h"
+
+1428701360 source:/home/mars/Projekte/mgf/src/ShaderProgram.cpp
+	"ShaderProgram.h"
+
+1428703237 /home/mars/Projekte/mgf/src/Camera.h
+	"Include.h"
+
+1428703317 source:/home/mars/Projekte/mgf/src/Camera.cpp
+	"Camera.h"
+
+1428703531 /home/mars/Projekte/mgf/src/util/Window.h
+	"../Include.h"
+
+1428703535 /home/mars/Projekte/mgf/src/util/Input.h
+	"../Include.h"
+
+1428703538 /home/mars/Projekte/mgf/src/util/ShaderProgram.h
+	"../Include.h"
+
+1428703542 /home/mars/Projekte/mgf/src/util/Camera.h
+	"../Include.h"
+
+1428703317 source:/home/mars/Projekte/mgf/src/util/Camera.cpp
+	"Camera.h"
+
+1428701507 source:/home/mars/Projekte/mgf/src/util/Input.cpp
+	"Input.h"
+
+1428702870 source:/home/mars/Projekte/mgf/src/util/Window.cpp
+	"Window.h"
 

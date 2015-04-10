@@ -42,38 +42,16 @@
 		</Linker>
 		<Unit filename="gl_test.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/Camera.cpp" />
-		<Unit filename="src/Camera.h" />
 		<Unit filename="src/Include.h" />
-		<Unit filename="src/Input.cpp" />
-		<Unit filename="src/Input.h" />
-		<Unit filename="src/Loader.cpp" />
-		<Unit filename="src/Loader.h" />
-		<Unit filename="src/Shader.cpp" />
-		<Unit filename="src/Shader.h" />
-		<Unit filename="src/Window.cpp" />
-		<Unit filename="src/Window.h" />
-		<Unit filename="src/data/Data.cpp" />
-		<Unit filename="src/data/Data.h" />
-		<Unit filename="src/data/Light.cpp" />
-		<Unit filename="src/data/Light.h" />
-		<Unit filename="src/data/Material.cpp" />
-		<Unit filename="src/data/Material.h" />
-		<Unit filename="src/data/Mesh.cpp" />
-		<Unit filename="src/data/Mesh.h" />
-		<Unit filename="src/data/Texture.cpp" />
-		<Unit filename="src/data/Texture.h" />
-		<Unit filename="src/lib/mlog.h" />
-		<Unit filename="src/mgf.cpp" />
 		<Unit filename="src/mgf.h" />
-		<Unit filename="src/renderer/Renderer.cpp" />
-		<Unit filename="src/renderer/Renderer.h" />
-		<Unit filename="src/scene/Node.cpp" />
-		<Unit filename="src/scene/Node.h" />
-		<Unit filename="src/scene/Positionable.cpp" />
-		<Unit filename="src/scene/Positionable.h" />
-		<Unit filename="src/scene/Renderable.cpp" />
-		<Unit filename="src/scene/Renderable.h" />
+		<Unit filename="src/util/Camera.cpp" />
+		<Unit filename="src/util/Camera.h" />
+		<Unit filename="src/util/Input.cpp" />
+		<Unit filename="src/util/Input.h" />
+		<Unit filename="src/util/ShaderProgram.cpp" />
+		<Unit filename="src/util/ShaderProgram.h" />
+		<Unit filename="src/util/Window.cpp" />
+		<Unit filename="src/util/Window.h" />
 		<Extensions>
 			<envvars />
 			<code_completion />

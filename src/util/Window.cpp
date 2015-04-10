@@ -10,11 +10,12 @@ namespace mgf{
 
 bool Window::mSDLInited = false;
 unsigned int Window::mNumWindows = 0;
-SDL_GLContext *Window::mContext = NULL;
+SDL_GLContext Window::mContext = NULL;
 
 Window::Window(const std::string &name, unsigned int w, unsigned int h, bool fullscreen,
 		   unsigned int monitor, bool inputGrabbed, bool vsync)
 {
+	mName = name;
 	mWindow = NULL;
 	mW = w;
 	mH = h;
@@ -24,34 +25,37 @@ Window::Window(const std::string &name, unsigned int w, unsigned int h, bool ful
 	mVsync = vsync;
 
 	if(!mSDLInited) initSDL(3, 3);
-	if(mSDLInited) open(name);
+	else open();
 }
 
 Window::~Window(){
 	if(mOpened) close();
 	if(mSDLInited && mNumWindows == 0){
-		close();
+		closeSDL();
 	}
 }
 
-int Window::open(const std::string &name){
+int Window::open(){
 	if(!mSDLInited) return -1;
+	if(mOpened) return -1;
 
 	int flags = SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL;
 	if(mFullscreen == 1) flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
 	if(mInputGrabbed == 1) flags |= SDL_WINDOW_INPUT_GRABBED;
 
-	int posX = SDL_WINDOWPOS_UNDEFINED_DISPLAY(_monitor);
-	int posY = SDL_WINDOWPOS_UNDEFINED_DISPLAY(_monitor);
+	int posX = SDL_WINDOWPOS_UNDEFINED_DISPLAY(mMonitor);
+	int posY = SDL_WINDOWPOS_UNDEFINED_DISPLAY(mMonitor);
 
-	_window = SDL_CreateWindow(name.c_str(), posX, posY, mW, mH, flags);
-	if(_window == NULL){
-		LOG_F_INFO(MGF_LOG_FILE, "SDL_CreateWindow failed! SDL_Error: " << SDL_GetError());
+	mWindow = SDL_CreateWindow(mName.c_str(), posX, posY, mW, mH, flags);
+	if(mWindow == NULL){
+		LOG_F_INFO(MGF_LOG_FILE, "SDL_CreateWindow failed! SDL_Error: ", SDL_GetError());
 		return -1;
 	}
-	LOG_F_INFO(MGF_LOG_FILE, "window initialized successfully!");
-
 	mNumWindows++;
+
+	mOpened = true;
+
+	LOG_F_INFO(MGF_LOG_FILE, "window initialized successfully!");
 	return 0;
 }
 
@@ -63,6 +67,8 @@ int Window::close(){
 	mWindow = NULL;
 	mOpened = false;
 	mNumWindows--;
+
+	LOG_F_INFO(MGF_LOG_FILE, "window closed!");
 	return 0;
 }
 
@@ -82,11 +88,11 @@ float Window::getAspectRatio(){
 	return 0;
 }
 
-int Window::initSDL(int GLMajor, GLMinor){
+int Window::initSDL(int GLMajor, int GLMinor){
 	bool success = true;
 
 	if(SDL_Init(SDL_INIT_VIDEO) < 0){
-		LOG_F_ERROR(MGF_LOG_FILE, "SDL_Init failed! SDL_Error: " << SDL_GetError());
+		LOG_F_ERROR(MGF_LOG_FILE, "SDL_Init failed! SDL_Error: ", SDL_GetError());
 		success = false;
 	}
 	mSDLInited = true;
@@ -95,19 +101,15 @@ int Window::initSDL(int GLMajor, GLMinor){
 		int flags = IMG_INIT_PNG | IMG_INIT_JPG;
 		if(!(IMG_Init(flags) & flags))
 		{
-			LOG_F_ERROR(MGF_LOG_FILE, "IMG_Init failed! IMG_Error: " << IMG_GetError());
+			LOG_F_ERROR(MGF_LOG_FILE, "IMG_Init failed! IMG_Error: ", IMG_GetError());
 			success = false;
 		}
 	}
 	if(success){
-		mgf_info::_renderer = renderer;
-		mgf_info::_mgf_inited = true;
-
 		if(open() < 0){
-			LOG_F_ERROR(MGF_LOG_FILE, "SDL_CreateWindow failed! SDL_Error: " << SDL_GetError());
+			LOG_F_ERROR(MGF_LOG_FILE, "SDL_CreateWindow failed! SDL_Error: ", SDL_GetError());
 			success = false;
 		}
-
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, GLMajor);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, GLMinor);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
@@ -130,7 +132,7 @@ int Window::initSDL(int GLMajor, GLMinor){
 
 		if(success){
 			if(SDL_GL_SetSwapInterval(1) < 0){
-				LOG_F_ERROR(MGF_LOG_FILE, "SDL_GL_SetSwapInterval failed! SDL_Error: " << SDL_GetError());
+				LOG_F_ERROR(MGF_LOG_FILE, "SDL_GL_SetSwapInterval failed! SDL_Error: ", SDL_GetError());
 				success = false;
 			}
 		}
@@ -158,18 +160,12 @@ int Window::closeSDL(){
 		LOG_F_INFO(MGF_LOG_FILE, "Cant close SDL: not inited!");
 		return -1;
 	}
-	std::cerr << "closing SDL" << std::endl;
-	mgf_info::_mgf_inited = false;
-	SDL_GL_DeleteContext(mgf_info::_context);
-	mgf_info::_context = NULL;
+	SDL_GL_DeleteContext(mContext);
 
-	for(unsigned int i = 0; i < mgf_info::_windows.size(); i ++){
-		mgf_info::_windows[i]->close();
-	}
-	mgf_info::_windows.clear();
+	close();
 	SDL_Quit();
-	LOG_F_INFO(MGF_LOG_FILE, "SDL closed!");
 
+	LOG_F_INFO(MGF_LOG_FILE, "SDL closed!");
 	return 0;
 }
 

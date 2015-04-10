@@ -18,7 +18,7 @@ public:
 	virtual ~Node();
 
 	std::shared_ptr<Node> find(const std::string &name);
-	std::shared_ptr<Node> (unsigned int id);
+	std::shared_ptr<Node> getNode(unsigned int id);
 
 	bool add(std::shared_ptr<Node> node);
 	bool remove(const std::string mName);
@@ -35,8 +35,8 @@ private:
 	static unsigned int mGlobalID;
 
 	unsigned int mNumChildren;
-	std::shared:ptr<Node> mParentNode;
-	std::vector<std::shared:ptr<Node>> mChildNodes;
+	std::shared_ptr<Node> mParentNode;
+	std::vector<std::shared_ptr<Node>> mChildNodes;
 
 	friend class Loader;
 };

@@ -9,6 +9,8 @@
 
 #include "../Include.h"
 
+#include "Texture.h"
+
 namespace mgf{
 namespace data{
 

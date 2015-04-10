@@ -9,9 +9,10 @@
 #ifndef MGF
 #define MGF
 
-#include "mgf_include.h"
-
-#include "Window.h"
+#include "util/Window.h"
+#include "util/Input.h"
+#include "util/ShaderProgram.h"
+#include "util/Camera.h"
 #include "scene/Renderable.h"
 
 namespace mgf{

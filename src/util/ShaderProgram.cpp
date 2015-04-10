@@ -1,59 +1,51 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		mgf_shader.cpp
+**	Name:		ShaderProgram.cpp
 **	Project:	mgf - Mars Graphics Framework
-**	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
 */
 
-#include "mgf_shader.h"
-#include "mgf_info.h"
+#include "ShaderProgram.h"
 
 namespace mgf{
 
-//###############################################################  shader_program class
-
-//###############################################################  constructor
-shader_program::shader_program(){
+ShaderProgram::ShaderProgram(){
 	mProgram = 0;
 	memset(mLocations, 0, SIZE);
 }
 
-shader_program::shader_program(std::vector<struct shader_to_programm> &shaders){
+ShaderProgram::ShaderProgram(std::vector<struct shader_to_programm> &shaders){
 	mProgram = 0;
 	memset(mLocations, 0, SIZE);
 	mShaders = shaders;
 }
 
-shader_program::~shader_program(){
-	std::cerr << "closing shader_program" << std::endl;
+ShaderProgram::~ShaderProgram(){
+	LOG_F_INFO(MGF_LOG_FILE, "closing shader_program");
 	if(mProgram != 0) glDeleteProgram(mProgram);
 	mProgram = 0;
 	mShaders.clear();
 }
 
-//###############################################################  add shader
-void shader_program::add_shader(std::string sourcefile, GLenum shader_type){
+void ShaderProgram::addShader(std::string sourcefile, GLenum shader_type){
 	struct shader_to_programm s = {sourcefile, shader_type};
 	mShaders.push_back(s);
 	return;
 }
 
-//###############################################################  get program
-GLuint shader_program::get_program(){
+GLuint ShaderProgram::getProgram(){
 	return mProgram;
 }
 
-GLuint shader_program::get(shader_loc_enum loc){
+GLuint ShaderProgram::get(shader_loc_enum loc){
 	return mLocations[loc];
 }
 
-//###############################################################  create
-bool shader_program::create_program(){
+int ShaderProgram::createProgram(){
     std::vector<GLuint> s;
 	mProgram = 0;
 
     for(unsigned int i = 0; i < mShaders.size(); i++){
-		s.push_back(create_shader(mShaders[i].path, mShaders[i].type));
+		s.push_back(createShader(mShaders[i].path, mShaders[i].type));
     }
     mProgram = glCreateProgram();
     for(unsigned int i = 0; i < s.size(); i++){
@@ -63,10 +55,10 @@ bool shader_program::create_program(){
     GLint compilesuccess = GL_FALSE;
     glGetProgramiv(mProgram,GL_LINK_STATUS, &compilesuccess);
     if(compilesuccess == GL_TRUE){
-        std::cerr << "Program: " << mProgram << " compiled successfully" << std::endl;
+		LOG_F_INFO(MGF_LOG_FILE, "Program: ", mProgram, " compiled successfully");
     }
     else{
-        std::cerr << "Program: " << mProgram << " failed to compile!" << std::endl;
+		LOG_F_ERROR(MGF_LOG_FILE, "Program: ", mProgram, " failed to compile!");
         printShaderLog(mProgram);
 		glDeleteProgram(mProgram);
         mProgram = 0;
@@ -78,23 +70,20 @@ bool shader_program::create_program(){
     mShaders.clear();
 
 	if(mProgram == 0){
-		std::cerr << "Creating program failed" << std::endl;
-		return false;
+		LOG_F_ERROR(MGF_LOG_FILE, "Creating program failed");
+		return -1;
 	}
-	//m_mat = glGetUniformLocation(mProgram, _shader_matrix_model);
-	//vp_mat = glGetUniformLocation(mProgram, _shader_matrix_view_perspective);
 
-	//set locations
 	mLocations[MATRIX_MODEL] = glGetUniformLocation(mProgram, _shader_matrix_model);
 	mLocations[MATRIX_VP] = glGetUniformLocation(mProgram, _shader_matrix_view_perspective);
 	mLocations[MATERIAL_COLOR_DIFFUSE] = glGetUniformLocation(mProgram, _shader_material_color_diffuse);
 	mLocations[MATERIAL_ALPHA] = glGetUniformLocation(mProgram, _shader_material_alpha);
 	mLocations[MATERIAL_HAS_TEXTURE] = glGetUniformLocation(mProgram, _shader_material_has_texture);
 
-	return true;
+	return 0;
 }
 
-GLuint shader_program::create_shader(std::string &sourcefile, GLenum shader_type){
+GLuint ShaderProgram::createShader(std::string &sourcefile, GLenum shader_type){
     GLuint shader = 0;
     std::ifstream input(sourcefile);
     std::string shader_string;
@@ -106,22 +95,20 @@ GLuint shader_program::create_shader(std::string &sourcefile, GLenum shader_type
         input.close();
     }
     else{
-        std::cerr << "Shader: " << sourcefile << " could not be opened!" << std::endl;
+		LOG_F_ERROR(MGF_LOG_FILE, "Shader: ", sourcefile, " could not be opened!");
         return shader;
     }
-    //std::cout << shader_string << std::endl;
     shader = glCreateShader(shader_type);
     const GLchar *shader_code = shader_string.c_str();
-    //std::cerr << shader_code << std::endl;
     glShaderSource(shader, 1, &shader_code, NULL);
     glCompileShader(shader);
     GLint compilesuccess = GL_FALSE;
     glGetShaderiv(shader,GL_COMPILE_STATUS, &compilesuccess);
     if(compilesuccess == GL_TRUE){
-        std::cerr << "Shader: " << sourcefile << " compiled successfully" << std::endl;
+		LOG_F_INFO(MGF_LOG_FILE, "Shader: ", sourcefile, " compiled successfully");
     }
     else{
-        std::cerr << "Shader: " << sourcefile << " failed to compile!" << std::endl;
+		LOG_F_ERROR(MGF_LOG_FILE, "Shader: ", sourcefile, " failed to compile!");
         printShaderLog(shader);
         glDeleteShader(shader);
         shader = 0;
@@ -129,14 +116,14 @@ GLuint shader_program::create_shader(std::string &sourcefile, GLenum shader_type
     return shader;
 }
 
-void shader_program::printShaderLog(GLuint shader){
+void ShaderProgram::printShaderLog(GLuint shader){
 	GLint log_length = 0;
 	if(glIsShader(shader))
 		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &log_length);
 	else if(glIsProgram(shader))
 		glGetProgramiv(shader, GL_INFO_LOG_LENGTH, &log_length);
 	else{
-		std::cerr << "printlog: Not a shader or a program" << std::endl;
+		LOG_F_WARNING(MGF_LOG_FILE, "printlog: Not a shader or a program");
 		return;
 	}
 
@@ -147,14 +134,12 @@ void shader_program::printShaderLog(GLuint shader){
 	else if(glIsProgram(shader))
 		glGetProgramInfoLog(shader, log_length, NULL, (GLchar *)log);
 
-	std::cerr << log << std::endl;
+	LOG_F_ERROR(MGF_LOG_FILE, "printlog: \n", log, "\n");
 	return;
 }
 
-//###############################################################  use
-void shader_program::use(){
+void ShaderProgram::use(){
 	glUseProgram(mProgram);
-	mgf_info::_current_prog = this;
 	return;
 }
 

@@ -9,3 +9,163 @@
 ==========================================
 08.04.2015-22:22:52 : Logging Started
 08.04.2015-22:22:52 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+==========================================
+10.04.2015-22:36:02 : Logging Started
+10.04.2015-22:36:02 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-22:36:03 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 54: window initialized successfully!
+10.04.2015-22:36:03 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 148: SDL initialized successfully!
+10.04.2015-22:36:03 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 54: window initialized successfully!
+==========================================
+10.04.2015-22:47:05 : Logging Started
+10.04.2015-22:47:05 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-22:47:05 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 54: window initialized successfully!
+10.04.2015-22:47:05 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 148: SDL initialized successfully!
+10.04.2015-22:47:05 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 54: window initialized successfully!
+==========================================
+10.04.2015-22:50:35 : Logging Started
+10.04.2015-22:50:35 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-22:50:35 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 54: window initialized successfully!
+10.04.2015-22:50:35 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 148: SDL initialized successfully!
+10.04.2015-22:50:35 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 54: window initialized successfully!
+==========================================
+10.04.2015-22:56:15 : Logging Started
+10.04.2015-22:56:15 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-22:56:15 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-22:56:15 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 150: SDL initialized successfully!
+==========================================
+10.04.2015-23:15:36 : Logging Started
+10.04.2015-23:15:36 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:15:36 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:15:36 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 150: SDL initialized successfully!
+==========================================
+10.04.2015-23:26:59 : Logging Started
+10.04.2015-23:26:59 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:26:59 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:26:59 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 150: SDL initialized successfully!
+==========================================
+10.04.2015-23:30:25 : Logging Started
+10.04.2015-23:30:25 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:30:25 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:30:25 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 150: SDL initialized successfully!
+==========================================
+10.04.2015-23:36:13 : Logging Started
+10.04.2015-23:36:13 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:36:14 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:36:14 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 150: SDL initialized successfully!
+==========================================
+10.04.2015-23:36:46 : Logging Started
+10.04.2015-23:36:46 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:36:47 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:36:47 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 150: SDL initialized successfully!
+==========================================
+10.04.2015-23:37:06 : Logging Started
+10.04.2015-23:37:06 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:37:07 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:37:07 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 150: SDL initialized successfully!
+==========================================
+10.04.2015-23:37:20 : Logging Started
+10.04.2015-23:37:20 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:37:20 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:37:20 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 150: SDL initialized successfully!
+==========================================
+10.04.2015-23:38:10 : Logging Started
+10.04.2015-23:38:10 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:38:11 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:38:11 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 150: SDL initialized successfully!
+==========================================
+10.04.2015-23:38:27 : Logging Started
+10.04.2015-23:38:27 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:38:27 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:38:27 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 151: SDL initialized successfully!
+==========================================
+10.04.2015-23:38:30 : Logging Started
+10.04.2015-23:38:30 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:38:30 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:38:30 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 151: SDL initialized successfully!
+==========================================
+10.04.2015-23:46:22 : Logging Started
+10.04.2015-23:46:22 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:46:22 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:46:22 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 150: SDL initialized successfully!
+==========================================
+10.04.2015-23:46:43 : Logging Started
+10.04.2015-23:46:43 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:46:43 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:46:43 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 150: SDL initialized successfully!
+==========================================
+10.04.2015-23:47:02 : Logging Started
+10.04.2015-23:47:02 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:47:03 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:47:03 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 150: SDL initialized successfully!
+==========================================
+10.04.2015-23:47:19 : Logging Started
+10.04.2015-23:47:19 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:47:19 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:47:19 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 150: SDL initialized successfully!
+==========================================
+10.04.2015-23:53:12 : Logging Started
+10.04.2015-23:53:12 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:53:13 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:53:13 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 150: SDL initialized successfully!
+==========================================
+10.04.2015-23:54:04 : Logging Started
+10.04.2015-23:54:04 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:54:04 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 56: window initialized successfully!
+10.04.2015-23:54:04 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 152: SDL initialized successfully!
+==========================================
+10.04.2015-23:54:33 : Logging Started
+10.04.2015-23:54:33 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+10.04.2015-23:54:33 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 58: window initialized successfully!
+10.04.2015-23:54:33 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 154: SDL initialized successfully!
+10.04.2015-23:54:35 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: close: 71: window closed!
+10.04.2015-23:54:35 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: closeSDL: 160: Cant close SDL: not inited!
+==========================================
+11.04.2015-00:02:00 : Logging Started
+11.04.2015-00:02:00 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+11.04.2015-00:02:01 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 58: window initialized successfully!
+11.04.2015-00:02:01 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 154: SDL initialized successfully!
+11.04.2015-00:02:02 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: close: 71: window closed!
+11.04.2015-00:02:02 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: closeSDL: 160: Cant close SDL: not inited!
+==========================================
+11.04.2015-00:02:17 : Logging Started
+11.04.2015-00:02:17 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+11.04.2015-00:02:17 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 58: window initialized successfully!
+11.04.2015-00:02:17 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 154: SDL initialized successfully!
+11.04.2015-00:02:18 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: close: 71: window closed!
+11.04.2015-00:02:18 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: closeSDL: 160: Cant close SDL: not inited!
+==========================================
+11.04.2015-00:02:30 : Logging Started
+11.04.2015-00:02:30 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+11.04.2015-00:02:30 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: open: 58: window initialized successfully!
+11.04.2015-00:02:30 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: initSDL: 154: SDL initialized successfully!
+11.04.2015-00:02:32 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: close: 71: window closed!
+11.04.2015-00:02:32 : INFO    : /home/mars/Projekte/mgf/src/Window.cpp: closeSDL: 160: Cant close SDL: not inited!
+==========================================
+11.04.2015-00:05:47 : Logging Started
+11.04.2015-00:05:47 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+11.04.2015-00:05:48 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+11.04.2015-00:05:48 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+11.04.2015-00:05:49 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+11.04.2015-00:05:49 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 160: Cant close SDL: not inited!
+==========================================
+11.04.2015-00:10:55 : Logging Started
+11.04.2015-00:10:55 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+11.04.2015-00:10:55 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+11.04.2015-00:10:55 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+11.04.2015-00:10:55 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+11.04.2015-00:10:55 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+11.04.2015-00:10:55 : ERROR   : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+11.04.2015-00:10:57 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+11.04.2015-00:10:57 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+11.04.2015-00:10:57 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 160: Cant close SDL: not inited!
+==========================================
+11.04.2015-00:11:12 : Logging Started
+11.04.2015-00:11:12 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 11: LOG_INIT
+11.04.2015-00:11:12 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+11.04.2015-00:11:12 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+11.04.2015-00:11:12 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+11.04.2015-00:11:12 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+11.04.2015-00:11:12 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+11.04.2015-00:11:14 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+11.04.2015-00:11:14 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+11.04.2015-00:11:14 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 160: Cant close SDL: not inited!

@@ -8,9 +8,9 @@
 #define MGF_MATERIAL_H
 
 #include "../Include.h"
+#include "Texture.h"
 
 namespace mgf{
-namespace data{
 
 class Material{
 public:
@@ -20,10 +20,9 @@ public:
 	std::string mName;
 
 	std::vector<std::shared_ptr<Texture>> mDiffuseTexture;
-	glm::vec4 mDiffuse;
+	glm::vec4 mDiffuseColor;
 };
 
-} // data
 } // mgf
 
 #endif // MGF_MATERIAL_H

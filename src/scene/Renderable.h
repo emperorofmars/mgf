@@ -21,7 +21,7 @@ public:
 	virtual std::shared_ptr<Node> clone();
 
 private:
-	std::vector<std::shared_ptr<data::Mesh>> mMeshes;
+	std::vector<std::shared_ptr<Mesh>> mMeshes;
 	bool mVisible;
 };
 

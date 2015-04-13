@@ -10,7 +10,6 @@
 #include "../Include.h"
 
 namespace mgf{
-namespace data{
 
 class Light{
 public:
@@ -23,7 +22,6 @@ public:
 	float mStrength;
 };
 
-} // data
 } // mgf
 
 #endif // MGF_LIGHT_H

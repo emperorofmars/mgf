@@ -15,7 +15,6 @@
 #include "Light.h"
 
 namespace mgf{
-namespace data{
 
 class Data{
 public:
@@ -28,7 +27,6 @@ public:
 	std::vector<std::shared_ptr<Light>> mLights;
 };
 
-} // data
 } // mgf
 
 #endif // MGF_DATA_H

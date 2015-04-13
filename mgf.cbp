@@ -43,6 +43,16 @@
 		<Unit filename="gl_test.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Include.h" />
+		<Unit filename="src/data/Data.cpp" />
+		<Unit filename="src/data/Data.h" />
+		<Unit filename="src/data/Light.cpp" />
+		<Unit filename="src/data/Light.h" />
+		<Unit filename="src/data/Material.cpp" />
+		<Unit filename="src/data/Material.h" />
+		<Unit filename="src/data/Mesh.cpp" />
+		<Unit filename="src/data/Mesh.h" />
+		<Unit filename="src/data/Texture.cpp" />
+		<Unit filename="src/data/Texture.h" />
 		<Unit filename="src/mgf.h" />
 		<Unit filename="src/util/Camera.cpp" />
 		<Unit filename="src/util/Camera.h" />

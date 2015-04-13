@@ -12,7 +12,6 @@
 #include "Texture.h"
 
 namespace mgf{
-namespace data{
 
 class Mesh{
 public:
@@ -36,7 +35,6 @@ public:
 	std::vector<GLuint> mUVBuffer;
 };
 
-} // data
 } // mgf
 
 #endif // MGF_MESH_H

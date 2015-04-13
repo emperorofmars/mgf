@@ -10,7 +10,6 @@
 #include "../Include.h"
 
 namespace mgf{
-namespace data{
 
 class Texture{
 public:
@@ -19,11 +18,10 @@ public:
 
 	std::string mName;
 
-	GLuint texturebuffer;
+	GLuint mTextureBuffer;
 	SDL_Surface *mImage;
 };
 
-} // data
 } // mgf
 
 #endif // MGF_TEXTURE_H

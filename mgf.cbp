@@ -54,6 +54,10 @@
 		<Unit filename="src/data/Texture.cpp" />
 		<Unit filename="src/data/Texture.h" />
 		<Unit filename="src/mgf.h" />
+		<Unit filename="src/scene/Loader.cpp" />
+		<Unit filename="src/scene/Loader.h" />
+		<Unit filename="src/scene/Node.cpp" />
+		<Unit filename="src/scene/Node.h" />
 		<Unit filename="src/util/Camera.cpp" />
 		<Unit filename="src/util/Camera.h" />
 		<Unit filename="src/util/Input.cpp" />

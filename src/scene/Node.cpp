@@ -1,25 +1,85 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		mgf_node.cpp
+**	Name:		Node.cpp
 **	Project:	mgf - Mars Graphics Framework
-**	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
 */
 
-#include "mgf_loader.h"
+#include "Node.h"
 
 namespace mgf{
 
-//######################  node
+mgfID_t Node::mGlobalID = 0;
+std::mutex Node::mMutex;
 
-unsigned int mgf_node::_global_id = 0;
+Node::Node(){
+	mID = mGlobalID;
 
-mgf_node::mgf_node(){
+	mMutex.lock();
+		mGlobalID++;
+		mNumChildren = 0;
+	mMutex.unlock();
+}
+
+Node::~Node(){
+	LOG_F_TRACE(MGF_LOG_FILE, "Deleting Node: ", mName);
+	while(mChildNodes.size() > 0){
+		mChildNodes.erase(mChildNodes.begin());
+	}
+}
+
+std::shared_ptr<Node> Node::clone(){
+	std::shared_ptr<Node> ret(new Node());
+
+	mMutex.lock();
+		ret->mName = mName;
+		ret->mID = mGlobalID;
+	mMutex.unlock();
+
+	mGlobalID++;
+	for(unsigned int i = 0; i < mChildNodes.size(); i++){
+		ret->add(mChildNodes[i]->clone());
+	}
+	return ret;
+}
+
+std::shared_ptr<Node> Node::find(const std::string &name){
+	std::shared_ptr<Node> ret;
+	return ret;
+}
+
+std::shared_ptr<Node> Node::getNode(mgfID_t id){
+	std::shared_ptr<Node> ret;
+	return ret;
+}
+
+bool Node::add(std::shared_ptr<Node> node){
+	return true;
+}
+
+bool Node::remove(const std::string name){
+	return true;
+}
+
+bool Node::remove(unsigned int id){
+	return true;
+}
+
+bool Node::remove(std::shared_ptr<Node> node){
+	return true;
+}
+
+void print(unsigned int deepness){
+	return;
+}
+
+/*
+Node::Node(){
 	_id = _global_id;
 	_num_children = 0;
 	_parent_node = NULL;
 }
 
-mgf_node::~mgf_node(){
+Node::~Node(){
 	for(unsigned int i = 0; i < _child_nodes.size(); i++)
 		delete _child_nodes[i];
 	_child_nodes.clear();
@@ -270,8 +330,7 @@ void mgf_node_model_instance::render(){
 	mgf::render(this);
 	return;
 }
-
-
+*/
 }
 
 

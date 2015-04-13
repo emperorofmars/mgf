@@ -12,6 +12,9 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <memory>
+#include <mutex>
+#include <thread>
 
 #include <SDL2/SDL.h>
 #include <GL/glew.h>

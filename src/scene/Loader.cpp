@@ -1,14 +1,20 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		mgf_loader.cpp
+**	Name:		Loader.cpp
 **	Project:	mgf - Mars Graphics Framework
-**	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
 */
 
-#include "mgf_loader.h"
+#include "Loader.h"
 
 namespace mgf{
 
+Loader::Loader(){
+}
+
+Loader::~Loader(){
+}
+
+/*
 mgf::scene *load(std::string path, int flags){
 	mgf::scene *new_scene = new mgf::scene;
 	load_into_scene(new_scene, path, flags);
@@ -119,10 +125,6 @@ bool load_to_data(mgf_data *data, const aiScene *ai_scene, std::string path, int
 
 //std::cerr << "dazwischen 01: " << data->_meshes.size() << std::endl;
 	data->_meshes.resize(oldsize_meshes + ai_scene->mNumMeshes);
-	/*for(unsigned int i = 0; i < ai_scene->mNumMeshes; i++){
-		mgf_data::mgf_mesh m;
-		data->_meshes.push_back(m);
-	}*/
 //std::cerr << "dazwischen 02: " << data->_meshes.size() << std::endl;
 	data->_materials.resize(oldsize_materials + ai_scene->mNumMaterials);
 
@@ -211,11 +213,6 @@ bool load_to_data(mgf_data *data, const aiScene *ai_scene, std::string path, int
 			data->_materials[i + oldsize_materials].diffuse[1] = col[1];
 			data->_materials[i + oldsize_materials].diffuse[2] = col[2];
 			data->_materials[i + oldsize_materials].diffuse[3] = col[3];
-
-			/*std::cerr << "COLOR: ";
-			for(unsigned int j = 0; j < 4; j++)
-				std::cerr << data->_materials[i + oldsize_materials].diffuse[0] << " ";
-			std::cerr << std::endl;*/
 		}
 
 		//data->_materials[i + oldsize_materials].diffuse_texture_index.resize(ai_scene->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE));
@@ -447,27 +444,6 @@ void construct_nodetree(mgf_node *node, aiNode *ainode, mgf_data *data, unsigned
 	newnode->_trans[3][0] = ainode->mTransformation.a4; newnode->_trans[3][1] = ainode->mTransformation.b4;
 	newnode->_trans[3][2] = ainode->mTransformation.c4; newnode->_trans[3][3] = ainode->mTransformation.d4;
 
-	/*if((flags & LOAD_SWITCH_UP_ZY) > 0){
-		//newnode->_trans = glm::rotate(glm::mat4(1), (float)M_PI / 2, glm::vec3(1.f, 0.f, 0.f)) * newnode->_trans;
-		//newnode->_trans = newnode->_trans * glm::rotate(glm::mat4(1), (float)M_PI / 2, glm::vec3(1.f, 0.f, 0.f));
-
-		//glm::vec4 tmp = newnode->_trans[1];
-		//newnode->_trans[1] = newnode->_trans[2];
-		//newnode->_trans[2] = -tmp;
-
-		glm::vec4 tmp;
-
-		tmp[0] = newnode->_trans[1][0]; tmp[1] = newnode->_trans[1][1]; tmp[2] = newnode->_trans[1][2]; tmp[3] = newnode->_trans[1][3];
-		newnode->_trans[1][0] = newnode->_trans[2][0]; newnode->_trans[1][1] = newnode->_trans[2][1];
-		newnode->_trans[1][2] = newnode->_trans[2][2]; newnode->_trans[3][1] = newnode->_trans[2][3];
-		newnode->_trans[2][0] = -tmp[0]; newnode->_trans[2][1] = -tmp[1]; newnode->_trans[2][2] = -tmp[2]; newnode->_trans[2][3] = -tmp[3];
-
-		tmp[0] = newnode->_trans[0][1]; tmp[1] = newnode->_trans[1][1]; tmp[2] = newnode->_trans[2][1]; tmp[3] = newnode->_trans[3][1];
-		newnode->_trans[0][1] = newnode->_trans[0][2]; newnode->_trans[1][1] = newnode->_trans[1][2];
-		newnode->_trans[2][1] = newnode->_trans[2][2]; newnode->_trans[3][1] = newnode->_trans[3][2];
-		newnode->_trans[0][2] = -tmp[0]; newnode->_trans[1][2] = -tmp[1]; newnode->_trans[2][2] = -tmp[2]; newnode->_trans[3][2] = -tmp[3];
-	}*/
-
 	newnode->_meshes.resize(ainode->mNumMeshes);
 	for(unsigned int i = 0; i < newnode->_meshes.size(); i++)
 		newnode->_meshes[i] = ainode->mMeshes[i] + oldsize_meshes;
@@ -541,7 +517,7 @@ void construct_colboxes(mgf_data *data, const aiScene *ai_scene, unsigned int ol
     }
     return;
 }
-
+*/
 }
 
 

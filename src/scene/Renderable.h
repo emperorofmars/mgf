@@ -8,6 +8,7 @@
 #define MGF_RENDERABLE_H
 
 #include "Positionable.h"
+#include "../data/Data.h"
 
 namespace mgf{
 

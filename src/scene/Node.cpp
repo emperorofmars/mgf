@@ -9,66 +9,94 @@
 namespace mgf{
 
 mgfID_t Node::mGlobalID = 0;
-std::mutex Node::mMutex;
+std::mutex Node::mGlobalMutex;
 
 Node::Node(){
 	mID = mGlobalID;
 
-	mMutex.lock();
+	mGlobalMutex.lock();
 		mGlobalID++;
 		mNumChildren = 0;
-	mMutex.unlock();
+	mGlobalMutex.unlock();
 }
 
 Node::~Node(){
 	LOG_F_TRACE(MGF_LOG_FILE, "Deleting Node: ", mName);
-	while(mChildNodes.size() > 0){
-		mChildNodes.erase(mChildNodes.begin());
-	}
 }
 
 std::shared_ptr<Node> Node::clone(){
 	std::shared_ptr<Node> ret(new Node());
 
-	mMutex.lock();
+	mGlobalMutex.lock();
 		ret->mName = mName;
 		ret->mID = mGlobalID;
-	mMutex.unlock();
+	mGlobalMutex.unlock();
 
 	mGlobalID++;
-	for(unsigned int i = 0; i < mChildNodes.size(); i++){
-		ret->add(mChildNodes[i]->clone());
+
+	mMutex.lock();
+	for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){
+		ret->add(iter->second->clone());
 	}
+	mMutex.unlock();
+
 	return ret;
 }
 
 std::shared_ptr<Node> Node::find(const std::string &name){
-	std::shared_ptr<Node> ret;
-	return ret;
+	return mChildNodesString[name];
 }
 
-std::shared_ptr<Node> Node::getNode(mgfID_t id){
-	std::shared_ptr<Node> ret;
-	return ret;
+std::shared_ptr<Node> Node::getChild(const std::string &name){
+	return mChildNodesString[name];
 }
 
 bool Node::add(std::shared_ptr<Node> node){
+	if(!node) return false;
+	if(mChildNodesID[node->getID()] == node ||
+		mChildNodesString[node->getName()] == node)
+	{
+		return false;
+	}
+	mMutex.lock();
+	mChildNodesID[node->getID()] = node;
+	mChildNodesString[node->getName()] = node;
+	mMutex.unlock();
 	return true;
 }
 
 bool Node::remove(const std::string name){
+	if(mChildNodesString[name] == NULL) return -1;
+	mMutex.lock();
+	mChildNodesString.erase(name);
+	mMutex.unlock();
 	return true;
 }
 
 bool Node::remove(unsigned int id){
+	if(mChildNodesID[id] == NULL) return -1;
+	mMutex.lock();
+	mChildNodesID.erase(id);
+	mMutex.unlock();
 	return true;
 }
 
-bool Node::remove(std::shared_ptr<Node> node){
-	return true;
+mgfID_t Node::getID(){
+	return mID;
 }
 
-void print(unsigned int deepness){
+std::string Node::getName(){
+	return mName;
+}
+
+void Node::print(unsigned int deepness){
+	for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){
+		iter->second->print(deepness + 1);
+	}
+	for(unsigned int i = 0; i < deepness; i++){
+		std::cout << "|-";
+	}
+	std::cout << mName << std::endl;
 	return;
 }
 

@@ -269,3 +269,73 @@
 13.04.2015-21:22:18 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
 13.04.2015-21:22:18 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
 13.04.2015-21:22:18 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 160: Cant close SDL: not inited!
+==========================================
+14.04.2015-19:22:34 : Logging Started
+14.04.2015-19:22:34 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+14.04.2015-19:22:34 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+14.04.2015-19:22:34 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+14.04.2015-19:22:34 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+14.04.2015-19:22:34 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+14.04.2015-19:22:36 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+14.04.2015-19:22:36 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+14.04.2015-19:22:36 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 160: Cant close SDL: not inited!
+==========================================
+14.04.2015-19:37:41 : Logging Started
+14.04.2015-19:37:42 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+14.04.2015-19:37:42 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+14.04.2015-19:37:42 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+14.04.2015-19:37:42 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+14.04.2015-19:37:42 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+14.04.2015-19:37:43 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+14.04.2015-19:37:43 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+14.04.2015-19:37:43 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 160: Cant close SDL: not inited!
+==========================================
+14.04.2015-19:56:28 : Logging Started
+14.04.2015-19:56:28 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+14.04.2015-19:56:28 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+14.04.2015-19:56:28 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+14.04.2015-19:56:28 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+14.04.2015-19:56:28 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+14.04.2015-19:56:32 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+14.04.2015-19:56:32 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+14.04.2015-19:56:32 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 160: Cant close SDL: not inited!
+==========================================
+14.04.2015-20:22:53 : Logging Started
+14.04.2015-20:22:53 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+14.04.2015-20:22:53 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+14.04.2015-20:22:53 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+14.04.2015-20:22:53 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+14.04.2015-20:22:53 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+14.04.2015-20:22:54 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+14.04.2015-20:22:54 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+14.04.2015-20:22:54 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 160: Cant close SDL: not inited!
+==========================================
+14.04.2015-20:41:10 : Logging Started
+14.04.2015-20:41:11 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+14.04.2015-20:41:11 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+14.04.2015-20:41:11 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+14.04.2015-20:41:11 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+14.04.2015-20:41:11 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+14.04.2015-20:41:13 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+14.04.2015-20:41:13 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+14.04.2015-20:41:13 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 160: Cant close SDL: not inited!
+==========================================
+14.04.2015-20:49:52 : Logging Started
+14.04.2015-20:49:53 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+14.04.2015-20:49:53 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+14.04.2015-20:49:53 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+14.04.2015-20:49:53 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+14.04.2015-20:49:53 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+14.04.2015-20:49:54 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+14.04.2015-20:49:54 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+14.04.2015-20:49:54 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 160: Cant close SDL: not inited!
+==========================================
+14.04.2015-20:52:31 : Logging Started
+14.04.2015-20:52:32 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+14.04.2015-20:52:32 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+14.04.2015-20:52:32 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+14.04.2015-20:52:32 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+14.04.2015-20:52:32 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+14.04.2015-20:52:33 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+14.04.2015-20:52:33 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+14.04.2015-20:52:33 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 160: Cant close SDL: not inited!

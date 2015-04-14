@@ -21,12 +21,14 @@ public:
 	virtual std::shared_ptr<Node> clone();
 
 	std::shared_ptr<Node> find(const std::string &name);
-	std::shared_ptr<Node> getNode(mgfID_t id);
+	std::shared_ptr<Node> getChild(const std::string &name);
 
 	bool add(std::shared_ptr<Node> node);
 	bool remove(const std::string name);
 	bool remove(unsigned int id);
-	bool remove(std::shared_ptr<Node> node);
+
+	mgfID_t getID();
+	std::string getName();
 
 	void print(unsigned int deepness = 0);
 
@@ -34,12 +36,15 @@ private:
 	std::string mName;
 	mgfID_t mID;
 
+	std::mutex mMutex;
+
 	unsigned int mNumChildren;
 	std::shared_ptr<Node> mParentNode;
-	std::vector<std::shared_ptr<Node>> mChildNodes;
+	std::unordered_map<mgfID_t, std::shared_ptr<Node>> mChildNodesID;
+	std::unordered_map<std::string, std::shared_ptr<Node>> mChildNodesString;
 
 	static mgfID_t mGlobalID;
-	static std::mutex mMutex;
+	static std::mutex mGlobalMutex;
 
 	friend class Loader;
 };

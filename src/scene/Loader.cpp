@@ -14,6 +14,11 @@ Loader::Loader(){
 Loader::~Loader(){
 }
 
+std::shared_ptr<Node> Loader::load(const std::string &file){
+	std::shared_ptr<Node> ret;
+	return ret;
+}
+
 /*
 mgf::scene *load(std::string path, int flags){
 	mgf::scene *new_scene = new mgf::scene;

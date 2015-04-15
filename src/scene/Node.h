@@ -15,7 +15,7 @@ typedef unsigned int mgfID_t;
 
 class Node{
 public:
-	Node();
+	Node(const std::string &name = "");
 	virtual ~Node();
 
 	virtual std::shared_ptr<Node> clone();
@@ -32,14 +32,14 @@ public:
 
 	void print(unsigned int deepness = 0);
 
-private:
+protected:
 	std::string mName;
 	mgfID_t mID;
 
 	std::mutex mMutex;
 
 	unsigned int mNumChildren;
-	std::shared_ptr<Node> mParentNode;
+	Node *mParentNode;
 	std::unordered_map<mgfID_t, std::shared_ptr<Node>> mChildNodesID;
 	std::unordered_map<std::string, std::shared_ptr<Node>> mChildNodesString;
 

@@ -13,27 +13,35 @@ namespace mgf{
 
 class Positionable: public Node{
 public:
+	Positionable(const std::string &name = "");
+	virtual ~Positionable();
+
 	void translate(glm::vec3 data);
 	void rotate(float angle, glm::vec3 data);
 	void scale(glm::vec3 data);
 
 	glm::mat4 calculateTRS();
 
+	void setTranslation(glm::vec3 data);
+	void setRotation(glm::mat4 data);
+	void setScale(glm::vec3 data);
+
 	glm::vec3 getTranslation();
-	glm::vec3 getRotation();
+	glm::mat4 getRotation();
 	glm::vec3 getScale();
 	glm::mat4 getTRS();
 
 	glm::vec3 getGlobalTranslation();
-	glm::vec3 getGlobalRotation();
+	glm::mat4 getGlobalRotation();
 	glm::vec3 getGlobalScale();
 	glm::mat4 getGlobalTRS();
 
 	virtual std::shared_ptr<Node> clone();
 
 private:
-	glm::vec3 mTranslation, mRototation, mScale;
-	glm::mat4 mTRS;
+	glm::vec3 mTranslation, mScale;
+	glm::mat4 mTRS, mRotation;
+	bool mTRSCurrent;
 };
 
 } // mgf

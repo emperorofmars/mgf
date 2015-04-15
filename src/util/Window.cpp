@@ -156,7 +156,7 @@ int Window::initSDL(int GLMajor, int GLMinor){
 }
 
 int Window::closeSDL(){
-	if(mSDLInited){
+	if(!mSDLInited){
 		LOG_F_INFO(MGF_LOG_FILE, "Cant close SDL: not inited!");
 		return -1;
 	}

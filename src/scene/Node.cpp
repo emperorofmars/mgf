@@ -11,13 +11,16 @@ namespace mgf{
 mgfID_t Node::mGlobalID = 0;
 std::mutex Node::mGlobalMutex;
 
-Node::Node(){
-	mID = mGlobalID;
+Node::Node(const std::string &name){
+	mName = name;
+	mParentNode = NULL;
 
 	mGlobalMutex.lock();
+		mID = mGlobalID;
 		mGlobalID++;
 		mNumChildren = 0;
 	mGlobalMutex.unlock();
+	LOG_F_TRACE(MGF_LOG_FILE, "Created Node: ", mName);
 }
 
 Node::~Node(){
@@ -28,16 +31,17 @@ std::shared_ptr<Node> Node::clone(){
 	std::shared_ptr<Node> ret(new Node());
 
 	mGlobalMutex.lock();
-		ret->mName = mName;
 		ret->mID = mGlobalID;
+		mGlobalID++;
 	mGlobalMutex.unlock();
 
-	mGlobalID++;
-
 	mMutex.lock();
-	for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){
-		ret->add(iter->second->clone());
-	}
+		ret->mName = mName;
+		ret->mParentNode = mParentNode;
+
+		for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){
+			ret->add(iter->second->clone());
+		}
 	mMutex.unlock();
 
 	return ret;
@@ -59,8 +63,11 @@ bool Node::add(std::shared_ptr<Node> node){
 		return false;
 	}
 	mMutex.lock();
-	mChildNodesID[node->getID()] = node;
-	mChildNodesString[node->getName()] = node;
+		mChildNodesID[node->getID()] = node;
+		mChildNodesString[node->getName()] = node;
+		node->mMutex.lock();
+			node->mParentNode = this;
+		node->mMutex.unlock();
 	mMutex.unlock();
 	return true;
 }
@@ -68,7 +75,7 @@ bool Node::add(std::shared_ptr<Node> node){
 bool Node::remove(const std::string name){
 	if(mChildNodesString[name] == NULL) return -1;
 	mMutex.lock();
-	mChildNodesString.erase(name);
+		mChildNodesString.erase(name);
 	mMutex.unlock();
 	return true;
 }
@@ -76,7 +83,7 @@ bool Node::remove(const std::string name){
 bool Node::remove(unsigned int id){
 	if(mChildNodesID[id] == NULL) return -1;
 	mMutex.lock();
-	mChildNodesID.erase(id);
+		mChildNodesID.erase(id);
 	mMutex.unlock();
 	return true;
 }
@@ -90,13 +97,13 @@ std::string Node::getName(){
 }
 
 void Node::print(unsigned int deepness){
-	for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){
-		iter->second->print(deepness + 1);
-	}
 	for(unsigned int i = 0; i < deepness; i++){
 		std::cout << "|-";
 	}
 	std::cout << mName << std::endl;
+	for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){
+		iter->second->print(deepness + 1);
+	}
 	return;
 }
 

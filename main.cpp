@@ -29,10 +29,10 @@ int main(int argc, char *argv[]){
 	std::shared_ptr<mgf::Node> node(new mgf::Node("root"));
 	node->add(std::shared_ptr<mgf::Node>(new mgf::MeshNode("child1")));
 	node->print();
-	node->translate(glm::vec3(0.f, 0.f, -12.f));
+	node->translate(glm::vec3(0.f, 1.f, 0.f));
 	std::shared_ptr<mgf::MeshNode> tmp = std::dynamic_pointer_cast<mgf::MeshNode>(node->getChild("child1"));
-	tmp->translate(glm::vec3(0.f, 0.f, -3.f));
-	tmp->rotate(50.f, glm::vec3(0.f, 1.f, 0.f));
+	tmp->translate(glm::vec3(5.f, 0.f, 0.f));
+	tmp->rotate(20.f, glm::vec3(0.f, 1.f, 0.f));
 	tmp->addMesh(mgf::createCube());
 
 	std::cout << "TRANSLATION: " << mgf::vec3_toStr(tmp->getGlobalTranslation()) << std::endl;

@@ -29,5 +29,5 @@ void main(void){
 	//color *= dot(fs_in.norm, normalize(vec3(10, 20, 7) - fs_in.pos.xyz)) *
 	//			1 / length(vec3(10, 20, 7) - fs_in.pos.xyz) * 15;
 	
-	color = vec4(1, 1, 1, 1);
+	color = fs_in.material.color;
 }

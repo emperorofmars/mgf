@@ -90,6 +90,7 @@ bool Renderer::drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform){
 }
 
 bool Renderer::good(){
+	if(mWindow && mCamera && mShaderProgram) return true;
 	return false;
 }
 
@@ -99,6 +100,7 @@ bool Renderer::applyMatrix(glm::mat4 data, GLuint loc){
 }
 
 bool Renderer::applyMaterial(std::shared_ptr<Material> data){
+	if(!good()) return false;
 	if(!data) return false;
 	GLuint loc = mShaderProgram->get(MATERIAL_COLOR_DIFFUSE);
 	glUniform4fv(loc, 1, glm::value_ptr(data->mDiffuseColor));
@@ -109,12 +111,10 @@ bool Renderer::applyMaterial(std::shared_ptr<Material> data){
 
 	float has_texture;
 	if(data->mDiffuseTexture.size() > 0){
-		//std::cerr << "RENDER 01: " << data->_materials[material_index].diffuse_texture_index[0] << std::endl;
 		has_texture = 1.f;
 		glBindTexture(GL_TEXTURE_2D, data->mDiffuseTexture[0]->mTextureBuffer);
 	}
 	else{
-		//std::cerr << "RENDER 02: no texture" << std::endl;
 		has_texture = 0.f;
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}

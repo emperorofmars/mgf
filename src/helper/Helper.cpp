@@ -35,59 +35,67 @@ std::string count_up(std::string data){
 
 std::shared_ptr<Mesh> createCube(){
 	std::shared_ptr<Mesh> ret(new Mesh);
-    ret->mName = "TestCube";
-    ret->mRenderIndexed = true;
-    ret->mVertices.push_back(glm::vec3(-1.f, -1.f, -1.f));
-    ret->mVertices.push_back(glm::vec3(-1.f, 1.f, -1.f));
-    ret->mVertices.push_back(glm::vec3(1.f, -1.f, -1.f));
-    ret->mVertices.push_back(glm::vec3(1.f, 1.f, -1.f));
-    ret->mVertices.push_back(glm::vec3(-1.f, -1.f, 1.f));
-    ret->mVertices.push_back(glm::vec3(-1.f, 1.f, 1.f));
-    ret->mVertices.push_back(glm::vec3(1.f, -1.f, 1.f));
-    ret->mVertices.push_back(glm::vec3(1.f, 1.f, 1.f));
-    ret->mIndices.push_back(0);
-    ret->mIndices.push_back(1);
-    ret->mIndices.push_back(2);
-    ret->mIndices.push_back(1);
-    ret->mIndices.push_back(2);
-    ret->mIndices.push_back(3);
-    ret->mIndices.push_back(4);
-    ret->mIndices.push_back(5);
-    ret->mIndices.push_back(6);
-    ret->mIndices.push_back(5);
-    ret->mIndices.push_back(6);
-    ret->mIndices.push_back(7);
-    ret->mIndices.push_back(0);
-    ret->mIndices.push_back(1);
-    ret->mIndices.push_back(4);
-    ret->mIndices.push_back(1);
-    ret->mIndices.push_back(4);
-    ret->mIndices.push_back(5);
-    ret->mIndices.push_back(0);
-    ret->mIndices.push_back(2);
-    ret->mIndices.push_back(4);
-    ret->mIndices.push_back(2);
-    ret->mIndices.push_back(4);
-    ret->mIndices.push_back(6);
-    ret->mIndices.push_back(1);
-    ret->mIndices.push_back(3);
-    ret->mIndices.push_back(5);
-    ret->mIndices.push_back(3);
-    ret->mIndices.push_back(5);
-    ret->mIndices.push_back(7);
-    ret->mIndices.push_back(2);
-    ret->mIndices.push_back(3);
-    ret->mIndices.push_back(6);
-    ret->mIndices.push_back(6);
-    ret->mIndices.push_back(7);
-    ret->mIndices.push_back(3);
-    ret->mNumIndices = ret->mIndices.size();
-    ret->mNumVertices = ret->mVertices.size();
-    std::shared_ptr<Material> mat(new Material);
-    mat->mDiffuseColor = glm::vec4(0.8f, 0.5f, 0.1f, 1.f);
-    ret->mMaterial = mat;
+	ret->mName = "TestCube";
+	ret->mRenderIndexed = true;
 
-    glGenVertexArrays(1, &ret->mVAO);
+	ret->mVertices.push_back(glm::vec3(-1.f, -1.f, -1.f));
+	ret->mVertices.push_back(glm::vec3(-1.f, 1.f, -1.f));
+	ret->mVertices.push_back(glm::vec3(1.f, -1.f, -1.f));
+	ret->mVertices.push_back(glm::vec3(1.f, 1.f, -1.f));
+	ret->mVertices.push_back(glm::vec3(-1.f, -1.f, 1.f));
+	ret->mVertices.push_back(glm::vec3(-1.f, 1.f, 1.f));
+	ret->mVertices.push_back(glm::vec3(1.f, -1.f, 1.f));
+	ret->mVertices.push_back(glm::vec3(1.f, 1.f, 1.f));
+
+	ret->mIndices.push_back(0);
+	ret->mIndices.push_back(1);
+	ret->mIndices.push_back(2);
+	ret->mIndices.push_back(3);
+	ret->mIndices.push_back(2);
+	ret->mIndices.push_back(1);
+
+	ret->mIndices.push_back(6);
+	ret->mIndices.push_back(5);
+	ret->mIndices.push_back(4);
+	ret->mIndices.push_back(5);
+	ret->mIndices.push_back(6);
+	ret->mIndices.push_back(7);
+
+	ret->mIndices.push_back(4);
+	ret->mIndices.push_back(1);
+	ret->mIndices.push_back(0);
+	ret->mIndices.push_back(1);
+	ret->mIndices.push_back(4);
+	ret->mIndices.push_back(5);
+
+	ret->mIndices.push_back(0);
+	ret->mIndices.push_back(2);
+	ret->mIndices.push_back(4);
+	ret->mIndices.push_back(6);
+	ret->mIndices.push_back(4);
+	ret->mIndices.push_back(2);
+
+	ret->mIndices.push_back(5);
+	ret->mIndices.push_back(3);
+	ret->mIndices.push_back(1);
+	ret->mIndices.push_back(3);
+	ret->mIndices.push_back(5);
+	ret->mIndices.push_back(7);
+
+	ret->mIndices.push_back(2);
+	ret->mIndices.push_back(3);
+	ret->mIndices.push_back(6);
+	ret->mIndices.push_back(3);
+	ret->mIndices.push_back(7);
+	ret->mIndices.push_back(6);
+
+	ret->mNumIndices = ret->mIndices.size();
+	ret->mNumVertices = ret->mVertices.size();
+	std::shared_ptr<Material> mat(new Material);
+	mat->mDiffuseColor = glm::vec4(0.8f, 0.5f, 0.1f, 1.f);
+	ret->mMaterial = mat;
+
+	glGenVertexArrays(1, &ret->mVAO);
 	glBindVertexArray(ret->mVAO);
 
 	GLuint *indices = new GLuint[ret->mNumIndices];

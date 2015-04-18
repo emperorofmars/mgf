@@ -1,17 +1,17 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		mgf_render.h
+**	Name:		Renderer.h
 **	Project:	mgf - Mars Graphics Framework
-**	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
 */
 
-#ifndef MGF_RENDER
-#define MGF_RENDER
+#ifndef MGF_RENDERER_H
+#define MGF_RENDERER_H
 
-#include "mgf_include.h"
-#include "mgf_node.h"
-#include "mgf_shader.h"
-#include "mgf_camera.h"
+#include "../Include.h"
+#include "../util/Window.h"
+#include "../util/ShaderProgram.h"
+#include "../util/Camera.h"
+#include "../data/Data.h"
 
 namespace mgf{
 
@@ -27,17 +27,22 @@ public:
 	int setCamera(std::shared_ptr<Camera> camera);
 	int setShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram);
 
-	int render(std::shared_ptr<Node> node);
-	int render(std::shared_ptr<Node> node, glm::mat4 trans);
+	int addLight(Light data, glm::mat4 transform);
+	int removeLight(Light data);
+	int clearLights();
+	int drawMesh(Mesh data, glm::mat4 transform);
+
+	bool good();
 
 private:
-	int applyMatrix(glm::mat4 trans);
-	int applyMaterial();
+	int applyMatrix(glm::mat4 data);
+	int applyMaterial(Material data);
 
 	std::shared_ptr<Window> mWindow;
 	std::shared_ptr<Camera> mCamera;
 	std::shared_ptr<ShaderProgram> mShaderProgram;
 };
+
 /*
 void render(mgf_node_model *node, glm::mat4 trans = glm::mat4(1));
 void render(mgf_node_model_instance *node, glm::mat4 = glm::mat4(1));
@@ -47,6 +52,6 @@ bool apply_matrix(glm::mat4 mat, GLuint loc);
 void apply_material(unsigned int material_index, mgf_data *data);
 */
 
-}
+} // mgf
 
-#endif // MGF_RENDER
+#endif // MGF_RENDERER_H

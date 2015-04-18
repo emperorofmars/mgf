@@ -7,12 +7,12 @@
 #ifndef MGF_RENDERABLE_H
 #define MGF_RENDERABLE_H
 
-#include "Positionable.h"
+#include "Node.h"
 #include "../data/Data.h"
 
 namespace mgf{
 
-class Renderable: public Positionable{
+class Renderable: public Node{
 public:
 	Renderable();
 	~Renderable();

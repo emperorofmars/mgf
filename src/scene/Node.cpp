@@ -39,6 +39,12 @@ std::shared_ptr<Node> Node::clone(){
 		ret->mName = mName;
 		ret->mParentNode = mParentNode;
 
+		ret->mTranslation = mTranslation;
+		ret->mRotation = mRotation;
+		ret->mScale = mScale;
+		ret->mTRS = mTRS;
+		ret->mTRSCurrent = mTRSCurrent;
+
 		for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){
 			ret->add(iter->second->clone());
 		}
@@ -88,12 +94,52 @@ bool Node::remove(unsigned int id){
 	return true;
 }
 
+bool Node::update(Renderer &renderer){
+	return updateImpl(glm::mat4(1), renderer);
+}
+
+bool Node::render(Renderer &renderer){
+	return renderImpl(glm::mat4(1), renderer);
+}
+
 mgfID_t Node::getID(){
 	return mID;
 }
 
 std::string Node::getName(){
 	return mName;
+}
+
+glm::vec3 Node::getGlobalTranslation(){
+	glm::vec3 ret;
+	if(mParentNode){
+		ret = mParentNode->getGlobalTranslation();
+	}
+	return ret + mTranslation;
+}
+
+glm::mat4 Node::getGlobalRotation(){
+	glm::mat4 ret;
+	if(mParentNode){
+		ret = mParentNode->getGlobalRotation();
+	}
+	return ret * mRotation;
+}
+
+glm::vec3 Node::getGlobalScale(){
+	glm::vec3 ret;
+	if(mParentNode){
+		ret = mParentNode->getGlobalScale();
+	}
+	return ret + mScale;
+}
+
+glm::mat4 Node::getGlobalTRS(){
+	glm::mat4 ret;
+	if(mParentNode){
+		ret = mParentNode->getGlobalTRS();
+	}
+	return ret * getTRS();
 }
 
 void Node::print(unsigned int deepness){
@@ -105,6 +151,14 @@ void Node::print(unsigned int deepness){
 		iter->second->print(deepness + 1);
 	}
 	return;
+}
+
+bool Node::updateImpl(glm::mat4 transform, Renderer &renderer){
+	return true;
+}
+
+bool Node::renderImpl(glm::mat4 transform, Renderer &renderer){
+	return true;
 }
 
 /*

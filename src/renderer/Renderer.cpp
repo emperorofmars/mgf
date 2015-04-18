@@ -1,13 +1,62 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		mgf_render.cpp
+**	Name:		Renderer.cpp
 **	Project:	mgf - Mars Graphics Framework
-**	Compile:	include in other project, linker flags: lSDL2 -lGLEW -lGL
 */
 
-#include "mgf_render.h"
+#include "Renderer.h"
 
 namespace mgf{
+
+Renderer::Renderer(std::shared_ptr<Window> window,
+		 std::shared_ptr<Camera> camera,
+		 std::shared_ptr<ShaderProgram> shaderProgram)
+{
+
+}
+
+Renderer::~Renderer(){
+}
+
+int Renderer::setWindow(std::shared_ptr<Window> window){
+	return 0;
+}
+
+int Renderer::setCamera(std::shared_ptr<Camera> camera){
+	return 0;
+}
+
+int Renderer::setShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram){
+	return 0;
+}
+
+int Renderer::addLight(Light data, glm::mat4 transform){
+	return 0;
+}
+
+int Renderer::removeLight(Light data){
+	return 0;
+}
+
+int Renderer::clearLights(){
+	return 0;
+}
+
+int Renderer::drawMesh(Mesh data, glm::mat4 transform){
+	return 0;
+}
+
+bool Renderer::good(){
+	return false;
+}
+
+int Renderer::applyMatrix(glm::mat4 data){
+	return 0;
+}
+
+int Renderer::applyMaterial(Material data){
+	return 0;
+}
 
 /*
 //######################  render
@@ -93,4 +142,4 @@ void apply_material(unsigned int material_index, mgf_data *data){
 
 */
 
-}
+} // mgf

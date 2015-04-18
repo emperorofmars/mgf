@@ -53,9 +53,15 @@
 		<Unit filename="src/data/Mesh.h" />
 		<Unit filename="src/data/Texture.cpp" />
 		<Unit filename="src/data/Texture.h" />
+		<Unit filename="src/helper/Helper.cpp" />
+		<Unit filename="src/helper/Helper.h" />
 		<Unit filename="src/mgf.h" />
+		<Unit filename="src/renderer/Renderer.cpp" />
+		<Unit filename="src/renderer/Renderer.h" />
 		<Unit filename="src/scene/Loader.cpp" />
 		<Unit filename="src/scene/Loader.h" />
+		<Unit filename="src/scene/MeshNode.cpp" />
+		<Unit filename="src/scene/MeshNode.h" />
 		<Unit filename="src/scene/Node.cpp" />
 		<Unit filename="src/scene/Node.h" />
 		<Unit filename="src/scene/Positionable.cpp" />

@@ -29,4 +29,8 @@ std::string mat4_toStr(glm::mat4 data){
 	return res.str();
 }
 
+std::string count_up(std::string data){
+	return data.append(".001");
+}
+
 } // mgf

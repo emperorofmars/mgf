@@ -9,7 +9,7 @@
 
 #include "../Include.h"
 
-#include "Texture.h"
+#include "Material.h"
 
 namespace mgf{
 
@@ -20,7 +20,7 @@ public:
 
 	std::string mName;
 
-	std::shared_ptr<Texture> mMaterial;
+	std::shared_ptr<Material> mMaterial;
 	unsigned int mNumIndices, mNumVertices, mNumNormals;
 
 	bool mRenderIndexed;

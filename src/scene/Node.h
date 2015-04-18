@@ -29,6 +29,8 @@ public:
 	bool remove(const std::string name);
 	bool remove(unsigned int id);
 
+	void setVisible(bool visible);
+
 	virtual bool update(Renderer &renderer);
 	virtual bool render(Renderer &renderer);
 
@@ -55,6 +57,8 @@ protected:
 	Node *mParentNode;
 	std::unordered_map<mgfID_t, std::shared_ptr<Node>> mChildNodesID;
 	std::unordered_map<std::string, std::shared_ptr<Node>> mChildNodesString;
+
+	bool mVisible;
 
 	static mgfID_t mGlobalID;
 	static std::mutex mGlobalMutex;

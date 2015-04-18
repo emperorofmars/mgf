@@ -16,6 +16,8 @@ std::string vec3_toStr(glm::vec3 data);
 std::string vec4_toStr(glm::vec4 data);
 std::string mat4_toStr(glm::mat4 data);
 
+std::string count_up(std::string);
+
 } // mgf
 
 #endif // MGF_HELPER_H

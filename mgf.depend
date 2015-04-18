@@ -227,7 +227,7 @@
 1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_window.cpp
 	"mgf_window.h"
 
-1429381425 source:/home/mars/Projekte/mgf/main.cpp
+1429383165 source:/home/mars/Projekte/mgf/main.cpp
 	"gl_test.h"
 
 1417280497 /home/mars/Projekte/mgf/gl_test.h
@@ -357,12 +357,12 @@
 1429381875 /home/mars/Projekte/mgf/src/scene/Positionable.h
 	"../Include.h"
 
-1429379799 /home/mars/Projekte/mgf/src/scene/Node.h
+1429382170 /home/mars/Projekte/mgf/src/scene/Node.h
 	"../Include.h"
 	"Positionable.h"
 	"../renderer/Renderer.h"
 
-1429034174 /home/mars/Projekte/mgf/src/Include.h
+1429383256 /home/mars/Projekte/mgf/src/Include.h
 	<iostream>
 	<vector>
 	<unordered_map>
@@ -382,6 +382,7 @@
 	<assimp/scene.h>
 	<assimp/postprocess.h>
 	"lib/mlog.h"
+	"helper/Helper.h"
 
 1428950094 /home/mars/Projekte/mgf/src/data/Data.h
 	"../Include.h"
@@ -390,9 +391,9 @@
 	"Texture.h"
 	"Light.h"
 
-1428950199 /home/mars/Projekte/mgf/src/data/Mesh.h
+1429384075 /home/mars/Projekte/mgf/src/data/Mesh.h
 	"../Include.h"
-	"Texture.h"
+	"Material.h"
 
 1428951046 /home/mars/Projekte/mgf/src/data/Material.h
 	"../Include.h"
@@ -464,7 +465,7 @@
 1428950791 source:/home/mars/Projekte/mgf/src/data/Texture.cpp
 	"Texture.h"
 
-1429380951 source:/home/mars/Projekte/mgf/src/scene/Node.cpp
+1429383363 source:/home/mars/Projekte/mgf/src/scene/Node.cpp
 	"Node.h"
 
 1429032200 source:/home/mars/Projekte/mgf/src/scene/Loader.cpp
@@ -479,25 +480,26 @@
 	"Positionable.h"
 	"../helper/Helper.h"
 
-1429380024 /home/mars/Projekte/mgf/src/renderer/Renderer.h
+1429384377 /home/mars/Projekte/mgf/src/renderer/Renderer.h
 	"../Include.h"
 	"../util/Window.h"
 	"../util/ShaderProgram.h"
 	"../util/Camera.h"
 	"../data/Data.h"
 
-1428527773 source:/home/mars/Projekte/mgf/src/scene/MeshNode.cpp
+1429383348 source:/home/mars/Projekte/mgf/src/scene/MeshNode.cpp
+	"MeshNode.h"
 
 1429380166 source:/home/mars/Projekte/mgf/src/renderer/Renderer.cpp
 	"Renderer.h"
 
-1429377616 /home/mars/Projekte/mgf/src/scene/MeshNode.h
+1429382597 /home/mars/Projekte/mgf/src/scene/MeshNode.h
 	"Node.h"
 	"../data/Data.h"
 
-1429380378 /home/mars/Projekte/mgf/src/helper/Helper.h
+1429383302 /home/mars/Projekte/mgf/src/helper/Helper.h
 	"../Include.h"
 
-1429380823 source:/home/mars/Projekte/mgf/src/helper/Helper.cpp
+1429383330 source:/home/mars/Projekte/mgf/src/helper/Helper.cpp
 	"Helper.h"
 

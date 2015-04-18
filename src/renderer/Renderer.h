@@ -23,24 +23,26 @@ public:
 			 std::shared_ptr<ShaderProgram> shaderProgram);
 	~Renderer();
 
-	int setWindow(std::shared_ptr<Window> window);
-	int setCamera(std::shared_ptr<Camera> camera);
-	int setShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram);
+	bool setWindow(std::shared_ptr<Window> window);
+	bool setCamera(std::shared_ptr<Camera> camera);
+	bool setShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram);
 
-	int addLight(Light data, glm::mat4 transform);
-	int removeLight(Light data);
-	int clearLights();
-	int drawMesh(Mesh data, glm::mat4 transform);
+	bool addLight(std::shared_ptr<Light> data, glm::mat4 transform);
+	bool removeLight(std::shared_ptr<Light> data);
+	bool clearLights();
+	bool drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform);
 
 	bool good();
 
 private:
-	int applyMatrix(glm::mat4 data);
-	int applyMaterial(Material data);
+	bool applyMatrix(glm::mat4 data, GLuint loc);
+	bool applyMaterial(std::shared_ptr<Material> data);
 
 	std::shared_ptr<Window> mWindow;
 	std::shared_ptr<Camera> mCamera;
 	std::shared_ptr<ShaderProgram> mShaderProgram;
+
+	std::vector<std::shared_ptr<Light>> mLights;
 };
 
 /*

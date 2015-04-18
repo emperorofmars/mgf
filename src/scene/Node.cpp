@@ -12,6 +12,7 @@ mgfID_t Node::mGlobalID = 0;
 std::mutex Node::mGlobalMutex;
 
 Node::Node(const std::string &name){
+	LOG_F_TRACE(MGF_LOG_FILE, "Creating Node: ", name);
 	mName = name;
 	mParentNode = NULL;
 
@@ -20,7 +21,6 @@ Node::Node(const std::string &name){
 		mGlobalID++;
 		mNumChildren = 0;
 	mGlobalMutex.unlock();
-	LOG_F_TRACE(MGF_LOG_FILE, "Created Node: ", mName);
 }
 
 Node::~Node(){
@@ -28,7 +28,7 @@ Node::~Node(){
 }
 
 std::shared_ptr<Node> Node::clone(){
-	std::shared_ptr<Node> ret(new Node());
+	std::shared_ptr<Node> ret(new Node(count_up(mName)));
 
 	mGlobalMutex.lock();
 		ret->mID = mGlobalID;
@@ -92,6 +92,11 @@ bool Node::remove(unsigned int id){
 		mChildNodesID.erase(id);
 	mMutex.unlock();
 	return true;
+}
+
+void Node::setVisible(bool visible){
+	mVisible = visible;
+	return;
 }
 
 bool Node::update(Renderer &renderer){

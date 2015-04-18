@@ -12,50 +12,99 @@ Renderer::Renderer(std::shared_ptr<Window> window,
 		 std::shared_ptr<Camera> camera,
 		 std::shared_ptr<ShaderProgram> shaderProgram)
 {
-
+	mWindow = window;
+	mCamera = camera;
+	mShaderProgram = shaderProgram;
 }
 
 Renderer::~Renderer(){
 }
 
-int Renderer::setWindow(std::shared_ptr<Window> window){
-	return 0;
+bool Renderer::setWindow(std::shared_ptr<Window> window){
+	if(!window) return false;
+	mWindow = window;
+	return true;
 }
 
-int Renderer::setCamera(std::shared_ptr<Camera> camera){
-	return 0;
+bool Renderer::setCamera(std::shared_ptr<Camera> camera){
+	if(!camera) return false;
+	mCamera = camera;
+	return true;
 }
 
-int Renderer::setShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram){
-	return 0;
+bool Renderer::setShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram){
+	if(!shaderProgram) return false;
+	mShaderProgram = shaderProgram;
+	return true;
 }
 
-int Renderer::addLight(Light data, glm::mat4 transform){
-	return 0;
+bool Renderer::addLight(std::shared_ptr<Light> data, glm::mat4 transform){
+	if(!data) return false;
+	return true;
 }
 
-int Renderer::removeLight(Light data){
-	return 0;
+bool Renderer::removeLight(std::shared_ptr<Light> data){
+	if(!data) return false;
+	return true;
 }
 
-int Renderer::clearLights(){
-	return 0;
+bool Renderer::clearLights(){
+	return true;
 }
 
-int Renderer::drawMesh(Mesh data, glm::mat4 transform){
-	return 0;
+bool Renderer::drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform){
+	if(!data) return false;
+	applyMatrix(transform, mShaderProgram->get(MATRIX_MODEL));
+	applyMatrix(mCamera->getVP(), mShaderProgram->get(MATRIX_VP));
+
+	applyMaterial(data->mMaterial);
+
+	glBindVertexArray(data->mVAO);
+
+	if(data->mRenderIndexed){
+		glDrawElements(GL_TRIANGLES, data->mNumIndices * sizeof(GLuint), GL_UNSIGNED_INT, 0);
+	}
+	else{
+		glDrawArrays(GL_TRIANGLES, 0, data->mNumVertices * sizeof(GLuint));
+	}
+	glBindVertexArray(0);
+
+	return true;
 }
 
 bool Renderer::good(){
 	return false;
 }
 
-int Renderer::applyMatrix(glm::mat4 data){
-	return 0;
+bool Renderer::applyMatrix(glm::mat4 data, GLuint loc){
+	glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(data));
+	return true;
 }
 
-int Renderer::applyMaterial(Material data){
-	return 0;
+bool Renderer::applyMaterial(std::shared_ptr<Material> data){
+	if(!data) return false;
+	GLuint loc = mShaderProgram->get(MATERIAL_COLOR_DIFFUSE);
+	glUniform4fv(loc, 1, glm::value_ptr(data->mDiffuseColor));
+
+	float alpha = 1.f;
+	loc = mShaderProgram->get(MATERIAL_ALPHA);
+	glUniform1f(loc, alpha);
+
+	float has_texture;
+	if(data->mDiffuseTexture.size() > 0){
+		//std::cerr << "RENDER 01: " << data->_materials[material_index].diffuse_texture_index[0] << std::endl;
+		has_texture = 1.f;
+		glBindTexture(GL_TEXTURE_2D, data->mDiffuseTexture[0]->mTextureBuffer);
+	}
+	else{
+		//std::cerr << "RENDER 02: no texture" << std::endl;
+		has_texture = 0.f;
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+	loc = mShaderProgram->get(MATERIAL_HAS_TEXTURE);
+	glUniform1f(loc, has_texture);
+
+	return true;
 }
 
 /*

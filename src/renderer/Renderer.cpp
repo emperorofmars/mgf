@@ -53,18 +53,35 @@ bool Renderer::clearLights(){
 }
 
 bool Renderer::drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform){
-	if(!data) return false;
-	applyMatrix(transform, mShaderProgram->get(MATRIX_MODEL));
-	applyMatrix(mCamera->getVP(), mShaderProgram->get(MATRIX_VP));
-
-	applyMaterial(data->mMaterial);
+	if(!data){
+		LOG_F_ERROR(MGF_LOG_FILE, "data is NULL!");
+		return false;
+	}
+	if(!applyMatrix(transform, mShaderProgram->get(MATRIX_MODEL))){
+		LOG_F_ERROR(MGF_LOG_FILE, "applyMatrix MODEL Failed!");
+		return false;
+	}
+	if(!applyMatrix(mCamera->getVP(), mShaderProgram->get(MATRIX_VP))){
+		LOG_F_ERROR(MGF_LOG_FILE, "applyMatrix VP Failed!");
+		return false;
+	}
+	if(!applyMaterial(data->mMaterial)){
+		LOG_F_ERROR(MGF_LOG_FILE, "applyMaterial Failed!");
+		return false;
+	}
+	if(data->mVAO == 0){
+		LOG_F_ERROR(MGF_LOG_FILE, "VAO is 0!");
+		return false;
+	}
 
 	glBindVertexArray(data->mVAO);
 
 	if(data->mRenderIndexed){
+		//LOG_F_TRACE(MGF_LOG_FILE, "Drawing ", data->mNumIndices, " Elements");
 		glDrawElements(GL_TRIANGLES, data->mNumIndices * sizeof(GLuint), GL_UNSIGNED_INT, 0);
 	}
 	else{
+		//LOG_F_TRACE(MGF_LOG_FILE, "Drawing ", data->mNumVertices, " Vertices");
 		glDrawArrays(GL_TRIANGLES, 0, data->mNumVertices * sizeof(GLuint));
 	}
 	glBindVertexArray(0);

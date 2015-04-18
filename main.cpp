@@ -27,12 +27,13 @@ int main(int argc, char *argv[]){
 	//mgf::load_into_scene(scene, "res/models/scene/scene.obj", loaderflags);
 
 	std::shared_ptr<mgf::Node> node(new mgf::Node("root"));
-	node->add(std::shared_ptr<mgf::Node>(new mgf::Node("child1")));
+	node->add(std::shared_ptr<mgf::Node>(new mgf::MeshNode("child1")));
 	node->print();
-	node->translate(glm::vec3(5.f, 6.f, -12.f));
-	std::shared_ptr<mgf::Node> tmp = node->getChild("child1");
-	tmp->translate(glm::vec3(1.f, 2.f, -3.f));
+	node->translate(glm::vec3(0.f, 0.f, -12.f));
+	std::shared_ptr<mgf::MeshNode> tmp = std::dynamic_pointer_cast<mgf::MeshNode>(node->getChild("child1"));
+	tmp->translate(glm::vec3(0.f, 0.f, -3.f));
 	tmp->rotate(50.f, glm::vec3(0.f, 1.f, 0.f));
+	tmp->addMesh(mgf::createCube());
 
 	std::cout << "TRANSLATION: " << mgf::vec3_toStr(tmp->getGlobalTranslation()) << std::endl;
 	std::cout << "ROTATION: " << std::endl << mgf::mat4_toStr(tmp->getGlobalRotation()) << std::endl;
@@ -57,6 +58,8 @@ int main(int argc, char *argv[]){
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
 
 		SDL_Delay(16);
+
+		node->render(renderer);
 
 		w->swap();
 

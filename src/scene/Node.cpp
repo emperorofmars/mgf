@@ -99,11 +99,11 @@ void Node::setVisible(bool visible){
 	return;
 }
 
-bool Node::update(Renderer &renderer){
+bool Node::update(std::shared_ptr<Renderer> renderer){
 	return updateImpl(glm::mat4(1), renderer);
 }
 
-bool Node::render(Renderer &renderer){
+bool Node::render(std::shared_ptr<Renderer> renderer){
 	return renderImpl(glm::mat4(1), renderer);
 }
 
@@ -158,11 +158,18 @@ void Node::print(unsigned int deepness){
 	return;
 }
 
-bool Node::updateImpl(glm::mat4 transform, Renderer &renderer){
+bool Node::updateImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer){
 	return true;
 }
 
-bool Node::renderImpl(glm::mat4 transform, Renderer &renderer){
+bool Node::renderImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer){
+	transform *= getTRS();
+	for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){
+		if(!iter->second->renderImpl(transform, renderer)){
+			LOG_F_ERROR(MGF_LOG_FILE, "Rendering Failed!");
+			return false;
+		}
+	}
 	return true;
 }
 

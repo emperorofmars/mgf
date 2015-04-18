@@ -1125,3 +1125,553 @@
 18.04.2015-21:19:48 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
 18.04.2015-21:19:48 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
 18.04.2015-21:19:48 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-21:23:15 : Logging Started
+18.04.2015-21:23:15 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-21:23:15 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-21:23:15 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-21:23:15 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-21:23:15 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-21:23:15 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 16: Creating Node: root
+18.04.2015-21:23:15 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 16: Creating Node: child1
+18.04.2015-21:23:16 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: root
+18.04.2015-21:23:16 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: child1
+18.04.2015-21:23:16 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-21:23:16 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-21:23:16 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-21:24:05 : Logging Started
+18.04.2015-21:24:05 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-21:24:05 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-21:24:05 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-21:24:05 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-21:24:05 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-21:24:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-21:24:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-21:24:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-21:24:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-21:24:06 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-21:24:06 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-21:24:06 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-21:43:37 : Logging Started
+18.04.2015-21:43:37 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-21:43:37 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-21:43:37 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-21:43:37 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-21:43:37 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-21:43:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-21:43:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-21:43:39 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-21:43:39 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-21:43:39 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-21:43:39 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-21:43:39 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-21:48:29 : Logging Started
+18.04.2015-21:48:30 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-21:48:30 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-21:48:30 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-21:48:30 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-21:48:30 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-21:48:30 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-21:48:30 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-21:48:30 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-21:48:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-21:48:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-21:48:31 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-21:48:31 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-21:48:31 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:02:00 : Logging Started
+18.04.2015-22:02:00 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:02:00 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:02:00 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:02:00 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:02:00 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:02:00 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:02:00 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:02:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:02:02 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:02:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:02:02 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:02:02 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:02:02 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:02:48 : Logging Started
+18.04.2015-22:02:48 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:02:48 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:02:48 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:02:48 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:02:48 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:02:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:02:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:02:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:02:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:02:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:02:49 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:02:49 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:02:49 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:03:06 : Logging Started
+18.04.2015-22:03:07 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:03:07 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:03:07 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:03:07 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:03:07 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:03:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:03:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:03:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:03:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:03:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:03:08 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:03:08 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:03:08 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:05:08 : Logging Started
+18.04.2015-22:05:08 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:05:08 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:05:08 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:05:08 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:05:08 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:05:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:05:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:05:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:05:09 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:05:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:05:09 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:05:09 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:05:09 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:05:50 : Logging Started
+18.04.2015-22:05:51 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:05:51 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:05:51 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:05:51 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:05:51 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:05:51 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:05:51 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:05:52 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:05:52 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:05:52 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:05:52 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:05:52 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:05:52 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:06:16 : Logging Started
+18.04.2015-22:06:17 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:06:17 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:06:17 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:06:17 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:06:17 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:06:17 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:06:17 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:06:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:06:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:06:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:06:18 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:06:18 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:06:18 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:11:09 : Logging Started
+18.04.2015-22:11:10 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:11:10 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:11:10 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:11:10 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:11:10 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:10 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:11 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:11 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:11 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:11 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:11 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:11 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:11 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:11 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:11 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:11 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:11 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:11:11 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:11:11 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:11:11 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:11:11 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:11:11 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:11:17 : Logging Started
+18.04.2015-22:11:17 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:11:17 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:11:17 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:11:17 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:11:17 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:11:17 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:11:17 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:11:17 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:17 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:17 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:17 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:17 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:17 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:17 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:17 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:17 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:17 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:17 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:18 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 80: Drawing 36 Elements
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:11:19 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:11:19 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:11:19 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:11:19 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:11:41 : Logging Started
+18.04.2015-22:11:42 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:11:42 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:11:42 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:11:42 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:11:42 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:11:42 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:11:42 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:11:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:11:44 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:11:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:11:44 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:11:44 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:11:44 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:12:09 : Logging Started
+18.04.2015-22:12:10 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:12:10 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:12:10 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:12:10 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:12:10 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:12:10 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:12:10 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:12:11 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:12:11 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:12:11 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:12:11 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:12:11 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:12:11 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:14:04 : Logging Started
+18.04.2015-22:14:04 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:14:04 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:14:04 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:14:04 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:14:04 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:14:04 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:14:04 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:14:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:14:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:14:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:14:05 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:14:05 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:14:05 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:15:11 : Logging Started
+18.04.2015-22:15:11 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:15:11 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:15:11 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:15:11 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:15:11 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:15:11 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:15:11 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:15:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:15:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:15:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:15:35 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:15:35 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:15:35 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:17:16 : Logging Started
+18.04.2015-22:17:16 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:17:16 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:17:16 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:17:16 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:17:16 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:17:16 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:17:16 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:17:33 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:17:33 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:17:33 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:17:33 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:17:33 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:17:33 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:17:41 : Logging Started
+18.04.2015-22:17:41 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:17:41 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:17:41 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:17:41 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:17:41 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:17:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:17:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:17:46 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:17:46 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:17:46 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:17:46 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:17:46 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:17:46 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:18:07 : Logging Started
+18.04.2015-22:18:07 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:18:07 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:18:07 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:18:07 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:18:07 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:18:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:18:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:18:19 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:18:19 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:18:19 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:18:19 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:18:19 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:18:19 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:18:34 : Logging Started
+18.04.2015-22:18:35 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:18:35 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:18:35 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:18:35 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:18:35 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:18:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:18:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:18:43 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:18:43 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:18:43 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:18:43 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:18:43 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:18:43 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:18:50 : Logging Started
+18.04.2015-22:18:51 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:18:51 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:18:51 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:18:51 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:18:51 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:18:51 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:18:51 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:18:54 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:18:54 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:18:54 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:18:54 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:18:54 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:18:54 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:18:59 : Logging Started
+18.04.2015-22:18:59 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:18:59 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:18:59 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:18:59 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:18:59 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:18:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:18:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:19:10 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:19:10 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:19:10 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:19:10 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:19:10 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:19:10 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:19:31 : Logging Started
+18.04.2015-22:19:31 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:19:31 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:19:31 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:19:31 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:19:31 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:19:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:19:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:19:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:19:44 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:19:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:19:44 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:19:44 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:19:44 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:19:46 : Logging Started
+18.04.2015-22:19:46 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:19:46 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:19:46 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:19:46 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:19:46 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:19:46 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:19:46 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:19:54 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:19:54 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:19:54 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:19:54 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:19:54 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:19:54 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:21:31 : Logging Started
+18.04.2015-22:21:31 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:21:31 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:21:31 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:21:31 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:21:31 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:21:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:21:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:21:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:21:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:21:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:21:35 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:21:36 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:21:36 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+18.04.2015-22:21:37 : Logging Started
+18.04.2015-22:21:37 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+18.04.2015-22:21:37 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+18.04.2015-22:21:37 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+18.04.2015-22:21:37 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+18.04.2015-22:21:37 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+18.04.2015-22:21:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+18.04.2015-22:21:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: child1
+18.04.2015-22:22:11 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: root
+18.04.2015-22:22:11 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+18.04.2015-22:22:11 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: child1
+18.04.2015-22:22:11 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+18.04.2015-22:22:11 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+18.04.2015-22:22:11 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!

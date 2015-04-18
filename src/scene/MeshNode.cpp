@@ -44,27 +44,44 @@ std::shared_ptr<Node> MeshNode::clone(){
 	return ret;
 }
 
-bool MeshNode::addMesh(std::shared_ptr<Mesh>){
+bool MeshNode::addMesh(std::shared_ptr<Mesh> data){
+	if(!data) return false;
+	mMeshes.push_back(data);
 	return true;
 }
 
-bool MeshNode::removeMesh(std::shared_ptr<Mesh>){
+bool MeshNode::removeMesh(std::shared_ptr<Mesh> data){
+	if(!data) return false;
 	return true;
 }
 
-bool MeshNode::update(Renderer &renderer){
+bool MeshNode::update(std::shared_ptr<Renderer> renderer){
+	return updateImpl(glm::mat4(1), renderer);
+}
+
+bool MeshNode::render(std::shared_ptr<Renderer> renderer){
+	return renderImpl(glm::mat4(1), renderer);
+}
+
+bool MeshNode::updateImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer){
 	return true;
 }
 
-bool MeshNode::render(Renderer &renderer){
-	return true;
-}
+bool MeshNode::renderImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer){
+	transform *= getTRS();
 
-bool MeshNode::updateImpl(glm::mat4 transform, Renderer &renderer){
-	return true;
-}
+	for(unsigned int i = 0; i < mMeshes.size(); i++){
+		if(!renderer->drawMesh(mMeshes[i], transform)){
+			LOG_F_ERROR(MGF_LOG_FILE, "Rendering Failed!");
+			return false;
+		}
+	}
 
-bool MeshNode::renderImpl(glm::mat4 transform, Renderer &renderer){
+	for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){
+		if(!iter->second->renderImpl(transform, renderer)){
+			return false;
+		}
+	}
 	return true;
 }
 

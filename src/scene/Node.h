@@ -10,6 +10,7 @@
 #include "../Include.h"
 #include "Positionable.h"
 #include "../renderer/Renderer.h"
+#include "../helper/Helper.h"
 
 namespace mgf{
 
@@ -31,8 +32,8 @@ public:
 
 	void setVisible(bool visible);
 
-	virtual bool update(Renderer &renderer);
-	virtual bool render(Renderer &renderer);
+	virtual bool update(std::shared_ptr<Renderer> renderer);
+	virtual bool render(std::shared_ptr<Renderer> renderer);
 
 	mgfID_t getID();
 	std::string getName();
@@ -44,10 +45,10 @@ public:
 
 	void print(unsigned int deepness = 0);
 
-protected:
-	virtual bool updateImpl(glm::mat4 transform, Renderer &renderer);
-	virtual bool renderImpl(glm::mat4 transform, Renderer &renderer);
+	virtual bool updateImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer);
+	virtual bool renderImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer);
 
+protected:
 	std::string mName;
 	mgfID_t mID;
 

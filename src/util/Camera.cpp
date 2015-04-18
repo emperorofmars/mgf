@@ -71,8 +71,8 @@ void Camera::setMode(int mode){
 }
 
 glm::mat4 Camera::update(glm::vec3 pos_, glm::vec3 rot_){
-	int x = rot_[0];
-	int y = rot_[1];
+	int x = rot_[1];
+	int y = rot_[0];
 	//int z = rot_[2];
 
 	if(mMode == 0){	//euler

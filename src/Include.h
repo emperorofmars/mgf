@@ -32,7 +32,6 @@
 #include <assimp/postprocess.h>
 
 #include "lib/mlog.h"
-#include "helper/Helper.h"
 
 #define MGF_LOG_FILE "log_mgf.txt"
 

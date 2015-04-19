@@ -21,14 +21,16 @@ public:
 	std::string mName;
 
 	std::shared_ptr<Material> mMaterial;
-	unsigned int mNumIndices, mNumVertices, mNumNormals;
 
-	bool mRenderIndexed;
+	unsigned int mNumIndices, mNumVertices, mNumNormals;
+	std::vector<unsigned int> mNumUV;
 
 	std::vector<unsigned int> mIndices;
 	std::vector<glm::vec3> mVertices;
 	std::vector<glm::vec3> mNormals;
 	std::vector<std::vector<glm::vec3>> mUV;
+
+	bool mRenderIndexed;
 
 	GLuint mVAO;
 	GLuint mIndexbuffer, mVertexbuffer, mNormalbuffer;

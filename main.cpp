@@ -23,6 +23,10 @@ int main(int argc, char *argv[]){
 
 	mgf::Loader l;
 	std::shared_ptr<mgf::Node> root = l.load("res/models/cube/cube.obj"); //"res/models/scene/scene.obj"
+	if(!root){
+		LOG_F_ERROR(MGF_LOG_FILE, "Loading failed, exiting main!");
+		return 0;
+	}
 	root->add(l.load("res/models/scene/scene.obj"));
 /*
 	std::shared_ptr<mgf::Node> node(new mgf::Node("root"));

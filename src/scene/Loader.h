@@ -19,12 +19,23 @@ public:
 	~Loader();
 
 	std::shared_ptr<Node> load(const std::string &file);
+	void clear();
 
 private:
 	std::shared_ptr<Node> loadNodetree(aiNode *ainode);
 	bool loadData(const aiScene *scene);
+	std::shared_ptr<Mesh> loadMesh(aiMesh *mesh);
+	std::shared_ptr<Material> loadMaterial(aiMaterial *material);
+	std::shared_ptr<Texture> loadTexture(const std::string &path);
+	std::shared_ptr<Light> loadLight(const std::string &path);
+	bool loadMeshToGPU(std::shared_ptr<Mesh> mesh);
+	bool loadMeshToGPU(std::shared_ptr<Mesh> mgfmesh, aiMesh *aimesh);
+	bool loadTextureToGPU(Texture texture);
 
-	std::unordered_map<unsigned int, std::shared_ptr<Mesh>> mLoadedData;
+	std::unordered_map<unsigned int, std::shared_ptr<Mesh>> mLoadedMeshes;
+	std::unordered_map<unsigned int, std::shared_ptr<Material>> mLoadedMaterials;
+
+	std::shared_ptr<Data> mData;
 	bool mLoadIndexed;
 
 	std::mutex mMutex;

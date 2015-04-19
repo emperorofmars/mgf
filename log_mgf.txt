@@ -2476,3 +2476,1543 @@
 19.04.2015-21:05:52 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
 19.04.2015-21:05:52 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
 19.04.2015-21:05:52 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+19.04.2015-22:01:33 : Logging Started
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 21: Loading file: res/models/cube/cube.obj
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 21: Loading file: res/models/scene/scene.obj
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:34 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+19.04.2015-22:01:34 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 83: no valid mesh
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: cube.obj
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: scene.obj
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube.001_Cube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cylinder
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne.001
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.002_Icosphere.001
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.002
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.001_Icosphere
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.001
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone.001
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Grid
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:01:36 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: supercube
+19.04.2015-22:01:36 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+19.04.2015-22:01:36 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+19.04.2015-22:01:36 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+19.04.2015-22:10:14 : Logging Started
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 21: Loading file: res/models/cube/cube.obj
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 21: Loading file: res/models/scene/scene.obj
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:14 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+19.04.2015-22:10:14 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 87: no valid mesh
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: cube.obj
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: scene.obj
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube.001_Cube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cylinder
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne.001
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.002_Icosphere.001
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.002
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.001_Icosphere
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.001
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone.001
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Grid
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:10:32 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: supercube
+19.04.2015-22:10:32 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+19.04.2015-22:10:32 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+19.04.2015-22:10:32 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+19.04.2015-22:14:09 : Logging Started
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 25: Loading file: res/models/cube/cube.obj
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 25: Loading file: res/models/scene/scene.obj
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:09 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+19.04.2015-22:14:09 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadNodetree: 95: no valid mesh
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: cube.obj
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: scene.obj
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube.001_Cube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cylinder
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne.001
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.002_Icosphere.001
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.002
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.001_Icosphere
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.001
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone.001
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Grid
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+19.04.2015-22:14:28 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: supercube
+19.04.2015-22:14:28 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+19.04.2015-22:14:28 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+19.04.2015-22:14:28 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+19.04.2015-22:59:41 : Logging Started
+19.04.2015-22:59:41 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+19.04.2015-22:59:41 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+19.04.2015-22:59:41 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+19.04.2015-22:59:41 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+19.04.2015-22:59:41 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+19.04.2015-22:59:41 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/cube/cube.obj
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+19.04.2015-22:59:41 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/scene/scene.obj
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+19.04.2015-22:59:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:41 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:43 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:44 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:45 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:45 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:45 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:45 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:45 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-22:59:45 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: cube.obj
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: scene.obj
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube.001_Cube
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cylinder
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne.001
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.002_Icosphere.001
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.002
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.001_Icosphere
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.001
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone.001
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Grid
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: supercube
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-22:59:45 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+19.04.2015-22:59:45 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+19.04.2015-22:59:45 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+19.04.2015-23:20:02 : Logging Started
+19.04.2015-23:20:02 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+19.04.2015-23:20:02 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+19.04.2015-23:20:02 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+19.04.2015-23:20:02 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+19.04.2015-23:20:02 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+19.04.2015-23:20:02 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/cube/cube.obj
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+19.04.2015-23:20:02 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/scene/scene.obj
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+19.04.2015-23:20:02 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:02 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:03 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:04 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:05 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: cube.obj
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: scene.obj
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube.001_Cube
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cylinder
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne.001
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.002_Icosphere.001
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.002
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.001_Icosphere
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.001
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone.001
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Grid
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: supercube
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:05 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+19.04.2015-23:20:05 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+19.04.2015-23:20:05 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+19.04.2015-23:20:37 : Logging Started
+19.04.2015-23:20:38 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+19.04.2015-23:20:38 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+19.04.2015-23:20:38 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+19.04.2015-23:20:38 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+19.04.2015-23:20:38 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+19.04.2015-23:20:38 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/cube/cube.obj
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+19.04.2015-23:20:38 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/scene/scene.obj
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:20:38 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: cube.obj
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: scene.obj
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube.001_Cube
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cylinder
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne.001
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.002_Icosphere.001
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.002
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.001_Icosphere
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.001
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone.001
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Grid
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: supercube
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:20:38 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+19.04.2015-23:20:38 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+19.04.2015-23:20:38 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+19.04.2015-23:22:25 : Logging Started
+19.04.2015-23:22:26 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+19.04.2015-23:22:26 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+19.04.2015-23:22:26 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+19.04.2015-23:22:26 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+19.04.2015-23:22:26 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+19.04.2015-23:22:26 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/cube/cube.obj
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+19.04.2015-23:22:26 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/scene/scene.obj
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/renderer/Renderer.cpp: drawMesh: 73: VAO is 0!
+19.04.2015-23:22:26 : ERROR   : /home/mars/Projekte/mgf/src/scene/MeshNode.cpp: renderImpl: 73: Rendering Failed!
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: cube.obj
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: scene.obj
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube.001_Cube
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cylinder
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne.001
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.002_Icosphere.001
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.002
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.001_Icosphere
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.001
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone.001
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Grid
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: supercube
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:22:26 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+19.04.2015-23:22:26 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+19.04.2015-23:22:26 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+19.04.2015-23:27:30 : Logging Started
+19.04.2015-23:27:30 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+19.04.2015-23:27:30 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+19.04.2015-23:27:30 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+19.04.2015-23:27:30 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+19.04.2015-23:27:30 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+19.04.2015-23:27:30 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/cube/cube.obj
+19.04.2015-23:27:30 : ERROR   : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadData: 132: Loading Mesh to GPU failed!
+19.04.2015-23:27:30 : ERROR   : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 48: Loading data from file: res/models/cube/cube.obj failed! 
+19.04.2015-23:27:30 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 27: Loading failed, exiting main!
+19.04.2015-23:27:30 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:27:30 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+19.04.2015-23:27:30 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+19.04.2015-23:27:30 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+19.04.2015-23:27:42 : Logging Started
+19.04.2015-23:27:42 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+19.04.2015-23:27:42 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+19.04.2015-23:27:42 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+19.04.2015-23:27:42 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+19.04.2015-23:27:42 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+19.04.2015-23:27:42 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/cube/cube.obj
+19.04.2015-23:27:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadData: 132: Loading Mesh to GPU failed!
+19.04.2015-23:27:42 : ERROR   : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 48: Loading data from file: res/models/cube/cube.obj failed! 
+19.04.2015-23:27:42 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 27: 
+
+Loading failed, exiting main!
+19.04.2015-23:27:42 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:27:42 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+19.04.2015-23:27:42 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+19.04.2015-23:27:42 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+19.04.2015-23:27:53 : Logging Started
+19.04.2015-23:27:54 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+19.04.2015-23:27:54 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+19.04.2015-23:27:54 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+19.04.2015-23:27:54 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+19.04.2015-23:27:54 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+19.04.2015-23:27:54 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/cube/cube.obj
+19.04.2015-23:27:54 : ERROR   : /home/mars/Projekte/mgf/src/scene/Loader.cpp: loadData: 132: Loading Mesh to GPU failed!
+19.04.2015-23:27:54 : ERROR   : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 48: Loading data from file: res/models/cube/cube.obj failed! 
+19.04.2015-23:27:54 : ERROR   : /home/mars/Projekte/mgf/main.cpp: main: 27: Loading failed, exiting main!
+19.04.2015-23:27:54 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:27:54 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+19.04.2015-23:27:54 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+19.04.2015-23:27:54 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+19.04.2015-23:28:39 : Logging Started
+19.04.2015-23:28:40 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+19.04.2015-23:28:40 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+19.04.2015-23:28:40 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+19.04.2015-23:28:40 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+19.04.2015-23:28:40 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+19.04.2015-23:28:40 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/cube/cube.obj
+19.04.2015-23:28:40 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+19.04.2015-23:28:40 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+19.04.2015-23:28:43 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: cube.obj
+19.04.2015-23:28:43 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: supercube
+19.04.2015-23:28:43 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:28:43 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+19.04.2015-23:28:43 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+19.04.2015-23:28:43 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+19.04.2015-23:28:55 : Logging Started
+19.04.2015-23:28:55 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+19.04.2015-23:28:55 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+19.04.2015-23:28:55 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+19.04.2015-23:28:55 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+19.04.2015-23:28:55 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+19.04.2015-23:28:55 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/cube/cube.obj
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+19.04.2015-23:28:55 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/scene/scene.obj
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+19.04.2015-23:28:55 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: cube.obj
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: scene.obj
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube.001_Cube
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cylinder
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne.001
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.002_Icosphere.001
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.002
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.001_Icosphere
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.001
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone.001
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Grid
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: supercube
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:29:18 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+19.04.2015-23:29:18 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+19.04.2015-23:29:18 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+19.04.2015-23:29:40 : Logging Started
+19.04.2015-23:29:41 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+19.04.2015-23:29:41 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+19.04.2015-23:29:41 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+19.04.2015-23:29:41 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+19.04.2015-23:29:41 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+19.04.2015-23:29:41 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/cube/cube.obj
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+19.04.2015-23:29:41 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/scene/scene.obj
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+19.04.2015-23:29:41 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: cube.obj
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: scene.obj
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube.001_Cube
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cylinder
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne.001
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.002_Icosphere.001
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.002
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.001_Icosphere
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.001
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone.001
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Grid
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: supercube
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:26 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+19.04.2015-23:30:26 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+19.04.2015-23:30:26 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+19.04.2015-23:30:46 : Logging Started
+19.04.2015-23:30:47 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+19.04.2015-23:30:47 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+19.04.2015-23:30:47 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/vertex_shader.glsl compiled successfully
+19.04.2015-23:30:47 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 108: Shader: res/shader/fragment_shader.glsl compiled successfully
+19.04.2015-23:30:47 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+19.04.2015-23:30:47 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/cube/cube.obj
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+19.04.2015-23:30:47 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 27: Loading file: res/models/scene/scene.obj
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+19.04.2015-23:30:47 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: cube.obj
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: scene.obj
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube.001_Cube
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cube
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cylinder
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne.001
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.002_Icosphere.001
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.002
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere.001_Icosphere
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus.001
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Cone.001
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Grid
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Suzanne
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Torus
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: Icosphere
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 27: Deleting Node: supercube
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+19.04.2015-23:30:49 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+19.04.2015-23:30:49 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+19.04.2015-23:30:49 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!

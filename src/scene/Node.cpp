@@ -40,10 +40,8 @@ std::shared_ptr<Node> Node::clone(){
 		ret->mParentNode = mParentNode;
 
 		ret->mTranslation = mTranslation;
-		ret->mRotation = mRotation;
 		ret->mScale = mScale;
 		ret->mTRS = mTRS;
-		ret->mTRSCurrent = mTRSCurrent;
 
 		for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){
 			ret->add(iter->second->clone());
@@ -128,7 +126,7 @@ glm::mat4 Node::getGlobalRotation(){
 	if(mParentNode){
 		ret = mParentNode->getGlobalRotation();
 	}
-	return ret * mRotation;
+	return ret * mTRS;
 }
 
 glm::vec3 Node::getGlobalScale(){

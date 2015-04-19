@@ -6,18 +6,102 @@
 
 #include "Loader.h"
 
+#include "../helper/Helper.h"
+
 namespace mgf{
 
-Loader::Loader(){
+Loader::Loader(bool loadIndexed){
+	mLoadIndexed = loadIndexed;
 }
 
 Loader::~Loader(){
 }
 
 std::shared_ptr<Node> Loader::load(const std::string &file){
-	std::shared_ptr<Node> ret;
+	LOG_F_INFO(MGF_LOG_FILE, "Loading file: ", file);
+
+	Assimp::Importer imp;
+	int impflags = (aiProcess_Triangulate |
+				   aiProcess_SortByPType |
+				   aiProcess_CalcTangentSpace |
+				   aiProcess_GenNormals);
+	if(mLoadIndexed) impflags |= aiProcess_JoinIdenticalVertices;
+
+	const aiScene *scene = imp.ReadFile(file.c_str(), impflags);
+	if(!scene){
+		LOG_F_ERROR(MGF_LOG_FILE, "Loading file: ", file, " failed! ", imp.GetErrorString());
+		return NULL;
+	}
+
+	if(!loadData(scene)){
+		LOG_F_ERROR(MGF_LOG_FILE, "Loading data from file: ", file, " failed! ", imp.GetErrorString());
+		return NULL;
+	}
+
+	std::shared_ptr<Node> ret = loadNodetree(scene->mRootNode);
+	if(!ret){
+		LOG_F_ERROR(MGF_LOG_FILE, "Creating Tree from file: ", file, " failed! ", imp.GetErrorString());
+		return NULL;
+	}
+
 	return ret;
 }
+
+std::shared_ptr<Node> Loader::loadNodetree(aiNode *ainode){
+	if(!ainode) return NULL;
+
+	std::shared_ptr<MeshNode> ret(new MeshNode(ainode->mName.C_Str()));
+
+	//ret->mName = ainode->mName.C_Str();
+	ret->mNumChildren = ainode->mNumChildren;
+
+	ret->mTRS[0][0] = ainode->mTransformation.a1; ret->mTRS[0][1] = ainode->mTransformation.b1;
+	ret->mTRS[0][2] = ainode->mTransformation.c1; ret->mTRS[0][3] = ainode->mTransformation.d1;
+	ret->mTRS[1][0] = ainode->mTransformation.a2; ret->mTRS[1][1] = ainode->mTransformation.b2;
+	ret->mTRS[1][2] = ainode->mTransformation.c2; ret->mTRS[1][3] = ainode->mTransformation.d2;
+	ret->mTRS[2][0] = ainode->mTransformation.a3; ret->mTRS[2][1] = ainode->mTransformation.b3;
+	ret->mTRS[2][2] = ainode->mTransformation.c3; ret->mTRS[2][3] = ainode->mTransformation.d3;
+	ret->mTRS[3][0] = ainode->mTransformation.a4; ret->mTRS[3][1] = ainode->mTransformation.b4;
+	ret->mTRS[3][2] = ainode->mTransformation.c4; ret->mTRS[3][3] = ainode->mTransformation.d4;
+
+	ret->mTranslation[0] = ret->mTRS[3][0];
+	ret->mTranslation[1] = ret->mTRS[3][1];
+	ret->mTranslation[2] = ret->mTRS[3][2];
+
+	ret->mTRS[3][0] = 0;
+	ret->mTRS[3][1] = 0;
+	ret->mTRS[3][2] = 0;
+
+	for(unsigned int i = 0; i < ainode->mNumMeshes; i++){
+		std::shared_ptr<Mesh> mesh = mLoadedData[ainode->mMeshes[i]];
+		if(mesh){
+			ret->addMesh(mesh);
+		}
+		else{
+			//return NULL;
+			ret->addMesh(createCube());
+			LOG_F_INFO(MGF_LOG_FILE, "no valid mesh");
+			ret->mTranslation = glm::vec3(rand() % 10, rand() % 10, rand() % 10);
+		}
+	}
+
+	for(unsigned int i = 0; i < ainode->mNumChildren; i++){
+		std::shared_ptr<Node> child = loadNodetree(ainode->mChildren[i]);
+		if(child){
+			ret->add(child);
+		}
+		else{
+			return NULL;
+		}
+	}
+
+	return ret;
+}
+
+bool Loader::loadData(const aiScene *scene){
+	return true;
+}
+
 
 /*
 mgf::scene *load(std::string path, int flags){

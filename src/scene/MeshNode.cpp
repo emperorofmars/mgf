@@ -29,10 +29,8 @@ std::shared_ptr<Node> MeshNode::clone(){
 		ret->mParentNode = mParentNode;
 
 		ret->mTranslation = mTranslation;
-		ret->mRotation = mRotation;
 		ret->mScale = mScale;
 		ret->mTRS = mTRS;
-		ret->mTRSCurrent = mTRSCurrent;
 
 		ret->mMeshes = mMeshes;
 

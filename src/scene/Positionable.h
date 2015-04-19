@@ -30,11 +30,8 @@ public:
 	glm::mat4 getTRS();
 
 protected:
-	glm::mat4 calculateTRS();
-
 	glm::vec3 mTranslation, mScale;
-	glm::mat4 mTRS, mRotation;
-	bool mTRSCurrent;
+	glm::mat4 mTRS;
 };
 
 } // mgf

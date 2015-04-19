@@ -8,18 +8,25 @@
 #define MGF_LOADER_H
 
 #include "../Include.h"
-#include "Node.h"
+#include "MeshNode.h"
 #include "../data/Data.h"
 
 namespace mgf{
 
 class Loader{
 public:
-	Loader();
+	Loader(bool loadIndexed = false);
 	~Loader();
 
 	std::shared_ptr<Node> load(const std::string &file);
+
 private:
+	std::shared_ptr<Node> loadNodetree(aiNode *ainode);
+	bool loadData(const aiScene *scene);
+
+	std::unordered_map<unsigned int, std::shared_ptr<Mesh>> mLoadedData;
+	bool mLoadIndexed;
+
 	std::mutex mMutex;
 };
 

@@ -227,13 +227,13 @@
 1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_window.cpp
 	"mgf_window.h"
 
-1429388849 source:/home/mars/Projekte/mgf/main.cpp
+1429470164 source:/home/mars/Projekte/mgf/main.cpp
 	"gl_test.h"
 
 1417280497 /home/mars/Projekte/mgf/gl_test.h
 	"src/mgf.h"
 
-1429380038 /home/mars/Projekte/mgf/src/mgf.h
+1429469027 /home/mars/Projekte/mgf/src/mgf.h
 	"util/Window.h"
 	"util/Input.h"
 	"util/ShaderProgram.h"
@@ -241,6 +241,7 @@
 	"renderer/Renderer.h"
 	"scene/Node.h"
 	"scene/MeshNode.h"
+	"scene/Loader.h"
 	"helper/Helper.h"
 
 1428524152 /home/mars/Projekte/mgf/src/mgf_include.h
@@ -354,7 +355,7 @@
 	"Node.h"
 	"../data/Data.h"
 
-1429381875 /home/mars/Projekte/mgf/src/scene/Positionable.h
+1429468043 /home/mars/Projekte/mgf/src/scene/Positionable.h
 	"../Include.h"
 
 1429387313 /home/mars/Projekte/mgf/src/scene/Node.h
@@ -465,18 +466,19 @@
 1428950791 source:/home/mars/Projekte/mgf/src/data/Texture.cpp
 	"Texture.h"
 
-1429387582 source:/home/mars/Projekte/mgf/src/scene/Node.cpp
+1429468553 source:/home/mars/Projekte/mgf/src/scene/Node.cpp
 	"Node.h"
 
-1429032200 source:/home/mars/Projekte/mgf/src/scene/Loader.cpp
+1429470078 source:/home/mars/Projekte/mgf/src/scene/Loader.cpp
 	"Loader.h"
+	"../helper/Helper.h"
 
-1428952733 /home/mars/Projekte/mgf/src/scene/Loader.h
+1429469820 /home/mars/Projekte/mgf/src/scene/Loader.h
 	"../Include.h"
-	"Node.h"
+	"MeshNode.h"
 	"../data/Data.h"
 
-1429381822 source:/home/mars/Projekte/mgf/src/scene/Positionable.cpp
+1429468908 source:/home/mars/Projekte/mgf/src/scene/Positionable.cpp
 	"Positionable.h"
 	"../helper/Helper.h"
 
@@ -487,13 +489,13 @@
 	"../util/Camera.h"
 	"../data/Data.h"
 
-1429387587 source:/home/mars/Projekte/mgf/src/scene/MeshNode.cpp
+1429468500 source:/home/mars/Projekte/mgf/src/scene/MeshNode.cpp
 	"MeshNode.h"
 
 1429389404 source:/home/mars/Projekte/mgf/src/renderer/Renderer.cpp
 	"Renderer.h"
 
-1429387010 /home/mars/Projekte/mgf/src/scene/MeshNode.h
+1429470083 /home/mars/Projekte/mgf/src/scene/MeshNode.h
 	"Node.h"
 	"../data/Data.h"
 

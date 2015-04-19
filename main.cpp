@@ -21,24 +21,24 @@ int main(int argc, char *argv[]){
 
 	std::shared_ptr<mgf::Renderer> renderer(new mgf::Renderer(w, cam, p));
 
-	//int loaderflags = 0;
-	//if(INTEL_GPU == 1) loaderflags |= LOAD_NO_INDICES;	//weil intel gpus zu blöd für inexed draws sind
-	//mgf::scene *scene = mgf::load("res/models/cube/cube.obj", loaderflags);
-	//mgf::load_into_scene(scene, "res/models/scene/scene.obj", loaderflags);
-
+	mgf::Loader l;
+	std::shared_ptr<mgf::Node> root = l.load("res/models/cube/cube.obj"); //"res/models/scene/scene.obj"
+	root->add(l.load("res/models/scene/scene.obj"));
+/*
 	std::shared_ptr<mgf::Node> node(new mgf::Node("root"));
 	node->add(std::shared_ptr<mgf::Node>(new mgf::MeshNode("child1")));
 	node->print();
 	node->translate(glm::vec3(0.f, 1.f, 0.f));
 	std::shared_ptr<mgf::MeshNode> tmp = std::dynamic_pointer_cast<mgf::MeshNode>(node->getChild("child1"));
 	tmp->translate(glm::vec3(5.f, 0.f, 0.f));
-	tmp->rotate(20.f, glm::vec3(0.f, 1.f, 0.f));
+	tmp->rotate(20.f, glm::vec3(0.3f, 1.f, 0.1f));
+	tmp->scale(glm::vec3(4.f, 1.f, 1.f));
 	tmp->addMesh(mgf::createCube());
 
 	std::cout << "TRANSLATION: " << mgf::vec3_toStr(tmp->getGlobalTranslation()) << std::endl;
 	std::cout << "ROTATION: " << std::endl << mgf::mat4_toStr(tmp->getGlobalRotation()) << std::endl;
 	std::cout << "TRS: " << std::endl << mgf::mat4_toStr(tmp->getGlobalTRS()) << std::endl;
-
+*/
 
 	SDL_SetRelativeMouseMode(SDL_TRUE);
 
@@ -59,7 +59,7 @@ int main(int argc, char *argv[]){
 
 		SDL_Delay(16);
 
-		node->render(renderer);
+		root->render(renderer);
 
 		w->swap();
 

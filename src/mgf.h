@@ -15,6 +15,7 @@
 #include "renderer/Renderer.h"
 #include "scene/Node.h"
 #include "scene/MeshNode.h"
+#include "scene/Loader.h"
 #include "helper/Helper.h"
 
 namespace mgf{

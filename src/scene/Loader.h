@@ -24,7 +24,7 @@ public:
 private:
 	std::shared_ptr<Node> loadNodetree(aiNode *ainode);
 	bool loadData(const aiScene *scene);
-	std::shared_ptr<Mesh> loadMesh(aiMesh *mesh);
+	std::shared_ptr<Mesh> loadMesh(aiMesh *mesh, bool loadToData = false);
 	std::shared_ptr<Material> loadMaterial(aiMaterial *material);
 	std::shared_ptr<Texture> loadTexture(const std::string &path);
 	std::shared_ptr<Light> loadLight(const std::string &path);

@@ -142,7 +142,7 @@ bool Loader::loadData(const aiScene *scene){
 	return true;
 }
 
-std::shared_ptr<Mesh> Loader::loadMesh(aiMesh *mesh){
+std::shared_ptr<Mesh> Loader::loadMesh(aiMesh *mesh, bool loadToData){
 	if(!mesh) return NULL;
 	std::shared_ptr<Mesh> ret(new Mesh);
 
@@ -155,35 +155,37 @@ std::shared_ptr<Mesh> Loader::loadMesh(aiMesh *mesh){
 
 	ret->mRenderIndexed = mLoadIndexed;
 
-	ret->mIndices.resize(mesh->mNumFaces * 3);
-	ret->mVertices.resize(mesh->mNumVertices);
-	ret->mNormals.resize(mesh->mNumVertices);
-	ret->mUV.resize(mesh->GetNumUVChannels());
+	if(loadToData){
+		ret->mIndices.resize(mesh->mNumFaces * 3);
+		ret->mVertices.resize(mesh->mNumVertices);
+		ret->mNormals.resize(mesh->mNumVertices);
+		ret->mUV.resize(mesh->GetNumUVChannels());
 
-	for(unsigned int i = 0; i < mesh->mNumFaces; i++){
-		ret->mIndices[i * 3] = mesh->mFaces[i].mIndices[0];
-		ret->mIndices[i * 3 + 1] = mesh->mFaces[i].mIndices[1];
-		ret->mIndices[i * 3 + 2] = mesh->mFaces[i].mIndices[2];
-	}
+		for(unsigned int i = 0; i < mesh->mNumFaces; i++){
+			ret->mIndices[i * 3] = mesh->mFaces[i].mIndices[0];
+			ret->mIndices[i * 3 + 1] = mesh->mFaces[i].mIndices[1];
+			ret->mIndices[i * 3 + 2] = mesh->mFaces[i].mIndices[2];
+		}
 
-	for(unsigned int i = 0; i < mesh->mNumVertices; i++){
-		ret->mVertices[i][0] = mesh->mVertices[i][0];
-		ret->mVertices[i][1] = mesh->mVertices[i][1];
-		ret->mVertices[i][2] = mesh->mVertices[i][2];
-	}
+		for(unsigned int i = 0; i < mesh->mNumVertices; i++){
+			ret->mVertices[i][0] = mesh->mVertices[i][0];
+			ret->mVertices[i][1] = mesh->mVertices[i][1];
+			ret->mVertices[i][2] = mesh->mVertices[i][2];
+		}
 
-	for(unsigned int i = 0; i < mesh->mNumVertices; i++){
-		ret->mNormals[i][0] = mesh->mNormals[i][0];
-		ret->mNormals[i][1] = mesh->mNormals[i][1];
-		ret->mNormals[i][2] = mesh->mNormals[i][2];
-	}
+		for(unsigned int i = 0; i < mesh->mNumVertices; i++){
+			ret->mNormals[i][0] = mesh->mNormals[i][0];
+			ret->mNormals[i][1] = mesh->mNormals[i][1];
+			ret->mNormals[i][2] = mesh->mNormals[i][2];
+		}
 
-	for(unsigned int i = 0; i < mesh->GetNumUVChannels(); i++){
-		ret->mUV[i].resize(mesh->mNumUVComponents[i]);
-		for(unsigned int j = 0; j < mesh->mNumUVComponents[i]; j++){
-			ret->mUV[i][j][0] = mesh->mTextureCoords[i][j][0];
-			ret->mUV[i][j][1] = mesh->mTextureCoords[i][j][1];
-			ret->mUV[i][j][2] = mesh->mTextureCoords[i][j][2];
+		for(unsigned int i = 0; i < mesh->GetNumUVChannels(); i++){
+			ret->mUV[i].resize(mesh->mNumUVComponents[i]);
+			for(unsigned int j = 0; j < mesh->mNumUVComponents[i]; j++){
+				ret->mUV[i][j][0] = mesh->mTextureCoords[i][j][0];
+				ret->mUV[i][j][1] = mesh->mTextureCoords[i][j][1];
+				ret->mUV[i][j][2] = mesh->mTextureCoords[i][j][2];
+			}
 		}
 	}
 
@@ -228,38 +230,34 @@ bool Loader::loadMeshToGPU(std::shared_ptr<Mesh> mesh){
 		delete [] indices;
 	}
 	else mesh->mIndexbuffer = 0;
-/*
-	if(data->_meshes[i].positions.size() > 0){
-		glGenBuffers(1, &data->_meshes[i].vertexbuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, data->_meshes[i].vertexbuffer);
-		glBufferData(GL_ARRAY_BUFFER, data->_meshes[i].positions.size() * sizeof(glm::vec3), &data->_meshes[i].positions[0], GL_STATIC_DRAW);
+
+	if(mesh->mVertices.size() > 0){
+		glGenBuffers(1, &mesh->mVertexbuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, mesh->mVertexbuffer);
+		glBufferData(GL_ARRAY_BUFFER, mesh->mNumVertices * sizeof(aiVector3D), &mesh->mVertices[0], GL_STATIC_DRAW);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 		glEnableVertexAttribArray(0);
 	}
-	else data->_meshes[i].vertexbuffer = 0;
 
-	if(data->_meshes[i].normals.size() > 0){
-		glGenBuffers(1, &data->_meshes[i].normalbuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, data->_meshes[i].normalbuffer);
-		glBufferData(GL_ARRAY_BUFFER, data->_meshes[i].normals.size() * sizeof(glm::vec3), &data->_meshes[i].normals[0], GL_STATIC_DRAW);
+	if(mesh->mNormals.size() > 0){
+		glGenBuffers(1, &mesh->mNormalbuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, mesh->mNormalbuffer);
+		glBufferData(GL_ARRAY_BUFFER, mesh->mNumVertices * sizeof(aiVector3D), &mesh->mNormals[0], GL_STATIC_DRAW);
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 		glEnableVertexAttribArray(1);
 	}
-	else data->_meshes[i].normalbuffer = 0;
 
-	data->_meshes[i].uvbuffer.resize(data->_meshes[i].texcoords.size() > 0);
-	for(unsigned int j = 0; j < data->_meshes[i].uvbuffer.size(); j++){
-		if(data->_meshes[i].texcoords[j].size()){
-			glGenBuffers(1, &data->_meshes[i].uvbuffer[j]);
-			glBindBuffer(GL_ARRAY_BUFFER, data->_meshes[i].uvbuffer[j]);
-			glBufferData(GL_ARRAY_BUFFER, data->_meshes[i].texcoords[j].size() * sizeof(glm::vec3), &data->_meshes[i].texcoords[j][0], GL_STATIC_DRAW);
+	for(unsigned int i = 0; i < mesh->mUVBuffer.size(); i++){
+		if(mesh->mUV[i].size() > 0){
+			glGenBuffers(1, &mesh->mUVBuffer[i]);
+			glBindBuffer(GL_ARRAY_BUFFER, mesh->mUVBuffer[i]);
+			glBufferData(GL_ARRAY_BUFFER, mesh->mNumVertices * sizeof(aiVector3D), &mesh->mUV[i][0], GL_STATIC_DRAW);
 			glVertexAttribPointer(2 + i, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 			glEnableVertexAttribArray(2 + i);
 		}
-		else data->_meshes[i].uvbuffer[j] = 0;
 	}
 	glBindVertexArray(0);
-*/
+
 	return true;
 }
 
@@ -292,29 +290,26 @@ bool Loader::loadMeshToGPU(std::shared_ptr<Mesh> mgfmesh, aiMesh *aimesh){
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 		glEnableVertexAttribArray(0);
 	}
-	else mgfmesh->mVertexbuffer = 0;
-/*
-	if(ai_scene->mMeshes[i]->HasNormals()){
-		glGenBuffers(1, &data->_meshes[i + oldsize_meshes].normalbuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, data->_meshes[i + oldsize_meshes].normalbuffer);
-		glBufferData(GL_ARRAY_BUFFER, ai_scene->mMeshes[i]->mNumVertices * sizeof(aiVector3D), ai_scene->mMeshes[i]->mNormals, GL_STATIC_DRAW);
+
+	if(aimesh->HasNormals()){
+		glGenBuffers(1, &mgfmesh->mNormalbuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, mgfmesh->mNormalbuffer);
+		glBufferData(GL_ARRAY_BUFFER, aimesh->mNumVertices * sizeof(aiVector3D), aimesh->mNormals, GL_STATIC_DRAW);
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 		glEnableVertexAttribArray(1);
 	}
-	else data->_meshes[i + oldsize_meshes].normalbuffer = 0;
 
-	data->_meshes[i + oldsize_meshes].uvbuffer.resize(ai_scene->mMeshes[i]->GetNumUVChannels());
-	for(unsigned int j = 0; j < data->_meshes[i + oldsize_meshes].uvbuffer.size(); j++){
-		if(ai_scene->mMeshes[i]->HasTextureCoords(j)){
-			glGenBuffers(1, &data->_meshes[i + oldsize_meshes].uvbuffer[j]);
-			glBindBuffer(GL_ARRAY_BUFFER, data->_meshes[i + oldsize_meshes].uvbuffer[j]);
-			glBufferData(GL_ARRAY_BUFFER, ai_scene->mMeshes[i]->mNumVertices * sizeof(aiVector3D), ai_scene->mMeshes[i]->mTextureCoords[j], GL_STATIC_DRAW);
+	mgfmesh->mUVBuffer.resize(aimesh->GetNumUVChannels());
+	for(unsigned int i = 0; i < mgfmesh->mUVBuffer.size(); i++){
+		if(aimesh->HasTextureCoords(i)){
+			glGenBuffers(1, &mgfmesh->mUVBuffer[i]);
+			glBindBuffer(GL_ARRAY_BUFFER, mgfmesh->mUVBuffer[i]);
+			glBufferData(GL_ARRAY_BUFFER, aimesh->mNumVertices * sizeof(aiVector3D), aimesh->mTextureCoords[i], GL_STATIC_DRAW);
 			glVertexAttribPointer(2 + i, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 			glEnableVertexAttribArray(2 + i);
 		}
-		else data->_meshes[i + oldsize_meshes].uvbuffer[j] = 0;
 	}
-*/
+
 	glBindVertexArray(0);
 
 	return true;

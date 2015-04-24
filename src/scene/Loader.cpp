@@ -10,9 +10,10 @@
 
 namespace mgf{
 
-Loader::Loader(bool loadIndexed){
+Loader::Loader(bool loadIndexed, bool loadOnlyToGPU){
 	mData.reset(new Data);
 	mLoadIndexed = loadIndexed;
+	mLoadOnlyToGPU = loadOnlyToGPU;
 }
 
 Loader::~Loader(){
@@ -20,7 +21,10 @@ Loader::~Loader(){
 
 void Loader::clear(){
 	mLoadedMeshes.clear();
+	mLoadedMaterials.clear();
+	mLoadedTextures.clear();
 	mData.reset(new Data);
+	mFile = "";
 }
 
 std::shared_ptr<Node> Loader::load(const std::string &file){
@@ -29,6 +33,8 @@ std::shared_ptr<Node> Loader::load(const std::string &file){
 	mMutex.lock();
 
 	clear();
+
+	mFile = file;
 
 	Assimp::Importer imp;
 	int impflags = (aiProcess_Triangulate |
@@ -94,7 +100,7 @@ std::shared_ptr<Node> Loader::loadNodetree(aiNode *ainode){
 		else{
 			//return NULL;
 			ret->addMesh(createCube());
-			LOG_F_INFO(MGF_LOG_FILE, "no valid mesh");
+			LOG_F_ERROR(MGF_LOG_FILE, "no valid mesh");
 			ret->mTranslation = glm::vec3(rand() % 10, rand() % 10, rand() % 10);
 		}
 	}
@@ -105,6 +111,7 @@ std::shared_ptr<Node> Loader::loadNodetree(aiNode *ainode){
 			ret->add(child);
 		}
 		else{
+			LOG_F_ERROR(MGF_LOG_FILE, "Creating Nodetree failed!");
 			return NULL;
 		}
 	}
@@ -194,15 +201,58 @@ std::shared_ptr<Mesh> Loader::loadMesh(aiMesh *mesh, bool loadToData){
 
 std::shared_ptr<Material> Loader::loadMaterial(aiMaterial *material){
 	std::shared_ptr<Material> ret(new Material);
+
 	aiColor4D col;
 	if(AI_SUCCESS == aiGetMaterialColor(material, AI_MATKEY_COLOR_DIFFUSE, &col)){
 		ret->mDiffuseColor = glm::vec4(col[0], col[1], col[2], col[3]);
 	}
+
+	ret->mDiffuseTextures.resize(material->GetTextureCount(aiTextureType_DIFFUSE));
+
+	std::string path = mFile;
+	for(unsigned int i = path.size() - 1; i > 0; i--){
+		if(path[i] == '/') break;
+		else path.erase(path.begin() + i);
+	}
+
+	for(unsigned int i = 0; i < material->GetTextureCount(aiTextureType_DIFFUSE); i++){
+		std::string newpath(path);
+		aiString tmp;
+		material->GetTexture(aiTextureType_DIFFUSE, i, &tmp, NULL, NULL, NULL, NULL, NULL);	//get texture path relative to loadded file
+		newpath.append(tmp.data);	//construct path to texture file
+		ret->mDiffuseTextures[i] = loadTexture(newpath);
+
+		if(ret->mDiffuseTextures[i]){
+			loadTextureToGPU(ret->mDiffuseTextures[i], i);
+			if(mLoadOnlyToGPU){
+				SDL_FreeSurface(ret->mDiffuseTextures[i]->mImage);
+				ret->mDiffuseTextures[i]->mImage = NULL;
+			}
+		}
+	}
+
 	return ret;
 }
 
 std::shared_ptr<Texture> Loader::loadTexture(const std::string &path){
 	std::shared_ptr<Texture> ret(new Texture);
+
+	if(mLoadedTextures[path] != NULL){
+		LOG_F_INFO(MGF_LOG_FILE, "Texture already exists: ", path);
+		return mLoadedTextures[path];
+	}
+
+	ret->mName = path;
+
+	SDL_Surface *image = IMG_Load(path.c_str());
+	if(!image){
+		LOG_F_ERROR(MGF_LOG_FILE, "Failed to load Testure: ", path);
+		return NULL;
+	}
+	ret->mImage = image;
+
+	mLoadedTextures[path] = ret;
+
 	return ret;
 }
 
@@ -315,7 +365,24 @@ bool Loader::loadMeshToGPU(std::shared_ptr<Mesh> mgfmesh, aiMesh *aimesh){
 	return true;
 }
 
-bool Loader::loadTextureToGPU(Texture texture){
+bool Loader::loadTextureToGPU(std::shared_ptr<Texture> texture, unsigned int index){
+	glActiveTexture(GL_TEXTURE0 + index);	//create opengl texture object
+	glGenTextures(1, &texture->mTextureBuffer);
+	glBindTexture(GL_TEXTURE_2D, texture->mTextureBuffer);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+
+	if(texture->mImage == NULL){
+		texture->mImage = IMG_Load(texture->mName.c_str());
+	}
+
+	if(texture->mImage != NULL){	//load it to gpu
+		glTexStorage2D(GL_TEXTURE_2D, 8, GL_RGBA32F, texture->mImage->w, texture->mImage->h);
+		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, texture->mImage->w, texture->mImage->h, GL_RGBA, GL_UNSIGNED_BYTE, texture->mImage->pixels);
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+
 	return true;
 }
 

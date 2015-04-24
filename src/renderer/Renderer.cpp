@@ -110,9 +110,9 @@ bool Renderer::applyMaterial(std::shared_ptr<Material> data){
 	glUniform1f(loc, alpha);
 
 	float has_texture;
-	if(data->mDiffuseTexture.size() > 0){
+	if(data->mDiffuseTextures.size() > 0){
 		has_texture = 1.f;
-		glBindTexture(GL_TEXTURE_2D, data->mDiffuseTexture[0]->mTextureBuffer);
+		glBindTexture(GL_TEXTURE_2D, data->mDiffuseTextures[0]->mTextureBuffer);
 	}
 	else{
 		has_texture = 0.f;

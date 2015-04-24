@@ -19,7 +19,7 @@ public:
 
 	std::string mName;
 
-	std::vector<std::shared_ptr<Texture>> mDiffuseTexture;
+	std::vector<std::shared_ptr<Texture>> mDiffuseTextures;
 	glm::vec4 mDiffuseColor;
 };
 

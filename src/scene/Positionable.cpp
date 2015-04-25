@@ -23,7 +23,7 @@ void Positionable::translate(glm::vec3 data){
 }
 
 void Positionable::rotate(float angle, glm::vec3 data){
-	mTRS *= glm::rotate(glm::mat4(1), angle, data);
+	mTRS = glm::rotate(glm::mat4(1), angle, data) * mTRS;
 }
 
 void Positionable::scale(glm::vec3 data){
@@ -59,7 +59,7 @@ glm::vec3 Positionable::getScale(){
 }
 
 glm::mat4 Positionable::getTRS(){
-	return mTRS * glm::translate(glm::mat4(1), mTranslation);
+	return glm::translate(glm::mat4(1), mTranslation) * mTRS;
 }
 
 }

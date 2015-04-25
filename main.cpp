@@ -23,19 +23,21 @@ int main(int argc, char *argv[]){
 
 //###############################################  Load 3d files
 	mgf::Loader l;
-	std::shared_ptr<mgf::Node> root(new mgf::Node());
+	std::shared_ptr<mgf::Node> root(new mgf::Node("root"));
 	root->add(l.load("res/models/cube/cube.obj"));
 	root->add(l.load("res/models/scene/scene.obj"));
 	root->print();
 
 //###############################################  clone objects into szene
-	std::shared_ptr<mgf::Node> actualScene(new mgf::Node());
+	std::shared_ptr<mgf::Node> actualScene(new mgf::Node("scene"));
 	actualScene->add(root->getChild("scene.obj")->getChild("Cube")->clone());
 	actualScene->add(root->getChild("scene.obj")->getChild("Suzanne")->clone());
 	actualScene->print();
 
 //###############################################  transform objects
 	actualScene->getChild("Suzanne")->scale(glm::vec3(2.f, 3.f, 4.f));
+	actualScene->getChild("Cube")->translate(glm::vec3(2.f, 3.f, 4.f));
+	actualScene->getChild("Cube")->scale(glm::vec3(1.f, 1.f, 4.f));
 
 	w->use();
 	p->use();
@@ -49,7 +51,7 @@ int main(int argc, char *argv[]){
 		quit = input->getQuit();
 		cam->update(input->getPos(), input->getRot());
 
-		actualScene->getChild("Cube")->rotate(0.2f, glm::vec3(0.f,1.f, 0.f)); //rotate the cube
+		actualScene->getChild("Cube")->rotate(0.02f, glm::vec3(0.f,1.f, 0.f)); //rotate the cube
 //###############################################  Rendering
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));

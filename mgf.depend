@@ -227,7 +227,7 @@
 1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_window.cpp
 	"mgf_window.h"
 
-1429971144 source:/home/mars/Projekte/mgf/main.cpp
+1430077146 source:/home/mars/Projekte/mgf/main.cpp
 	"gl_test.h"
 
 1417280497 /home/mars/Projekte/mgf/gl_test.h
@@ -364,7 +364,7 @@
 	"../renderer/Renderer.h"
 	"../helper/Helper.h"
 
-1429384903 /home/mars/Projekte/mgf/src/Include.h
+1430078211 /home/mars/Projekte/mgf/src/Include.h
 	<iostream>
 	<vector>
 	<unordered_map>
@@ -380,6 +380,7 @@
 	<glm/glm.hpp>
 	<glm/gtc/type_ptr.hpp>
 	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/matrix_inverse.hpp>
 	<assimp/Importer.hpp>
 	<assimp/scene.h>
 	<assimp/postprocess.h>
@@ -433,7 +434,7 @@
 1428703535 /home/mars/Projekte/mgf/src/util/Input.h
 	"../Include.h"
 
-1428703538 /home/mars/Projekte/mgf/src/util/ShaderProgram.h
+1430078530 /home/mars/Projekte/mgf/src/util/ShaderProgram.h
 	"../Include.h"
 
 1428703542 /home/mars/Projekte/mgf/src/util/Camera.h
@@ -448,7 +449,7 @@
 1429387936 source:/home/mars/Projekte/mgf/src/util/Window.cpp
 	"Window.h"
 
-1428703869 source:/home/mars/Projekte/mgf/src/util/ShaderProgram.cpp
+1430077428 source:/home/mars/Projekte/mgf/src/util/ShaderProgram.cpp
 	"ShaderProgram.h"
 
 1428950970 source:/home/mars/Projekte/mgf/src/data/Data.cpp
@@ -466,7 +467,7 @@
 1428950791 source:/home/mars/Projekte/mgf/src/data/Texture.cpp
 	"Texture.h"
 
-1429468553 source:/home/mars/Projekte/mgf/src/scene/Node.cpp
+1430077592 source:/home/mars/Projekte/mgf/src/scene/Node.cpp
 	"Node.h"
 
 1429968523 source:/home/mars/Projekte/mgf/src/scene/Loader.cpp
@@ -478,11 +479,11 @@
 	"MeshNode.h"
 	"../data/Data.h"
 
-1429971058 source:/home/mars/Projekte/mgf/src/scene/Positionable.cpp
+1430077611 source:/home/mars/Projekte/mgf/src/scene/Positionable.cpp
 	"Positionable.h"
 	"../helper/Helper.h"
 
-1429384377 /home/mars/Projekte/mgf/src/renderer/Renderer.h
+1430077569 /home/mars/Projekte/mgf/src/renderer/Renderer.h
 	"../Include.h"
 	"../util/Window.h"
 	"../util/ShaderProgram.h"
@@ -492,7 +493,7 @@
 1429468500 source:/home/mars/Projekte/mgf/src/scene/MeshNode.cpp
 	"MeshNode.h"
 
-1429879598 source:/home/mars/Projekte/mgf/src/renderer/Renderer.cpp
+1430078244 source:/home/mars/Projekte/mgf/src/renderer/Renderer.cpp
 	"Renderer.h"
 
 1429470083 /home/mars/Projekte/mgf/src/scene/MeshNode.h

@@ -36,11 +36,8 @@ int main(int argc, char *argv[]){
 
 //###############################################  transform objects
 	actualScene->getChild("Suzanne")->scale(glm::vec3(2.f, 3.f, 4.f));
-	actualScene->getChild("Cube")->translate(glm::vec3(2.f, 3.f, 4.f));
+	actualScene->getChild("Cube")->translate(glm::vec3(2.f, 0.f, 4.f));
 	actualScene->getChild("Cube")->scale(glm::vec3(1.f, 1.f, 4.f));
-
-	w->use();
-	p->use();
 
 //###############################################  Gameloop
 	float current = 0, last = 0, frametime = 0;

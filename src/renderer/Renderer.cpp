@@ -53,6 +53,9 @@ bool Renderer::clearLights(){
 }
 
 bool Renderer::drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform){
+	mWindow->use();
+	mShaderProgram->use();
+
 	if(!data){
 		LOG_F_ERROR(MGF_LOG_FILE, "data is NULL!");
 		return false;
@@ -62,6 +65,10 @@ bool Renderer::drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform){
 		return false;
 	}
 	if(!applyMatrix(mCamera->getVP(), mShaderProgram->get(MATRIX_VP))){
+		LOG_F_ERROR(MGF_LOG_FILE, "applyMatrix VP Failed!");
+		return false;
+	}
+	if(!applyMatrix(glm::inverseTranspose(transform), mShaderProgram->get(MATRIX_NORM))){
 		LOG_F_ERROR(MGF_LOG_FILE, "applyMatrix VP Failed!");
 		return false;
 	}

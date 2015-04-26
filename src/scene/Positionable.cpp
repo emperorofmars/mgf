@@ -62,7 +62,7 @@ glm::mat4 Positionable::getTRS(){
 	return glm::translate(glm::mat4(1), mTranslation) * mTRS;
 }
 
-}
+} // mgf
 
 
 

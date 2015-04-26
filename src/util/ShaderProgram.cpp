@@ -10,12 +10,12 @@ namespace mgf{
 
 ShaderProgram::ShaderProgram(){
 	mProgram = 0;
-	memset(mLocations, 0, SIZE);
+	memset(mLocations, 0, SHADER_LOC_SIZE);
 }
 
 ShaderProgram::ShaderProgram(std::vector<struct shader_to_programm> &shaders){
 	mProgram = 0;
-	memset(mLocations, 0, SIZE);
+	memset(mLocations, 0, SHADER_LOC_SIZE);
 	mShaders = shaders;
 }
 
@@ -76,6 +76,7 @@ int ShaderProgram::createProgram(){
 
 	mLocations[MATRIX_MODEL] = glGetUniformLocation(mProgram, _shader_matrix_model);
 	mLocations[MATRIX_VP] = glGetUniformLocation(mProgram, _shader_matrix_view_perspective);
+	mLocations[MATRIX_NORM] = glGetUniformLocation(mProgram, _shader_matrix_normals);
 	mLocations[MATERIAL_COLOR_DIFFUSE] = glGetUniformLocation(mProgram, _shader_material_color_diffuse);
 	mLocations[MATERIAL_ALPHA] = glGetUniformLocation(mProgram, _shader_material_alpha);
 	mLocations[MATERIAL_HAS_TEXTURE] = glGetUniformLocation(mProgram, _shader_material_has_texture);
@@ -114,6 +115,10 @@ GLuint ShaderProgram::createShader(std::string &sourcefile, GLenum shader_type){
         shader = 0;
     }
     return shader;
+}
+
+void ShaderProgram::setLocation(int loc, const std::string name){
+	mLocations[loc] = glGetUniformLocation(mProgram, name.c_str());
 }
 
 void ShaderProgram::printShaderLog(GLuint shader){

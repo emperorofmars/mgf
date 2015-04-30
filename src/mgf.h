@@ -15,6 +15,7 @@
 #include "camera/CameraFPSEuler.h"
 #include "camera/CameraFPSQuat.h"
 #include "camera/CameraFlightQuat.h"
+#include "camera/CameraTopDown.h"
 #include "renderer/Renderer.h"
 #include "scene/Node.h"
 #include "scene/MeshNode.h"

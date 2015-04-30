@@ -18,7 +18,7 @@ int main(int argc, char *argv[]){
 	p->addShader("res/shader/fragment_shader.glsl", GL_FRAGMENT_SHADER);
 	p->createProgram();
 
-	std::shared_ptr<mgf::ICamera> cam(new mgf::CameraFPSEuler(90, w->getAspectRatio(), 1000.f, 0.1f));
+	std::shared_ptr<mgf::ICamera> cam(new mgf::CameraTopDown(90, w->getAspectRatio(), 1000.f, 0.1f));
 	std::shared_ptr<mgf::Renderer> renderer(new mgf::Renderer(w, cam, p));
 
 //###############################################  Load 3d files
@@ -35,8 +35,9 @@ int main(int argc, char *argv[]){
 	actualScene->print();
 
 //###############################################  transform objects
-	actualScene->getChild("Suzanne")->scale(glm::vec3(2.f, 3.f, 4.f));
-	actualScene->getChild("Cube")->translate(glm::vec3(2.f, 0.f, 4.f));
+	actualScene->getChild("Suzanne")->scale(glm::vec3(1.f, 1.5f, 2.f));
+	actualScene->getChild("Suzanne")->translate(glm::vec3(5.f, -5.f, 2.f));
+	actualScene->getChild("Cube")->translate(glm::vec3(2.f, 1.f, 4.f));
 	actualScene->getChild("Cube")->scale(glm::vec3(1.f, 1.f, 4.f));
 
 //###############################################  Gameloop

@@ -44,7 +44,6 @@ void BaseCamera::setPos(glm::vec3 pos){
 
 void BaseCamera::setRot(glm::vec3 rot){
     mRot = rot;
-	mView = glm::lookAt(mPos, mPos + mDir, mUp);
     return;
 }
 

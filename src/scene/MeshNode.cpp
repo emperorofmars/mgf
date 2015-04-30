@@ -53,6 +53,16 @@ bool MeshNode::removeMesh(std::shared_ptr<Mesh> data){
 	return true;
 }
 
+void MeshNode::setMaterial(std::shared_ptr<Material> material){
+	mMaterial = material;
+	return;
+}
+
+void MeshNode::resetMaterial(){
+	mMaterial.reset();
+	return;
+}
+
 bool MeshNode::update(std::shared_ptr<Renderer> renderer){
 	return updateImpl(glm::mat4(1), renderer);
 }
@@ -69,7 +79,7 @@ bool MeshNode::renderImpl(glm::mat4 transform, std::shared_ptr<Renderer> rendere
 	transform *= getTRS();
 
 	for(unsigned int i = 0; i < mMeshes.size(); i++){
-		if(!renderer->drawMesh(mMeshes[i], transform)){
+		if(!renderer->drawMesh(mMeshes[i], transform, mMaterial)){
 			LOG_F_ERROR(MGF_LOG_FILE, "Rendering Failed!");
 			return false;
 		}

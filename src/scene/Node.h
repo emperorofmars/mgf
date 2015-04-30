@@ -30,10 +30,15 @@ public:
 	bool remove(const std::string name);
 	bool remove(unsigned int id);
 
-	void setVisible(bool visible);
+	virtual void setVisible(bool visible);
 
 	virtual bool update(std::shared_ptr<Renderer> renderer);
 	virtual bool render(std::shared_ptr<Renderer> renderer);
+
+	virtual bool addMesh(std::shared_ptr<Mesh> data);
+	virtual bool removeMesh(std::shared_ptr<Mesh> data);
+	virtual void setMaterial(std::shared_ptr<Material> material);
+	virtual void resetMaterial();
 
 	mgfID_t getID();
 	std::string getName();

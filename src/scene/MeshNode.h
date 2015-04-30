@@ -19,8 +19,11 @@ public:
 
 	virtual std::shared_ptr<Node> clone();
 
-	bool addMesh(std::shared_ptr<Mesh> data);
-	bool removeMesh(std::shared_ptr<Mesh> data);
+	virtual bool addMesh(std::shared_ptr<Mesh> data);
+	virtual bool removeMesh(std::shared_ptr<Mesh> data);
+
+	virtual void setMaterial(std::shared_ptr<Material> material);
+	virtual void resetMaterial();
 
 	virtual bool update(std::shared_ptr<Renderer> renderer);
 	virtual bool render(std::shared_ptr<Renderer> renderer);
@@ -30,6 +33,7 @@ private:
 	virtual bool renderImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer);
 
 	std::vector<std::shared_ptr<Mesh>> mMeshes;
+	std::shared_ptr<Material> mMaterial;
 };
 
 } // mgf

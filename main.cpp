@@ -40,6 +40,11 @@ int main(int argc, char *argv[]){
 	actualScene->getChild("Cube")->translate(glm::vec3(2.f, 1.f, 4.f));
 	actualScene->getChild("Cube")->scale(glm::vec3(1.f, 1.f, 4.f));
 
+	std::shared_ptr<mgf::Material> newmat(new mgf::Material);
+	newmat->mDiffuseColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
+	actualScene->getChild("Cube")->setMaterial(newmat);
+	//actualScene->getChild("Cube")->resetMaterial();
+
 //###############################################  Gameloop
 	float current = 0, last = 0, frametime = 0;
 	bool quit = false;

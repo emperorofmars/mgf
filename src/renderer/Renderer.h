@@ -30,7 +30,7 @@ public:
 	bool addLight(std::shared_ptr<Light> data, glm::mat4 transform);
 	bool removeLight(std::shared_ptr<Light> data);
 	bool clearLights();
-	bool drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform);
+	bool drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform, std::shared_ptr<Material> material);
 
 	bool good();
 

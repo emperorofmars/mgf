@@ -105,6 +105,22 @@ bool Node::render(std::shared_ptr<Renderer> renderer){
 	return renderImpl(glm::mat4(1), renderer);
 }
 
+bool Node::addMesh(std::shared_ptr<Mesh> data){
+	return false;
+}
+
+bool Node::removeMesh(std::shared_ptr<Mesh> data){
+	return false;
+}
+
+void Node::setMaterial(std::shared_ptr<Material> material){
+	return;
+}
+
+void Node::resetMaterial(){
+	return;
+}
+
 mgfID_t Node::getID(){
 	return mID;
 }

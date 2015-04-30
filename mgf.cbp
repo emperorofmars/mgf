@@ -51,6 +51,8 @@
 		<Unit filename="src/camera/CameraFPSQuat.h" />
 		<Unit filename="src/camera/CameraFlightQuat.cpp" />
 		<Unit filename="src/camera/CameraFlightQuat.h" />
+		<Unit filename="src/camera/CameraTopDown.cpp" />
+		<Unit filename="src/camera/CameraTopDown.h" />
 		<Unit filename="src/camera/ICamera.h" />
 		<Unit filename="src/data/Data.cpp" />
 		<Unit filename="src/data/Data.h" />
@@ -75,8 +77,6 @@
 		<Unit filename="src/scene/Node.h" />
 		<Unit filename="src/scene/Positionable.cpp" />
 		<Unit filename="src/scene/Positionable.h" />
-		<Unit filename="src/util/Camera.cpp" />
-		<Unit filename="src/util/Camera.h" />
 		<Unit filename="src/util/Input.cpp" />
 		<Unit filename="src/util/Input.h" />
 		<Unit filename="src/util/ShaderProgram.cpp" />

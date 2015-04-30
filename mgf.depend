@@ -518,3 +518,15 @@
 
 1430391440 /home/mars/Projekte/mgf/src/camera/CameraFlightQuat.h
 
+1430391440 source:/home/mars/Projekte/mgf/src/camera/CameraFlightQuat.cpp
+
+1430391422 source:/home/mars/Projekte/mgf/src/camera/CameraFPSEuler.cpp
+
+1430391422 source:/home/mars/Projekte/mgf/src/camera/CameraFPSQuat.cpp
+
+1430392894 source:/home/mars/Projekte/mgf/src/camera/BaseCamera.cpp
+	"BaseCamera.h"
+
+1430393453 /home/mars/Projekte/mgf/src/camera/BaseCamera.h
+	"../Include.h"
+

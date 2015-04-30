@@ -17,7 +17,6 @@ public:
 	virtual ~BaseCamera();
 
 	virtual void setup(float fov, float screenratio, float near, float far);
-    virtual void setProjection(float fov, float screenratio, float near, float far);
 	virtual void setScreenratio(float screenratio);
 
     virtual void setPos(glm::vec3 pos);
@@ -29,7 +28,7 @@ public:
 
 private:
 	glm::mat4 mProjection, mView;
-	glm::vec3 mPos, mRot, mDir, mUp, mRightm mTotalRot;
+	glm::vec3 mPos, mRot, mDir, mUp, mRight;
 	float mFov, mScreenratio, mNear, mFar;
 };
 

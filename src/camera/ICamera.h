@@ -16,7 +16,6 @@ public:
 	virtual ~ICamera(){};
 
 	virtual void setup(float fov, float screenratio, float far, float near) = 0;
-    virtual void setProjection(float fov, float screenratio, float far, float near) = 0;
 	virtual void setScreenratio(float screenratio) = 0;
 
 	virtual void update(glm::vec3 pos, glm::vec3 rot) = 0;

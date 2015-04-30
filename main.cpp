@@ -18,7 +18,8 @@ int main(int argc, char *argv[]){
 	p->addShader("res/shader/fragment_shader.glsl", GL_FRAGMENT_SHADER);
 	p->createProgram();
 
-	std::shared_ptr<mgf::Camera> cam(new mgf::Camera(90, w->getAspectRatio(), 0.1f, 1000.f, CAMERA_FPS_EULER, 0.6f, 0.4f));
+	//std::shared_ptr<mgf::Camera> cam(new mgf::Camera(90, w->getAspectRatio(), 0.1f, 1000.f, CAMERA_FPS_EULER, 0.6f, 0.4f));
+	std::shared_ptr<mgf::ICamera> cam(new mgf::CameraFPSEuler(90, w->getAspectRatio(), 1000.f, 0.1f));
 	std::shared_ptr<mgf::Renderer> renderer(new mgf::Renderer(w, cam, p));
 
 //###############################################  Load 3d files

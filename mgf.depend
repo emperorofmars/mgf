@@ -227,7 +227,7 @@
 1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_window.cpp
 	"mgf_window.h"
 
-1430293941 source:/home/mars/Projekte/mgf/main.cpp
+1430394256 source:/home/mars/Projekte/mgf/main.cpp
 	"gl_test.h"
 
 1424694884 /home/mars/Projekte/mgf/gl_test.h
@@ -486,11 +486,11 @@
 	"Positionable.h"
 	"../helper/Helper.h"
 
-1430293941 /home/mars/Projekte/mgf/src/renderer/Renderer.h
+1430394314 /home/mars/Projekte/mgf/src/renderer/Renderer.h
 	"../Include.h"
 	"../util/Window.h"
 	"../util/ShaderProgram.h"
-	"../util/Camera.h"
+	"../camera/ICamera.h"
 	"../data/Data.h"
 
 1430293941 source:/home/mars/Projekte/mgf/src/scene/MeshNode.cpp
@@ -511,8 +511,9 @@
 1430293941 source:/home/mars/Projekte/mgf/src/helper/Helper.cpp
 	"Helper.h"
 
-1430392359 /home/mars/Projekte/mgf/src/camera/CameraFPSEuler.h
+1430394567 /home/mars/Projekte/mgf/src/camera/CameraFPSEuler.h
 	"../Include.h"
+	"BaseCamera.h"
 
 1430391422 /home/mars/Projekte/mgf/src/camera/CameraFPSQuat.h
 
@@ -524,9 +525,13 @@
 
 1430391422 source:/home/mars/Projekte/mgf/src/camera/CameraFPSQuat.cpp
 
-1430392894 source:/home/mars/Projekte/mgf/src/camera/BaseCamera.cpp
+1430393983 source:/home/mars/Projekte/mgf/src/camera/BaseCamera.cpp
 	"BaseCamera.h"
 
-1430393453 /home/mars/Projekte/mgf/src/camera/BaseCamera.h
+1430394575 /home/mars/Projekte/mgf/src/camera/BaseCamera.h
+	"../Include.h"
+	"ICamera.h"
+
+1430392785 /home/mars/Projekte/mgf/src/camera/ICamera.h
 	"../Include.h"
 

@@ -8,10 +8,11 @@
 #define MGF_BASECAMERA_H
 
 #include "../Include.h"
+#include "ICamera.h"
 
 namespace mgf{
 
-class BaseCamera{
+class BaseCamera : public ICamera{
 public:
     BaseCamera(float fov = 90.f, float screenratio = 1.f, float far = 1000.f, float near = 0.1f);
 	virtual ~BaseCamera();
@@ -26,7 +27,7 @@ public:
 	virtual glm::mat4 getV();
 	virtual glm::mat4 getP();
 
-private:
+protected:
 	glm::mat4 mProjection, mView;
 	glm::vec3 mPos, mRot, mDir, mUp, mRight;
 	float mFov, mScreenratio, mNear, mFar;

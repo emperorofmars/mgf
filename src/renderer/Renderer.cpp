@@ -9,7 +9,7 @@
 namespace mgf{
 
 Renderer::Renderer(std::shared_ptr<Window> window,
-		 std::shared_ptr<Camera> camera,
+		 std::shared_ptr<ICamera> camera,
 		 std::shared_ptr<ShaderProgram> shaderProgram)
 {
 	mWindow = window;
@@ -26,7 +26,7 @@ bool Renderer::setWindow(std::shared_ptr<Window> window){
 	return true;
 }
 
-bool Renderer::setCamera(std::shared_ptr<Camera> camera){
+bool Renderer::setCamera(std::shared_ptr<ICamera> camera){
 	if(!camera) return false;
 	mCamera = camera;
 	return true;

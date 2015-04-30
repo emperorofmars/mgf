@@ -8,10 +8,11 @@
 #define MGF_FPSEULER_CAMERA_H
 
 #include "../Include.h"
+#include "BaseCamera.h"
 
 namespace mgf{
 
-class CameraFPSEuler{
+class CameraFPSEuler : public BaseCamera{
 public:
     CameraFPSEuler(float fov = 90.f, float screenratio = 1.f, float far = 1000.f, float near = 0.1f);
 	virtual ~CameraFPSEuler();

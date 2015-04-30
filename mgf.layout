@@ -1,49 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/util/Window.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1910" topLine="29" />
-		</Cursor>
-	</File>
-	<File name="src/util/Window.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="161" topLine="10" />
-		</Cursor>
-	</File>
-	<File name="src/renderer/Renderer.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1603" topLine="51" />
-		</Cursor>
-	</File>
-	<File name="src/data/Material.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="335" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/data/Mesh.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="623" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/scene/Loader.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="919" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="src/util/Input.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="148" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/helper/Helper.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1214" topLine="84" />
-		</Cursor>
-	</File>
-	<File name="src/util/Camera.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="904" topLine="10" />
+			<Cursor1 position="3267" topLine="120" />
 		</Cursor>
 	</File>
 	<File name="src/helper/Helper.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -51,39 +11,19 @@
 			<Cursor1 position="428" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/camera/BaseCamera.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/util/Input.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1288" topLine="42" />
+			<Cursor1 position="148" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/camera/ICamera.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/renderer/Renderer.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="306" topLine="0" />
+			<Cursor1 position="1041" topLine="27" />
 		</Cursor>
 	</File>
-	<File name="src/data/Texture.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/util/Camera.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="135" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/Include.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="598" topLine="6" />
-		</Cursor>
-	</File>
-	<File name="src/data/Data.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="240" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/util/Camera.cpp" open="1" top="1" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/util/ShaderProgram.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="541" topLine="8" />
+			<Cursor1 position="904" topLine="10" />
 		</Cursor>
 	</File>
 	<File name="src/util/ShaderProgram.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -91,84 +31,9 @@
 			<Cursor1 position="2022" topLine="60" />
 		</Cursor>
 	</File>
-	<File name="src/scene/MeshNode.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="570" topLine="66" />
-		</Cursor>
-	</File>
-	<File name="src/mgf.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="333" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/renderer/Renderer.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="284" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/data/Light.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="199" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/camera/CameraFPSEuler.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="83" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/scene/Node.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1537" topLine="35" />
-		</Cursor>
-	</File>
-	<File name="gl_test.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="149" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/scene/Positionable.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="591" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/util/Input.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="57" />
-		</Cursor>
-	</File>
-	<File name="src/data/Texture.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="297" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/camera/CameraFPSEuler.cpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="955" topLine="17" />
-		</Cursor>
-	</File>
-	<File name="src/camera/BaseCamera.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="314" topLine="3" />
-		</Cursor>
-	</File>
-	<File name="src/util/Window.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3267" topLine="120" />
-		</Cursor>
-	</File>
-	<File name="src/data/Material.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="205" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/scene/MeshNode.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="766" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/scene/Positionable.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1208" topLine="42" />
+			<Cursor1 position="809" topLine="8" />
 		</Cursor>
 	</File>
 	<File name="src/data/Light.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -176,14 +41,74 @@
 			<Cursor1 position="239" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="src/camera/BaseCamera.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="675" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="src/util/Window.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="161" topLine="10" />
+		</Cursor>
+	</File>
+	<File name="src/scene/Positionable.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="591" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/data/Material.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="205" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/data/Mesh.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="623" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/scene/Positionable.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1208" topLine="42" />
+		</Cursor>
+	</File>
 	<File name="src/scene/Node.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="3526" topLine="154" />
 		</Cursor>
 	</File>
-	<File name="src/scene/Loader.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/camera/CameraFPSEuler.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="11779" topLine="369" />
+			<Cursor1 position="258" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/data/Material.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="335" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/scene/Loader.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="919" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="src/data/Data.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="240" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/util/Input.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="57" />
+		</Cursor>
+	</File>
+	<File name="src/camera/ICamera.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="306" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/camera/BaseCamera.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1288" topLine="42" />
 		</Cursor>
 	</File>
 	<File name="src/data/Mesh.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -191,9 +116,84 @@
 			<Cursor1 position="532" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="gl_test.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="149" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/scene/Node.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1537" topLine="35" />
+		</Cursor>
+	</File>
+	<File name="src/scene/Loader.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11779" topLine="369" />
+		</Cursor>
+	</File>
+	<File name="src/camera/CameraFPSEuler.cpp" open="1" top="1" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="979" topLine="22" />
+		</Cursor>
+	</File>
+	<File name="src/data/Light.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="199" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/data/Texture.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="135" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/util/Camera.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/scene/MeshNode.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="766" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="src/data/Data.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="338" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/data/Texture.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="297" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Include.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="598" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="src/util/ShaderProgram.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="541" topLine="8" />
+		</Cursor>
+	</File>
+	<File name="src/helper/Helper.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1214" topLine="84" />
+		</Cursor>
+	</File>
+	<File name="src/mgf.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="333" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/scene/MeshNode.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="570" topLine="66" />
+		</Cursor>
+	</File>
+	<File name="src/renderer/Renderer.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="545" topLine="117" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

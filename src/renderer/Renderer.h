@@ -10,7 +10,7 @@
 #include "../Include.h"
 #include "../util/Window.h"
 #include "../util/ShaderProgram.h"
-#include "../util/Camera.h"
+#include "../camera/ICamera.h"
 #include "../data/Data.h"
 
 namespace mgf{
@@ -19,12 +19,12 @@ class Renderer{
 public:
 	Renderer();
 	Renderer(std::shared_ptr<Window> window,
-			 std::shared_ptr<Camera> camera,
+			 std::shared_ptr<ICamera> camera,
 			 std::shared_ptr<ShaderProgram> shaderProgram);
 	~Renderer();
 
 	bool setWindow(std::shared_ptr<Window> window);
-	bool setCamera(std::shared_ptr<Camera> camera);
+	bool setCamera(std::shared_ptr<ICamera> camera);
 	bool setShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram);
 
 	bool addLight(std::shared_ptr<Light> data, glm::mat4 transform);
@@ -39,7 +39,7 @@ private:
 	bool applyMaterial(std::shared_ptr<Material> data);
 
 	std::shared_ptr<Window> mWindow;
-	std::shared_ptr<Camera> mCamera;
+	std::shared_ptr<ICamera> mCamera;
 	std::shared_ptr<ShaderProgram> mShaderProgram;
 
 	std::vector<std::shared_ptr<Light>> mLights;

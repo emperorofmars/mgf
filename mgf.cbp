@@ -43,6 +43,15 @@
 		<Unit filename="gl_test.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Include.h" />
+		<Unit filename="src/camera/BaseCamera.cpp" />
+		<Unit filename="src/camera/BaseCamera.h" />
+		<Unit filename="src/camera/CameraFPSEuler.cpp" />
+		<Unit filename="src/camera/CameraFPSEuler.h" />
+		<Unit filename="src/camera/CameraFPSQuat.cpp" />
+		<Unit filename="src/camera/CameraFPSQuat.h" />
+		<Unit filename="src/camera/CameraFlightQuat.cpp" />
+		<Unit filename="src/camera/CameraFlightQuat.h" />
+		<Unit filename="src/camera/ICamera.h" />
 		<Unit filename="src/data/Data.cpp" />
 		<Unit filename="src/data/Data.h" />
 		<Unit filename="src/data/Light.cpp" />

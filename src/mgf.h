@@ -21,6 +21,7 @@
 #include "scene/MeshNode.h"
 #include "scene/Loader.h"
 #include "collision/MouseRay.h"
+#include "collision/RayPlane.h"
 #include "helper/Helper.h"
 
 namespace mgf{

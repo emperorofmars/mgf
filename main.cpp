@@ -64,10 +64,14 @@ int main(int argc, char *argv[]){
 		//glm::vec4 mray = mgf::calculateMouseRay(cam->getP(), cam->getV(), glm::vec2(input->getRot()[2], input->getRot()[0]), glm::vec2(1000, 800));
 		int mx, my;
 		SDL_GetMouseState(&mx, &my);
-		glm::vec4 mray = mgf::calculateMouseRay(cam->getP(), cam->getV(), glm::vec2(mx, my), glm::vec2(1000, 800));
-		std::cerr << "MouseRay: " << mgf::vec4_toStr(mray) << std::endl;
+		glm::vec3 mray = mgf::calculateMouseRay(cam->getP(), cam->getV(), glm::vec2(mx, my), glm::vec2(1000, 800));
+		std::cerr << "MouseRay: " << mgf::vec3_toStr(mray) << std::endl;
+		glm::vec3 mpoint = mgf::colLinePlane(cam->getPos(), mray, glm::vec3(0.f, 0.f, 0.f), glm::vec3(0.f, 1.f, 0.f));
+		std::cerr << "MousePoint: " << mgf::vec3_toStr(mpoint) << std::endl;
 
-		actualScene->getChild("MousePos")->setTranslation(glm::vec3(mray) * 30.f);
+		mpoint[1] = 0.f;
+
+		actualScene->getChild("MousePos")->setTranslation(mpoint);
 
 //###############################################  Rendering
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

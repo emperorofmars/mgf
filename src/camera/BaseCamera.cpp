@@ -47,6 +47,14 @@ void BaseCamera::setRot(glm::vec3 rot){
     return;
 }
 
+glm::vec3 BaseCamera::getPos(){
+	return mPos;
+}
+
+glm::vec3 BaseCamera::getRot(){
+	return mRot;
+}
+
 glm::mat4 BaseCamera::getVP(){
 	return mProjection * mView;
 }

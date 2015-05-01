@@ -227,13 +227,13 @@
 1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_window.cpp
 	"mgf_window.h"
 
-1430508722 source:/home/mars/Projekte/mgf/main.cpp
+1430511930 source:/home/mars/Projekte/mgf/main.cpp
 	"gl_test.h"
 
 1417280497 /home/mars/Projekte/mgf/gl_test.h
 	"src/mgf.h"
 
-1430507596 /home/mars/Projekte/mgf/src/mgf.h
+1430511846 /home/mars/Projekte/mgf/src/mgf.h
 	"util/Window.h"
 	"util/Input.h"
 	"util/ShaderProgram.h"
@@ -247,6 +247,7 @@
 	"scene/MeshNode.h"
 	"scene/Loader.h"
 	"collision/MouseRay.h"
+	"collision/RayPlane.h"
 	"helper/Helper.h"
 
 1428524152 /home/mars/Projekte/mgf/src/mgf_include.h
@@ -534,14 +535,14 @@
 1430425416 source:/home/mars/Projekte/mgf/src/camera/CameraFPSQuat.cpp
 	"CameraFPSQuat.h"
 
-1430425416 source:/home/mars/Projekte/mgf/src/camera/BaseCamera.cpp
+1430511750 source:/home/mars/Projekte/mgf/src/camera/BaseCamera.cpp
 	"BaseCamera.h"
 
-1430425416 /home/mars/Projekte/mgf/src/camera/BaseCamera.h
+1430511722 /home/mars/Projekte/mgf/src/camera/BaseCamera.h
 	"../Include.h"
 	"ICamera.h"
 
-1430425416 /home/mars/Projekte/mgf/src/camera/ICamera.h
+1430511718 /home/mars/Projekte/mgf/src/camera/ICamera.h
 	"../Include.h"
 
 1430425416 /home/mars/Projekte/mgf/src/camera/CameraTopDown.h
@@ -551,9 +552,15 @@
 1430425416 source:/home/mars/Projekte/mgf/src/camera/CameraTopDown.cpp
 	"CameraTopDown.h"
 
-1430507536 source:/home/mars/Projekte/mgf/src/collision/MouseRay.cpp
+1430509430 source:/home/mars/Projekte/mgf/src/collision/MouseRay.cpp
 	"MouseRay.h"
 
-1430507251 /home/mars/Projekte/mgf/src/collision/MouseRay.h
+1430509434 /home/mars/Projekte/mgf/src/collision/MouseRay.h
+	"../Include.h"
+
+1430511468 source:/home/mars/Projekte/mgf/src/collision/RayPlane.cpp
+	"RayPlane.h"
+
+1430510204 /home/mars/Projekte/mgf/src/collision/RayPlane.h
 	"../Include.h"
 

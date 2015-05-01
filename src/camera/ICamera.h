@@ -23,6 +23,9 @@ public:
     virtual void setPos(glm::vec3 pos) = 0;
     virtual void setRot(glm::vec3 rot) = 0;
 
+    virtual glm::vec3 getPos() = 0;
+    virtual glm::vec3 getRot() = 0;
+
 	virtual glm::mat4 getVP() = 0;
 	virtual glm::mat4 getV() = 0;
 	virtual glm::mat4 getP() = 0;

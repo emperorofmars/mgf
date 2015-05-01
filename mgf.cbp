@@ -56,6 +56,8 @@
 		<Unit filename="src/camera/ICamera.h" />
 		<Unit filename="src/collision/MouseRay.cpp" />
 		<Unit filename="src/collision/MouseRay.h" />
+		<Unit filename="src/collision/RayPlane.cpp" />
+		<Unit filename="src/collision/RayPlane.h" />
 		<Unit filename="src/data/Data.cpp" />
 		<Unit filename="src/data/Data.h" />
 		<Unit filename="src/data/Light.cpp" />

@@ -11,7 +11,8 @@
 
 namespace mgf{
 
-glm::vec4 calculateMouseRay(glm::mat4 projectionMatrix, glm::mat4 viewMatrix, glm::vec2 screenPoint, glm::vec2 screenSize);
+glm::vec3 calculateMouseRay(glm::mat4 projectionMatrix, glm::mat4 viewMatrix, glm::vec2 screenPoint, glm::vec2 screenSize);
+glm::vec3 calculateMouseRay(glm::mat4 projectionMatrix, glm::mat4 viewMatrix, glm::vec2 NormalizedScreenPoint);
 
 } // mgf
 

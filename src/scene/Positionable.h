@@ -23,6 +23,7 @@ public:
 	void setTranslation(glm::vec3 data);
 	void setRotation(glm::mat4 data);
 	void setScale(glm::vec3 data);
+	void setTRS(glm::mat4 data);
 
 	glm::vec3 getTranslation();
 	glm::mat4 getRotation();

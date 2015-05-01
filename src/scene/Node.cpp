@@ -15,6 +15,7 @@ Node::Node(const std::string &name){
 	LOG_F_TRACE(MGF_LOG_FILE, "Creating Node: ", name);
 	mName = name;
 	mParentNode = NULL;
+	mVisible = true;
 
 	mGlobalMutex.lock();
 		mID = mGlobalID;
@@ -177,6 +178,8 @@ bool Node::updateImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer){
 }
 
 bool Node::renderImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer){
+	if(!mVisible) return true;
+
 	transform *= getTRS();
 	for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){
 		if(!iter->second->renderImpl(transform, renderer)){

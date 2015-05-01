@@ -227,13 +227,13 @@
 1421600086 source:/home/mars/Projekte/mgf_old/mgf/src/mgf_window.cpp
 	"mgf_window.h"
 
-1430427786 source:/home/mars/Projekte/mgf/main.cpp
+1430508722 source:/home/mars/Projekte/mgf/main.cpp
 	"gl_test.h"
 
 1417280497 /home/mars/Projekte/mgf/gl_test.h
 	"src/mgf.h"
 
-1430425416 /home/mars/Projekte/mgf/src/mgf.h
+1430507596 /home/mars/Projekte/mgf/src/mgf.h
 	"util/Window.h"
 	"util/Input.h"
 	"util/ShaderProgram.h"
@@ -246,6 +246,7 @@
 	"scene/Node.h"
 	"scene/MeshNode.h"
 	"scene/Loader.h"
+	"collision/MouseRay.h"
 	"helper/Helper.h"
 
 1428524152 /home/mars/Projekte/mgf/src/mgf_include.h
@@ -359,7 +360,7 @@
 	"Node.h"
 	"../data/Data.h"
 
-1429468043 /home/mars/Projekte/mgf/src/scene/Positionable.h
+1430508524 /home/mars/Projekte/mgf/src/scene/Positionable.h
 	"../Include.h"
 
 1430427735 /home/mars/Projekte/mgf/src/scene/Node.h
@@ -471,7 +472,7 @@
 1428950791 source:/home/mars/Projekte/mgf/src/data/Texture.cpp
 	"Texture.h"
 
-1430427758 source:/home/mars/Projekte/mgf/src/scene/Node.cpp
+1430506631 source:/home/mars/Projekte/mgf/src/scene/Node.cpp
 	"Node.h"
 
 1429968523 source:/home/mars/Projekte/mgf/src/scene/Loader.cpp
@@ -494,7 +495,7 @@
 	"../camera/ICamera.h"
 	"../data/Data.h"
 
-1430427779 source:/home/mars/Projekte/mgf/src/scene/MeshNode.cpp
+1430506126 source:/home/mars/Projekte/mgf/src/scene/MeshNode.cpp
 	"MeshNode.h"
 
 1430426896 source:/home/mars/Projekte/mgf/src/renderer/Renderer.cpp
@@ -549,4 +550,10 @@
 
 1430425416 source:/home/mars/Projekte/mgf/src/camera/CameraTopDown.cpp
 	"CameraTopDown.h"
+
+1430507536 source:/home/mars/Projekte/mgf/src/collision/MouseRay.cpp
+	"MouseRay.h"
+
+1430507251 /home/mars/Projekte/mgf/src/collision/MouseRay.h
+	"../Include.h"
 

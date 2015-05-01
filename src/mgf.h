@@ -20,6 +20,7 @@
 #include "scene/Node.h"
 #include "scene/MeshNode.h"
 #include "scene/Loader.h"
+#include "collision/MouseRay.h"
 #include "helper/Helper.h"
 
 namespace mgf{

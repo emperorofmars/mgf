@@ -32,12 +32,16 @@ int main(int argc, char *argv[]){
 	std::shared_ptr<mgf::Node> actualScene(new mgf::Node("scene"));
 	actualScene->add(root->getChild("scene.obj")->getChild("Cube")->clone());
 	actualScene->add(root->getChild("scene.obj")->getChild("Suzanne")->clone());
+	std::shared_ptr<mgf::MeshNode> mnode(new mgf::MeshNode("MousePos"));
+	mnode->addMesh(mgf::createCube());
+	mnode->scale(glm::vec3(0.5f, 2.f, 0.5f));
+	actualScene->add(mnode);
 	actualScene->print();
 
 //###############################################  transform objects
 	actualScene->getChild("Suzanne")->scale(glm::vec3(1.f, 1.5f, 2.f));
 	actualScene->getChild("Suzanne")->translate(glm::vec3(5.f, -5.f, 2.f));
-	actualScene->getChild("Cube")->translate(glm::vec3(2.f, 1.f, 4.f));
+	actualScene->getChild("Cube")->translate(glm::vec3(-6.f, 1.f, 4.f));
 	actualScene->getChild("Cube")->scale(glm::vec3(1.f, 1.f, 4.f));
 
 	std::shared_ptr<mgf::Material> newmat(new mgf::Material);
@@ -55,6 +59,16 @@ int main(int argc, char *argv[]){
 		cam->update(input->getPos(), input->getRot());
 
 		actualScene->getChild("Cube")->rotate(0.02f, glm::vec3(0.f,1.f, 0.f)); //rotate the cube
+//###############################################  Mouse
+
+		//glm::vec4 mray = mgf::calculateMouseRay(cam->getP(), cam->getV(), glm::vec2(input->getRot()[2], input->getRot()[0]), glm::vec2(1000, 800));
+		int mx, my;
+		SDL_GetMouseState(&mx, &my);
+		glm::vec4 mray = mgf::calculateMouseRay(cam->getP(), cam->getV(), glm::vec2(mx, my), glm::vec2(1000, 800));
+		std::cerr << "MouseRay: " << mgf::vec4_toStr(mray) << std::endl;
+
+		actualScene->getChild("MousePos")->setTranslation(glm::vec3(mray) * 30.f);
+
 //###############################################  Rendering
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));

@@ -76,6 +76,8 @@ bool MeshNode::updateImpl(glm::mat4 transform, std::shared_ptr<Renderer> rendere
 }
 
 bool MeshNode::renderImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer){
+	if(!mVisible) return true;
+
 	transform *= getTRS();
 
 	for(unsigned int i = 0; i < mMeshes.size(); i++){

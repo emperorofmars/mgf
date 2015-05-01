@@ -46,6 +46,13 @@ void Positionable::setScale(glm::vec3 data){
 	mTRS = glm::scale(glm::mat4(1), diff) * mTRS;
 }
 
+void Positionable::setTRS(glm::mat4 data){
+	mTRS = data;
+	mScale = glm::vec3(1.f, 1.f, 1.f);
+	mTranslation = glm::vec3(mTRS[3]);
+	mTRS[3][0] = 0; mTRS[3][1] = 0; mTRS[3][2] = 0;
+}
+
 glm::vec3 Positionable::getTranslation(){
 	return mTranslation;
 }

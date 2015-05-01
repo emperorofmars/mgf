@@ -65,11 +65,7 @@ int main(int argc, char *argv[]){
 		int mx, my;
 		SDL_GetMouseState(&mx, &my);
 		glm::vec3 mray = mgf::calculateMouseRay(cam->getP(), cam->getV(), glm::vec2(mx, my), glm::vec2(1000, 800));
-		std::cerr << "MouseRay: " << mgf::vec3_toStr(mray) << std::endl;
 		glm::vec3 mpoint = mgf::colLinePlane(cam->getPos(), mray, glm::vec3(0.f, 0.f, 0.f), glm::vec3(0.f, 1.f, 0.f));
-		std::cerr << "MousePoint: " << mgf::vec3_toStr(mpoint) << std::endl;
-
-		mpoint[1] = 0.f;
 
 		actualScene->getChild("MousePos")->setTranslation(mpoint);
 

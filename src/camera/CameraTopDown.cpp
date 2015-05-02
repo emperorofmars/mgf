@@ -22,14 +22,11 @@ CameraTopDown::CameraTopDown(float fov, float screenratio, float far, float near
 CameraTopDown::~CameraTopDown(){
 }
 
-void CameraTopDown::update(glm::vec3 pos, glm::vec3 rot){
-	int x = rot[1];
-	int y = rot[0];
-	//int z = rot[2];
+void CameraTopDown::update(glm::vec3 pos, glm::vec2 rot){
 
-	mPos += glm::vec3(0.f, 0.f, -1.f) * pos[0];
-	mPos += glm::vec3(1.f, 0.f, 0.f) * pos[1];
-	mPos += glm::vec3(0.f, 1.f, 0.f) * pos[2];
+	mPos += glm::vec3(1.f, 0.f, 0.f) * pos[0];
+	mPos += glm::vec3(0.f, 1.f, 0.f) * pos[1];
+	mPos += glm::vec3(0.f, 0.f, -1.f) * pos[2];
 
 	mView = glm::lookAt(mPos, mPos + mDir, mUp);
 

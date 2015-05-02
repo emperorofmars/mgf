@@ -18,7 +18,7 @@ public:
 	virtual void setup(float fov, float screenratio, float far, float near) = 0;
 	virtual void setScreenratio(float screenratio) = 0;
 
-	virtual void update(glm::vec3 pos, glm::vec3 rot) = 0;
+	virtual void update(glm::vec3 pos, glm::vec2 rot) = 0;
 
     virtual void setPos(glm::vec3 pos) = 0;
     virtual void setRot(glm::vec3 rot) = 0;

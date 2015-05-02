@@ -17,7 +17,7 @@ public:
     CameraFPSQuat(float fov = 90.f, float screenratio = 1.f, float far = 1000.f, float near = 0.1f);
 	virtual ~CameraFPSQuat();
 
-	virtual void update(glm::vec3 pos, glm::vec3 rot);
+	virtual void update(glm::vec3 pos, glm::vec2 rot);
 };
 
 } // mgf

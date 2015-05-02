@@ -70,6 +70,13 @@
 		<Unit filename="src/data/Texture.h" />
 		<Unit filename="src/helper/Helper.cpp" />
 		<Unit filename="src/helper/Helper.h" />
+		<Unit filename="src/input/BaseInput.cpp" />
+		<Unit filename="src/input/BaseInput.h" />
+		<Unit filename="src/input/IInput.h" />
+		<Unit filename="src/input/InputFPS.cpp" />
+		<Unit filename="src/input/InputFPS.h" />
+		<Unit filename="src/input/InputTopDown.cpp" />
+		<Unit filename="src/input/InputTopDown.h" />
 		<Unit filename="src/mgf.h" />
 		<Unit filename="src/renderer/Renderer.cpp" />
 		<Unit filename="src/renderer/Renderer.h" />
@@ -81,8 +88,6 @@
 		<Unit filename="src/scene/Node.h" />
 		<Unit filename="src/scene/Positionable.cpp" />
 		<Unit filename="src/scene/Positionable.h" />
-		<Unit filename="src/util/Input.cpp" />
-		<Unit filename="src/util/Input.h" />
 		<Unit filename="src/util/ShaderProgram.cpp" />
 		<Unit filename="src/util/ShaderProgram.h" />
 		<Unit filename="src/util/Window.cpp" />

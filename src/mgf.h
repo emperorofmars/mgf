@@ -9,9 +9,11 @@
 #define MGF_H
 
 #include "util/Window.h"
-#include "util/Input.h"
 #include "util/ShaderProgram.h"
-#include "util/Camera.h"
+#include "input/IInput.h"
+#include "input/BaseInput.h"
+#include "input/InputFPS.h"
+#include "input/InputTopDown.h"
 #include "camera/CameraFPSEuler.h"
 #include "camera/CameraFPSQuat.h"
 #include "camera/CameraFlightQuat.h"

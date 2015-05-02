@@ -14,13 +14,9 @@ CameraFPSQuat::CameraFPSQuat(float fov, float screenratio, float far, float near
 CameraFPSQuat::~CameraFPSQuat(){
 }
 
-void CameraFPSQuat::update(glm::vec3 pos, glm::vec3 rot){
-	int x = rot[1];
-	int y = rot[0];
-	//int z = rot[2];
-
-    mRot[0] = (float)x * -0.008f;
-    mRot[1] = (float)y * -0.008f;
+void CameraFPSQuat::update(glm::vec3 pos, glm::vec2 rot){
+    mRot[0] = (float)rot[0] * -0.008f;
+    mRot[1] = (float)rot[1] * -0.008f;
 
     mRight = glm::cross(mDir, mUp);
     glm::quat pitch = glm::angleAxis(mRot[1], mRight);
@@ -43,8 +39,8 @@ void CameraFPSQuat::update(glm::vec3 pos, glm::vec3 rot){
     mUp = glm::cross(mRight, mDir);
     mUp = glm::normalize(mUp);
 
-	mPos += mDir * pos[0];
-	mPos += mRight * pos[1];
+	mPos += mDir * pos[2];
+	mPos += mRight * pos[0];
 
 	mView = glm::lookAt(mPos, mPos + mDir, mUp);
 

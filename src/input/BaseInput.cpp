@@ -138,7 +138,7 @@ bool BaseInput::getQuit(){
 	return mQuit;
 }
 
-}
+} // mgf
 
 
 

@@ -573,7 +573,9 @@
 	"../Include.h"
 	"IInput.h"
 
-1430561919 /home/mars/Projekte/mgf/src/input/InputFPS.h
+1430573712 /home/mars/Projekte/mgf/src/input/InputFPS.h
+	"../Include.h"
+	"BaseInput.h"
 
 1430564678 /home/mars/Projekte/mgf/src/input/InputTopDown.h
 	"../Include.h"

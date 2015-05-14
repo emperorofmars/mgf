@@ -104,6 +104,65 @@ bool Renderer::drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform, std::sh
 	return true;
 }
 
+bool Renderer::draw2dOverlayMesh(std::shared_ptr<Mesh> data, glm::mat4 transform, std::shared_ptr<Material> material){
+	mWindow->use();
+	mShaderProgram->use();
+
+	if(!data){
+		LOG_F_ERROR(MGF_LOG_FILE, "data is NULL!");
+		return false;
+	}
+	if(!applyMatrix(transform, mShaderProgram->get(MATRIX_MODEL))){
+		LOG_F_ERROR(MGF_LOG_FILE, "applyMatrix MODEL Failed!");
+		return false;
+	}
+	glm::mat4 vp = glm::ortho(0.f, 10.f, 10.f / mWindow->getAspectRatio(), 0.f) * glm::lookAt(glm::vec3(0.f, 0.f, 1.f), glm::vec3(0.f, 0.f, -1.f), glm::vec3(0.f, 1.f, 0.f));
+	if(!applyMatrix(vp, mShaderProgram->get(MATRIX_VP))){
+		LOG_F_ERROR(MGF_LOG_FILE, "applyMatrix VP Failed!");
+		return false;
+	}
+	if(!applyMatrix(glm::inverseTranspose(transform), mShaderProgram->get(MATRIX_NORM))){
+		LOG_F_ERROR(MGF_LOG_FILE, "applyMatrix VP Failed!");
+		return false;
+	}
+	if(material){
+		if(!applyMaterial(material)){
+			LOG_F_ERROR(MGF_LOG_FILE, "applyMaterial for Mesh material Failed!");
+			return false;
+		}
+	}
+	else{
+		if(!applyMaterial(data->mMaterial)){
+			LOG_F_ERROR(MGF_LOG_FILE, "applyMaterial for supplied Failed!");
+			return false;
+		}
+	}
+	if(data->mVAO == 0){
+		LOG_F_ERROR(MGF_LOG_FILE, "VAO is 0!");
+		return false;
+	}
+
+	glBindVertexArray(data->mVAO);
+
+	glDisable(GL_DEPTH_TEST);
+    glDisable(GL_CULL_FACE);
+	if(data->mRenderIndexed){
+		//LOG_F_TRACE(MGF_LOG_FILE, "Drawing ", data->mNumIndices, " Elements");
+		glDrawElements(GL_TRIANGLES, data->mNumIndices * sizeof(GLuint), GL_UNSIGNED_INT, 0);
+	}
+	else{
+		//LOG_F_TRACE(MGF_LOG_FILE, "Drawing ", data->mNumVertices, " Vertices");
+		glDrawArrays(GL_TRIANGLES, 0, data->mNumVertices * sizeof(GLuint));
+	}
+    glEnable(GL_CULL_FACE);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
+
+	glBindVertexArray(0);
+
+	return true;
+}
+
 bool Renderer::good(){
 	if(mWindow && mCamera && mShaderProgram) return true;
 	return false;

@@ -28,7 +28,7 @@ public:
 	virtual bool update(std::shared_ptr<Renderer> renderer);
 	virtual bool render(std::shared_ptr<Renderer> renderer);
 
-private:
+protected:
 	virtual bool updateImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer);
 	virtual bool renderImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer);
 

@@ -20,6 +20,7 @@ std::string mat4_toStr(glm::mat4 data);
 
 std::string count_up(std::string);
 
+std::shared_ptr<Mesh> createPlane();
 std::shared_ptr<Mesh> createCube();
 
 } // mgf

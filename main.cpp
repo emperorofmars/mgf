@@ -49,6 +49,10 @@ int main(int argc, char *argv[]){
 	actualScene->getChild("Cube")->setMaterial(newmat);
 	//actualScene->getChild("Cube")->resetMaterial();
 
+	std::shared_ptr<mgf::Moveable> ui(new mgf::Moveable("ui"));
+	ui->translate(glm::vec2(5.f, 5.f));
+	ui->scale(glm::vec2(2.f, 2.f));
+
 //###############################################  Gameloop
 	float current = 0, last = 0, frametime = 0;
 	bool quit = false;
@@ -68,7 +72,8 @@ int main(int argc, char *argv[]){
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
 
-		actualScene->render(renderer); //rendering on gpu happens here
+		root->render(renderer); //rendering on gpu happens here
+		ui->render(renderer);
 
 		w->swap(); //display the rendered image on screen
 //###############################################  Calculate fps

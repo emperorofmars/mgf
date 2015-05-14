@@ -78,6 +78,15 @@
 		<Unit filename="src/input/InputTopDown.cpp" />
 		<Unit filename="src/input/InputTopDown.h" />
 		<Unit filename="src/mgf.h" />
+		<Unit filename="src/overlay/Button.cpp" />
+		<Unit filename="src/overlay/Button.h" />
+		<Unit filename="src/overlay/IOverlayElement.h" />
+		<Unit filename="src/overlay/Label.cpp" />
+		<Unit filename="src/overlay/Label.h" />
+		<Unit filename="src/overlay/Moveable.cpp" />
+		<Unit filename="src/overlay/Moveable.h" />
+		<Unit filename="src/overlay/Overlay.cpp" />
+		<Unit filename="src/overlay/Overlay.h" />
 		<Unit filename="src/renderer/Renderer.cpp" />
 		<Unit filename="src/renderer/Renderer.h" />
 		<Unit filename="src/scene/Loader.cpp" />
@@ -86,6 +95,8 @@
 		<Unit filename="src/scene/MeshNode.h" />
 		<Unit filename="src/scene/Node.cpp" />
 		<Unit filename="src/scene/Node.h" />
+		<Unit filename="src/scene/OverlayNode.cpp" />
+		<Unit filename="src/scene/OverlayNode.h" />
 		<Unit filename="src/scene/Positionable.cpp" />
 		<Unit filename="src/scene/Positionable.h" />
 		<Unit filename="src/util/ShaderProgram.cpp" />

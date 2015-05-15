@@ -112,11 +112,12 @@ bool Renderer::draw2dOverlayMesh(std::shared_ptr<Mesh> data, glm::mat4 transform
 		LOG_F_ERROR(MGF_LOG_FILE, "data is NULL!");
 		return false;
 	}
+	transform[3][1] /= mWindow->getAspectRatio();
 	if(!applyMatrix(transform, mShaderProgram->get(MATRIX_MODEL))){
 		LOG_F_ERROR(MGF_LOG_FILE, "applyMatrix MODEL Failed!");
 		return false;
 	}
-	glm::mat4 vp = glm::ortho(0.f, 10.f, 10.f / mWindow->getAspectRatio(), 0.f) * glm::lookAt(glm::vec3(0.f, 0.f, 1.f), glm::vec3(0.f, 0.f, -1.f), glm::vec3(0.f, 1.f, 0.f));
+	glm::mat4 vp = glm::ortho(0.f, 1.f, 1.f / mWindow->getAspectRatio(), 0.f) * glm::lookAt(glm::vec3(0.f, 0.f, 1.f), glm::vec3(0.f, 0.f, -1.f), glm::vec3(0.f, 1.f, 0.f));
 	if(!applyMatrix(vp, mShaderProgram->get(MATRIX_VP))){
 		LOG_F_ERROR(MGF_LOG_FILE, "applyMatrix VP Failed!");
 		return false;

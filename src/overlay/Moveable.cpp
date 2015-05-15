@@ -11,6 +11,9 @@ namespace mgf{
 Moveable::Moveable(const std::string &name){
 	mBase.reset(new OverlayNode("Base"));
 	mBase->addMesh(createPlane());
+	this->scale(glm::vec2(0.1f, 0.1f));
+	//this->translate(glm::vec2(0.f, -1.f / (1000.f / 800.f) + 0.1));
+	this->translate(glm::vec2(0.f, -0.5f));
 }
 
 Moveable::~Moveable(){
@@ -29,13 +32,13 @@ bool Moveable::setName(const std::string &name){
 
 void Moveable::translate(glm::vec2 pos){
 	if(mBase)
-		mBase->translate(glm::vec3(pos, 0));
+		mBase->translate(glm::vec3(pos[0], -pos[1], 0));
 	return;
 }
 
 void Moveable::setPos(glm::vec2 pos){
 	if(mBase)
-		mBase->setTranslation(glm::vec3(pos[0], pos[1], mBase->getTranslation()[2]));
+		mBase->setTranslation(glm::vec3(pos[0], -pos[1], mBase->getTranslation()[2]));
 	return;
 }
 

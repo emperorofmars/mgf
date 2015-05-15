@@ -18,7 +18,8 @@ int main(int argc, char *argv[]){
 	p->addShader("res/shader/fragment_shader.glsl", GL_FRAGMENT_SHADER);
 	p->createProgram();
 
-	std::shared_ptr<mgf::ICamera> cam(new mgf::CameraTopDown(90, w->getAspectRatio(), 1000.f, 0.1f));
+	std::shared_ptr<mgf::ICamera> cam(new mgf::CameraTopDown(45, w->getAspectRatio(), 1000.f, 0.1f));
+	cam->setPos(glm::vec3(0.f, 50.f, 15.f));
 	std::shared_ptr<mgf::Renderer> renderer(new mgf::Renderer(w, cam, p));
 
 //###############################################  Load 3d files
@@ -50,8 +51,8 @@ int main(int argc, char *argv[]){
 	//actualScene->getChild("Cube")->resetMaterial();
 
 	std::shared_ptr<mgf::Moveable> ui(new mgf::Moveable("ui"));
-	ui->translate(glm::vec2(5.f, 5.f));
-	ui->scale(glm::vec2(2.f, 2.f));
+	//ui->translate(glm::vec2(5.f, 5.f));
+	//ui->scale(glm::vec2(2.f, 2.f));
 
 //###############################################  Gameloop
 	float current = 0, last = 0, frametime = 0;
@@ -72,7 +73,7 @@ int main(int argc, char *argv[]){
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
 
-		root->render(renderer); //rendering on gpu happens here
+		actualScene->render(renderer); //rendering on gpu happens here
 		ui->render(renderer);
 
 		w->swap(); //display the rendered image on screen

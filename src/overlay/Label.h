@@ -20,19 +20,19 @@ public:
 
 	virtual bool render(std::shared_ptr<Renderer> renderer);
 
-	virtual setText(const std::string &text);
-	virtual setBackground(const std::string &path);
-	virtual setBackground(std::shared_ptr<Texture> texture);
+	virtual bool setText(const std::string &text);
+	virtual bool setBackground(const std::string &path);
+	virtual bool setBackground(std::shared_ptr<Texture> texture);
 
-	virtual getText();
+	virtual std::string getText();
 	virtual std::shared_ptr<Texture> getBackground();
 
 protected:
-	bool genBase();
 	bool textToTexture(const std::string &text);
 
 	std::string mText;
-	std::shared_ptr<Texture> mTexture;
+	std::shared_ptr<Texture> mTextImage;
+	std::shared_ptr<Texture> mBackground;
 };
 
 } // mgf

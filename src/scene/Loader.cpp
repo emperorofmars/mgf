@@ -386,6 +386,20 @@ bool Loader::loadTextureToGPU(std::shared_ptr<Texture> texture, unsigned int ind
 	return true;
 }
 
+bool loadMeshToGPU(std::shared_ptr<Mesh> mesh){
+	return false;
+}
+
+bool loadTextureToGPU(std::shared_ptr<Texture> texture){
+	return false;
+}
+
+std::shared_ptr<Texture> loadTextureFromSDLSurface(SDL_Surface *image){
+	std::shared_ptr<Texture> ret;
+	return ret;
+}
+
+
 } // mgf
 
 

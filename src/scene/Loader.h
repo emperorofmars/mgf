@@ -47,21 +47,10 @@ private:
 	std::mutex mMutex;
 };
 
-/*
-mgf::scene *load(std::string path, int flags = 0);
-bool load_into_scene(mgf::scene *in_scene, std::string path, int flags = 0);
+bool loadMeshToGPU(std::shared_ptr<Mesh> mesh);
+bool loadTextureToGPU(std::shared_ptr<Texture> texture);
+std::shared_ptr<Texture> loadTextureFromSDLSurface(SDL_Surface *image);
 
-bool load_to_data(mgf_data *data, const aiScene *ai_scene, std::string path, int flags = 0);
-bool load_to_gpu(mgf_data *data, unsigned int oldsize_meshes, int flags = 0);
-bool load_to_gpu_from_aiscene(mgf_data *data, const aiScene *ai_scene, unsigned int oldsize_meshes, int flags = 0);
-
-bool load_textures(mgf_data *data, const aiScene *ai_scene, std::string path, unsigned int oldsize_materials, int flags = 0);
-int search_texture(mgf_data *data, std::string name);
-void construct_nodetree(mgf_node *node, aiNode *ainode, mgf_data *data, unsigned int oldsize_meshes, int flags = 0);
-
-void construct_colboxes(mgf_data *data, unsigned int oldsize_meshes, int flags = 0);
-void construct_colboxes(mgf_data *data, const aiScene *ai_scene, unsigned int oldsize_meshes, int flags = 0);
-*/
 } // mgf
 
 #endif // MGF_LOADER_H

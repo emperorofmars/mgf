@@ -12,8 +12,6 @@ Moveable::Moveable(const std::string &name){
 	mBase.reset(new OverlayNode("Base"));
 	mBase->addMesh(createPlane());
 	this->scale(glm::vec2(0.1f, 0.1f));
-	//this->translate(glm::vec2(0.f, -1.f / (1000.f / 800.f) + 0.1));
-	this->translate(glm::vec2(0.f, -0.5f));
 }
 
 Moveable::~Moveable(){

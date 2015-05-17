@@ -33,6 +33,7 @@ int main(int argc, char *argv[]){
 	std::shared_ptr<mgf::Node> actualScene(new mgf::Node("scene"));
 	actualScene->add(root->getChild("scene.obj")->getChild("Cube")->clone());
 	actualScene->add(root->getChild("scene.obj")->getChild("Suzanne")->clone());
+	actualScene->add(root->getChild("cube.obj")->getChild("supercube")->clone());
 	std::shared_ptr<mgf::MeshNode> mnode(new mgf::MeshNode("MousePos"));
 	mnode->addMesh(mgf::createCube());
 	mnode->scale(glm::vec3(0.5f, 2.f, 0.5f));

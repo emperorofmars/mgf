@@ -25479,3 +25479,540 @@ Loading failed, exiting main!
 16.05.2015-00:12:45 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
 16.05.2015-00:12:45 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
 16.05.2015-00:12:45 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+17.05.2015-17:02:30 : Logging Started
+17.05.2015-17:02:31 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+17.05.2015-17:02:31 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+17.05.2015-17:02:31 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 109: Shader: res/shader/vertex_shader.glsl compiled successfully
+17.05.2015-17:02:31 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 109: Shader: res/shader/fragment_shader.glsl compiled successfully
+17.05.2015-17:02:31 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+17.05.2015-17:02:31 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 31: Loading file: res/models/cube/cube.obj
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+17.05.2015-17:02:31 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 31: Loading file: res/models/scene/scene.obj
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: MousePos
+17.05.2015-17:02:31 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Base
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: Plane
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Base
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: scene
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: MousePos
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: root
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: scene.obj
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube.001_Cube
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cone
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cylinder
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne.001
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere.002_Icosphere.001
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus.002
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere.001_Icosphere
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus.001
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cone.001
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Grid
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: cube.obj
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: supercube
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:02:35 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+17.05.2015-17:02:35 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+17.05.2015-17:02:35 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+17.05.2015-17:04:05 : Logging Started
+17.05.2015-17:04:06 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+17.05.2015-17:04:06 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+17.05.2015-17:04:06 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 109: Shader: res/shader/vertex_shader.glsl compiled successfully
+17.05.2015-17:04:06 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 109: Shader: res/shader/fragment_shader.glsl compiled successfully
+17.05.2015-17:04:06 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+17.05.2015-17:04:06 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 31: Loading file: res/models/cube/cube.obj
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+17.05.2015-17:04:06 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 31: Loading file: res/models/scene/scene.obj
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube.001
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: MousePos
+17.05.2015-17:04:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Base
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: Plane
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Base
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: scene
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: MousePos
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: supercube
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: root
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: scene.obj
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube.001_Cube
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cone
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cylinder
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne.001
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere.002_Icosphere.001
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus.002
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere.001_Icosphere
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus.001
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cone.001
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Grid
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: cube.obj
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: supercube
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:04:08 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+17.05.2015-17:04:08 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+17.05.2015-17:04:08 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+17.05.2015-17:05:06 : Logging Started
+17.05.2015-17:05:07 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+17.05.2015-17:05:07 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+17.05.2015-17:05:07 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 109: Shader: res/shader/vertex_shader.glsl compiled successfully
+17.05.2015-17:05:07 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 109: Shader: res/shader/fragment_shader.glsl compiled successfully
+17.05.2015-17:05:07 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+17.05.2015-17:05:07 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 31: Loading file: res/models/cube/cube.obj
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+17.05.2015-17:05:07 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 31: Loading file: res/models/scene/scene.obj
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube.001
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: MousePos
+17.05.2015-17:05:07 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Base
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: Plane
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Base
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: scene
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: MousePos
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: supercube
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: root
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: scene.obj
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube.001_Cube
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cone
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cylinder
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne.001
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere.002_Icosphere.001
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus.002
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere.001_Icosphere
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus.001
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cone.001
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Grid
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: cube.obj
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: supercube
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:05:22 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+17.05.2015-17:05:22 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+17.05.2015-17:05:22 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+17.05.2015-17:06:43 : Logging Started
+17.05.2015-17:06:44 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+17.05.2015-17:06:44 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+17.05.2015-17:06:44 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 109: Shader: res/shader/vertex_shader.glsl compiled successfully
+17.05.2015-17:06:44 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 109: Shader: res/shader/fragment_shader.glsl compiled successfully
+17.05.2015-17:06:44 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+17.05.2015-17:06:44 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 31: Loading file: res/models/cube/cube.obj
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+17.05.2015-17:06:44 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 31: Loading file: res/models/scene/scene.obj
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube.001
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: MousePos
+17.05.2015-17:06:44 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Base
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: Plane
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Base
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: scene
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: MousePos
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: supercube
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: root
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: scene.obj
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube.001_Cube
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cone
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cylinder
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne.001
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere.002_Icosphere.001
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus.002
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere.001_Icosphere
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus.001
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cone.001
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Grid
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: cube.obj
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: supercube
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:06:49 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+17.05.2015-17:06:49 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+17.05.2015-17:06:49 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+17.05.2015-17:12:36 : Logging Started
+17.05.2015-17:12:37 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+17.05.2015-17:12:37 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+17.05.2015-17:12:37 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 109: Shader: res/shader/vertex_shader.glsl compiled successfully
+17.05.2015-17:12:37 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 109: Shader: res/shader/fragment_shader.glsl compiled successfully
+17.05.2015-17:12:37 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+17.05.2015-17:12:37 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 31: Loading file: res/models/cube/cube.obj
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+17.05.2015-17:12:37 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 31: Loading file: res/models/scene/scene.obj
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube.001
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: MousePos
+17.05.2015-17:12:37 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Base
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: Plane
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Base
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: scene
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: MousePos
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: supercube
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: root
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: scene.obj
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube.001_Cube
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cone
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cylinder
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne.001
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere.002_Icosphere.001
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus.002
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere.001_Icosphere
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus.001
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cone.001
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Grid
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: cube.obj
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: supercube
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:12:48 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+17.05.2015-17:12:48 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+17.05.2015-17:12:48 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+17.05.2015-17:15:06 : Logging Started
+17.05.2015-17:15:06 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+17.05.2015-17:15:06 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+17.05.2015-17:15:06 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 109: Shader: res/shader/vertex_shader.glsl compiled successfully
+17.05.2015-17:15:06 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 109: Shader: res/shader/fragment_shader.glsl compiled successfully
+17.05.2015-17:15:06 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+17.05.2015-17:15:06 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 31: Loading file: res/models/cube/cube.obj
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+17.05.2015-17:15:06 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 31: Loading file: res/models/scene/scene.obj
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube.001
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: MousePos
+17.05.2015-17:15:06 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Base
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: Plane
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Base
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: scene
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: MousePos
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: supercube
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: root
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: scene.obj
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube.001_Cube
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cone
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cylinder
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne.001
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere.002_Icosphere.001
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus.002
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere.001_Icosphere
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus.001
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cone.001
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Grid
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: cube.obj
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: supercube
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:15:08 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+17.05.2015-17:15:08 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+17.05.2015-17:15:08 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!
+==========================================
+17.05.2015-17:16:53 : Logging Started
+17.05.2015-17:16:53 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: open: 58: window initialized successfully!
+17.05.2015-17:16:53 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: initSDL: 154: SDL initialized successfully!
+17.05.2015-17:16:53 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 109: Shader: res/shader/vertex_shader.glsl compiled successfully
+17.05.2015-17:16:53 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createShader: 109: Shader: res/shader/fragment_shader.glsl compiled successfully
+17.05.2015-17:16:53 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: createProgram: 58: Program: 3 compiled successfully
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: root
+17.05.2015-17:16:53 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 31: Loading file: res/models/cube/cube.obj
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: cube.obj
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube
+17.05.2015-17:16:53 : INFO    : /home/mars/Projekte/mgf/src/scene/Loader.cpp: load: 31: Loading file: res/models/scene/scene.obj
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene.obj
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.002_Icosphere.001
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.002
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere.001_Icosphere
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus.001
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone.001
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Grid
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Torus
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Icosphere
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cylinder
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cone
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001_Cube
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: scene
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Cube.001
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Suzanne.001
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: supercube.001
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: MousePos
+17.05.2015-17:16:53 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: Node: 15: Creating Node: Base
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: Plane
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Base
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: scene
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: TestCube
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: MousePos
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: supercube
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: root
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: scene.obj
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube.001_Cube
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cube
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cone
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cylinder
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne.001
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere.002_Icosphere.001
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus.002
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere.001_Icosphere
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus.001
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Cone.001
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Grid
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Suzanne
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Torus
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: Icosphere
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: cube.obj
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/scene/Node.cpp: ~Node: 28: Deleting Node: supercube
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : TRACE   : /home/mars/Projekte/mgf/src/data/Mesh.cpp: ~Mesh: 20: Deleting VAO: 
+17.05.2015-17:16:59 : INFO    : /home/mars/Projekte/mgf/src/util/ShaderProgram.cpp: ~ShaderProgram: 23: closing shader_program
+17.05.2015-17:16:59 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: close: 71: window closed!
+17.05.2015-17:16:59 : INFO    : /home/mars/Projekte/mgf/src/util/Window.cpp: closeSDL: 168: SDL closed!

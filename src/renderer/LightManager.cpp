@@ -83,42 +83,42 @@ std::shared_ptr<Texture> LightManager::getTexture(){
 void LightManager::assembleTexture(){
 	mTexture.reset(new Texture());
 	if(mLights.size() > 0){
-		float lightTexture[mLights.size()][16];
+		float lightTexture[mLights.size()][4][4];
 
 		for(unsigned int i = 0; i < mLights.size(); i++){
-			lightTexture[i][0] = mLights[i]->mActive;
-			lightTexture[i][1] = mLights[i]->mType;
-			lightTexture[i][2] = mLights[i]->mStrengthDiffuse;
-			lightTexture[i][3] = mLights[i]->mStrengthSpecular;
+			lightTexture[i][0][0] = mLights[i]->mActive;
+			lightTexture[i][0][1] = mLights[i]->mType;
+			lightTexture[i][0][2] = mLights[i]->mStrengthDiffuse;
+			lightTexture[i][0][3] = mLights[i]->mStrengthSpecular;
 
-			lightTexture[i][4] = mLights[i]->mColor[0];
-			lightTexture[i][5] = mLights[i]->mColor[1];
-			lightTexture[i][6] = mLights[i]->mColor[2];
-			lightTexture[i][7] = 1;
+			lightTexture[i][1][0] = mLights[i]->mColor[0];
+			lightTexture[i][1][1] = mLights[i]->mColor[1];
+			lightTexture[i][1][2] = mLights[i]->mColor[2];
+			lightTexture[i][1][3] = 1;
 
-			lightTexture[i][8] = mLights[i]->mPosition[0];
-			lightTexture[i][9] = mLights[i]->mPosition[1];
-			lightTexture[i][10] = mLights[i]->mPosition[2];
-			lightTexture[i][11] = 1;
+			lightTexture[i][2][0] = mLights[i]->mPosition[0];
+			lightTexture[i][2][1] = mLights[i]->mPosition[1];
+			lightTexture[i][2][2] = mLights[i]->mPosition[2];
+			lightTexture[i][2][3] = 1;
 
-			lightTexture[i][12] = mLights[i]->mDirection[0];
-			lightTexture[i][13] = mLights[i]->mDirection[1];
-			lightTexture[i][14] = mLights[i]->mDirection[2];
-			lightTexture[i][15] = 0;
+			lightTexture[i][3][0] = mLights[i]->mDirection[0];
+			lightTexture[i][3][1] = mLights[i]->mDirection[1];
+			lightTexture[i][3][2] = mLights[i]->mDirection[2];
+			lightTexture[i][3][3] = 0;
 		}
 
 		glActiveTexture(GL_TEXTURE0);
 		glGenTextures(1, &mTexture->mTextureBuffer);
 		glBindTexture(GL_TEXTURE_2D, mTexture->mTextureBuffer);
 
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-		glTexStorage2D(GL_TEXTURE_2D, 0, GL_RGBA32F, 16, mLights.size());
-		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 16, mLights.size(), GL_RGBA, GL_FLOAT, lightTexture);
+		glTexStorage2D(GL_TEXTURE_2D, 1, GL_RGBA32F, 4, mLights.size());
+		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 4, mLights.size(), GL_RGBA, GL_FLOAT, lightTexture);
 	}
 	return;
 }

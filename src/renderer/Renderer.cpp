@@ -92,6 +92,11 @@ bool Renderer::drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform, std::sh
 
 	glBindVertexArray(data->mVAO);
 
+    glEnable(GL_CULL_FACE);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
+    glEnable(GL_BLEND);
+
 	if(data->mRenderIndexed){
 		//LOG_F_TRACE(MGF_LOG_FILE, "Drawing ", data->mNumIndices, " Elements");
 		glDrawElements(GL_TRIANGLES, data->mNumIndices * sizeof(GLuint), GL_UNSIGNED_INT, 0);
@@ -179,17 +184,21 @@ bool Renderer::applyMatrix(glm::mat4 data, GLuint loc){
 bool Renderer::applyMaterial(std::shared_ptr<Material> data){
 	if(!good()) return false;
 	if(!data) return false;
+
 	GLuint loc = mShaderProgram->get(MATERIAL_COLOR_DIFFUSE);
 	glUniform4fv(loc, 1, glm::value_ptr(data->mDiffuseColor));
 
-	float alpha = 1.f;
+	float alpha = 0.6f;
 	loc = mShaderProgram->get(MATERIAL_ALPHA);
 	glUniform1f(loc, alpha);
 
+	loc = glGetUniformLocation(mShaderProgram->getProgram(), "lights");
+	glUniform1i(loc, 0);
+	loc = glGetUniformLocation(mShaderProgram->getProgram(), "tex");
+	glUniform1i(loc, 1);
+
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, mLights.getTexture()->mTextureBuffer);
-
-	//std::cerr << mLights.getTexture()->mTextureBuffer << std::endl;
 
 	float has_texture;
 	if(data->mDiffuseTextures.size() > 0){

@@ -10,9 +10,14 @@ int main(int argc, char *argv[]){
 	LOG_INIT("log_mgf.txt", true);
 	mLog::Instance()->setLogLevel(2, 6);
 
-
 //###############################################  Create necessary objects
 	std::shared_ptr<mgf::Window> w(new mgf::Window("MGF Test", 1000, 800, 0, 0));
+	//////////////////////// WHY???
+	GLenum error;
+	while((error = glGetError()) != GL_NO_ERROR){
+		std::cerr << "Light ERROR 01: " << error << std::endl;
+	}
+	/////////////////////////
 	std::shared_ptr<mgf::IInput> input(new mgf::InputTopDown);
 
 	std::shared_ptr<mgf::ShaderProgram> p(new mgf::ShaderProgram);
@@ -67,7 +72,6 @@ int main(int argc, char *argv[]){
 	light->mColor = glm::vec3(1.f, 0.f, 0.f);
 	renderer->addLight(light, glm::mat4(1));
 
-
 //###############################################  Gameloop
 	float current = 0, last = 0, frametime = 0;
 	bool quit = false;
@@ -96,6 +100,11 @@ int main(int argc, char *argv[]){
 		frametime = current - last;
 		last = current;
 		//std::cerr << "FPS: " << 1000.f / frametime << std::endl;	//show fps
+
+		GLenum error;
+		while((error = glGetError()) != GL_NO_ERROR){
+			std::cerr << "ERROR: " << error << std::endl;
+		}
 	}
 //###############################################  Gameloop end
 

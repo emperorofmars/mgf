@@ -8,6 +8,8 @@
 //###############################################  Main
 int main(int argc, char *argv[]){
 	LOG_INIT("log_mgf.txt", true);
+	mLog::Instance()->setLogLevel(2, 6);
+
 
 //###############################################  Create necessary objects
 	std::shared_ptr<mgf::Window> w(new mgf::Window("MGF Test", 1000, 800, 0, 0));
@@ -54,6 +56,17 @@ int main(int argc, char *argv[]){
 	std::shared_ptr<mgf::Moveable> ui(new mgf::Moveable("ui"));
 	//ui->translate(glm::vec2(5.f, 5.f));
 	//ui->scale(glm::vec2(2.f, 2.f));
+
+	std::shared_ptr<mgf::Light> light(new mgf::Light());
+	light->mColor = glm::vec3(0.f, 1.f, 0.f);
+	renderer->addLight(light, glm::mat4(1));
+	light->mColor = glm::vec3(1.f, 1.f, 0.f);
+	renderer->addLight(light, glm::mat4(1));
+	light->mColor = glm::vec3(0.f, 0.f, 1.f);
+	renderer->addLight(light, glm::mat4(1));
+	light->mColor = glm::vec3(1.f, 0.f, 0.f);
+	renderer->addLight(light, glm::mat4(1));
+
 
 //###############################################  Gameloop
 	float current = 0, last = 0, frametime = 0;

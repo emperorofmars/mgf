@@ -21,12 +21,16 @@ in VS_OUT{
 }fs_in;
 
 void main(void){
+	color = vec4(0.5, 0.5, 0.5, 1);
 	if(fs_in.material.has_texture > 0.5){
-		color = texture(tex, vec2(fs_in.uv.x, 1 - fs_in.uv.y));
+		//color = texture(tex, vec2(fs_in.uv.x, 1 - fs_in.uv.y));
+		//color = texture(lights, vec2(0, 1));
 	}
 	else{
-		color = fs_in.material.color;
+		//color = fs_in.material.color;
 	}
+	color = texelFetch(lights, ivec2(0, 1), 0);
+	//color = texture(lights, vec2(0.25, 0.25));
 	//color *= dot(fs_in.norm, normalize(vec3(10, 20, 7) - fs_in.pos.xyz)) *
 	//			1 / length(vec3(10, 20, 7) - fs_in.pos.xyz) * 15;
 	

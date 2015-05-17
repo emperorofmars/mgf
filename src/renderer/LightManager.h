@@ -19,9 +19,11 @@ public:
 	LightManager();
 	~LightManager();
 
-	void addLight(std::shared_ptr<Light> light);
-	void removeLight(std::shared_ptr<Light> light);
-	void removeLight(const std::string &name);
+	void add(std::shared_ptr<Light> light);
+	void remove(std::shared_ptr<Light> light);
+	void remove(const std::string &name);
+	void clear();
+	void refresh();
 
 	unsigned int getHeight();
 

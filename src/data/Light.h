@@ -18,10 +18,13 @@ public:
 
 	std::string mName;
 
-	glm::vec3 mColor;
+	float mActive;
+	float mType;
 	float mStrengthDiffuse;
 	float mStrengthSpecular;
-	float mActive;
+	glm::vec3 mColor;
+	glm::vec3 mPosition;
+	glm::vec3 mDirection;
 };
 
 } // mgf

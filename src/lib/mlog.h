@@ -11,7 +11,6 @@
 ** Author:	Martin Schwarz
 ** File:	mlog.h
 ** Project:	Mars Logging
-** Compile:	include in other project
 */
 
 #pragma once

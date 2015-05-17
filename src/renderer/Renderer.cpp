@@ -40,15 +40,16 @@ bool Renderer::setShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram){
 
 bool Renderer::addLight(std::shared_ptr<Light> data, glm::mat4 transform){
 	if(!data) return false;
-	return true;
-}
-
-bool Renderer::removeLight(std::shared_ptr<Light> data){
-	if(!data) return false;
+	std::shared_ptr<Light> light(new Light());
+	*light = *data;
+	light->mPosition = glm::vec3(transform * glm::vec4(light->mPosition, 1));
+	light->mDirection = glm::vec3(glm::inverseTranspose(transform) * glm::vec4(light->mDirection, 0));
+	mLights.add(light);
 	return true;
 }
 
 bool Renderer::clearLights(){
+	mLights.clear();
 	return true;
 }
 
@@ -185,13 +186,20 @@ bool Renderer::applyMaterial(std::shared_ptr<Material> data){
 	loc = mShaderProgram->get(MATERIAL_ALPHA);
 	glUniform1f(loc, alpha);
 
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, mLights.getTexture()->mTextureBuffer);
+
+	//std::cerr << mLights.getTexture()->mTextureBuffer << std::endl;
+
 	float has_texture;
 	if(data->mDiffuseTextures.size() > 0){
 		has_texture = 1.f;
+		glActiveTexture(GL_TEXTURE0 + 1);
 		glBindTexture(GL_TEXTURE_2D, data->mDiffuseTextures[0]->mTextureBuffer);
 	}
 	else{
 		has_texture = 0.f;
+		glActiveTexture(GL_TEXTURE0 + 1);
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 	loc = mShaderProgram->get(MATERIAL_HAS_TEXTURE);

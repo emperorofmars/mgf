@@ -71,6 +71,14 @@ int main(int argc, char *argv[]){
 	renderer->addLight(light, glm::mat4(1));
 	light->mColor = glm::vec3(1.f, 0.f, 0.f);
 	renderer->addLight(light, glm::mat4(1));
+	light->mColor = glm::vec3(0.f, 1.f, 0.f);
+	renderer->addLight(light, glm::mat4(1));
+	light->mColor = glm::vec3(1.f, 1.f, 0.f);
+	renderer->addLight(light, glm::mat4(1));
+	light->mColor = glm::vec3(0.f, 0.f, 1.f);
+	renderer->addLight(light, glm::mat4(1));
+	light->mColor = glm::vec3(1.f, 0.f, 0.f);
+	renderer->addLight(light, glm::mat4(1));
 
 //###############################################  Gameloop
 	float current = 0, last = 0, frametime = 0;

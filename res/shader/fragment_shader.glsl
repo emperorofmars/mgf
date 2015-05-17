@@ -27,7 +27,7 @@ void main(void){
 	else{
 		color = fs_in.material.color;
 	}
-	color = texelFetch(lights, ivec2(1, 2), 0);
+	color = texelFetch(lights, ivec2(1, 7), 0);
 	//color = texture(lights, vec2(0.25, 0.25));
 	//color *= dot(fs_in.norm, normalize(vec3(10, 20, 7) - fs_in.pos.xyz)) *
 	//			1 / length(vec3(10, 20, 7) - fs_in.pos.xyz) * 15;

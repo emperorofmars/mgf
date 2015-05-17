@@ -19,10 +19,6 @@ void LightManager::add(std::shared_ptr<Light> light){
 	if(!light) return;
 	mLights.push_back(light);
 	assembleTexture();
-
-	std::cerr << "LIGHT: " << light->mColor[0] << " " << light->mColor[1] << " " << light->mColor[2] << std::endl;
-
-
 	return;
 }
 
@@ -110,12 +106,6 @@ void LightManager::assembleTexture(){
 		glActiveTexture(GL_TEXTURE0);
 		glGenTextures(1, &mTexture->mTextureBuffer);
 		glBindTexture(GL_TEXTURE_2D, mTexture->mTextureBuffer);
-
-		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
-		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
 		glTexStorage2D(GL_TEXTURE_2D, 1, GL_RGBA32F, 4, mLights.size());
 		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 4, mLights.size(), GL_RGBA, GL_FLOAT, lightTexture);

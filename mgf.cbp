@@ -87,6 +87,8 @@
 		<Unit filename="src/overlay/Moveable.h" />
 		<Unit filename="src/overlay/Overlay.cpp" />
 		<Unit filename="src/overlay/Overlay.h" />
+		<Unit filename="src/renderer/LightManager.cpp" />
+		<Unit filename="src/renderer/LightManager.h" />
 		<Unit filename="src/renderer/Renderer.cpp" />
 		<Unit filename="src/renderer/Renderer.h" />
 		<Unit filename="src/scene/Loader.cpp" />
@@ -99,6 +101,8 @@
 		<Unit filename="src/scene/OverlayNode.h" />
 		<Unit filename="src/scene/Positionable.cpp" />
 		<Unit filename="src/scene/Positionable.h" />
+		<Unit filename="src/scene/SimpleLoader.cpp" />
+		<Unit filename="src/scene/SimpleLoader.h" />
 		<Unit filename="src/util/ShaderProgram.cpp" />
 		<Unit filename="src/util/ShaderProgram.h" />
 		<Unit filename="src/util/Window.cpp" />

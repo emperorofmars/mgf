@@ -12,6 +12,7 @@
 #include "../util/ShaderProgram.h"
 #include "../camera/ICamera.h"
 #include "../data/Data.h"
+#include "LightManager.h"
 
 namespace mgf{
 

@@ -9,8 +9,9 @@
 namespace mgf{
 
 Light::Light(){
-	mStrength = 1;
-	mDiffuse = glm::vec3(1.f, 1.f, 1.f);
+	mStrengthDiffuse = 1;
+	mStrengthSpecular = 1;
+	mColor = glm::vec3(1.f, 1.f, 1.f);
 }
 
 Light::~Light(){

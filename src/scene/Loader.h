@@ -47,10 +47,6 @@ private:
 	std::mutex mMutex;
 };
 
-bool loadMeshToGPU(std::shared_ptr<Mesh> mesh);
-bool loadTextureToGPU(std::shared_ptr<Texture> texture, unsigned int index = 1);
-std::shared_ptr<Texture> loadTextureFromSDLSurface(SDL_Surface *image, unsigned int index = 1);
-
 } // mgf
 
 #endif // MGF_LOADER_H

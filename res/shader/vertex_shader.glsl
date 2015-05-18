@@ -6,9 +6,13 @@ layout (location = 2) in vec3 uv;
 
 struct mMaterial{
 	vec4 color;
+	vec4 specular;
+	vec4 ambient;
+	vec4 emissive;
 	float alpha;
+	float shininess;
 	float has_texture;
-	float numlights;
+	float shadingType;
 };
 
 out VS_OUT{

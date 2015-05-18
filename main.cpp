@@ -64,10 +64,12 @@ int main(int argc, char *argv[]){
 
 	std::shared_ptr<mgf::Light> light(new mgf::Light());
 	light->mColor = glm::vec3(0.f, 1.f, 0.f);
+	light->mPosition = glm::vec3(5.f, 15.f, 15.f);
 	renderer->addLight(light, glm::mat4(1));
-	light->mColor = glm::vec3(1.f, 1.f, 0.f);
+	light->mColor = glm::vec3(0.6f, 0.2f, 1.f);
+	light->mPosition = glm::vec3(0.f, 10.f, -5.f);
 	renderer->addLight(light, glm::mat4(1));
-	light->mColor = glm::vec3(0.f, 0.f, 1.f);
+	/*light->mColor = glm::vec3(0.f, 0.f, 1.f);
 	renderer->addLight(light, glm::mat4(1));
 	light->mColor = glm::vec3(1.f, 0.f, 0.f);
 	renderer->addLight(light, glm::mat4(1));
@@ -78,7 +80,7 @@ int main(int argc, char *argv[]){
 	light->mColor = glm::vec3(0.f, 0.f, 1.f);
 	renderer->addLight(light, glm::mat4(1));
 	light->mColor = glm::vec3(1.f, 0.f, 0.f);
-	renderer->addLight(light, glm::mat4(1));
+	renderer->addLight(light, glm::mat4(1));*/
 
 //###############################################  Gameloop
 	float current = 0, last = 0, frametime = 0;
@@ -99,7 +101,7 @@ int main(int argc, char *argv[]){
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
 
-		actualScene->render(renderer); //rendering on gpu happens here
+		root->render(renderer); //rendering on gpu happens here
 		ui->render(renderer);
 
 		w->swap(); //display the rendered image on screen

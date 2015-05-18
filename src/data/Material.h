@@ -20,7 +20,12 @@ public:
 	std::string mName;
 
 	std::vector<std::shared_ptr<Texture>> mDiffuseTextures;
+	glm::vec4 mEmissiveColor;
+	glm::vec4 mAmbientColor;
 	glm::vec4 mDiffuseColor;
+	glm::vec4 mSpecularColor;
+	float mShininess;
+	int mShadingType;
 };
 
 } // mgf

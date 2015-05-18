@@ -188,9 +188,31 @@ bool Renderer::applyMaterial(std::shared_ptr<Material> data){
 	GLuint loc = mShaderProgram->get(MATERIAL_COLOR_DIFFUSE);
 	glUniform4fv(loc, 1, glm::value_ptr(data->mDiffuseColor));
 
-	float alpha = 0.6f;
+	loc = glGetUniformLocation(mShaderProgram->getProgram(), "material.specular");
+	glUniform4fv(loc, 1, glm::value_ptr(data->mSpecularColor));
+
+	loc = glGetUniformLocation(mShaderProgram->getProgram(), "material.ambient");
+	glUniform4fv(loc, 1, glm::value_ptr(data->mAmbientColor));
+
+	loc = glGetUniformLocation(mShaderProgram->getProgram(), "material.emissive");
+	glUniform4fv(loc, 1, glm::value_ptr(data->mEmissiveColor));
+
+	loc = glGetUniformLocation(mShaderProgram->getProgram(), "material.shininess");
+	glUniform1f(loc, data->mShininess);
+
+	loc = glGetUniformLocation(mShaderProgram->getProgram(), "material.shadingType");
+	glUniform1f(loc, data->mShadingType);
+
+	float alpha = 1.f;
 	loc = mShaderProgram->get(MATERIAL_ALPHA);
 	glUniform1f(loc, alpha);
+
+	loc = glGetUniformLocation(mShaderProgram->getProgram(), "numlights");
+	glUniform1i(loc, mLights.getHeight());
+
+
+	loc = glGetUniformLocation(mShaderProgram->getProgram(), "cameraPos");
+	glUniform4fv(loc, 1, glm::value_ptr(glm::vec4(mCamera->getPos(), 1)));
 
 	loc = glGetUniformLocation(mShaderProgram->getProgram(), "lights");
 	glUniform1i(loc, 0);

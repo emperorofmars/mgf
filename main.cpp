@@ -12,12 +12,7 @@ int main(int argc, char *argv[]){
 
 //###############################################  Create necessary objects
 	std::shared_ptr<mgf::Window> w(new mgf::Window("MGF Test", 1000, 800, 0, 0));
-	//////////////////////// WHY???
-	GLenum error;
-	while((error = glGetError()) != GL_NO_ERROR){
-		std::cerr << "Light ERROR 01: " << error << std::endl;
-	}
-	/////////////////////////
+
 	std::shared_ptr<mgf::IInput> input(new mgf::InputTopDown);
 
 	std::shared_ptr<mgf::ShaderProgram> p(new mgf::ShaderProgram);
@@ -27,6 +22,7 @@ int main(int argc, char *argv[]){
 
 	std::shared_ptr<mgf::ICamera> cam(new mgf::CameraTopDown(45, w->getAspectRatio(), 1000.f, 0.1f));
 	cam->setPos(glm::vec3(0.f, 50.f, 15.f));
+
 	std::shared_ptr<mgf::Renderer> renderer(new mgf::Renderer(w, cam, p));
 
 //###############################################  Load 3d files
@@ -49,7 +45,7 @@ int main(int argc, char *argv[]){
 
 //###############################################  transform objects
 	actualScene->getChild("Suzanne")->scale(glm::vec3(1.f, 1.5f, 2.f));
-	actualScene->getChild("Suzanne")->translate(glm::vec3(5.f, -5.f, 2.f));
+	actualScene->getChild("Suzanne")->translate(glm::vec3(5.f, -5.f, -2.f));
 	actualScene->getChild("Cube")->translate(glm::vec3(-6.f, 1.f, 4.f));
 	actualScene->getChild("Cube")->scale(glm::vec3(1.f, 1.f, 4.f));
 
@@ -58,7 +54,7 @@ int main(int argc, char *argv[]){
 	actualScene->getChild("Cube")->setMaterial(newmat);
 	//actualScene->getChild("Cube")->resetMaterial();
 
-	std::shared_ptr<mgf::Moveable> ui(new mgf::Moveable("ui"));
+	std::shared_ptr<mgf::Label> ui(new mgf::Label("ui"));
 	//ui->translate(glm::vec2(5.f, 5.f));
 	//ui->scale(glm::vec2(2.f, 2.f));
 
@@ -69,18 +65,6 @@ int main(int argc, char *argv[]){
 	light->mColor = glm::vec3(0.6f, 0.2f, 1.f);
 	light->mPosition = glm::vec3(0.f, 10.f, -5.f);
 	renderer->addLight(light, glm::mat4(1));
-	/*light->mColor = glm::vec3(0.f, 0.f, 1.f);
-	renderer->addLight(light, glm::mat4(1));
-	light->mColor = glm::vec3(1.f, 0.f, 0.f);
-	renderer->addLight(light, glm::mat4(1));
-	light->mColor = glm::vec3(0.f, 1.f, 0.f);
-	renderer->addLight(light, glm::mat4(1));
-	light->mColor = glm::vec3(1.f, 1.f, 0.f);
-	renderer->addLight(light, glm::mat4(1));
-	light->mColor = glm::vec3(0.f, 0.f, 1.f);
-	renderer->addLight(light, glm::mat4(1));
-	light->mColor = glm::vec3(1.f, 0.f, 0.f);
-	renderer->addLight(light, glm::mat4(1));*/
 
 //###############################################  Gameloop
 	float current = 0, last = 0, frametime = 0;
@@ -101,7 +85,7 @@ int main(int argc, char *argv[]){
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
 
-		root->render(renderer); //rendering on gpu happens here
+		actualScene->render(renderer); //rendering on gpu happens here
 		ui->render(renderer);
 
 		w->swap(); //display the rendered image on screen

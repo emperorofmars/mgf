@@ -13,6 +13,7 @@ Moveable::Moveable(const std::string &name){
 	std::shared_ptr<Mesh> plane(createPlane());
 	plane->mMaterial->mEmissiveColor = glm::vec4(0.5, 0.5, 0.5, 1);
 	plane->mMaterial->mShadingType = 0;
+	mBaseMat = plane->mMaterial;
 	mBase->addMesh(plane);
 	this->scale(glm::vec2(0.1f, 0.1f));
 }

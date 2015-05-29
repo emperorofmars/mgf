@@ -101,6 +101,26 @@ std::shared_ptr<Texture> loadTextureFromSDLSurface(SDL_Surface *image, unsigned 
 	return texture;
 }
 
+std::shared_ptr<Texture> loadTextureFromPath(const std::string &path, unsigned int index){
+	std::shared_ptr<Texture> texture(new Texture());
+	texture->mImage = IMG_Load(path.c_str());
+	if(!texture->mImage) return NULL;
+
+	glActiveTexture(GL_TEXTURE0 + index);	//create opengl texture object
+	glGenTextures(1, &texture->mTextureBuffer);
+	glBindTexture(GL_TEXTURE_2D, texture->mTextureBuffer);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+
+	if(texture->mImage != NULL){	//load it to gpu
+		glTexStorage2D(GL_TEXTURE_2D, 8, GL_RGBA32F, texture->mImage->w, texture->mImage->h);
+		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, texture->mImage->w, texture->mImage->h, GL_RGBA, GL_UNSIGNED_BYTE, texture->mImage->pixels);
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	return texture;
+}
+
 
 } // mgf
 

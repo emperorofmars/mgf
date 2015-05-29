@@ -226,7 +226,10 @@ bool Renderer::applyMaterial(std::shared_ptr<Material> data){
 	if(data->mDiffuseTextures.size() > 0){
 		has_texture = 1.f;
 		glActiveTexture(GL_TEXTURE0 + 1);
-		glBindTexture(GL_TEXTURE_2D, data->mDiffuseTextures[0]->mTextureBuffer);
+		if(data->mDiffuseTextures[0])
+			glBindTexture(GL_TEXTURE_2D, data->mDiffuseTextures[0]->mTextureBuffer);
+		else
+			has_texture = 0.f;
 	}
 	else{
 		has_texture = 0.f;

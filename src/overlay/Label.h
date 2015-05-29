@@ -31,8 +31,6 @@ protected:
 	bool textToTexture(const std::string &text);
 
 	std::string mText;
-	std::shared_ptr<Texture> mTextImage;
-	std::shared_ptr<Texture> mBackground;
 
 	std::shared_ptr<OverlayNode> mTop;
 	std::shared_ptr<Material> mTopMat;

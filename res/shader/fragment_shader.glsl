@@ -31,8 +31,15 @@ vec4 calculatePointLight(float diffuseStrength, float specularStrength,
 						vec4 lightColor, vec4 lightPos, vec4 lightDir);
 
 void main(void){
-	if(fs_in.material.shadingType > 0.5){
-		
+	if(fs_in.material.shadingType < 0.5){	//No Shading
+		if(fs_in.material.has_texture > 0.5){
+			FragColor = texture(tex, vec2(fs_in.uv.x, 1 - fs_in.uv.y));
+		}
+		else{
+			FragColor = fs_in.material.color;
+		}
+	}
+	else if(fs_in.material.shadingType > 0.5){	//Normal Shading
 		for(int i = 0; i < numlights; i++){
 			vec4 lightInfo = texelFetch(lights, ivec2(0, i), 0);
 			if(lightInfo.r < 0.5) continue;
@@ -41,7 +48,7 @@ void main(void){
 			vec4 lightPos = texelFetch(lights, ivec2(2, i), 0);
 			vec4 lightDir = texelFetch(lights, ivec2(3, i), 0);
 			
-			if(lightInfo.g < 1.5){
+			if(lightInfo.g < 1.5){	//Point Loght
 				FragColor += calculatePointLight(lightInfo.b, lightInfo.a, lightColor, lightPos, lightDir);
 			}
 			else{

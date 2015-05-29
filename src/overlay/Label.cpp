@@ -16,7 +16,7 @@ Label::Label(const std::string &name)
 	mTop->translate(glm::vec3(0.f, 0.f, 1.f));
 	mTop->scale(glm::vec3(0.6f, 0.6f, 0.6f));
 	std::shared_ptr<Mesh> plane(createPlane());
-	plane->mMaterial->mEmissiveColor = glm::vec4(0.1, 0.5, 0.5, 1);
+	plane->mMaterial->mDiffuseColor = glm::vec4(0.1, 0.5, 0.5, 1);
 	plane->mMaterial->mShadingType = 0;
 	mTopMat = plane->mMaterial;
 	mTop->addMesh(plane);
@@ -39,13 +39,15 @@ bool Label::setText(const std::string &text){
 bool Label::setBackground(const std::string &path){
 	mBaseMat->mDiffuseTextures.resize(1);
 	mBaseMat->mDiffuseTextures[0] = loadTextureFromPath(path);
+	if(mBaseMat->mDiffuseTextures[0]) return true;
 	return false;
 }
 
 bool Label::setBackground(std::shared_ptr<Texture> texture){
 	mBaseMat->mDiffuseTextures.resize(1);
 	mBaseMat->mDiffuseTextures[0] = texture;
-	return true;
+	if(mBaseMat->mDiffuseTextures[0]) return true;
+	return false;
 }
 
 std::string Label::getText(){
@@ -53,7 +55,9 @@ std::string Label::getText(){
 }
 
 std::shared_ptr<Texture> Label::getBackground(){
-	return mBackground;
+	if(mBaseMat->mDiffuseTextures.size() > 0)
+		return mBaseMat->mDiffuseTextures[0];
+	return NULL;
 }
 
 bool Label::textToTexture(const std::string &text){

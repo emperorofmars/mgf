@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
 	std::shared_ptr<mgf::Renderer> renderer(new mgf::Renderer(w, cam, p));
 
 //###############################################  Load 3d files
-	mgf::Loader l;
+	mgf::Loader l(false, false);
 	std::shared_ptr<mgf::Node> root(new mgf::Node("root"));
 	root->add(l.load("res/models/cube/cube.obj"));
 	root->add(l.load("res/models/scene/scene.obj"));
@@ -55,8 +55,7 @@ int main(int argc, char *argv[]){
 	//actualScene->getChild("Cube")->resetMaterial();
 
 	std::shared_ptr<mgf::Label> ui(new mgf::Label("ui"));
-	//ui->translate(glm::vec2(5.f, 5.f));
-	//ui->scale(glm::vec2(2.f, 2.f));
+	ui->setBackground("res/images/Button.png");
 
 	std::shared_ptr<mgf::Light> light(new mgf::Light());
 	light->mColor = glm::vec3(0.f, 1.f, 0.f);

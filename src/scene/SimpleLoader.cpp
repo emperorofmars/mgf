@@ -33,7 +33,7 @@ bool loadMeshToGPU(std::shared_ptr<Mesh> mesh){
 	if(mesh->mVertices.size() > 0){
 		glGenBuffers(1, &mesh->mVertexbuffer);
 		glBindBuffer(GL_ARRAY_BUFFER, mesh->mVertexbuffer);
-		glBufferData(GL_ARRAY_BUFFER, mesh->mNumVertices * sizeof(aiVector3D), &mesh->mVertices[0], GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, mesh->mNumVertices * sizeof(glm::vec3), &mesh->mVertices[0], GL_STATIC_DRAW);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 		glEnableVertexAttribArray(0);
 	}
@@ -41,7 +41,7 @@ bool loadMeshToGPU(std::shared_ptr<Mesh> mesh){
 	if(mesh->mNormals.size() > 0){
 		glGenBuffers(1, &mesh->mNormalbuffer);
 		glBindBuffer(GL_ARRAY_BUFFER, mesh->mNormalbuffer);
-		glBufferData(GL_ARRAY_BUFFER, mesh->mNumVertices * sizeof(aiVector3D), &mesh->mNormals[0], GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, mesh->mNumVertices * sizeof(glm::vec3), &mesh->mNormals[0], GL_STATIC_DRAW);
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 		glEnableVertexAttribArray(1);
 	}
@@ -50,7 +50,7 @@ bool loadMeshToGPU(std::shared_ptr<Mesh> mesh){
 		if(mesh->mUV[i].size() > 0){
 			glGenBuffers(1, &mesh->mUVBuffer[i]);
 			glBindBuffer(GL_ARRAY_BUFFER, mesh->mUVBuffer[i]);
-			glBufferData(GL_ARRAY_BUFFER, mesh->mNumVertices * sizeof(aiVector3D), &mesh->mUV[i][0], GL_STATIC_DRAW);
+			glBufferData(GL_ARRAY_BUFFER, mesh->mNumVertices * sizeof(glm::vec3), &mesh->mUV[i][0], GL_STATIC_DRAW);
 			glVertexAttribPointer(2 + i, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 			glEnableVertexAttribArray(2 + i);
 		}

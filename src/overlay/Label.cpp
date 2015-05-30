@@ -115,7 +115,8 @@ bool Label::textToTexture(){
 		return false;
 	}
 	SDL_Surface *realimg = SDL_CreateRGBSurface(0, nextPow2(img->w) * 2, nextPow2(img->h) * 2, 32,
-					img->format->Rmask, img->format->Gmask, img->format->Bmask, img->format->Amask);
+					0x000000ff, 0x0000ff00, 0x00ff0000, 0xff000000);
+					//img->format->Rmask, img->format->Gmask, img->format->Bmask, img->format->Amask);
 
 	SDL_Rect dest = {(realimg->w - img->w) / 2, (realimg->h - img->h) / 2, nextPow2(img->w), nextPow2(img->h)};
 	SDL_BlitSurface(img, NULL, realimg, &dest);

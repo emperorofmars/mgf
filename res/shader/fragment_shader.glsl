@@ -60,7 +60,7 @@ void main(void){
 	}
 	
 	vec4 Emissive = fs_in.material.emissive;
-	FragColor += Emissive;
+	FragColor += vec4(Emissive.rgb, 0);
 }
 
 vec4 calculatePointLight(float diffuseStrength, float specularStrength,

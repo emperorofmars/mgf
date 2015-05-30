@@ -55,9 +55,8 @@ int main(int argc, char *argv[]){
 	//actualScene->getChild("Cube")->resetMaterial();
 
 //###############################################  create overlay
-	std::shared_ptr<mgf::Label> ui(new mgf::Label("ui"));
+	std::shared_ptr<mgf::Button> ui(new mgf::Button("ui"));
 	ui->setColor(glm::vec3(1.f, 0.5f, 0.5f));
-	ui->setTextSize(500);
 	ui->setFont("res/fonts/main.ttf");
 	ui->setText("blubblub");
 	ui->setBackground("res/images/Button.png");
@@ -79,6 +78,8 @@ int main(int argc, char *argv[]){
 		input->update();
 		quit = input->getQuit();
 		cam->update(input->getPosition(), input->getMouseRelative());
+
+		std::cerr << "BUTTONCOL: " << ui->checkIfInsideNDC(input->getMouseAbsoluteNDC(w->getResolution())) << std::endl;
 
 		actualScene->getChild("Cube")->rotate(0.02f, glm::vec3(0.f,1.f, 0.f)); //rotate the cube
 //###############################################  Mouse

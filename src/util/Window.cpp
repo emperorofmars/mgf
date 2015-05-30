@@ -88,6 +88,10 @@ float Window::getAspectRatio(){
 	return 0;
 }
 
+glm::vec2 Window::getResolution(){
+	return glm::vec2(mW, mH);
+}
+
 int Window::initSDL(int GLMajor, int GLMinor){
 	bool success = true;
 

@@ -37,13 +37,20 @@ std::shared_ptr<Mesh> createPlane(){
 	std::shared_ptr<Mesh> ret(new Mesh);
 	ret->mName = "Plane";
 	ret->mRenderIndexed = false;
-
+/*
 	ret->mVertices.push_back(glm::vec3(1.f, 1.f, 0.f));
 	ret->mVertices.push_back(glm::vec3(1.f, -1.f, 0.f));
 	ret->mVertices.push_back(glm::vec3(-1.f, -1.f, 0.f));
 	ret->mVertices.push_back(glm::vec3(-1.f, 1.f, 0.f));
 	ret->mVertices.push_back(glm::vec3(1.f, 1.f, 0.f));
 	ret->mVertices.push_back(glm::vec3(-1.f, -1.f, 0.f));
+*/
+	ret->mVertices.push_back(glm::vec3(0.5f, 0.5f, 0.f));
+	ret->mVertices.push_back(glm::vec3(0.5f, -0.5f, 0.f));
+	ret->mVertices.push_back(glm::vec3(-0.5f, -0.5f, 0.f));
+	ret->mVertices.push_back(glm::vec3(-0.5f, 0.5f, 0.f));
+	ret->mVertices.push_back(glm::vec3(0.5f, 0.5f, 0.f));
+	ret->mVertices.push_back(glm::vec3(-0.5f, -0.5f, 0.f));
 
 	ret->mNormals.push_back(glm::vec3(0.f, 0.f, 1.f));
 	ret->mNormals.push_back(glm::vec3(0.f, 0.f, 1.f));

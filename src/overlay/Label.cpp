@@ -14,13 +14,15 @@ Label::Label(const std::string &name)
 	mTop.reset(new OverlayNode("Top"));
 	mBase->add(mTop);
 	mTop->translate(glm::vec3(0.f, 0.f, 1.f));
-	mTop->scale(glm::vec3(0.6f, -0.6f, 0.6f));
+	mTop->scale(glm::vec3(1.f, -1.f, 1.f));
 	std::shared_ptr<Mesh> plane(createPlane());
 	plane->mMaterial->mDiffuseColor = glm::vec4(0.1, 0.5, 0.5, 1);
 	plane->mMaterial->mShadingType = 0;
 	mTopMat = plane->mMaterial;
 	mTop->addMesh(plane);
 	mFont = NULL;
+	mSize = 220;
+	mColor = glm::vec3(0.5, 0.5, 0.5);
 }
 
 Label::~Label(){

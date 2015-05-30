@@ -54,9 +54,15 @@ int main(int argc, char *argv[]){
 	actualScene->getChild("Cube")->setMaterial(newmat);
 	//actualScene->getChild("Cube")->resetMaterial();
 
+//###############################################  create overlay
 	std::shared_ptr<mgf::Label> ui(new mgf::Label("ui"));
+	ui->setColor(glm::vec3(1.f, 0.5f, 0.5f));
+	ui->setTextSize(500);
+	ui->setFont("res/fonts/main.ttf");
+	ui->setText("blubblub");
 	ui->setBackground("res/images/Button.png");
 
+//###############################################  create lights
 	std::shared_ptr<mgf::Light> light(new mgf::Light());
 	light->mColor = glm::vec3(0.f, 1.f, 0.f);
 	light->mPosition = glm::vec3(5.f, 15.f, 15.f);

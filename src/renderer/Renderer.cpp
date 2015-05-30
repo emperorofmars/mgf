@@ -95,7 +95,8 @@ bool Renderer::drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform, std::sh
     glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
-    glEnable(GL_BLEND);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	if(data->mRenderIndexed){
 		//LOG_F_TRACE(MGF_LOG_FILE, "Drawing ", data->mNumIndices, " Elements");
@@ -154,6 +155,8 @@ bool Renderer::draw2dOverlayMesh(std::shared_ptr<Mesh> data, glm::mat4 transform
 
 	glDisable(GL_DEPTH_TEST);
     glDisable(GL_CULL_FACE);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	if(data->mRenderIndexed){
 		//LOG_F_TRACE(MGF_LOG_FILE, "Drawing ", data->mNumIndices, " Elements");
 		glDrawElements(GL_TRIANGLES, data->mNumIndices * sizeof(GLuint), GL_UNSIGNED_INT, 0);

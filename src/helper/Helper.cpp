@@ -91,8 +91,6 @@ std::shared_ptr<Mesh> createPlane(){
 	glVertexAttribPointer(2 , 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(2);
 
-	std::cerr << "BUFFERSIZE: " << ret->mNumUV[0] << std::endl;
-
 	glBindVertexArray(0);
 
 	return ret;

@@ -20,7 +20,6 @@ Moveable::Moveable(const std::string &name){
 }
 
 Moveable::~Moveable(){
-
 }
 
 bool Moveable::render(std::shared_ptr<Renderer> renderer){

@@ -91,7 +91,7 @@ float Window::getAspectRatio(){
 int Window::initSDL(int GLMajor, int GLMinor){
 	bool success = true;
 
-	if(SDL_Init(SDL_INIT_VIDEO) < 0){
+	if(SDL_Init(SDL_INIT_EVERYTHING) < 0){
 		LOG_F_ERROR(MGF_LOG_FILE, "SDL_Init failed! SDL_Error: ", SDL_GetError());
 		success = false;
 	}
@@ -102,6 +102,12 @@ int Window::initSDL(int GLMajor, int GLMinor){
 		if(!(IMG_Init(flags) & flags))
 		{
 			LOG_F_ERROR(MGF_LOG_FILE, "IMG_Init failed! IMG_Error: ", IMG_GetError());
+			success = false;
+		}
+	}
+	if(success){
+		if(TTF_Init() < 0){
+			LOG_F_ERROR(MGF_LOG_FILE, "TTF_Init failed! SDL_Error: ", SDL_GetError());
 			success = false;
 		}
 	}
@@ -163,6 +169,8 @@ int Window::closeSDL(){
 	SDL_GL_DeleteContext(mContext);
 
 	close();
+    TTF_Quit();
+    IMG_Quit();
 	SDL_Quit();
 
 	LOG_F_INFO(MGF_LOG_FILE, "SDL closed!");

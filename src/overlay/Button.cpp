@@ -11,7 +11,6 @@ namespace mgf{
 Button::Button(const std::string &name)
 	: Label(name)
 {
-
 }
 
 Button::~Button(){

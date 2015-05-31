@@ -12,9 +12,9 @@ Label::Label(const std::string &name)
 	: Moveable(name)
 {
 	mTop.reset(new OverlayNode("Top"));
+	mTop->setVisible(false);
 	mBase->add(mTop);
 	mTop->translate(glm::vec3(0.f, 0.f, 1.f));
-	mTop->scale(glm::vec3(1.f, -1.f, 1.f));
 	std::shared_ptr<Mesh> plane(createPlane());
 	plane->mMaterial->mDiffuseColor = glm::vec4(0.1, 0.5, 0.5, 1);
 	plane->mMaterial->mShadingType = 0;
@@ -99,10 +99,12 @@ unsigned int Label::nextPow2(unsigned int num){
 
 bool Label::textToTexture(){
 	if(!mFont){
+		mTop->setVisible(false);
 		LOG_F_INFO(MGF_LOG_FILE, "Failed to create text: no Font");
 		return false;
 	}
 	if(mText.size() == 0){
+		mTop->setVisible(false);
 		LOG_F_INFO(MGF_LOG_FILE, "Failed to create text: no Text");
 		return false;
 	}
@@ -113,6 +115,7 @@ bool Label::textToTexture(){
 	color.a = 255;
 	SDL_Surface *img = TTF_RenderText_Solid(mFont, mText.c_str(), color);
 	if(!img){
+		mTop->setVisible(false);
 		LOG_F_ERROR(MGF_LOG_FILE, "Failed to create text: could not create image");
 		return false;
 	}
@@ -125,11 +128,15 @@ bool Label::textToTexture(){
 
 	std::shared_ptr<Texture> tex = loadTextureFromSDLSurface(realimg);
 	if(!tex){
+		mTop->setVisible(false);
 		LOG_F_ERROR(MGF_LOG_FILE, "Failed to create text: could not load texture");
 		return false;
 	}
 	mTopMat->mDiffuseTextures.resize(1);
 	mTopMat->mDiffuseTextures[0] = tex;
+
+	mTop->setVisible(true);
+
 	LOG_F_INFO(MGF_LOG_FILE, "Text created successfully!");
 	return true;
 }

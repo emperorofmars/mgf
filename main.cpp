@@ -55,15 +55,25 @@ int main(int argc, char *argv[]){
 	//actualScene->getChild("Cube")->resetMaterial();
 
 //###############################################  create overlay
-	std::shared_ptr<mgf::Button> ui(new mgf::Button("ui"));
-	ui->setColor(glm::vec3(1.f, 0.5f, 0.5f));
-	ui->setFont("res/fonts/main.ttf");
-	ui->setText("blubblub");
-	ui->setBackground("res/images/Button.png");
+	std::shared_ptr<mgf::Overlay> overlay(new mgf::Overlay());
+
+	std::shared_ptr<mgf::Button> but(new mgf::Button("but"));
+	but->setColor(glm::vec3(1.f, 0.5f, 0.5f));
+	but->setFont("res/fonts/main.ttf");
+	but->setText("blah");
+	but->setBackground("res/images/Button.png");
+
+	std::shared_ptr<mgf::Label> lab(new mgf::Label("mouse"));
+	lab->setBackground("res/images/Mouse.png");
+	lab->translate(glm::vec2(-10.f, -10.f));
+	//lab->scale(glm::vec2(0.8f, 0.8f));
+
+	overlay->add(but);
+	overlay->add(lab);
 
 //###############################################  create lights
 	std::shared_ptr<mgf::Light> light(new mgf::Light());
-	light->mColor = glm::vec3(0.f, 1.f, 0.f);
+	light->mColor = glm::vec3(0.3f, 1.f, 0.5f);
 	light->mPosition = glm::vec3(5.f, 15.f, 15.f);
 	renderer->addLight(light, glm::mat4(1));
 	light->mColor = glm::vec3(0.6f, 0.2f, 1.f);
@@ -79,7 +89,12 @@ int main(int argc, char *argv[]){
 		quit = input->getQuit();
 		cam->update(input->getPosition(), input->getMouseRelative());
 
-		std::cerr << "BUTTONCOL: " << ui->checkIfInsideNDC(input->getMouseAbsoluteNDC(w->getResolution())) << std::endl;
+		lab->setPos(glm::vec2(input->getMouseAbsoluteNDC(w->getResolution())[0], input->getMouseAbsoluteNDC(w->getResolution())[1] / w->getAspectRatio()));
+
+		std::string col = "nope";
+		std::shared_ptr<mgf::IOverlayElement> elm = overlay->getMouseOverNDC(input->getMouseAbsoluteNDC(w->getResolution()));
+		if(elm) col = elm->getName();
+		std::cerr << "BUTTONCOL: " << col << std::endl;
 
 		actualScene->getChild("Cube")->rotate(0.02f, glm::vec3(0.f,1.f, 0.f)); //rotate the cube
 //###############################################  Mouse
@@ -92,7 +107,7 @@ int main(int argc, char *argv[]){
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
 
 		actualScene->render(renderer); //rendering on gpu happens here
-		ui->render(renderer);
+		overlay->render(renderer);
 
 		w->swap(); //display the rendered image on screen
 //###############################################  Calculate fps

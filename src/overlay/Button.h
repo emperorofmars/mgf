@@ -17,7 +17,7 @@ public:
 	Button(const std::string &name);
 	virtual ~Button();
 
-	bool checkIfInsideNDC(glm::vec2 point);
+	virtual bool checkIfInsideNDC(glm::vec2 point);
 };
 
 } // mgf

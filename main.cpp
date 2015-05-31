@@ -66,7 +66,6 @@ int main(int argc, char *argv[]){
 	std::shared_ptr<mgf::Label> lab(new mgf::Label("mouse"));
 	lab->setBackground("res/images/Mouse.png");
 	lab->translate(glm::vec2(-10.f, -10.f));
-	//lab->scale(glm::vec2(0.8f, 0.8f));
 
 	overlay->add(but);
 	overlay->add(lab);

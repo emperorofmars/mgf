@@ -8,6 +8,12 @@
 
 namespace mgf{
 
+std::string vec2_toStr(glm::vec2 data){
+	std::stringstream res;
+	res << "( " << data[0] << ", " << data[1] << " )";
+	return res.str();
+}
+
 std::string vec3_toStr(glm::vec3 data){
 	std::stringstream res;
 	res << "( " << data[0] << ", " << data[1] << ", " << data[2] << " )";
@@ -37,14 +43,7 @@ std::shared_ptr<Mesh> createPlane(){
 	std::shared_ptr<Mesh> ret(new Mesh);
 	ret->mName = "Plane";
 	ret->mRenderIndexed = false;
-/*
-	ret->mVertices.push_back(glm::vec3(1.f, 1.f, 0.f));
-	ret->mVertices.push_back(glm::vec3(1.f, -1.f, 0.f));
-	ret->mVertices.push_back(glm::vec3(-1.f, -1.f, 0.f));
-	ret->mVertices.push_back(glm::vec3(-1.f, 1.f, 0.f));
-	ret->mVertices.push_back(glm::vec3(1.f, 1.f, 0.f));
-	ret->mVertices.push_back(glm::vec3(-1.f, -1.f, 0.f));
-*/
+
 	ret->mVertices.push_back(glm::vec3(0.5f, 0.5f, 0.f));
 	ret->mVertices.push_back(glm::vec3(0.5f, -0.5f, 0.f));
 	ret->mVertices.push_back(glm::vec3(-0.5f, -0.5f, 0.f));

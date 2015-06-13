@@ -32,6 +32,8 @@ int main(int argc, char *argv[]){
 	root->add(l.load("res/models/scene/scene.obj"));
 	root->print();
 
+	std::shared_ptr<mgf::Node> field(new mgf::Node("field"));
+	field->add(l.load("res/models/Assets/Assets.obj"));
 //###############################################  clone objects into szene
 	std::shared_ptr<mgf::Node> actualScene(new mgf::Node("scene"));
 	actualScene->add(root->getChild("scene.obj")->getChild("Cube")->clone());
@@ -72,11 +74,13 @@ int main(int argc, char *argv[]){
 
 //###############################################  create lights
 	std::shared_ptr<mgf::Light> light(new mgf::Light());
-	light->mColor = glm::vec3(0.3f, 1.f, 0.5f);
+	light->mColor = glm::vec3(0.8f, 1.f, 0.6f);
+	light->mStrengthDiffuse = 10;
 	light->mPosition = glm::vec3(5.f, 15.f, 15.f);
 	renderer->addLight(light, glm::mat4(1));
-	light->mColor = glm::vec3(0.6f, 0.2f, 1.f);
-	light->mPosition = glm::vec3(0.f, 10.f, -5.f);
+	light->mType = 2;
+	light->mColor = glm::vec3(0.4f, 0.4f, 0.4f);
+	light->mDirection = glm::vec3(0.f, -10.f, -5.f);
 	renderer->addLight(light, glm::mat4(1));
 
 //###############################################  Gameloop
@@ -93,7 +97,7 @@ int main(int argc, char *argv[]){
 		std::string col = "nope";
 		std::shared_ptr<mgf::IOverlayElement> elm = overlay->getMouseOverNDC(input->getMouseAbsoluteNDC(w->getResolution()));
 		if(elm) col = elm->getName();
-		std::cerr << "BUTTONCOL: " << col << std::endl;
+		//std::cerr << "BUTTONCOL: " << col << std::endl;
 
 		actualScene->getChild("Cube")->rotate(0.02f, glm::vec3(0.f,1.f, 0.f)); //rotate the cube
 //###############################################  Mouse
@@ -105,7 +109,7 @@ int main(int argc, char *argv[]){
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
 
-		actualScene->render(renderer); //rendering on gpu happens here
+		field->render(renderer); //rendering on gpu happens here
 		overlay->render(renderer);
 
 		w->swap(); //display the rendered image on screen

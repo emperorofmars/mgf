@@ -80,6 +80,7 @@ bool Node::add(std::shared_ptr<Node> node){
 bool Node::remove(const std::string name){
 	if(mChildNodesString[name] == NULL) return -1;
 	mMutex.lock();
+		mChildNodesID.erase(mChildNodesString[name]->getID());
 		mChildNodesString.erase(name);
 	mMutex.unlock();
 	return true;
@@ -89,6 +90,7 @@ bool Node::remove(unsigned int id){
 	if(mChildNodesID[id] == NULL) return -1;
 	mMutex.lock();
 		mChildNodesID.erase(id);
+		mChildNodesString.erase(mChildNodesID[id]->getName());
 	mMutex.unlock();
 	return true;
 }

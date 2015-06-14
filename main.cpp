@@ -63,14 +63,21 @@ int main(int argc, char *argv[]){
 	but->setColor(glm::vec3(1.f, 0.5f, 0.5f));
 	but->setFont("res/fonts/main.ttf");
 	but->setText("blah");
-	but->setBackground("res/images/Button.png");
-	but->setLayer(-2);
+	//but->setBackground("res/images/Button.png");
+
+	std::shared_ptr<mgf::Button> but2(new mgf::Button("but2plz"));
+	but2->setColor(glm::vec3(1.f, 0.5f, 0.5f));
+	but2->setFont("res/fonts/main.ttf");
+	but2->setText("gleeh");
+	//but2->setBackground("res/images/Button.png");
+	but2->translate(glm::vec2(0.3f, 0.3f));
 
 	std::shared_ptr<mgf::Label> lab(new mgf::Label("mouse"));
 	lab->setBackground("res/images/Mouse.png");
 	lab->translate(glm::vec2(-10.f, -10.f));
 
 	overlay->add(but);
+	overlay->add(but2);
 	overlay->add(lab);
 
 //###############################################  create lights
@@ -96,7 +103,7 @@ int main(int argc, char *argv[]){
 		lab->setPos(glm::vec2(input->getMouseAbsoluteNDC(w->getResolution())[0], input->getMouseAbsoluteNDC(w->getResolution())[1] / w->getAspectRatio()));
 
 		std::string col = "nope";
-		std::shared_ptr<mgf::IOverlayElement> elm = overlay->getMouseOverNDC(input->getMouseAbsoluteNDC(w->getResolution()));
+		std::shared_ptr<mgf::IOverlayElement> elm = overlay->getMouseOverNDC(input->getMouseAbsoluteNDC(w->getResolution()), w->getAspectRatio());
 		if(elm) col = elm->getName();
 		//std::cerr << "BUTTONCOL: " << col << std::endl;
 

@@ -42,7 +42,7 @@ bool Label::setText(const std::string &text){
 }
 
 bool Label::setFont(const std::string &font){
-	mFont = TTF_OpenFont(font.c_str(), (int)mSize);
+	mFont = TTF_OpenFont(font.c_str(), 128);//(int)mSize);
 	if(!mFont){
 		LOG_F_ERROR(MGF_LOG_FILE, "Failed to open Font!");
 		return false;

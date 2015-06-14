@@ -64,6 +64,7 @@ int main(int argc, char *argv[]){
 	but->setFont("res/fonts/main.ttf");
 	but->setText("blah");
 	but->setBackground("res/images/Button.png");
+	but->setLayer(-2);
 
 	std::shared_ptr<mgf::Label> lab(new mgf::Label("mouse"));
 	lab->setBackground("res/images/Mouse.png");

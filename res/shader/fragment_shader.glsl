@@ -54,15 +54,14 @@ void main(void){
 			if(lightInfo.g < 1.5){	//Point Loght
 				FragColor += calculatePointLight(lightInfo.b, lightInfo.a, lightColor, lightPos);
 			}
-			else if(lightInfo.g < 2.5){	//Sun Loght
+			else if(lightInfo.g < 2.5){	//Sun Light
 				FragColor += calculateSunLight(lightInfo.b, lightInfo.a, lightColor, lightDir);
 			}
 			else{
-				FragColor = vec4(0, 0, 0, 1);
-				break;
+				//FragColor = vec4(0, 0, 0, 1);
+				//break;
 			}
 		}
-		FragColor /= numlights;
 	}
 	
 	vec4 Emissive = fs_in.material.emissive;

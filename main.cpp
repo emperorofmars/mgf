@@ -58,6 +58,7 @@ int main(int argc, char *argv[]){
 	but->setFont("res/fonts/main.ttf");
 	but->setText("blah");
 	but->setBackground("res/images/Button.png");
+	//but->scale(glm::vec2(2.f, 1.f));
 
 	std::shared_ptr<mgf::Label> lab(new mgf::Label("mouse"));
 	lab->setBackground("res/images/Mouse.png");
@@ -90,7 +91,7 @@ int main(int argc, char *argv[]){
 		std::string col = "nope";
 		std::shared_ptr<mgf::IOverlayElement> elm = overlay->getMouseOverNDC(input->getMouseAbsoluteNDC(w->getResolution()), w->getAspectRatio());
 		if(elm) col = elm->getName();
-		//std::cerr << "BUTTONCOL: " << col << std::endl;
+		std::cerr << "BUTTONCOL: " << col << std::endl;
 
 		//actualScene->getChild("Cube")->rotate(0.02f, glm::vec3(0.f,1.f, 0.f)); //rotate the cube
 //###############################################  Mouse

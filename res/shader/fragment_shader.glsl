@@ -33,6 +33,9 @@ vec4 calculatePointLight(float diffuseStrength, float specularStrength,
 vec4 calculateSunLight(float diffuseStrength, float specularStrength,
 						vec4 lightColor, vec4 lightDir);
 
+vec4 calculateSpotLight(float diffuseStrength, float specularStrength,
+						vec4 lightColor, vec4 lightPos, vec4 lightDir);
+
 void main(void){
 	if(fs_in.material.shadingType < 0.5){	//No Shading
 		if(fs_in.material.has_texture > 0.5){
@@ -57,6 +60,9 @@ void main(void){
 			else if(lightInfo.g < 2.5){	//Sun Light
 				FragColor += calculateSunLight(lightInfo.b, lightInfo.a, lightColor, lightDir);
 			}
+			else if(lightInfo.g < 3.5){	//Sun Light
+				FragColor += calculateSpotLight(lightInfo.b, lightInfo.a, lightColor, lightPos, lightDir);
+			}
 			else{
 				//FragColor = vec4(0, 0, 0, 1);
 				//break;
@@ -73,16 +79,14 @@ vec4 calculatePointLight(float diffuseStrength, float specularStrength,
 {
 	vec4 Ambient = fs_in.material.ambient;
 	
-	vec4 N = normalize(vec4(fs_in.norm, 0));
-	vec4 L = normalize(lightPos - fs_in.pos);
-	float dotNL = max(dot(N, L), 0);
-	vec4 Diffuse = dotNL * lightColor * fs_in.material.color;
+	vec4 SurfaceNormal = normalize(vec4(fs_in.norm, 0));
+	vec4 LightRay = normalize(lightPos - fs_in.pos);
+	float Reflectance = max(dot(SurfaceNormal, LightRay), 0);
+	vec4 Diffuse = Reflectance * lightColor * fs_in.material.color;
 	
-	vec4 V = normalize(cameraPos - fs_in.material.color);
-	vec4 H = normalize(L + V);
-	vec4 R = reflect(-L, N);
-	float dotRV = max(dot(R, V), 0);
-	float dotNH = max(dot(N, H), 0);
+	vec4 CameraRay = normalize(cameraPos - fs_in.pos);
+	vec4 LightReflection = reflect(-LightRay, SurfaceNormal);
+	float dotRV = max(dot(LightReflection, CameraRay), 0);
 	vec4 Specular = pow(dotRV, fs_in.material.shininess) * lightColor * fs_in.material.specular;
 	
 	vec4 MaterialColor;
@@ -101,16 +105,44 @@ vec4 calculateSunLight(float diffuseStrength, float specularStrength,
 {
 	vec4 Ambient = fs_in.material.ambient;
 	
-	vec4 N = normalize(vec4(fs_in.norm, 0));
-	vec4 L = normalize(-lightDir);
-	float dotNL = max(dot(N, L), 0);
-	vec4 Diffuse = dotNL * lightColor * fs_in.material.color;
+	vec4 SurfaceNormal = normalize(vec4(fs_in.norm, 0));
+	vec4 LightRay = normalize(-lightDir);
+	float Reflectance = max(dot(SurfaceNormal, LightRay), 0);
+	vec4 Diffuse = Reflectance * lightColor * fs_in.material.color;
 	
-	vec4 V = normalize(cameraPos - fs_in.material.color);
-	vec4 H = normalize(L + V);
-	vec4 R = reflect(-L, N);
-	float dotRV = max(dot(R, V), 0);
-	float dotNH = max(dot(N, H), 0);
+	vec4 CameraRay = normalize(cameraPos - fs_in.pos);
+	vec4 LightReflection = reflect(-LightRay, SurfaceNormal);
+	float dotRV = max(dot(LightReflection, CameraRay), 0);
+	vec4 Specular = pow(dotRV, fs_in.material.shininess) * lightColor * fs_in.material.specular;
+	
+	vec4 MaterialColor;
+	if(fs_in.material.has_texture > 0.5){
+		MaterialColor = texture(tex, vec2(fs_in.uv.x, 1 - fs_in.uv.y));
+	}
+	else{
+		MaterialColor = fs_in.material.color;
+	}
+	
+	return (Ambient + Diffuse * diffuseStrength + Specular * specularStrength) * MaterialColor;
+}
+
+vec4 calculateSpotLight(float diffuseStrength, float specularStrength,
+						vec4 lightColor, vec4 lightPos, vec4 lightDir)
+{
+	vec4 Ambient = fs_in.material.ambient;
+	
+	vec4 SurfaceNormal = normalize(vec4(fs_in.norm, 0));
+	vec4 LightRay = normalize(lightPos - fs_in.pos);
+	float Attenuation = degrees(acos(dot(normalize(-LightRay), normalize(lightDir))));
+	if(Attenuation > 30){
+		return Ambient;
+	}
+	float Reflectance = max(dot(SurfaceNormal, LightRay), 0);
+	vec4 Diffuse = Reflectance * lightColor * fs_in.material.color;
+	
+	vec4 CameraRay = normalize(cameraPos - fs_in.pos);
+	vec4 LightReflection = reflect(-LightRay, SurfaceNormal);
+	float dotRV = max(dot(LightReflection, CameraRay), 0);
 	vec4 Specular = pow(dotRV, fs_in.material.shininess) * lightColor * fs_in.material.specular;
 	
 	vec4 MaterialColor;

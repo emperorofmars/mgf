@@ -15,6 +15,7 @@ Renderer::Renderer(std::shared_ptr<Window> window,
 	mWindow = window;
 	mCamera = camera;
 	mShaderProgram = shaderProgram;
+	mLights.reset(new LightManager());
 }
 
 Renderer::~Renderer(){
@@ -44,12 +45,16 @@ bool Renderer::addLight(std::shared_ptr<Light> data, glm::mat4 transform){
 	*light = *data;
 	light->mPosition = glm::vec3(transform * glm::vec4(light->mPosition, 1));
 	light->mDirection = glm::vec3(glm::inverseTranspose(transform) * glm::vec4(light->mDirection, 0));
-	mLights.add(light);
+	mLights->add(light);
 	return true;
 }
 
+std::shared_ptr<LightManager> Renderer::getLightManager(){
+	return mLights;
+}
+
 bool Renderer::clearLights(){
-	mLights.clear();
+	mLights->clear();
 	return true;
 }
 
@@ -211,7 +216,7 @@ bool Renderer::applyMaterial(std::shared_ptr<Material> data){
 	glUniform1f(loc, alpha);
 
 	loc = glGetUniformLocation(mShaderProgram->getProgram(), "numlights");
-	glUniform1i(loc, mLights.getHeight());
+	glUniform1i(loc, mLights->getHeight());
 
 
 	loc = glGetUniformLocation(mShaderProgram->getProgram(), "cameraPos");
@@ -223,7 +228,7 @@ bool Renderer::applyMaterial(std::shared_ptr<Material> data){
 	glUniform1i(loc, 1);
 
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, mLights.getTexture()->mTextureBuffer);
+	glBindTexture(GL_TEXTURE_2D, mLights->getTexture()->mTextureBuffer);
 
 	float has_texture;
 	if(data->mDiffuseTextures.size() > 0){

@@ -34,7 +34,7 @@ vec4 calculateSunLight(float diffuseStrength, float specularStrength,
 						vec4 lightColor, vec4 lightDir);
 
 vec4 calculateSpotLight(float diffuseStrength, float specularStrength,
-						vec4 lightColor, vec4 lightPos, vec4 lightDir);
+						vec4 lightColor, vec4 lightPos, vec4 lightDir, float coneAngle);
 
 void main(void){
 	if(fs_in.material.shadingType < 0.5){	//No Shading
@@ -45,7 +45,7 @@ void main(void){
 			FragColor = fs_in.material.color;
 		}
 	}
-	else if(fs_in.material.shadingType > 0.5){	//Normal Shading
+	else if(fs_in.material.shadingType < 1.5){	//Normal Shading
 		for(int i = 0; i < numlights; i++){
 			vec4 lightInfo = texelFetch(lights, ivec2(0, i), 0);
 			if(lightInfo.r < 0.5) continue;
@@ -53,6 +53,7 @@ void main(void){
 			vec4 lightColor = texelFetch(lights, ivec2(1, i), 0);
 			vec4 lightPos = texelFetch(lights, ivec2(2, i), 0);
 			vec4 lightDir = texelFetch(lights, ivec2(3, i), 0);
+			vec4 lightInfo2 = texelFetch(lights, ivec2(4, i), 0);
 			
 			if(lightInfo.g < 1.5){	//Point Loght
 				FragColor += calculatePointLight(lightInfo.b, lightInfo.a, lightColor, lightPos);
@@ -61,24 +62,26 @@ void main(void){
 				FragColor += calculateSunLight(lightInfo.b, lightInfo.a, lightColor, lightDir);
 			}
 			else if(lightInfo.g < 3.5){	//Sun Light
-				FragColor += calculateSpotLight(lightInfo.b, lightInfo.a, lightColor, lightPos, lightDir);
+				FragColor += calculateSpotLight(lightInfo.b, lightInfo.a, lightColor, lightPos, lightDir, lightInfo2.r);
 			}
 			else{
-				//FragColor = vec4(0, 0, 0, 1);
-				//break;
+				//nothing
 			}
 		}
 	}
+	else{
+		//nothing
+	}
 	
 	vec4 Emissive = fs_in.material.emissive;
+	vec4 Ambient = fs_in.material.ambient;
+	FragColor += vec4(Ambient.rgb, 0);
 	FragColor += vec4(Emissive.rgb, 0);
 }
 
 vec4 calculatePointLight(float diffuseStrength, float specularStrength,
 						vec4 lightColor, vec4 lightPos)
 {
-	vec4 Ambient = fs_in.material.ambient;
-	
 	vec4 SurfaceNormal = normalize(vec4(fs_in.norm, 0));
 	vec4 LightRay = normalize(lightPos - fs_in.pos);
 	float Reflectance = max(dot(SurfaceNormal, LightRay), 0);
@@ -97,14 +100,12 @@ vec4 calculatePointLight(float diffuseStrength, float specularStrength,
 		MaterialColor = fs_in.material.color;
 	}
 	
-	return (Ambient + Diffuse * diffuseStrength + Specular * specularStrength) * MaterialColor;
+	return vec4((Diffuse * diffuseStrength + Specular * specularStrength).rgb, 1) * MaterialColor;
 }
 
 vec4 calculateSunLight(float diffuseStrength, float specularStrength,
 						vec4 lightColor, vec4 lightDir)
 {
-	vec4 Ambient = fs_in.material.ambient;
-	
 	vec4 SurfaceNormal = normalize(vec4(fs_in.norm, 0));
 	vec4 LightRay = normalize(-lightDir);
 	float Reflectance = max(dot(SurfaceNormal, LightRay), 0);
@@ -123,19 +124,17 @@ vec4 calculateSunLight(float diffuseStrength, float specularStrength,
 		MaterialColor = fs_in.material.color;
 	}
 	
-	return (Ambient + Diffuse * diffuseStrength + Specular * specularStrength) * MaterialColor;
+	return vec4((Diffuse * diffuseStrength + Specular * specularStrength).rgb, 1) * MaterialColor;
 }
 
 vec4 calculateSpotLight(float diffuseStrength, float specularStrength,
-						vec4 lightColor, vec4 lightPos, vec4 lightDir)
+						vec4 lightColor, vec4 lightPos, vec4 lightDir, float coneAngle)
 {
-	vec4 Ambient = fs_in.material.ambient;
-	
 	vec4 SurfaceNormal = normalize(vec4(fs_in.norm, 0));
 	vec4 LightRay = normalize(lightPos - fs_in.pos);
-	float Attenuation = degrees(acos(dot(normalize(-LightRay), normalize(lightDir))));
-	if(Attenuation > 30){
-		return Ambient;
+	float Angle = degrees(acos(dot(normalize(-LightRay), normalize(lightDir))));
+	if(Angle > coneAngle){
+		return vec4(0, 0, 0, 0);
 	}
 	float Reflectance = max(dot(SurfaceNormal, LightRay), 0);
 	vec4 Diffuse = Reflectance * lightColor * fs_in.material.color;
@@ -153,7 +152,7 @@ vec4 calculateSpotLight(float diffuseStrength, float specularStrength,
 		MaterialColor = fs_in.material.color;
 	}
 	
-	return (Ambient + Diffuse * diffuseStrength + Specular * specularStrength) * MaterialColor;
+	return vec4((Diffuse * diffuseStrength + Specular * specularStrength).rgb, 1) * MaterialColor;
 }
 
 

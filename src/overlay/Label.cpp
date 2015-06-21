@@ -91,8 +91,8 @@ std::shared_ptr<Texture> Label::getBackground(){
 	return NULL;
 }
 
-unsigned int Label::nextPow2(unsigned int num){
-	unsigned int pow = 2, next = pow * 2;
+int Label::nextPow2(int num){
+	int pow = 2, next = pow * 2;
 	while((next *= 2) <= num) pow *= 2;
 	return pow * 2;
 }

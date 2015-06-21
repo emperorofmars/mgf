@@ -70,19 +70,22 @@ int main(int argc, char *argv[]){
 //###############################################  create lights
 	std::shared_ptr<mgf::Light> light(new mgf::Light());
 	light->mName = "Sun";
-	light->mType = 2;
-	light->mStrengthDiffuse = 1;
+	light->mType = mgf::SUN_LIGHT;
+	light->mStrengthDiffuse = 3;
 	light->mColor = glm::vec3(0.4f, 0.4f, 0.4f);
 	light->mDirection = glm::vec3(-1.f, -2.f, -1.f);
 	renderer->addLight(light, glm::mat4(1));
+
 	light.reset(new mgf::Light());
 	light->mName = "Spot";
-	light->mType = 3;
-	light->mStrengthDiffuse = 3;
+	light->mType = mgf::SPOT_LIGHT;
+	light->mStrengthDiffuse = 2;
 	light->mColor = glm::vec3(0.8f, 1.f, 0.6f);
 	light->mPosition = glm::vec3(0.f, 5.f, -5.f);
 	light->mDirection = glm::vec3(0.f, -1.f, 2.f);
+	light->mConeAngle = 45;
 	renderer->addLight(light, glm::mat4(1));
+
 //###############################################  Gameloop
 	float current = 0, last = 0, frametime = 0;
 	bool quit = false;
@@ -122,11 +125,12 @@ int main(int argc, char *argv[]){
 		frametime = current - last;
 		last = current;
 		//std::cerr << "FPS: " << 1000.f / frametime << std::endl;	//show fps
-
+		/*
 		GLenum error;
 		while((error = glGetError()) != GL_NO_ERROR){
 			std::cerr << "ERROR: " << error << std::endl;
 		}
+		*/
 	}
 //###############################################  Gameloop end
 

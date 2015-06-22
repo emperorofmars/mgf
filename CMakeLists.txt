@@ -65,6 +65,8 @@ set(SOURCE_FILES
     src/scene/Loader.h
     src/scene/MeshNode.cpp
     src/scene/MeshNode.h
+    src/scene/LightNode.cpp
+    src/scene/LightNode.h
     src/scene/Node.cpp
     src/scene/Node.h
     src/scene/Positionable.cpp

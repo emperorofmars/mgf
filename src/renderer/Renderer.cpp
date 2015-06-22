@@ -227,8 +227,10 @@ bool Renderer::applyMaterial(std::shared_ptr<Material> data){
 	loc = glGetUniformLocation(mShaderProgram->getProgram(), "tex");
 	glUniform1i(loc, 1);
 
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, mLights->getTexture()->mTextureBuffer);
+	if(mLights->getHeight() > 0){
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, mLights->getTexture()->mTextureBuffer);
+	}
 
 	float has_texture;
 	if(data->mDiffuseTextures.size() > 0){

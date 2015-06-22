@@ -92,6 +92,8 @@
 		<Unit filename="src/renderer/LightManager.h" />
 		<Unit filename="src/renderer/Renderer.cpp" />
 		<Unit filename="src/renderer/Renderer.h" />
+		<Unit filename="src/scene/LightNode.cpp" />
+		<Unit filename="src/scene/LightNode.h" />
 		<Unit filename="src/scene/Loader.cpp" />
 		<Unit filename="src/scene/Loader.h" />
 		<Unit filename="src/scene/MeshNode.cpp" />

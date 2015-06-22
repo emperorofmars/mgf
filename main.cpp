@@ -68,23 +68,13 @@ int main(int argc, char *argv[]){
 	overlay->add(lab);
 
 //###############################################  create lights
-	std::shared_ptr<mgf::Light> light(new mgf::Light());
-	light->mName = "Sun";
-	light->mType = mgf::SUN_LIGHT;
-	light->mStrengthDiffuse = 3;
-	light->mColor = glm::vec3(0.4f, 0.4f, 0.4f);
-	light->mDirection = glm::vec3(-1.f, -2.f, -1.f);
-	renderer->addLight(light, glm::mat4(1));
+	std::shared_ptr<mgf::Node> light1(new mgf::LightNode("sun"));
+	light1->setLight(mgf::SUN_LIGHT, 3, 2, glm::vec3(0.4f, 0.4f, 0.4f), glm::vec3(1), glm::vec3(-1.f, -2.f, -1.f), 30);
+	actualField->add(light1);
 
-	light.reset(new mgf::Light());
-	light->mName = "Spot";
-	light->mType = mgf::SPOT_LIGHT;
-	light->mStrengthDiffuse = 2;
-	light->mColor = glm::vec3(0.8f, 1.f, 0.6f);
-	light->mPosition = glm::vec3(0.f, 5.f, -5.f);
-	light->mDirection = glm::vec3(0.f, -1.f, 2.f);
-	light->mConeAngle = 45;
-	renderer->addLight(light, glm::mat4(1));
+	std::shared_ptr<mgf::Node> light2(new mgf::LightNode("spot"));
+	light2->setLight(mgf::SPOT_LIGHT, 1, 0.5, glm::vec3(0.8f, 1.f, 0.6f), glm::vec3(0.f, 5.f, -5.f), glm::vec3(0.f, -1.f, 2.f), 45);
+	actualField->add(light2);
 
 //###############################################  Gameloop
 	float current = 0, last = 0, frametime = 0;
@@ -102,16 +92,13 @@ int main(int argc, char *argv[]){
 		if(elm) col = elm->getName();
 		//std::cerr << "BUTTONCOL: " << col << std::endl;
 
-		renderer->getLightManager()->getLight("Spot")->mDirection = glm::vec3(glm::rotate(glm::mat4(1), 0.04f, glm::vec3(0.f, 1.f, 0.f)) *
-							glm::vec4(renderer->getLightManager()->getLight("Spot")->mDirection, 0.f)); // rotate spotlight
-		renderer->getLightManager()->refresh();
+		actualField->getChild("spot")->rotate(0.02f, glm::vec3(0.f, 1.f, 0.f));
 
-		//actualScene->getChild("Cube")->rotate(0.02f, glm::vec3(0.f,1.f, 0.f)); //rotate the cube
 //###############################################  Mouse
-		glm::vec3 mray = mgf::calculateMouseRay(cam->getP(), cam->getV(), input->getMouseAbsolute(), glm::vec2(1000, 800));
-		glm::vec3 mpoint = mgf::colLinePlane(cam->getPos(), mray, glm::vec3(0.f, 0.f, 0.f), glm::vec3(0.f, 1.f, 0.f));
-
+		//glm::vec3 mray = mgf::calculateMouseRay(cam->getP(), cam->getV(), input->getMouseAbsolute(), glm::vec2(1000, 800));
+		//glm::vec3 mpoint = mgf::colLinePlane(cam->getPos(), mray, glm::vec3(0.f, 0.f, 0.f), glm::vec3(0.f, 1.f, 0.f));
 		//actualScene->getChild("MousePos")->setTranslation(mpoint);
+
 //###############################################  Rendering
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
@@ -125,12 +112,6 @@ int main(int argc, char *argv[]){
 		frametime = current - last;
 		last = current;
 		//std::cerr << "FPS: " << 1000.f / frametime << std::endl;	//show fps
-		/*
-		GLenum error;
-		while((error = glGetError()) != GL_NO_ERROR){
-			std::cerr << "ERROR: " << error << std::endl;
-		}
-		*/
 	}
 //###############################################  Gameloop end
 

@@ -49,10 +49,6 @@ bool Renderer::addLight(std::shared_ptr<Light> data, glm::mat4 transform){
 	return true;
 }
 
-std::shared_ptr<LightManager> Renderer::getLightManager(){
-	return mLights;
-}
-
 bool Renderer::clearLights(){
 	mLights->clear();
 	return true;

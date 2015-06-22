@@ -29,8 +29,8 @@ public:
 	bool setShaderProgram(std::shared_ptr<ShaderProgram> shaderProgram);
 
 	bool addLight(std::shared_ptr<Light> data, glm::mat4 transform);
-	std::shared_ptr<LightManager> getLightManager();
 	bool clearLights();
+
 	bool drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform, std::shared_ptr<Material> material);
 	bool draw2dOverlayMesh(std::shared_ptr<Mesh> data, glm::mat4 transform, std::shared_ptr<Material> material);
 

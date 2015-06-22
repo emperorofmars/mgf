@@ -1,5 +1,4 @@
 #version 330 core
-#extension GL_ARB_shading_language_420pack : enable
 
 uniform sampler2D lights;
 uniform sampler2D tex;

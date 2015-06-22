@@ -4,3 +4,7 @@ mgf.layout
 tmpobj
 cmake
 deploy
+*.gch
+*.g
+mgf.depend
+log_mgf.txt

@@ -1,7 +1,0 @@
-TODO:
-
--create enums for camera
--node operations
--loaderno instances flag
--clean loader
--work on scene (create instance ...)

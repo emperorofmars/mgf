@@ -19,4 +19,12 @@ tmpobj.o: *.cpp
 	${CC} ${CFLAGS} -c `find ./src -type f -name "*.cpp"` main.cpp ${LIBS}
 
 clean:
-	rm -f *.o bin/${NAME}
+	rm -f *.o deploy/${NAME}
+
+dist:
+	mkdir -p mgf_testscene
+	cp deploy/mgf mgf_testscene
+	cp -r res mgf_testscene
+	cp -r libs mgf_testscene
+	tar -zcf mgf_testscene.tgz mgf_testscene
+	rm -rf mgf_testscene

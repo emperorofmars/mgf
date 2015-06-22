@@ -8,3 +8,5 @@ deploy
 *.g
 mgf.depend
 log_mgf.txt
+mgf_testscene
+mgf_testscene.tgz

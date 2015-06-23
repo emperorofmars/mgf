@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
 	p->addShader("res/shader/fragment_shader.glsl", GL_FRAGMENT_SHADER);
 	p->createProgram();
 
-	std::shared_ptr<mgf::ICamera> cam(new mgf::CameraTopDown(90, w->getAspectRatio(), 1000.f, 0.1f));
+	std::shared_ptr<mgf::ICamera> cam(new mgf::CameraTopDown(45, w->getAspectRatio(), 1000.f, 0.1f));
 	cam->setPos(glm::vec3(0.f, 50.f, 15.f));
 
 	std::shared_ptr<mgf::Renderer> renderer(new mgf::Renderer(w, cam, p));

@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
 	p->addShader("res/shader/fragment_shader.glsl", GL_FRAGMENT_SHADER);
 	p->createProgram();
 
-	std::shared_ptr<mgf::ICamera> cam(new mgf::CameraTopDown(45, w->getAspectRatio(), 1000.f, 0.1f));
+	std::shared_ptr<mgf::ICamera> cam(new mgf::CameraFPSEuler(95, w->getAspectRatio(), 1000.f, 0.1f));
 	cam->setPos(glm::vec3(0.f, 50.f, 15.f));
 
 	std::shared_ptr<mgf::Renderer> renderer(new mgf::Renderer(w, cam, p));
@@ -28,10 +28,11 @@ int main(int argc, char *argv[]){
 //###############################################  Load 3d files
 	mgf::Loader l(false, false);
 	std::shared_ptr<mgf::Node> field(new mgf::Node("field"));
-	field->add(l.load("res/models/Assets/Assets.obj"));
+	//field->add(l.load("res/models/Assets/Assets.obj"));
+	field->add(l.load("res/models/scene/scene.obj"));
 
 	field->print();
-
+/*
 //###############################################  transform objects
 	std::shared_ptr<mgf::Node> actualField = field->getChild("Assets.obj");
 
@@ -51,7 +52,8 @@ int main(int argc, char *argv[]){
 	//newmat->mDiffuseColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
 	//actualField->getChild("Infantry01")->setMaterial(newmat);
 	//actualField->getChild("Infantry01")->resetMaterial();
-
+*/
+	std::shared_ptr<mgf::Node> actualField = field->getChild("scene.obj");
 //###############################################  create overlay
 
 	std::shared_ptr<mgf::Overlay> overlay(new mgf::Overlay());
@@ -68,7 +70,7 @@ int main(int argc, char *argv[]){
 	lab->translate(glm::vec2(-10.f, -10.f));
 
 	overlay->add(but);
-	overlay->add(lab);
+	//overlay->add(lab);
 
 
 //###############################################  create lights

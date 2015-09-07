@@ -16,8 +16,8 @@ ln -s ../res res<br>
 run:<br>
 ./mgf
 
-Screenshots:
+#### Screenshots:
 
-![](mgf01.png)
-![](mgf02.png)
-![](mgf03.png)
+![](doc/mgf01.png)
+![](doc/mgf02.png)
+![](doc/mgf03.png)

@@ -10,3 +10,5 @@ mgf.depend
 log_mgf.txt
 mgf_testscene
 mgf_testscene.tgz
+*.kdev4
+build

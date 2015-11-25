@@ -60,7 +60,7 @@ void main(void){
 			else if(lightInfo.g < 2.5){	//Sun Light
 				FragColor += calculateSunLight(lightInfo.b, lightInfo.a, lightColor, lightDir);
 			}
-			else if(lightInfo.g < 3.5){	//Sun Light
+			else if(lightInfo.g < 3.5){	//Spot Light
 				FragColor += calculateSpotLight(lightInfo.b, lightInfo.a, lightColor, lightPos, lightDir, lightInfo2.r);
 			}
 			else{
@@ -151,7 +151,9 @@ vec4 calculateSpotLight(float diffuseStrength, float specularStrength,
 		MaterialColor = fs_in.material.color;
 	}
 	
-	return vec4((Diffuse * diffuseStrength + Specular * specularStrength).rgb, 1) * MaterialColor;
+	MaterialColor = vec4(0.5, 0, 0, 0.5);
+	
+	return vec4((Diffuse * diffuseStrength + Specular * specularStrength).rgb, MaterialColor.a) * MaterialColor;
 }
 
 

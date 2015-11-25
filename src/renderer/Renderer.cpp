@@ -9,8 +9,8 @@
 namespace mgf{
 
 Renderer::Renderer(std::shared_ptr<Window> window,
-		 std::shared_ptr<ICamera> camera,
-		 std::shared_ptr<ShaderProgram> shaderProgram)
+		std::shared_ptr<ICamera> camera,
+		std::shared_ptr<ShaderProgram> shaderProgram)
 {
 	mWindow = window;
 	mCamera = camera;
@@ -93,7 +93,8 @@ bool Renderer::drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform, std::sh
 
 	glBindVertexArray(data->mVAO);
 
-    glEnable(GL_CULL_FACE);
+	//glEnable(GL_CULL_FACE);
+	glDisable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 	glEnable(GL_BLEND);
@@ -155,7 +156,7 @@ bool Renderer::draw2dOverlayMesh(std::shared_ptr<Mesh> data, glm::mat4 transform
 	glBindVertexArray(data->mVAO);
 
 	glDisable(GL_DEPTH_TEST);
-    glDisable(GL_CULL_FACE);
+	glDisable(GL_CULL_FACE);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	if(data->mRenderIndexed){
@@ -166,8 +167,8 @@ bool Renderer::draw2dOverlayMesh(std::shared_ptr<Mesh> data, glm::mat4 transform
 		//LOG_F_TRACE(MGF_LOG_FILE, "Drawing ", data->mNumVertices, " Vertices");
 		glDrawArrays(GL_TRIANGLES, 0, data->mNumVertices * sizeof(GLuint));
 	}
-    glEnable(GL_CULL_FACE);
-	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+	//glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 
 	glBindVertexArray(0);

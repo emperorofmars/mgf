@@ -155,7 +155,7 @@ int Window::initSDL(int GLMajor, int GLMinor){
 		return false;
 	}
 
-    glEnable(GL_CULL_FACE);
+    //glEnable(GL_CULL_FACE);
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
 

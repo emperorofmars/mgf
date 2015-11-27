@@ -200,6 +200,7 @@ std::shared_ptr<Mesh> Loader::loadMesh(aiMesh *mesh, bool loadToData){
 	ret->mNumIndices = mesh->mNumFaces * 3;
 	ret->mNumVertices = mesh->mNumVertices;
 	ret->mNumNormals = mesh->mNumVertices;
+	ret->mNumUV.resize(mesh->GetNumUVChannels());
 
 	ret->mRenderIndexed = mLoadIndexed;
 
@@ -230,12 +231,14 @@ std::shared_ptr<Mesh> Loader::loadMesh(aiMesh *mesh, bool loadToData){
 		}
 
 		for(unsigned int i = 0; i < mesh->GetNumUVChannels(); i++){
-			ret->mUV[i].resize(mesh->mNumUVComponents[i]);
-			ret->mNumUV[i] = mesh->mNumUVComponents[i];
-			for(unsigned int j = 0; j < mesh->mNumUVComponents[i]; j++){
-				ret->mUV[i][j][0] = mesh->mTextureCoords[i][j][0];
-				ret->mUV[i][j][1] = mesh->mTextureCoords[i][j][1];
-				ret->mUV[i][j][2] = mesh->mTextureCoords[i][j][2];
+			if(mesh->HasTextureCoords(i)){
+				ret->mUV[i].resize(mesh->mNumVertices);
+				ret->mNumUV[i] = mesh->mNumVertices;
+				for(unsigned int j = 0; j < mesh->mNumVertices; j++){
+					ret->mUV[i][j][0] = mesh->mTextureCoords[i][j][0];
+					ret->mUV[i][j][1] = mesh->mTextureCoords[i][j][1];
+					ret->mUV[i][j][2] = mesh->mTextureCoords[i][j][2];
+				}
 			}
 		}
 	}
@@ -341,6 +344,7 @@ bool Loader::loadMeshToGPU(std::shared_ptr<Mesh> mesh){
 		glEnableVertexAttribArray(1);
 	}
 
+	mesh->mUVBuffer.resize(mesh->mNumUV.size());
 	for(unsigned int i = 0; i < mesh->mUVBuffer.size(); i++){
 		if(mesh->mUV[i].size() > 0){
 			glGenBuffers(1, &mesh->mUVBuffer[i]);

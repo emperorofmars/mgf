@@ -34,6 +34,9 @@ protected:
 
 	std::vector<std::shared_ptr<Mesh>> mMeshes;
 	std::shared_ptr<Material> mMaterial;
+
+	friend class Loader;
+	friend class LoaderTransparent;
 };
 
 } // mgf

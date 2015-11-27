@@ -16,7 +16,7 @@ namespace mgf{
 
 class LoaderTransparent{
 public:
-	LoaderTransparent(bool loadIndexed = false, bool loadOnlyToGPU = true);
+	LoaderTransparent();
 	~LoaderTransparent();
 
 	std::shared_ptr<Node> load(const std::string &file);
@@ -26,7 +26,7 @@ private:
 	std::shared_ptr<Node> loadNodetree(aiNode *ainode);
 	bool loadData(const aiScene *scene);
 
-	std::vector<std::shared_ptr<Mesh>> loadMesh(aiMesh *mesh, bool loadToData = false);
+	std::vector<std::shared_ptr<Mesh>> loadMesh(aiMesh *mesh);
 	std::shared_ptr<Material> loadMaterial(aiMaterial *material);
 	std::shared_ptr<Texture> loadTexture(const std::string &path);
 	std::shared_ptr<Light> loadLight(const std::string &path);
@@ -41,8 +41,6 @@ private:
 	std::unordered_map<std::string, std::shared_ptr<Texture>> mLoadedTextures;
 
 	std::shared_ptr<Data> mData;
-	bool mLoadIndexed;
-	bool mLoadOnlyToGPU;
 
 	std::mutex mMutex;
 };

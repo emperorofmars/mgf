@@ -27,33 +27,21 @@ int main(int argc, char *argv[]){
 
 //###############################################  Load 3d files
 	mgf::Loader l(false, false);
+	mgf::LoaderTransparent lt;
 	std::shared_ptr<mgf::Node> field(new mgf::Node("field"));
-	//field->add(l.load("res/models/Assets/Assets.obj"));
+	field->add(lt.load("res/models/cube/cube.obj"));
 	field->add(l.load("res/models/scene/scene.obj"));
 
 	field->print();
-/*
+
 //###############################################  transform objects
-	std::shared_ptr<mgf::Node> actualField = field->getChild("Assets.obj");
 
-	actualField->getChild("Tree")->translate(glm::vec3(15.f, 0.f, -4.f));
-	actualField->getChild("Tree")->add(actualField->getChild("defaultobject")->clone());
-	actualField->remove("defaultobject");
-	actualField->getChild("Tower01")->translate(glm::vec3(-10.f, 0.f, -4.f));
-	actualField->getChild("Tower02")->translate(glm::vec3(-15.f, 0.f, -4.f));
-	actualField->getChild("Infantry01")->translate(glm::vec3(-15.f, 0.f, -8.f));
-	actualField->getChild("Infantry02")->translate(glm::vec3(-10.f, 0.f, -8.f));
-	actualField->getChild("Cavalry01")->translate(glm::vec3(-5.f, 0.f, -8.f));
-	actualField->getChild("Cavalry02")->translate(glm::vec3(0.f, 0.f, -8.f));
-	actualField->getChild("Artillery01")->translate(glm::vec3(5.f, 0.f, -8.f));
-	actualField->getChild("Artillery02")->translate(glm::vec3(10.f, 0.f, -8.f));
-
-	//std::shared_ptr<mgf::Material> newmat(new mgf::Material);
-	//newmat->mDiffuseColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
-	//actualField->getChild("Infantry01")->setMaterial(newmat);
-	//actualField->getChild("Infantry01")->resetMaterial();
-*/
 	std::shared_ptr<mgf::Node> actualField = field->getChild("scene.obj");
+	std::shared_ptr<mgf::Node> cube = field->getChild("cube.obj")->getChild("supercube");
+	
+	cube->translate(glm::vec3(-3.f, 3.f, 0.f));
+	cube->scale(glm::vec3(1.5f, 1.5f, 1.5f));
+	
 //###############################################  create overlay
 
 	std::shared_ptr<mgf::Overlay> overlay(new mgf::Overlay());
@@ -63,24 +51,21 @@ int main(int argc, char *argv[]){
 	but->setFont("res/fonts/main.ttf");
 	but->setText("blah");
 	but->setBackground("res/images/Button.png");
-	//but->scale(glm::vec2(2.f, 1.f));
 
 	std::shared_ptr<mgf::Label> lab(new mgf::Label("mouse"));
 	lab->setBackground("res/images/Mouse.png");
 	lab->translate(glm::vec2(-10.f, -10.f));
 
 	overlay->add(but);
-	//overlay->add(lab);
-
 
 //###############################################  create lights
 	std::shared_ptr<mgf::Node> light1(new mgf::LightNode("sun"));
 	light1->setLight(mgf::SUN_LIGHT, 3, 2, glm::vec3(0.4f, 0.4f, 0.4f), glm::vec3(1), glm::vec3(-1.f, -2.f, -1.f), 30);
-	actualField->add(light1);
+	field->add(light1);
 
 	std::shared_ptr<mgf::Node> light2(new mgf::LightNode("spot"));
-	light2->setLight(mgf::SPOT_LIGHT, 1, 0.5, glm::vec3(0.8f, 1.f, 0.6f), glm::vec3(0.f, 5.f, -5.f), glm::vec3(0.f, -1.f, 2.f), 45);
-	actualField->add(light2);
+	light2->setLight(mgf::SPOT_LIGHT, 4, 0.5, glm::vec3(0.8f, 1.f, 0.6f), glm::vec3(0.f, 5.f, -5.f), glm::vec3(0.f, -1.f, 2.f), 45);
+	field->add(light2);
 
 //###############################################  Gameloop
 	float current = 0, last = 0, frametime = 0;
@@ -98,7 +83,7 @@ int main(int argc, char *argv[]){
 		if(elm) col = elm->getName();
 		//std::cerr << "BUTTONCOL: " << col << std::endl;
 
-		actualField->getChild("spot")->rotate(-0.05f, glm::vec3(0.f, 1.f, 0.f));
+		field->getChild("spot")->rotate(-0.05f, glm::vec3(0.f, 1.f, 0.f));
 
 //###############################################  Mouse
 		//glm::vec3 mray = mgf::calculateMouseRay(cam->getP(), cam->getV(), input->getMouseAbsolute(), glm::vec2(1000, 800));
@@ -109,7 +94,8 @@ int main(int argc, char *argv[]){
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
 
-		field->render(renderer); //rendering on gpu happens here
+		field->render(renderer);
+		
 		overlay->render(renderer);
 
 		w->swap(); //display the rendered image on screen

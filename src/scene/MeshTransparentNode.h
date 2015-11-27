@@ -8,6 +8,7 @@
 #define MGF_MESHTRANSPARENTNODE_H
 
 #include "Node.h"
+#include "MeshNode.h"
 #include "../data/Data.h"
 #include "../camera/ICamera.h"
 

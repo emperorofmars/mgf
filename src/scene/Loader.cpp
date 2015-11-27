@@ -203,13 +203,14 @@ std::shared_ptr<Mesh> Loader::loadMesh(aiMesh *mesh, bool loadToData){
 
 	ret->mRenderIndexed = mLoadIndexed;
 
+	//LOG_F_INFO(MGF_LOG_FILE, "Loading " + std::to_string(mesh->mNumFaces) + " triangles");
+
 	if(!loadToData){
 		ret->mIndices.resize(mesh->mNumFaces * 3);
 		ret->mVertices.resize(mesh->mNumVertices);
 		ret->mNormals.resize(mesh->mNumVertices);
 		ret->mUV.resize(mesh->GetNumUVChannels());
 		ret->mNumUV.resize(mesh->GetNumUVChannels());
-
 		for(unsigned int i = 0; i < mesh->mNumFaces; i++){
 			ret->mIndices[i * 3] = mesh->mFaces[i].mIndices[0];
 			ret->mIndices[i * 3 + 1] = mesh->mFaces[i].mIndices[1];

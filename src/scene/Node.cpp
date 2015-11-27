@@ -16,6 +16,7 @@ Node::Node(const std::string &name){
 	mName = name;
 	mParentNode = NULL;
 	mVisible = true;
+	mTransparent = false;
 
 	mGlobalMutex.lock();
 		mID = mGlobalID;

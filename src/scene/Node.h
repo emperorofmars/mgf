@@ -70,11 +70,13 @@ protected:
 	std::unordered_map<std::string, std::shared_ptr<Node>> mChildNodesString;
 
 	bool mVisible;
+	bool mTransparent;
 
 	static mgfID_t mGlobalID;
 	static std::mutex mGlobalMutex;
 
 	friend class Loader;
+	friend class LoaderTransparent;
 };
 
 } // mgf

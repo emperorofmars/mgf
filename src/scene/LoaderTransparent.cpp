@@ -1,25 +1,25 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		Loader.cpp
+**	Name:		LoaderTransparent.cpp
 **	Project:	mgf - Mars Graphics Framework
 */
 
-#include "Loader.h"
+#include "LoaderTransparent.h"
 
 #include "../helper/Helper.h"
 
 namespace mgf{
 
-Loader::Loader(bool loadIndexed, bool loadOnlyToGPU){
+LoaderTransparent::LoaderTransparent(bool loadIndexed, bool loadOnlyToGPU){
 	mData.reset(new Data);
 	mLoadIndexed = loadIndexed;
 	mLoadOnlyToGPU = loadOnlyToGPU;
 }
 
-Loader::~Loader(){
+LoaderTransparent::~LoaderTransparent(){
 }
 
-void Loader::clear(){
+void LoaderTransparent::clear(){
 	mLoadedMeshes.clear();
 	mLoadedMaterials.clear();
 	mLoadedTextures.clear();
@@ -27,48 +27,7 @@ void Loader::clear(){
 	mFile = "";
 }
 
-std::shared_ptr<Node> Loader::load(const std::string &file){
-	LOG_F_INFO(MGF_LOG_FILE, "Loading file: ", file);
-
-	mMutex.lock();
-
-	clear();
-
-	mFile = file;
-
-	Assimp::Importer imp;
-	int impflags = (aiProcess_Triangulate |
-				   aiProcess_SortByPType |
-				   aiProcess_CalcTangentSpace |
-				   aiProcess_GenNormals);
-	if(mLoadIndexed) impflags |= aiProcess_JoinIdenticalVertices;
-
-	const aiScene *scene = imp.ReadFile(file.c_str(), impflags);
-	if(!scene){
-		LOG_F_ERROR(MGF_LOG_FILE, "Loading file: ", file, " failed! ", imp.GetErrorString());
-		mMutex.unlock();
-		return NULL;
-	}
-
-	if(!loadData(scene)){
-		LOG_F_ERROR(MGF_LOG_FILE, "Loading data from file: ", file, " failed! ", imp.GetErrorString());
-		mMutex.unlock();
-		return NULL;
-	}
-
-	std::shared_ptr<Node> ret = loadNodetree(scene->mRootNode);
-	if(!ret){
-		LOG_F_ERROR(MGF_LOG_FILE, "Creating Tree from file: ", file, " failed! ", imp.GetErrorString());
-		mMutex.unlock();
-		return NULL;
-	}
-
-	mMutex.unlock();
-
-	return ret;
-}
-
-std::shared_ptr<Node> Loader::loadTransparent(const std::string &file){
+std::shared_ptr<Node> LoaderTransparent::load(const std::string &file){
 	LOG_F_INFO(MGF_LOG_FILE, "Loading transparent file: ", file);
 
 	mMutex.lock();
@@ -109,7 +68,7 @@ std::shared_ptr<Node> Loader::loadTransparent(const std::string &file){
 	return ret;
 }
 
-std::shared_ptr<Node> Loader::loadNodetree(aiNode *ainode){
+std::shared_ptr<Node> LoaderTransparent::loadNodetree(aiNode *ainode){
 	if(!ainode) return NULL;
 
 	std::shared_ptr<MeshNode> ret(new MeshNode(ainode->mName.C_Str()));
@@ -134,15 +93,17 @@ std::shared_ptr<Node> Loader::loadNodetree(aiNode *ainode){
 	ret->mTRS[3][2] = 0;
 
 	for(unsigned int i = 0; i < ainode->mNumMeshes; i++){
-		std::shared_ptr<Mesh> mesh = mLoadedMeshes[ainode->mMeshes[i]];
-		if(mesh){
-			ret->addMesh(mesh);
-		}
-		else{
-			//return NULL;
-			ret->addMesh(createCube());
-			LOG_F_ERROR(MGF_LOG_FILE, "no valid mesh");
-			ret->mTranslation = glm::vec3(rand() % 10, rand() % 10, rand() % 10);
+		for(unsigned int j = 0; j < mLoadedMeshes[ainode->mMeshes[i]].size(); j++){
+			std::shared_ptr<Mesh> mesh = mLoadedMeshes[ainode->mMeshes[i]][j];
+			if(mesh){
+				ret->addMesh(mesh);
+			}
+			else{
+				//return NULL;
+				ret->addMesh(createCube());
+				LOG_F_ERROR(MGF_LOG_FILE, "no valid mesh");
+				ret->mTranslation = glm::vec3(rand() % 10, rand() % 10, rand() % 10);
+			}
 		}
 	}
 
@@ -160,7 +121,7 @@ std::shared_ptr<Node> Loader::loadNodetree(aiNode *ainode){
 	return ret;
 }
 
-bool Loader::loadData(const aiScene *scene){
+bool LoaderTransparent::loadData(const aiScene *scene){
 	if(!scene) return false;
 
 	for(unsigned int i = 0; i < scene->mNumMaterials; i++){
@@ -172,13 +133,16 @@ bool Loader::loadData(const aiScene *scene){
 	}
 
 	for(unsigned int i = 0; i < scene->mNumMeshes; i++){
-		std::shared_ptr<Mesh> mesh(loadMesh(scene->mMeshes[i], mLoadOnlyToGPU));
-		if(mesh){
+		std::vector<std::shared_ptr<Mesh>> mesh(loadMesh(scene->mMeshes[i], mLoadOnlyToGPU));
+		if(mesh.size() > 0){
 			mLoadedMeshes[i] = mesh;
-			mData->mMeshes.push_back(mesh);
-			if(!loadMeshToGPU(mesh, scene->mMeshes[i])){
-				LOG_F_ERROR(MGF_LOG_FILE, "Loading Mesh to GPU failed!");
-				return false;
+			//mData->mMeshes.push_back(mesh);
+			mLoadedMeshes[i].insert(mLoadedMeshes[i].end(), mesh.begin(), mesh.end());
+			for(unsigned int j = 0; j < mesh.size(); j++){
+				if(!loadMeshToGPU(mesh[j])){
+					LOG_F_ERROR(MGF_LOG_FILE, "Loading Mesh to GPU failed!");
+					return false;
+				}
 			}
 		}
 		else{
@@ -190,8 +154,9 @@ bool Loader::loadData(const aiScene *scene){
 	return true;
 }
 
-std::shared_ptr<Mesh> Loader::loadMesh(aiMesh *mesh, bool loadToData){
-	if(!mesh) return NULL;
+std::vector<std::shared_ptr<Mesh>> LoaderTransparent::loadMesh(aiMesh *mesh, bool loadToData){
+	std::vector<std::shared_ptr<Mesh>> vret;
+	if(!mesh) return vret;
 	std::shared_ptr<Mesh> ret(new Mesh);
 
 	ret->mMaterial = mLoadedMaterials[mesh->mMaterialIndex];
@@ -239,10 +204,10 @@ std::shared_ptr<Mesh> Loader::loadMesh(aiMesh *mesh, bool loadToData){
 		}
 	}
 
-	return ret;
+	return vret;
 }
 
-std::shared_ptr<Material> Loader::loadMaterial(aiMaterial *material){
+std::shared_ptr<Material> LoaderTransparent::loadMaterial(aiMaterial *material){
 	std::shared_ptr<Material> ret(new Material);
 
 	aiColor4D col;
@@ -277,7 +242,7 @@ std::shared_ptr<Material> Loader::loadMaterial(aiMaterial *material){
 	return ret;
 }
 
-std::shared_ptr<Texture> Loader::loadTexture(const std::string &path){
+std::shared_ptr<Texture> LoaderTransparent::loadTexture(const std::string &path){
 	std::shared_ptr<Texture> ret(new Texture);
 
 	if(mLoadedTextures[path] != NULL){
@@ -299,12 +264,12 @@ std::shared_ptr<Texture> Loader::loadTexture(const std::string &path){
 	return ret;
 }
 
-std::shared_ptr<Light> Loader::loadLight(const std::string &path){
+std::shared_ptr<Light> LoaderTransparent::loadLight(const std::string &path){
 	std::shared_ptr<Light> ret(new Light);
 	return ret;
 }
 
-bool Loader::loadMeshToGPU(std::shared_ptr<Mesh> mesh){
+bool LoaderTransparent::loadMeshToGPU(std::shared_ptr<Mesh> mesh){
 	if(!mesh) return false;
 
 	glGenVertexArrays(1, &mesh->mVAO);
@@ -354,61 +319,7 @@ bool Loader::loadMeshToGPU(std::shared_ptr<Mesh> mesh){
 	return true;
 }
 
-bool Loader::loadMeshToGPU(std::shared_ptr<Mesh> mgfmesh, aiMesh *aimesh){
-	if(!mgfmesh || !aimesh) return false;
-
-	glGenVertexArrays(1, &mgfmesh->mVAO);
-	glBindVertexArray(mgfmesh->mVAO);
-
-	if(aimesh->HasPositions()){
-		GLuint *indices = new GLuint[aimesh->mNumFaces * 3];
-
-		for(unsigned int i = 0; i < aimesh->mNumFaces; i++){
-			indices[i * 3] = (GLuint)aimesh->mFaces[i].mIndices[0];
-			indices[i * 3 + 1] = (GLuint)aimesh->mFaces[i].mIndices[1];
-			indices[i * 3 + 2] = (GLuint)aimesh->mFaces[i].mIndices[2];
-		}
-		glGenBuffers(1, &mgfmesh->mIndexbuffer);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mgfmesh->mIndexbuffer);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, aimesh->mNumFaces * 3 * sizeof(GLuint), indices, GL_STATIC_DRAW);
-
-		delete [] indices;
-	}
-	else mgfmesh->mIndexbuffer = 0;
-
-	if(aimesh->HasPositions()){
-		glGenBuffers(1, &mgfmesh->mVertexbuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, mgfmesh->mVertexbuffer);
-		glBufferData(GL_ARRAY_BUFFER, aimesh->mNumVertices * sizeof(aiVector3D), aimesh->mVertices, GL_STATIC_DRAW);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-		glEnableVertexAttribArray(0);
-	}
-
-	if(aimesh->HasNormals()){
-		glGenBuffers(1, &mgfmesh->mNormalbuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, mgfmesh->mNormalbuffer);
-		glBufferData(GL_ARRAY_BUFFER, aimesh->mNumVertices * sizeof(aiVector3D), aimesh->mNormals, GL_STATIC_DRAW);
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-		glEnableVertexAttribArray(1);
-	}
-
-	mgfmesh->mUVBuffer.resize(aimesh->GetNumUVChannels());
-	for(unsigned int i = 0; i < mgfmesh->mUVBuffer.size(); i++){
-		if(aimesh->HasTextureCoords(i)){
-			glGenBuffers(1, &mgfmesh->mUVBuffer[i]);
-			glBindBuffer(GL_ARRAY_BUFFER, mgfmesh->mUVBuffer[i]);
-			glBufferData(GL_ARRAY_BUFFER, aimesh->mNumVertices * sizeof(aiVector3D), aimesh->mTextureCoords[i], GL_STATIC_DRAW);
-			glVertexAttribPointer(2 + i, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-			glEnableVertexAttribArray(2 + i);
-		}
-	}
-
-	glBindVertexArray(0);
-
-	return true;
-}
-
-bool Loader::loadTextureToGPU(std::shared_ptr<Texture> texture, unsigned int index){
+bool LoaderTransparent::loadTextureToGPU(std::shared_ptr<Texture> texture, unsigned int index){
 	glActiveTexture(GL_TEXTURE0 + index);	//create opengl texture object
 	glGenTextures(1, &texture->mTextureBuffer);
 	glBindTexture(GL_TEXTURE_2D, texture->mTextureBuffer);

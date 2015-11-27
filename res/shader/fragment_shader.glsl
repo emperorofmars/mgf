@@ -99,7 +99,7 @@ vec4 calculatePointLight(float diffuseStrength, float specularStrength,
 		MaterialColor = fs_in.material.color;
 	}
 	
-	return vec4((Diffuse * diffuseStrength + Specular * specularStrength).rgb, 1) * MaterialColor;
+	return vec4((Diffuse * diffuseStrength + Specular * specularStrength).rgb, MaterialColor.a) * MaterialColor;
 }
 
 vec4 calculateSunLight(float diffuseStrength, float specularStrength,
@@ -123,7 +123,7 @@ vec4 calculateSunLight(float diffuseStrength, float specularStrength,
 		MaterialColor = fs_in.material.color;
 	}
 	
-	return vec4((Diffuse * diffuseStrength + Specular * specularStrength).rgb, 1) * MaterialColor;
+	return vec4((Diffuse * diffuseStrength + Specular * specularStrength).rgb, MaterialColor.a) * MaterialColor;
 }
 
 vec4 calculateSpotLight(float diffuseStrength, float specularStrength,

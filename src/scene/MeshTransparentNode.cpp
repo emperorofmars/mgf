@@ -46,8 +46,9 @@ bool MeshTransparentNode::addMesh(std::shared_ptr<Mesh> data){
 	if(!data) return false;
 	if(data->mNumVertices != 3) return false;
 	mMeshes.push_back(data);
-	mPositions.push_back((data->mVertices[0] * data->mVertices[1] * data->mVertices[2]) * 0.333333333333333333333333333333f);
+	mPositions.push_back((data->mVertices[0] + data->mVertices[1] + data->mVertices[2]) * 0.333333333333333333333333333333f);
 	mDistances.push_back(1);
+	std::cerr << "positions: " << vec3_toStr(mPositions[mPositions.size() - 1]) << std::endl;
 	return true;
 }
 
@@ -87,7 +88,7 @@ bool MeshTransparentNode::updateImpl(glm::mat4 transform, std::shared_ptr<Render
 		glm::vec4 cam(renderer->getCamera()->getPos(), 1.f);
 		pos = transform * pos;
 		mDistances[i] = fabs(glm::distance(cam, pos));
-		std::cerr << "dist: " << mDistances[i] << std::endl;
+		//std::cerr << "dist: " << i << " : " << mDistances[i] << std::endl;
 	}
 	
 	for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){

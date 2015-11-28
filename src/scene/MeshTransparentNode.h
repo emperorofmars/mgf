@@ -33,8 +33,6 @@ public:
 protected:
 	virtual bool updateImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer);
 	virtual bool renderImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer);
-
-	void calculateDistances();
 	
 	std::vector<std::shared_ptr<Mesh>> mMeshes;
 	std::shared_ptr<Material> mMaterial;

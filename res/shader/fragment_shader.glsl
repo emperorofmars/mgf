@@ -54,7 +54,12 @@ void main(void){
 			vec4 lightDir = texelFetch(lights, ivec2(3, i), 0);
 			vec4 lightInfo2 = texelFetch(lights, ivec2(4, i), 0);
 			
-			if(lightInfo.g < 1.5){	//Point Loght
+			/*
+			if(dot(fs_in.norm, vec3(normalize(lightPos - fs_in.pos))) < 0){
+				fs_in.norm = -fs_in.norm;
+			}*/
+			
+			if(lightInfo.g < 1.5){	//Point Light
 				FragColor += calculatePointLight(lightInfo.b, lightInfo.a, lightColor, lightPos);
 			}
 			else if(lightInfo.g < 2.5){	//Sun Light

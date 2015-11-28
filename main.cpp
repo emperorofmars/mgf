@@ -30,7 +30,7 @@ int main(int argc, char *argv[]){
 	mgf::LoaderTransparent lt;
 	std::shared_ptr<mgf::Node> field(new mgf::Node("field"));
 	field->add(lt.load("res/models/cube/cube.obj"));
-	field->add(l.load("res/models/scene/scene.obj"));
+	//field->add(l.load("res/models/scene/scene.obj"));
 
 	field->print();
 

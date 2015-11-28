@@ -26,7 +26,7 @@ void LoaderTransparent::clear(){
 }
 
 std::shared_ptr<Node> LoaderTransparent::load(const std::string &file){
-	LOG_F_INFO(MGF_LOG_FILE, "Loading transparent file: ", file);
+	LOG_F_INFO(MGF_LOG_FILE, "Loading file: ", file);
 
 	mMutex.lock();
 
@@ -93,8 +93,8 @@ std::shared_ptr<Node> LoaderTransparent::loadNodetree(aiNode *ainode){
 		for(unsigned int j = 0; j < mLoadedMeshes[ainode->mMeshes[i]].size(); j++){
 			std::shared_ptr<Mesh> mesh = mLoadedMeshes[ainode->mMeshes[i]][j];
 			if(mesh){
-				LOG_F_INFO(MGF_LOG_FILE, "addMesh: ", mesh->mName, " ", mesh->mVertexbuffer);
 				ret->addMesh(mesh);
+				LOG_F_INFO(MGF_LOG_FILE, "addMesh: ", mesh->mName, " : ", ret->mMeshes.size());
 			}
 			else{
 				//return NULL;
@@ -155,11 +155,53 @@ std::vector<std::shared_ptr<Mesh>> LoaderTransparent::loadMesh(aiMesh *mesh){
 	std::vector<std::shared_ptr<Mesh>> vret;
 	if(!mesh) return vret;
 	
-	//LOG_F_INFO(MGF_LOG_FILE, "Loading " + std::to_string(mesh->mNumFaces) + " triangles");
-	
 	for(unsigned int i = 0; i < mesh->mNumFaces; i++){
 		std::shared_ptr<Mesh> ret(new Mesh);
 
+		ret->mMaterial = mLoadedMaterials[mesh->mMaterialIndex];
+		ret->mName = mesh->mName.C_Str();
+
+		ret->mNumIndices = 0;
+		ret->mNumVertices = 3;
+		ret->mNumNormals = 3;
+		ret->mNumUV.resize(mesh->GetNumUVChannels());
+
+		ret->mRenderIndexed = false;
+
+		//LOG_F_INFO(MGF_LOG_FILE, "Loading ", mesh->mNumFaces, " triangles");
+
+		ret->mIndices.resize(ret->mNumIndices);
+		ret->mVertices.resize(ret->mNumVertices);
+		ret->mNormals.resize(ret->mNumVertices);
+		ret->mUV.resize(mesh->GetNumUVChannels());
+		
+		LOG_F_INFO(MGF_LOG_FILE, "Loading: ", ret->mNumVertices * mesh->mNumFaces);
+
+		for(unsigned int j = 0; j < ret->mNumVertices; j++){
+			ret->mVertices[j][0] = mesh->mVertices[i + j][0];
+			ret->mVertices[j][1] = mesh->mVertices[i + j][1];
+			ret->mVertices[j][2] = mesh->mVertices[i + j][2];
+		}
+
+		for(unsigned int j = 0; j < ret->mNumVertices; j++){
+			ret->mNormals[j][0] = mesh->mNormals[i + j][0];
+			ret->mNormals[j][1] = mesh->mNormals[i + j][1];
+			ret->mNormals[j][2] = mesh->mNormals[i + j][2];
+		}
+
+		for(unsigned int j = 0; j < mesh->GetNumUVChannels(); j++){
+			if(mesh->HasTextureCoords(j)){
+				ret->mUV[j].resize(mesh->mNumVertices);
+				ret->mNumUV[j] = ret->mNumVertices;
+				for(unsigned int k = 0; k < mesh->mNumVertices; k++){
+					ret->mUV[j][k][0] = mesh->mTextureCoords[j][i + k][0];
+					ret->mUV[j][k][1] = mesh->mTextureCoords[j][i + k][1];
+					ret->mUV[j][k][2] = mesh->mTextureCoords[j][i + k][2];
+				}
+			}
+		}
+
+/*
 		ret->mMaterial = mLoadedMaterials[mesh->mMaterialIndex];
 		ret->mName = mesh->mName.C_Str();
 		
@@ -171,19 +213,11 @@ std::vector<std::shared_ptr<Mesh>> LoaderTransparent::loadMesh(aiMesh *mesh){
 
 		ret->mRenderIndexed = false;
 
-		//ret->mIndices.resize(3);
 		ret->mVertices.resize(3);
 		ret->mNormals.resize(3);
 		ret->mUV.resize(3);
 		ret->mNumUV.resize(mesh->GetNumUVChannels());
-/*
-		if(mesh->mNumFaces >= i + 3){
-			ret->mIndices[0] = mesh->mFaces[i].mIndices[0];
-			ret->mIndices[1] = mesh->mFaces[i].mIndices[1];
-			ret->mIndices[2] = mesh->mFaces[i].mIndices[2];
-			LOG_F_ERROR(MGF_LOG_FILE, "mNumFaces");
-		}
-*/
+
 		if(mesh->mNumVertices >= i + 3){
 			ret->mVertices[0][0] = mesh->mVertices[i][0];
 			ret->mVertices[0][1] = mesh->mVertices[i][1];
@@ -206,10 +240,10 @@ std::vector<std::shared_ptr<Mesh>> LoaderTransparent::loadMesh(aiMesh *mesh){
 				ret->mUV[c][0][2] = mesh->mTextureCoords[c][i][2];
 			}
 		}
-		
+*/
 		vret.push_back(ret);
 	}
-	
+
 	return vret;
 }
 
@@ -228,7 +262,7 @@ std::shared_ptr<Material> LoaderTransparent::loadMaterial(aiMaterial *material){
 		if(path[i] == '/') break;
 		else path.erase(path.begin() + i);
 	}
-
+/*
 	for(unsigned int i = 0; i < material->GetTextureCount(aiTextureType_DIFFUSE); i++){
 		std::string newpath(path);
 		aiString tmp;
@@ -238,12 +272,13 @@ std::shared_ptr<Material> LoaderTransparent::loadMaterial(aiMaterial *material){
 
 		if(ret->mDiffuseTextures[i]){
 			loadTextureToGPU(ret->mDiffuseTextures[i], i + 1);
-			
-			//SDL_FreeSurface(ret->mDiffuseTextures[i]->mImage);
-			//ret->mDiffuseTextures[i]->mImage = NULL;
+			if(mLoadOnlyToGPU){
+				SDL_FreeSurface(ret->mDiffuseTextures[i]->mImage);
+				ret->mDiffuseTextures[i]->mImage = NULL;
+			}
 		}
 	}
-
+*/
 	return ret;
 }
 
@@ -276,11 +311,23 @@ std::shared_ptr<Light> LoaderTransparent::loadLight(const std::string &path){
 
 bool LoaderTransparent::loadMeshToGPU(std::shared_ptr<Mesh> mesh){
 	if(!mesh) return false;
-	
+
 	glGenVertexArrays(1, &mesh->mVAO);
 	glBindVertexArray(mesh->mVAO);
 
-	mesh->mIndexbuffer = 0;
+	if(mesh->mNumIndices > 0){
+		GLuint *indices = new GLuint[mesh->mNumIndices];
+
+		for(unsigned int i = 0; i < mesh->mNumIndices; i++){
+			indices[i] = (GLuint)mesh->mIndices[i];
+		}
+		glGenBuffers(1, &mesh->mIndexbuffer);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh->mIndexbuffer);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, mesh->mNumIndices * sizeof(GLuint), indices, GL_STATIC_DRAW);
+
+		delete [] indices;
+	}
+	else mesh->mIndexbuffer = 0;
 
 	if(mesh->mVertices.size() > 0){
 		glGenBuffers(1, &mesh->mVertexbuffer);
@@ -297,7 +344,7 @@ bool LoaderTransparent::loadMeshToGPU(std::shared_ptr<Mesh> mesh){
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 		glEnableVertexAttribArray(1);
 	}
-	
+
 	mesh->mUVBuffer.resize(mesh->mNumUV.size());
 	for(unsigned int i = 0; i < mesh->mUVBuffer.size(); i++){
 		if(mesh->mUV[i].size() > 0){

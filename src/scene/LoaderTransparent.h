@@ -41,6 +41,8 @@ private:
 	std::unordered_map<std::string, std::shared_ptr<Texture>> mLoadedTextures;
 
 	std::shared_ptr<Data> mData;
+	bool mLoadIndexed = false;
+	bool mLoadOnlyToGPU = false;
 
 	std::mutex mMutex;
 };

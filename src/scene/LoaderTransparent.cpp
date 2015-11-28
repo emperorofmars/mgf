@@ -157,7 +157,7 @@ std::vector<std::shared_ptr<Mesh>> LoaderTransparent::loadMesh(aiMesh *mesh){
 	
 	for(unsigned int i = 0; i < mesh->mNumFaces; i++){
 		std::shared_ptr<Mesh> ret(new Mesh);
-
+		
 		ret->mMaterial = mLoadedMaterials[mesh->mMaterialIndex];
 		ret->mName = mesh->mName.C_Str();
 
@@ -167,80 +167,36 @@ std::vector<std::shared_ptr<Mesh>> LoaderTransparent::loadMesh(aiMesh *mesh){
 		ret->mNumUV.resize(mesh->GetNumUVChannels());
 
 		ret->mRenderIndexed = false;
-
-		//LOG_F_INFO(MGF_LOG_FILE, "Loading ", mesh->mNumFaces, " triangles");
 
 		ret->mIndices.resize(ret->mNumIndices);
 		ret->mVertices.resize(ret->mNumVertices);
 		ret->mNormals.resize(ret->mNumVertices);
 		ret->mUV.resize(mesh->GetNumUVChannels());
 		
-		LOG_F_INFO(MGF_LOG_FILE, "Loading: ", ret->mNumVertices * mesh->mNumFaces);
-
 		for(unsigned int j = 0; j < ret->mNumVertices; j++){
-			ret->mVertices[j][0] = mesh->mVertices[i + j][0];
-			ret->mVertices[j][1] = mesh->mVertices[i + j][1];
-			ret->mVertices[j][2] = mesh->mVertices[i + j][2];
+			ret->mVertices[j][0] = mesh->mVertices[i * 3 + j][0];
+			ret->mVertices[j][1] = mesh->mVertices[i * 3 + j][1];
+			ret->mVertices[j][2] = mesh->mVertices[i * 3 + j][2];
 		}
 
 		for(unsigned int j = 0; j < ret->mNumVertices; j++){
-			ret->mNormals[j][0] = mesh->mNormals[i + j][0];
-			ret->mNormals[j][1] = mesh->mNormals[i + j][1];
-			ret->mNormals[j][2] = mesh->mNormals[i + j][2];
+			ret->mNormals[j][0] = mesh->mNormals[i * 3  + j][0];
+			ret->mNormals[j][1] = mesh->mNormals[i * 3  + j][1];
+			ret->mNormals[j][2] = mesh->mNormals[i * 3  + j][2];
 		}
-
+		
 		for(unsigned int j = 0; j < mesh->GetNumUVChannels(); j++){
 			if(mesh->HasTextureCoords(j)){
 				ret->mUV[j].resize(mesh->mNumVertices);
 				ret->mNumUV[j] = ret->mNumVertices;
 				for(unsigned int k = 0; k < mesh->mNumVertices; k++){
-					ret->mUV[j][k][0] = mesh->mTextureCoords[j][i + k][0];
-					ret->mUV[j][k][1] = mesh->mTextureCoords[j][i + k][1];
-					ret->mUV[j][k][2] = mesh->mTextureCoords[j][i + k][2];
+					ret->mUV[j][k][0] = mesh->mTextureCoords[j][i * 3  + k][0];
+					ret->mUV[j][k][1] = mesh->mTextureCoords[j][i * 3  + k][1];
+					ret->mUV[j][k][2] = mesh->mTextureCoords[j][i * 3  + k][2];
 				}
 			}
 		}
-
-/*
-		ret->mMaterial = mLoadedMaterials[mesh->mMaterialIndex];
-		ret->mName = mesh->mName.C_Str();
 		
-		ret->mName.append(std::to_string(i));
-
-		ret->mNumIndices = 0;
-		ret->mNumVertices = 3;
-		ret->mNumNormals = 3;
-
-		ret->mRenderIndexed = false;
-
-		ret->mVertices.resize(3);
-		ret->mNormals.resize(3);
-		ret->mUV.resize(3);
-		ret->mNumUV.resize(mesh->GetNumUVChannels());
-
-		if(mesh->mNumVertices >= i + 3){
-			ret->mVertices[0][0] = mesh->mVertices[i][0];
-			ret->mVertices[0][1] = mesh->mVertices[i][1];
-			ret->mVertices[0][2] = mesh->mVertices[i][2];
-		}
-
-		if(mesh->mNumVertices >= i + 3){
-			ret->mNormals[0][0] = mesh->mNormals[i][0];
-			ret->mNormals[0][1] = mesh->mNormals[i][1];
-			ret->mNormals[0][2] = mesh->mNormals[i][2];
-		}
-
-		for(unsigned int c = 0; c < mesh->GetNumUVChannels(); c++){
-			if(mesh->HasTextureCoords(c)){
-				ret->mUV[c].resize(3);
-				ret->mNumUV[c] = mesh->mNumUVComponents[c];
-				
-				ret->mUV[c][0][0] = mesh->mTextureCoords[c][i][0];
-				ret->mUV[c][0][1] = mesh->mTextureCoords[c][i][1];
-				ret->mUV[c][0][2] = mesh->mTextureCoords[c][i][2];
-			}
-		}
-*/
 		vret.push_back(ret);
 	}
 
@@ -262,7 +218,7 @@ std::shared_ptr<Material> LoaderTransparent::loadMaterial(aiMaterial *material){
 		if(path[i] == '/') break;
 		else path.erase(path.begin() + i);
 	}
-/*
+
 	for(unsigned int i = 0; i < material->GetTextureCount(aiTextureType_DIFFUSE); i++){
 		std::string newpath(path);
 		aiString tmp;
@@ -278,7 +234,7 @@ std::shared_ptr<Material> LoaderTransparent::loadMaterial(aiMaterial *material){
 			}
 		}
 	}
-*/
+
 	return ret;
 }
 
@@ -316,16 +272,9 @@ bool LoaderTransparent::loadMeshToGPU(std::shared_ptr<Mesh> mesh){
 	glBindVertexArray(mesh->mVAO);
 
 	if(mesh->mNumIndices > 0){
-		GLuint *indices = new GLuint[mesh->mNumIndices];
-
-		for(unsigned int i = 0; i < mesh->mNumIndices; i++){
-			indices[i] = (GLuint)mesh->mIndices[i];
-		}
 		glGenBuffers(1, &mesh->mIndexbuffer);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh->mIndexbuffer);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, mesh->mNumIndices * sizeof(GLuint), indices, GL_STATIC_DRAW);
-
-		delete [] indices;
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, mesh->mNumIndices * sizeof(GLuint), &mesh->mIndices[0], GL_STATIC_DRAW);
 	}
 	else mesh->mIndexbuffer = 0;
 

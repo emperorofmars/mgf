@@ -13,7 +13,7 @@ int main(int argc, char *argv[]){
 //###############################################  Create necessary objects
 	std::shared_ptr<mgf::Window> w(new mgf::Window("MGF Test", 1000, 800, 0, 0));
 
-	std::shared_ptr<mgf::IInput> input(new mgf::InputTopDown);
+	std::shared_ptr<mgf::IInput> input(new mgf::InputFPS);
 
 	std::shared_ptr<mgf::ShaderProgram> p(new mgf::ShaderProgram);
 	p->addShader("res/shader/vertex_shader.glsl", GL_VERTEX_SHADER);
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]){
 	p->createProgram();
 
 	std::shared_ptr<mgf::ICamera> cam(new mgf::CameraFPSEuler(95, w->getAspectRatio(), 1000.f, 0.1f));
-	cam->setPos(glm::vec3(0.f, 50.f, 15.f));
+	cam->setPos(glm::vec3(-10.f, 5.f, 0.f));
 
 	std::shared_ptr<mgf::Renderer> renderer(new mgf::Renderer(w, cam, p));
 
@@ -74,7 +74,7 @@ int main(int argc, char *argv[]){
 //###############################################  Update
 		input->update();
 		quit = input->getQuit();
-		cam->update(input->getPosition(), input->getMouseRelative());
+		cam->update(input->getPosition() * 0.3f, input->getMouseRelative() * 0.5f);
 
 		lab->setPos(glm::vec2(input->getMouseAbsoluteNDC(w->getResolution())[0], input->getMouseAbsoluteNDC(w->getResolution())[1] / w->getAspectRatio()));
 
@@ -92,8 +92,7 @@ int main(int argc, char *argv[]){
 
 //###############################################  Rendering
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		//glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
-		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f)));
+		glClearBufferfv(GL_COLOR, 0, glm::value_ptr(glm::vec4(0.3f, 0.3f, 0.3f, 1.0f)));
 
 		field->render(renderer);
 		

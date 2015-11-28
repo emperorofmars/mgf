@@ -106,7 +106,7 @@ bool Renderer::drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform, std::sh
 	}
 	else{
 		//LOG_F_TRACE(MGF_LOG_FILE, "Drawing ", data->mNumVertices, " Vertices");
-		glDrawArrays(GL_LINES, 0, data->mNumVertices * sizeof(GLuint));
+		glDrawArrays(GL_TRIANGLES, 0, data->mNumVertices * sizeof(GLuint));
 	}
 	glBindVertexArray(0);
 

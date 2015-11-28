@@ -68,7 +68,7 @@ std::shared_ptr<Node> LoaderTransparent::load(const std::string &file){
 std::shared_ptr<Node> LoaderTransparent::loadNodetree(aiNode *ainode){
 	if(!ainode) return NULL;
 
-	std::shared_ptr<MeshNode> ret(new MeshNode(ainode->mName.C_Str()));
+	std::shared_ptr<MeshTransparentNode> ret(new MeshTransparentNode(ainode->mName.C_Str()));
 
 	ret->mNumChildren = ainode->mNumChildren;
 

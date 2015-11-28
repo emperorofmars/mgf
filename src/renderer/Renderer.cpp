@@ -176,6 +176,20 @@ bool Renderer::draw2dOverlayMesh(std::shared_ptr<Mesh> data, glm::mat4 transform
 	return true;
 }
 
+bool Renderer::addTransparent(std::shared_ptr<Mesh> data, glm::mat4 transform, std::shared_ptr<Material> material, float distance){
+	mTmpTransparent.insert(std::make_pair(distance, std::make_tuple(data, transform, material)));
+	return true;
+}
+
+bool Renderer::drawTransparent(){
+	for(auto iter = mTmpTransparent.rbegin(); iter != mTmpTransparent.rend(); iter++){
+		auto element = iter->second;
+		drawMesh(std::get<0>(element), std::get<1>(element), std::get<2>(element));
+	}
+	mTmpTransparent.clear();
+	return true;
+}
+
 bool Renderer::good(){
 	if(mWindow && mCamera && mShaderProgram) return true;
 	return false;
@@ -249,5 +263,15 @@ bool Renderer::applyMaterial(std::shared_ptr<Material> data){
 	return true;
 }
 
+std::shared_ptr<ICamera> Renderer::getCamera(){
+	return mCamera;
+}
 
 } // mgf
+
+
+
+
+
+
+

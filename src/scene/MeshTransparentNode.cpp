@@ -8,8 +8,8 @@
 
 namespace mgf{
 
-MeshTransparentNode::MeshTransparentNode(std::shared_ptr<ICamera> cam, const std::string &name)
-	: Node(name), mCamera(cam)
+MeshTransparentNode::MeshTransparentNode(const std::string &name)
+	: Node(name)
 {
 }
 
@@ -17,7 +17,7 @@ MeshTransparentNode::~MeshTransparentNode(){
 }
 
 std::shared_ptr<Node> MeshTransparentNode::clone(){
-	std::shared_ptr<MeshTransparentNode> ret(new MeshTransparentNode(mCamera, count_up(mName)));
+	std::shared_ptr<MeshTransparentNode> ret(new MeshTransparentNode(count_up(mName)));
 
 	mGlobalMutex.lock();
 		ret->mID = mGlobalID;
@@ -44,7 +44,10 @@ std::shared_ptr<Node> MeshTransparentNode::clone(){
 
 bool MeshTransparentNode::addMesh(std::shared_ptr<Mesh> data){
 	if(!data) return false;
+	if(data->mNumVertices != 3) return false;
 	mMeshes.push_back(data);
+	mPositions.push_back((data->mVertices[0] * data->mVertices[1] * data->mVertices[2]) * 0.333333333333333333333333333333f);
+	mDistances.push_back(1);
 	return true;
 }
 
@@ -77,6 +80,16 @@ bool MeshTransparentNode::updateImpl(glm::mat4 transform, std::shared_ptr<Render
 	if(!mVisible) return true;
 
 	transform *= getTRS();
+	
+	//std::cerr << "distances:" << std::endl;
+	for(unsigned int i = 0; i < mMeshes.size(); i++){
+		glm::vec4 pos(mPositions[i], 1.f);
+		glm::vec4 cam(renderer->getCamera()->getPos(), 1.f);
+		pos = transform * pos;
+		mDistances[i] = fabs(glm::distance(cam, pos));
+		std::cerr << "dist: " << mDistances[i] << std::endl;
+	}
+	
 	for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){
 		if(!iter->second->updateImpl(transform, renderer)){
 			LOG_F_ERROR(MGF_LOG_FILE, "Rendering Failed!");
@@ -92,7 +105,7 @@ bool MeshTransparentNode::renderImpl(glm::mat4 transform, std::shared_ptr<Render
 	transform *= getTRS();
 
 	for(unsigned int i = 0; i < mMeshes.size(); i++){
-		if(!renderer->drawMesh(mMeshes[i], transform, mMaterial)){
+		if(!renderer->addTransparent(mMeshes[i], transform, mMaterial, mDistances[i])){
 			LOG_F_ERROR(MGF_LOG_FILE, "Rendering Failed!");
 			return false;
 		}

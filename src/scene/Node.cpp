@@ -108,7 +108,9 @@ bool Node::update(std::shared_ptr<Renderer> renderer){
 
 bool Node::render(std::shared_ptr<Renderer> renderer){
 	update(renderer);
-	return renderImpl(glm::mat4(1), renderer);
+	bool ret = renderImpl(glm::mat4(1), renderer);
+	renderer->drawTransparent();
+	return ret;
 }
 
 bool Node::addMesh(std::shared_ptr<Mesh> data){

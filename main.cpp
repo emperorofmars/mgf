@@ -65,7 +65,7 @@ int main(int argc, char *argv[]){
 
 	std::shared_ptr<mgf::Node> light2(new mgf::LightNode("spot"));
 	light2->setLight(mgf::SPOT_LIGHT, 4, 0.5, glm::vec3(0.8f, 1.f, 0.6f), glm::vec3(0.f, 5.f, -5.f), glm::vec3(0.f, -1.f, 2.f), 45);
-	field->add(light2);
+	//field->add(light2);
 
 //###############################################  Gameloop
 	float current = 0, last = 0, frametime = 0;
@@ -83,7 +83,7 @@ int main(int argc, char *argv[]){
 		if(elm) col = elm->getName();
 		//std::cerr << "BUTTONCOL: " << col << std::endl;
 
-		field->getChild("spot")->rotate(-0.05f, glm::vec3(0.f, 1.f, 0.f));
+		//field->getChild("spot")->rotate(-0.05f, glm::vec3(0.f, 1.f, 0.f));
 
 //###############################################  Mouse
 		//glm::vec3 mray = mgf::calculateMouseRay(cam->getP(), cam->getV(), input->getMouseAbsolute(), glm::vec2(1000, 800));

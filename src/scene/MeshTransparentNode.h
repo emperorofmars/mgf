@@ -16,7 +16,7 @@ namespace mgf{
 
 class MeshTransparentNode: public Node{
 public:
-	MeshTransparentNode(std::shared_ptr<ICamera> cam, const std::string &name = "");
+	MeshTransparentNode(const std::string &name = "");
 	~MeshTransparentNode();
 
 	virtual std::shared_ptr<Node> clone();
@@ -34,9 +34,15 @@ protected:
 	virtual bool updateImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer);
 	virtual bool renderImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer);
 
+	void calculateDistances();
+	
 	std::vector<std::shared_ptr<Mesh>> mMeshes;
 	std::shared_ptr<Material> mMaterial;
-	std::shared_ptr<ICamera> mCamera;
+	std::vector<glm::vec3> mPositions;
+	std::vector<float> mDistances;
+
+	friend class Loader;
+	friend class LoaderTransparent;
 };
 
 } // mgf

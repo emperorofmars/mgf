@@ -13,6 +13,8 @@
 #include "../camera/ICamera.h"
 #include "../data/Data.h"
 #include "LightManager.h"
+#include <map>
+#include <tuple>
 
 namespace mgf{
 
@@ -33,8 +35,13 @@ public:
 
 	bool drawMesh(std::shared_ptr<Mesh> data, glm::mat4 transform, std::shared_ptr<Material> material);
 	bool draw2dOverlayMesh(std::shared_ptr<Mesh> data, glm::mat4 transform, std::shared_ptr<Material> material);
+	
+	bool addTransparent(std::shared_ptr<Mesh> data, glm::mat4 transform, std::shared_ptr<Material> material, float distance);
+	bool drawTransparent();
 
 	bool good();
+	
+	std::shared_ptr<ICamera> getCamera();
 
 private:
 	bool applyMatrix(glm::mat4 data, GLuint loc);
@@ -45,6 +52,8 @@ private:
 	std::shared_ptr<ShaderProgram> mShaderProgram;
 
 	std::shared_ptr<LightManager> mLights;
+	
+	std::multimap<float, std::tuple<std::shared_ptr<Mesh>, glm::mat4, std::shared_ptr<Material>>> mTmpTransparent;
 };
 
 

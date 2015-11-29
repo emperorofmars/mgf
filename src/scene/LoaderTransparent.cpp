@@ -94,10 +94,9 @@ std::shared_ptr<Node> LoaderTransparent::loadNodetree(aiNode *ainode){
 			std::shared_ptr<Mesh> mesh = mLoadedMeshes[ainode->mMeshes[i]][j];
 			if(mesh){
 				ret->addMesh(mesh);
-				LOG_F_INFO(MGF_LOG_FILE, "addMesh: ", mesh->mName, " : ", ret->mMeshes.size());
+				//LOG_F_INFO(MGF_LOG_FILE, "addMesh: ", mesh->mName, " : ", ret->mMeshes.size());
 			}
 			else{
-				//return NULL;
 				ret->addMesh(createCube());
 				LOG_F_ERROR(MGF_LOG_FILE, "no valid mesh");
 				ret->mTranslation = glm::vec3(rand() % 10, rand() % 10, rand() % 10);

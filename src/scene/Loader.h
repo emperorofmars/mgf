@@ -7,6 +7,7 @@
 #ifndef MGF_LOADER_H
 #define MGF_LOADER_H
 
+#include "ILoader.h"
 #include "../Include.h"
 #include "MeshNode.h"
 #include "MeshTransparentNode.h"
@@ -14,13 +15,13 @@
 
 namespace mgf{
 
-class Loader{
+class Loader : public ILoader{
 public:
 	Loader(bool loadIndexed = false, bool loadOnlyToGPU = true);
-	~Loader();
+	virtual ~Loader();
 
-	std::shared_ptr<Node> load(const std::string &file);
-	void clear();
+	virtual std::shared_ptr<Node> load(const std::string &file);
+	virtual void clear();
 
 private:
 	std::shared_ptr<Node> loadNodetree(aiNode *ainode);

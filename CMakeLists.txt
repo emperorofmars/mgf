@@ -24,6 +24,7 @@ set(SOURCE_FILES
 	src/scene/SimpleLoader.h
 	src/scene/OverlayNode.cpp
 	src/scene/OverlayNode.h
+	src/scene/LODNode.cpp
 	src/scene/LoaderTransparent.cpp
 	src/scene/MeshTransparentNode.cpp
 	src/renderer/LightManager.cpp
@@ -84,6 +85,7 @@ set(SOURCE_FILES
 add_executable(mgf ${SOURCE_FILES})
 
 INCLUDE(FindPkgConfig)
+
 PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
 INCLUDE_DIRECTORIES(${SDL2_INCLUDE_DIRS})
 TARGET_LINK_LIBRARIES(mgf ${SDL2_LIBRARIES})

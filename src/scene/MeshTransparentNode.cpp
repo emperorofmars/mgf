@@ -48,7 +48,7 @@ bool MeshTransparentNode::addMesh(std::shared_ptr<Mesh> data){
 	mMeshes.push_back(data);
 	mPositions.push_back((data->mVertices[0] + data->mVertices[1] + data->mVertices[2]) * 0.333333333333333333333333333333f);
 	mDistances.push_back(1);
-	std::cerr << "positions: " << vec3_toStr(mPositions[mPositions.size() - 1]) << std::endl;
+	//std::cerr << "positions: " << vec3_toStr(mPositions[mPositions.size() - 1]) << std::endl;
 	return true;
 }
 
@@ -74,7 +74,9 @@ bool MeshTransparentNode::update(std::shared_ptr<Renderer> renderer){
 
 bool MeshTransparentNode::render(std::shared_ptr<Renderer> renderer){
 	update(renderer);
-	return renderImpl(glm::mat4(1), renderer);
+	bool ret = renderImpl(glm::mat4(1), renderer);
+	renderer->drawTransparent();
+	return ret;
 }
 
 bool MeshTransparentNode::updateImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer){

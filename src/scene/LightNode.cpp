@@ -79,7 +79,9 @@ bool LightNode::update(std::shared_ptr<Renderer> renderer){
 
 bool LightNode::render(std::shared_ptr<Renderer> renderer){
 	update(renderer);
-	return renderImpl(glm::mat4(1), renderer);
+	bool ret = renderImpl(glm::mat4(1), renderer);
+	renderer->drawTransparent();
+	return ret;
 }
 
 bool LightNode::updateImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer){

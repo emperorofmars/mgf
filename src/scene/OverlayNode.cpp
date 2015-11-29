@@ -47,7 +47,10 @@ bool OverlayNode::update(std::shared_ptr<Renderer> renderer){
 }
 
 bool OverlayNode::render(std::shared_ptr<Renderer> renderer){
-	return renderImpl(glm::mat4(1), renderer);
+	update(renderer);
+	bool ret = renderImpl(glm::mat4(1), renderer);
+	renderer->drawTransparent();
+	return ret;
 }
 
 bool OverlayNode::updateImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer){

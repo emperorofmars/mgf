@@ -14,7 +14,7 @@ namespace mgf{
 
 class LODNode: public Node{
 public:
-	LODNode(const std::string &name = "");
+	LODNode(const std::string &name = "", float tresh1 = 8, float tresh2 = 16);
 	~LODNode();
 
 	virtual std::shared_ptr<Node> clone();
@@ -34,6 +34,7 @@ protected:
 
 	friend class Loader;
 	friend class LoaderTransparent;
+	friend class LoaderLOD;
 };
 
 } // mgf

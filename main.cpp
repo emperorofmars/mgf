@@ -28,9 +28,11 @@ int main(int argc, char *argv[]){
 //###############################################  Load 3d files
 	mgf::Loader l(false, false);
 	mgf::LoaderTransparent lt;
+	mgf::LoaderLOD ll;
 	std::shared_ptr<mgf::Node> field(new mgf::Node("field"));
 	field->add(lt.load("res/models/cube/cube.obj"));
 	field->add(l.load("res/models/scene/scene.obj"));
+	field->add(ll.load("lodmesh", "res/models/cube/cube.obj", "res/models/scene/scene.obj", "res/models/cube/cube.obj"));
 
 	field->print();
 

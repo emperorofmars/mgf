@@ -18,8 +18,7 @@ class LoaderLOD{
 public:
 	virtual ~LoaderLOD();
 
-	virtual std::shared_ptr<Node> load(const std::string &high, const std::string &middle, const std::string &low, float tresh1, float tresh2, bool transparent = false);
-	virtual void clear();
+	virtual std::shared_ptr<Node> load(const std::string &name, const std::string &high, const std::string &middle, const std::string &low, float tresh1 = 8, float tresh2 = 16, bool transparent = false);
 };
 
 } // mgf

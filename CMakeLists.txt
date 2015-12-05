@@ -27,6 +27,7 @@ set(SOURCE_FILES
 	src/scene/LODNode.cpp
 	src/scene/LoaderTransparent.cpp
 	src/scene/MeshTransparentNode.cpp
+	src/scene/LoaderLOD.cpp
 	src/renderer/LightManager.cpp
 	src/renderer/LightManager.h
 	src/overlay/Button.cpp

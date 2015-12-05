@@ -8,8 +8,8 @@
 
 namespace mgf{
 
-LODNode::LODNode(const std::string &name)
-	: Node(name)
+LODNode::LODNode(const std::string &name, float tresh1, float tresh2)
+	: Node(name), mHighTresh(tresh1), mLowTresh(tresh2)
 {
 }
 
@@ -76,14 +76,16 @@ bool LODNode::renderImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer
 	if(!mVisible) return true;
 
 	transform *= getTRS();
-/*
-	for(unsigned int i = 0; i < mMeshes.size(); i++){
-		if(!renderer->drawMesh(mMeshes[i], transform, mMaterial)){
-			LOG_F_ERROR(MGF_LOG_FILE, "Rendering Failed!");
-			return false;
-		}
-	}
-*/
+	
+	glm::vec4 pos(getTranslation(), 1.f);
+	glm::vec4 cam(renderer->getCamera()->getPos(), 1.f);
+	pos = transform * pos;
+	float distance = fabs(glm::distance(cam, pos));
+	
+	if(distance < mHighTresh) mHigh->renderImpl(transform, renderer);
+	else if(distance < mLowTresh) mMiddle->renderImpl(transform, renderer);
+	else mLow->renderImpl(transform, renderer);
+	
 	for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){
 		if(!iter->second->renderImpl(transform, renderer)){
 			return false;

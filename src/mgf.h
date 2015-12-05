@@ -30,6 +30,7 @@
 #include "overlay/Label.h"
 #include "overlay/Button.h"
 #include "helper/Helper.h"
+#include "scene/LoaderLOD.h"
 
 namespace mgf{
 

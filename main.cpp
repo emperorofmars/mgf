@@ -32,7 +32,7 @@ int main(int argc, char *argv[]){
 	std::shared_ptr<mgf::Node> field(new mgf::Node("field"));
 	field->add(lt.load("res/models/cube/cube.obj"));
 	field->add(l.load("res/models/scene/scene.obj"));
-	field->add(ll.load("lodmesh", "res/models/cube/cube.obj", "res/models/scene/scene.obj", "res/models/cube/cube.obj"));
+	field->add(ll.load("lodmesh", "res/models/lod/tree_high.obj", "res/models/lod/tree_medium.obj", "res/models/lod/tree_low.obj", 25, 50));
 
 	field->print();
 
@@ -62,12 +62,12 @@ int main(int argc, char *argv[]){
 
 //###############################################  create lights
 	std::shared_ptr<mgf::Node> light1(new mgf::LightNode("sun"));
-	light1->setLight(mgf::SUN_LIGHT, 3, 2, glm::vec3(0.4f, 0.4f, 0.4f), glm::vec3(1), glm::vec3(-1.f, -2.f, -1.f), 30);
+	light1->setLight(mgf::SUN_LIGHT, 3, 2, glm::vec3(0.7f, 0.7f, 0.7f), glm::vec3(1), glm::vec3(-1.f, -2.f, -1.f), 30);
 	field->add(light1);
 
 	std::shared_ptr<mgf::Node> light2(new mgf::LightNode("spot"));
 	light2->setLight(mgf::SPOT_LIGHT, 4, 0.5, glm::vec3(0.8f, 1.f, 0.6f), glm::vec3(0.f, 5.f, -5.f), glm::vec3(0.f, -1.f, 2.f), 45);
-	//field->add(light2);
+	field->add(light2);
 
 //###############################################  Gameloop
 	float current = 0, last = 0, frametime = 0;
@@ -85,7 +85,7 @@ int main(int argc, char *argv[]){
 		if(elm) col = elm->getName();
 		//std::cerr << "BUTTONCOL: " << col << std::endl;
 
-		//field->getChild("spot")->rotate(-0.05f, glm::vec3(0.f, 1.f, 0.f));
+		field->getChild("spot")->rotate(-0.05f, glm::vec3(0.f, 1.f, 0.f));
 
 //###############################################  Mouse
 		//glm::vec3 mray = mgf::calculateMouseRay(cam->getP(), cam->getV(), input->getMouseAbsolute(), glm::vec2(1000, 800));

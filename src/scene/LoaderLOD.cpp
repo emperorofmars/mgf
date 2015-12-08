@@ -20,7 +20,7 @@ std::shared_ptr<Node> LoaderLOD::load(const std::string &name, const std::string
 	if(transparent) loader.reset(new LoaderTransparent());
 	else loader.reset(new Loader());
 	
-	auto ret = std::make_shared<LODNode>(name);
+	auto ret = std::make_shared<LODNode>(name, tresh1, tresh2);
 	
 	ret->mHigh = loader->load(high);
 	ret->mMiddle = loader->load(middle);

@@ -1,5 +1,5 @@
 # Blender MTL File: 'scene.blend'
-# Material Count: 7
+# Material Count: 6
 
 newmtl Ground
 Ns 96.078431
@@ -9,17 +9,7 @@ Ks 0.130252 0.130252 0.130252
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd GroundTexture.png
-
-newmtl Material
-Ns 96.078431
-Ka 0.000000 0.000000 0.000000
-Kd 0.640000 0.640000 0.640000
-Ks 0.500000 0.500000 0.500000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd cube.png
+map_Kd /home/mars/Projekte/mgf/res/models/Assets/GroundTexture.png
 
 newmtl Material.001
 Ns 96.078431

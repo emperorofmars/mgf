@@ -33,6 +33,9 @@ std::shared_ptr<Node> MeshTransparentNode::clone(){
 		ret->mTRS = mTRS;
 
 		ret->mMeshes = mMeshes;
+		ret->mMaterial = mMaterial;
+		ret->mPositions = mPositions;
+		ret->mDistances = mDistances;
 
 		for(auto iter = mChildNodesID.begin(); iter != mChildNodesID.end(); iter++){
 			ret->add(iter->second->clone());

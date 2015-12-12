@@ -77,7 +77,7 @@ bool LODNode::renderImpl(glm::mat4 transform, std::shared_ptr<Renderer> renderer
 
 	transform *= getTRS();
 	
-	glm::vec4 pos(getTranslation(), 1.f);
+	glm::vec4 pos(0.f, 0.f, 0.f, 1.f);
 	glm::vec4 cam(renderer->getCamera()->getPos(), 1.f);
 	pos = transform * pos;
 	float distance = fabs(glm::distance(cam, pos));
